@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>텍스트 주제 분석 (Topic Analysis)</title>
-  <meta name="title" content="텍스트 주제 분석 (Topic Analysis)" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="텍스트 주제 분석 (Topic Analysis)"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
+  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>정보 검색과 잠재 토픽</title>
+  <meta name="title" content="정보 검색과 잠재 토픽" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="정보 검색과 잠재 토픽"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
   <meta property="og:url" content="http://localhost:4001/basic/07/sec01/">
 
-  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="텍스트 주제 분석 (Topic Analysis)"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="정보 검색과 잠재 토픽"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="텍스트 주제 분석 (Topic Analysis)" />
+<meta property="og:title" content="정보 검색과 잠재 토픽" />
 <meta name="author" content="Hojin" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
@@ -22,9 +22,9 @@
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="텍스트 주제 분석 (Topic Analysis)" />
+<meta property="twitter:title" content="정보 검색과 잠재 토픽" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"텍스트 주제 분석 (Topic Analysis)","url":"http://localhost:4001/basic/07/sec01/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"정보 검색과 잠재 토픽","url":"http://localhost:4001/basic/07/sec01/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -374,7 +374,7 @@
         
         
         
-        <li class="breadcrumb-item active" aria-current="page">텍스트 주제 분석 (Topic Analysis)</li>
+        <li class="breadcrumb-item active" aria-current="page">정보 검색과 잠재 토픽</li>
         
         
         
@@ -382,131 +382,158 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="텍스트-주제-분석의-개념과-접근">텍스트 주제 분석의 개념과 접근</h1>
+            <h1 id="텍스트-주제-분석과-토픽-모델링의-철학">텍스트 주제 분석과 토픽 모델링의 철학</h1>
 
-<p>우리가 수많은 문서(예: 뉴스 기사, 논문 초록, 정책 보고서, 문학 작품)를 마주했을 때, 가장 먼저 드는 질문은 <strong>“이 문서들은 각각 무엇에 대해 이야기하고 있는가?”</strong> 입니다. 이렇게 텍스트들의 핵심 내용을 파악하고 유사한 문서들을 묶어내는 작업을 <strong>텍스트 주제 분석(Topic Analysis)</strong>이라고 합니다.</p>
+<p>누군가 정답을 알려주지 않아도, 수만 장의 야생 텍스트가 쌓여있는 빅데이터 속에서 “우리끼리는 어떤 숨겨진 주제를 공유하고 있다”는 추상적인 군집을 스스로 엮어내는 <strong>비지도 학습(Unsupervised Learning)</strong>의 진수를 배웁니다.</p>
 
 <hr />
 
-<h2 id="1-텍스트-분류classification-vs-텍스트-주제-분석topic-analysis">1. 텍스트 분류(Classification) vs 텍스트 주제 분석(Topic Analysis)</h2>
+<h2 id="00-텍스트-주제-분석의-개념">00. 텍스트 주제 분석의 개념</h2>
+<p>“지금 당신이 들고 있는 1만 장의 뉴스 기사, 굳이 다 안 읽어봐도 대충 5개의 메인 주제 파벌로 찢어지겠군!”</p>
 
-<p>텍스트 처리를 위한 두 가지 대표적인 접근법은 그 목적과 ‘정답’의 유무에 따라 크게 다릅니다.</p>
+<p><img src="./img/sec07_01_00_topic.png" alt="Topic Modeling Concept" /></p>
 
+<h2 id="01-텍스트-주제topic-도출의-필요성">01. 텍스트 주제(Topic) 도출의 필요성</h2>
+<p>문서 분류 모형과 달리 인공지능이 스스로 맥락을 잡아내야 합니다.</p>
 <ul>
-  <li><strong>텍스트 분류 (Text Classification)</strong>: 사전에 정의된 ‘정답 레이블’이 존재합니다 (지도 학습). 목표는 새로운 문서가 들어왔을 때, 이미 알려진 카테고리(예: ‘스포츠’ 또는 ‘스팸’) 중 어디에 속하는지 올바르게 예측하는 것입니다.</li>
-  <li><strong>텍스트 주제 분석 (Topic Analysis)</strong>: 사전 레이블이 없는 상태에서 시작합니다 (비지도 학습). 목표는 데이터 자체에만 의존하여 텍스트 내부 구조를 이해하고, 유사한 문서들을 자연스럽게 그룹화하여 새로운 주제 카테고리를 찾아내는 것입니다.</li>
+  <li>세상의 방대한 문헌들(논문, 신문, 댓글)을 일일이 사람이 카테고리 태깅(Tagging)하는 것은 불가능에 가깝습니다.</li>
+  <li><strong>“이 덩어리 문서들은 대체 안에서 무슨 공통된 화제로 떠들고 있는가?”</strong> 파악이 목적입니다.</li>
 </ul>
 
-<p><img src="../img/sec01_02.svg" alt="Text Classification vs Topic Analysis Table" /></p>
+<h2 id="02-정답이-있는-텍스트-분류와의-근본적-대조">02. “정답이 있는 텍스트 분류”와의 근본적 대조</h2>
+<p>과거 주차에서 배웠던 분류(Classification)와 근본 철학 자체가 다릅니다.</p>
 
-<p><img src="../img/sec01_classification_vs_topic.svg" alt="Text Classification vs Topic Analysis" />
-<em>텍스트 분류는 주어진 라벨을 맞추는 것이고, 주제 분석은 데이터 스스로의 패턴(유사성)을 통해 군집(Cluster)을 형성하는 과정입니다.</em></p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">패러다임 방식</th>
+      <th style="text-align: left">모델의 임무</th>
+      <th style="text-align: left">비유적 상황</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>텍스트 분류</strong> <br /> (지도 학습)</td>
+      <td style="text-align: left">이미 지정된 카테고리(스팸/일반 등)가 주어져 있고 그 정답지 틀 안에 문서를 배정.</td>
+      <td style="text-align: left">(객관식) “이 메일이 사기(스팸)인지 결백(일반)인지 두 보기를 골라 맞혀라!”</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>토픽 분석</strong> <br /> (비지도 학습)</td>
+      <td style="text-align: left">정답 카테고리가 아예 없음. 자율적으로 텍스트들의 단어 패턴을 눈치채고 끼리끼리 묶음.</td>
+      <td style="text-align: left">(조별과제) “여기 1만 명 모아둘 테니까 친한 애들끼리 알아서 비슷하게 조 짜봐!”</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="./img/sec01_classification_vs_topic.svg" alt="Topic vs Classification Logic" /></p>
 
 <hr />
 
-<h2 id="2-군집화-clustering-방식의-주제-분석">2. 군집화 (Clustering) 방식의 주제 분석</h2>
+<h2 id="03-가장-원시적인-방식-단순-군집화-clustering">03. 가장 원시적인 방식: 단순 군집화 (Clustering)</h2>
+<p>조별 모임을 짜는 가장 원시적인 물리적 알고리즘입니다.</p>
+<ul>
+  <li>모든 문서를 수치 좌표공간에 뿌려놓고, 자를 대고 재서 <strong>상대적인 기하학적 거리가 가까운 문서들끼리</strong> 물리적으로 한 덩어리 매듭을 짓습니다.</li>
+  <li>“좌표 공간 상에서 가까운 놈들은 필시 비슷한 주제를 은밀히 공유할 것이다”라는 무지성 가정에 근거합니다. (대표 알고리즘: <code class="language-plaintext highlighter-rouge">K-means</code>)</li>
+</ul>
 
-<p>가장 직관적인 텍스트 주제 분석 방법은 문서를 수치형 <strong>벡터(Vector)</strong>로 변환한 뒤, 기하학적으로 <strong>가까운 공간에 모인(유사한) 문서들끼리 묶는(Clustering) 과정</strong>입니다. 
-“비슷한 단어를 많이 포함한 문서는 비슷한 주제를 다루고 있을 것”이라는 기본적인 가정에서 출발합니다. 예를 들어 K-Means 알고리즘을 사용하면 다음과 같이 동작합니다.</p>
+<h2 id="04-군집화-로직의-한계-k-means">04. 군집화 로직의 한계 (K-means)</h2>
+<ul>
+  <li>내가 직접 <code class="language-plaintext highlighter-rouge">K=3</code>(3명씩 조 짜라!)이라고 숫자를 정해주지 않으면 컴퓨터가 영원히 몇 개로 묶을지 방황합니다.</li>
+  <li>묶인 덩어리 자체는 나오는데, 덩어리 속의 단어들이 대체 <strong>“무슨 의미를 뜻하는지(정치인지 스포츠인지)”</strong>를 모델은 전혀 혀로 내뱉지 못합니다.</li>
+</ul>
 
-<ol>
-  <li><strong>클래스 중심(Centroid) 계산</strong>: 임의의 기준점들을 잡습니다.</li>
-  <li><strong>할당</strong>: 각 문서(데이터 포인트)를 가장 가까운 중심점에 할당합니다.</li>
-  <li>이 과정을 중심점이 더 이상 변하지 않을 때까지 반복하여 그룹을 형성하고, 각 그룹에 공통적으로 나타나는 단어들을 통해 그 กลุ่ม을 <strong>“경제 기사 군집”</strong> 혹은 <strong>“스포츠 기사 군집”</strong>으로 해석합니다.</li>
-</ol>
+<h2 id="05-심해로-들어가는-잠재의미분석-lsa-행렬-분해">05. 심해로 들어가는 잠재의미분석 (LSA, 행렬 분해)</h2>
+<p>가벼운 덩어리 묶기를 넘어, 무식하게 큰 문서 단어 행렬(DTM)의 차원을 억지로 찍어 누르며 압축하는 선형 대수학 기술로 숨은 토픽을 캘 수 있습니다.</p>
 
-<p><img src="../img/sec01_05.svg" alt="K-Means Clustering Example" />
-<em>군집화 알고리즘(예: K-means)을 통해 K값에 따라 문서를 여러 군집으로 나누는 예시입니다.</em></p>
+\[A \approx U_k \Sigma_k V_k^T\]
 
-<hr />
+<p><img src="./img/sec01_05.svg" alt="LSA Truncated SVD Theory" /></p>
 
-<h2 id="3-잠재-의미-분석-lsa-latent-semantic-analysis">3. 잠재 의미 분석 (LSA, Latent Semantic Analysis)</h2>
+<ul>
+  <li>거대한 매트릭스를 차원 벡터 <strong>특이값 분해(Truncated SVD)</strong> 공식을 통해 3차원으로 납작하게 찌그러뜨립니다.</li>
+  <li>이때 산출된 <code class="language-plaintext highlighter-rouge">[0, 3, 1]</code> 같은 실수 벡터 수치들을 마치 “3가지의 숨겨진 주제(Latent Topic)”인 양 억지 비유해서 해석합니다.</li>
+</ul>
 
-<p><strong>잠재 의미 분석(LSA)</strong>은 군집화를 한 단계 더 발전시킨 방법론으로, 문서에 나타난 표면적인 단어 빈도(n개의 단어 빈도)를 넘어 그 이면에 숨겨진 <strong>“잠재적인 의미(Latent Semantic)”</strong>를 포착하는 것을 목표로 합니다.</p>
+<h2 id="06-잠재의미분석lsa의-치명적-한계점">06. 잠재의미분석(LSA)의 치명적 한계점</h2>
+<p>고전 수학에 기반한 LSA는 실무에서 쓰기에 너무 끔찍한 단점들을 수반합니다.</p>
 
-<p>수학적으로 LSA는 <strong>특이값 분해(Truncated SVD)</strong>라는 선형대수학의 <strong>행렬 분해 기법</strong>을 사용합니다. 
-거대한 (단어 × 문서) 행렬을 세 개의 작은 행렬로 쪼개는 차원 축소 과정을 통해, 고차원의 단어 공간을 아주 작은 저차원의 ‘의미 공간(주제 공간)’으로 맵핑시킵니다. 그래서 각 문서는 이러한 k개의 축소된 <strong>잠재적 의미 축(Topic)의 비중</strong>으로 표현됩니다.</p>
-
-<p><img src="../img/sec01_06.svg" alt="LSA Matrix Factorization" />
-<em>LSA의 기본 원리인 행렬 특이값 분해(SVD) 과정</em></p>
+<p><img src="./img/sec01_06.svg" alt="LSA Limit Problem" /></p>
 
 <blockquote>
-  <p>[!WARNING]
-<strong>LSA의 한계점</strong></p>
+  <p>[!CAUTION]<br />
+<strong>📖 초심자를 위한 쉬운 해설: 박대감 시스템의 오류</strong></p>
   <ol>
-    <li><strong>해석의 어려움</strong>: 추출된 잠재적 공간(축)은 명확한 ‘단어’가 아니라 혼재된 수치 공간이므로 사람이 “이 주제는 이런 내용이다”라고 이름 붙이기가 어렵습니다.</li>
-    <li><strong>높은 연산 비용</strong>: 고정된 행렬 연산을 기반으로 하므로, 매일 시시각각 새로운 문서나 단어가 추가될 때마다 전체 행렬을 구성하여 무거운 Truncated SVD 과정을 처음부터 다시 반복수행해야 합니다.</li>
+    <li>추출된 차원 압축 숫자를 사람이 쳐다봐도 도대체 “이게 경제 토픽이야, 아니면 동물 토픽이야?” 하고 이름표를 명확히 붙이기가 너무나도 어려운 혼재된 구름 수치 상태로 표출됩니다.</li>
+    <li>만약 내일 최신 뉴스 기사(문서 데이터) 문서가 단 한 장 이라도 DB에 새로 추가되면, 업데이트가 안되고 <strong>처음부터 끝까지 전체 시스템 SVD 매트릭스 행렬 분해 구조를 밑바닥부터 다시 계산(재부팅)</strong> 해야 하는 하드코어 연산 폭발이 발생합니다.</li>
   </ol>
 </blockquote>
 
 <hr />
 
-<h2 id="4-문서-생성-모델-document-generative-model">4. 문서 생성 모델 (Document Generative Model)</h2>
+<h2 id="07-확률-생성모델로의-진화-generative-model">07. 확률 생성모델로의 진화 (Generative Model)</h2>
+<p>결국 행렬 자르기 장난질에서 벗어나, 철학적 발상의 전환으로 <strong>문서 생성 패러다임</strong>에 발을 들입니다.</p>
 
-<p>LSA의 한계를 극복하기 위해 등장한 강력한 관점이 바로 <strong>‘문서 생성 모델’</strong>입니다. 이 관점은 데이터(문서)가 어떻게 “만들어졌는가?”를 수학적(통계적) 확률 분포로 상상해보는 것에서 출발합니다.</p>
-
-<p><strong>생성 모델(Generative Model)의 기본 가정</strong>
-어떤 확률 분포와 파라미터가 존재할 때, 그 규칙(Random Process)을 따라 사람이 단어를 고르고 문서를 작성했다고 ‘거꾸로’ 가정하는 것입니다.</p>
 <ul>
-  <li><strong>문서(Document)</strong>는 여러 <strong>토픽(Topic)들의 혼합 비율</strong>을 가지고 있습니다.</li>
-  <li>각각의 <strong>토픽(Topic)</strong>은 수많은 <strong>단어(Word)들이 뽑힐 확률 분포</strong>를 가지고 있습니다.</li>
+  <li><strong>모델의 정신세계</strong>: “이 수백만 개의 문서는 그냥 랜덤 숫자가 아니라, <strong>어떤 보이지 않는 신(통계 모델)이 엄격한 주사위 확률을 굴려 써내려 간 창작 결과물이다!!</strong>” 라고 대전제를 깔아 버립니다.</li>
 </ul>
 
-<p><img src="../img/sec01_09.svg" alt="Topic Word Distribution" />
-<em>각 토픽이 서로 다른 단어들의 출현 확률 분포를 가지고 있는 모습</em></p>
+<h2 id="08-문서-생성모델의-논리-구조-흐름">08. 문서 생성모델의 논리 구조 흐름</h2>
+<p>만약 당신이 조물주(확률 기계)라면 이렇게 가짜 신문 기사를 편찬했을 겁니다.</p>
 
-<h3 id="문서-생성-절차">문서 생성 절차</h3>
-<p>이 모델의 관점에서 작가가 문서를 작성하는 과정은 다음과 같은 확률적 샘플링의 결과물입니다.</p>
-
-<p><img src="../img/sec01_generative_process.svg" alt="Document Generative Process" /></p>
-
-<p>실제 세계의 <strong>토픽 모델링(Topic Modeling)</strong>은 이 과정을 역방향으로 추적하는 것입니다. 즉, 최종 결과물인 관측된 문서와 단어들을 보고 데이터(문서)를 가장 잘 설명할 수 있는 “최상의 잠재 변수 집합(가장 이 문서를 만들기 적합했던 원래의 토픽 분포)”을 발견하는 <strong>통계적 역추론 기법</strong>입니다.</p>
-
-<p><img src="../img/sec01_13.svg" alt="Topic Modeling Inference" />
-<em>관측된 단어들로부터 역으로 가장 가능성 높은 토픽 모델을 추론해내는 통계적 역추론 과정</em></p>
-
-<hr />
-
-<h2 id="5-lsa와-lda-비교">5. LSA와 LDA 비교</h2>
-
-<p>문서 생성 모델의 대표적인 구현체가 바로 <strong>LDA (Latent Dirichlet Allocation, 잠재 디리클레 할당)</strong> 입니다.</p>
-
-<p><img src="../img/sec01_14.svg" alt="LSA vs LDA Mathematical" />
-<img src="../img/sec01_lsa_vs_lda.svg" alt="LSA vs LDA" /></p>
+<p><img src="./img/sec01_generative_process.svg" alt="Topic Generative Process Flow" /></p>
 
 <table>
   <thead>
     <tr>
-      <th>구분</th>
-      <th>LSA (잠재 의미 분석)</th>
-      <th>LDA (잠재 디리클레 할당)</th>
+      <th style="text-align: center">생성 시퀀스</th>
+      <th style="text-align: left">생성자의 행동</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>기반 이론</strong></td>
-      <td>선형대수학적 차원 축소 (행렬 분해, SVD)</td>
-      <td>확률론적 통계 추론 (문서 생성 모델)</td>
+      <td style="text-align: center"><strong>STEP 1</strong></td>
+      <td style="text-align: left">아, 이번 기사는 <strong>‘정치 70%, 경제 30%’</strong> 느낌으로 섞인 꿀잼 문서를 써봐야지! (토픽 혼합률 $1.0$ 세팅)</td>
     </tr>
     <tr>
-      <td><strong>목적</strong></td>
-      <td>단어와 문서 사이의 숨겨진 의미적 관계 벡터 포착</td>
-      <td>문서 집합 내에서 확률적 특성을 띄는 명시적 토픽 발견</td>
+      <td style="text-align: center"><strong>STEP 2</strong></td>
+      <td style="text-align: left">자, 문장 첫 단어를 쓸 차례야. 70% 짜리 ‘정치’ 주사위를 굴려서 걸렸네?</td>
     </tr>
     <tr>
-      <td><strong>토픽의 해석</strong></td>
-      <td>수치 연산에 의해 혼재된 값이 나와 직관적 해석이 다소 어려움 (음수 발생 등)</td>
-      <td>토픽이 ‘단어 확률 분포’로 나오므로 사람이 주제를 더 쉽게 해석 가능</td>
+      <td style="text-align: center"><strong>STEP 3</strong></td>
+      <td style="text-align: left">‘정치’ 단어 주머니 손을 쑥 넣자. 확률에 따라 흔한 <code class="language-plaintext highlighter-rouge">국회</code>라는 단어가 집혔다! (단어 발현)</td>
     </tr>
     <tr>
-      <td><strong>문서 갱신</strong></td>
-      <td>새로운 문서가 추가되면 전체 행렬 분해 연산을 다시 수행해야 함</td>
-      <td>확률 모델 업데이트 방식을 통해 비교적 유연하게 모델 업데이트가 가능</td>
+      <td style="text-align: center"><strong>STEP 4</strong></td>
+      <td style="text-align: left">다음 단어도 주사위 굴리자! 이번엔 30%짜리 ‘경제’ 단어 주머니에서 <code class="language-plaintext highlighter-rouge">세금</code> 단어가 집혔다! (반복)</td>
     </tr>
   </tbody>
 </table>
 
-<p>결론적으로, 초기의 텍스트 주제 분석은 수학적인 행렬 분해(LSA)에 의존했으나, 현대에는 문서가 확률적인 토픽-단어 선택 과정을 거쳐 생성되었다고 가정하고 이를 역추론하는 생성 모델 기반의 <strong>LDA</strong>가 텍스트 마이닝에서 가장 널리 활용되고 있습니다.</p>
+<h2 id="09-현대-토픽-모델링-topic-modeling-의-결론">09. 현대 토픽 모델링 (Topic Modeling) 의 결론</h2>
+<p>진짜 토픽 모델링 알고리즘의 임무는 결국 이겁니다!</p>
+<ul>
+  <li>우리 앞에는 8번 규칙대로 작성된 완성본 꼬리표 없는 결과 텍스트 기사들만 산더미처럼 쌓여있습니다.</li>
+  <li>이 텍스트들을 전부 때려 넣고 확률 백트래킹 계산을 통해서 <strong>“과거에 저 문서 생성자(조물주)가 대체 몇 퍼센트짜리 정치 주사위와 단어 주머니를 썼었을까?” 그 잠재 파라미터(주사위 비율)를 역추적해서 까발리는 일입니다!</strong></li>
+</ul>
+
+<p><img src="./img/sec01_09.svg" alt="Topic Modeling Structure" /></p>
+
+<h2 id="10-확률의-역추적-원리">10. 확률의 역추적 원리</h2>
+<p><code class="language-plaintext highlighter-rouge">loan</code>, <code class="language-plaintext highlighter-rouge">bank</code> 라는 단어가 같이 쓰인 문서를 발견했습니다.</p>
+<ul>
+  <li>기계는 <code class="language-plaintext highlighter-rouge">돈(money)</code> 주머니 안에 평균적으로 이 단어들이 압도적으로 많이 함유되어 있다는 통계 연산을 구축합니다.</li>
+  <li>이걸 보고 “아, 이 글은 옛날 조물주가 작성할 때 확률을 <code class="language-plaintext highlighter-rouge">money</code> 토픽 주사위로 굴리고 작성했었군!” 하고 정답 <strong>주제 분포를 역발견</strong> 합니다.</li>
+</ul>
+
+<h2 id="11-lsa와-신규-토픽-모델링-체계-lda-비교">11. LSA와 신규 토픽 모델링 체계 (LDA 비교)</h2>
+<p>행렬 수치 분해 중심 모델링 vs 생성 확률 역산 모델링.</p>
+
+<p><img src="./img/sec01_lsa_vs_lda.svg" alt="LSA vs LDA Concept Mapping" /></p>
+
+<ul>
+  <li><strong>LSA (잠재 의미 분석)</strong>: 선형 대수학에 근간을 두고 차원을 폭력적으로 압축해 잠재 축을 토픽으로 포장. 거리가 빠름.</li>
+  <li><strong>LDA (잠재 디리클레 할당)</strong>: 토픽 모델링의 성배. 주사위 모델(확률 생성 과정)의 철학을 세우고, 조건부 통계 추론 연산으로 본연의 단어 집합 토픽 군집을 가장 정교하게 역발굴. (자세한 건 다음 단원!)</li>
+</ul>
 
 
             <!-- 구글 애드센스 출력 -->

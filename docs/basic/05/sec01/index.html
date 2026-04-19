@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>워드 임베딩과 언어 모델</title>
-  <meta name="title" content="워드 임베딩과 언어 모델" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="워드 임베딩과 언어 모델"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
+  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>Word2Vec과 신경망 임베딩</title>
+  <meta name="title" content="Word2Vec과 신경망 임베딩" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="Word2Vec과 신경망 임베딩"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
   <meta property="og:url" content="http://localhost:4001/basic/05/sec01/">
 
-  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="워드 임베딩과 언어 모델"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="Word2Vec과 신경망 임베딩"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="워드 임베딩과 언어 모델" />
+<meta property="og:title" content="Word2Vec과 신경망 임베딩" />
 <meta name="author" content="Hojin" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
@@ -22,9 +22,9 @@
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="워드 임베딩과 언어 모델" />
+<meta property="twitter:title" content="Word2Vec과 신경망 임베딩" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"워드 임베딩과 언어 모델","url":"http://localhost:4001/basic/05/sec01/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"Word2Vec과 신경망 임베딩","url":"http://localhost:4001/basic/05/sec01/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -374,7 +374,7 @@
         
         
         
-        <li class="breadcrumb-item active" aria-current="page">워드 임베딩과 언어 모델</li>
+        <li class="breadcrumb-item active" aria-current="page">Word2Vec과 신경망 임베딩</li>
         
         
         
@@ -382,76 +382,171 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="워드-임베딩word-embedding과-언어-모델">워드 임베딩(Word Embedding)과 언어 모델</h1>
+            <h1 id="딥러닝-워드-임베딩-개념과-nnlm">딥러닝 워드 임베딩: 개념과 NNLM</h1>
 
-<p>단어를 컴퓨터가 이해할 수 있는 숫자로 어떻게 변환할 것인가? 에 대한 고민은 자연어 처리(NLP) 분야의 가장 근본적인 숙제였습니다. 본 섹션에서는 고전적인 방식의 한계점과, 이를 극복하기 위해 등장한 워드 임베딩 및 신경망 기반 언어 모델의 발전 과정을 살펴봅니다.</p>
-
-<hr />
-
-<h2 id="1-공간적-의미적-한계-원-핫-인코딩one-hot-encoding">1. 공간적, 의미적 한계: 원-핫 인코딩(One-hot encoding)</h2>
-
-<p>가장 직관적인 단어의 수치화 방법인 원-핫 인코딩은 특정 단어의 인덱스에만 1을 부여하고 나머지는 모두 0으로 채우는 방식(희소 벡터, Sparse Vector)입니다. 하지만 두 가지 심각한 한계가 존재합니다.</p>
-
-<p><img src="../img/sec01_onehot_matrix.svg" alt="One-Hot Matrix" />
-<em>단어 하나마다 오직 한 자리에서만 1이 찍히는 1차원 배열의 나열</em></p>
-
-<p><img src="../img/sec01_onehot_limitation.svg" alt="One-Hot Limitation" />
-<em>메모리 낭비와 벡터 내적(=코사인 유사도)이 항상 0이 되는 원-핫 인코딩의 치명적 단점</em></p>
-
-<p>기존의 정보 검색 방식(BoW 형식이나 TF-IDF) 역시 이 근본적인 원-핫 인코딩의 ‘다차원 희소성’ 기반 위에 있기 때문에, 계산량이 기하급수적으로 늘어나고 문맥상의 의미(예: <code class="language-plaintext highlighter-rouge">bank</code>가 ‘은행’인지 ‘강둑’인지)나 동의어를 구분하지 못합니다.</p>
+<p>통계의 시대를 넘어 인공신경망의 시대가 도래했습니다. 희소한 1차원 배열에 갇혀있던 단어들을, 의미와 맥락이 숨 쉬는 <strong>‘기하학적 다차원 우주 공간’</strong>으로 쏘아 올리는 황홀한 워드 임베딩(Word Embedding)의 개념과 NNLM 아키텍처를 배웁니다.</p>
 
 <hr />
 
-<h2 id="2-워드-임베딩word-embedding의-등장">2. 워드 임베딩(Word Embedding)의 등장</h2>
+<h2 id="00-워드-임베딩의-개념-도입">00. 워드 임베딩의 개념 도입</h2>
+<p>단순한 알파벳 글자 자체의 스펠링 한계를 부수고 의미론적인 수학 기하학 세계로 진입합니다.</p>
 
-<p>원-핫 인코딩의 단점을 극복하기 위해, 거대한 차원의 0의 바다 대신 <strong>작은 차원 공간에 꽉 찬 실수(Real Value)로 단어를 표현</strong>하는 기법인 “워드 임베딩(Word Embedding)”이 등장했습니다. 이렇게 표현된 단어 벡터를 밀집 벡터(Dense Vector) 혹은 분산 표현(Distributed Representation)이라고 부릅니다.</p>
+<h2 id="01-원-핫-인코딩-one-hot-encoding의-복습">01. 원-핫 인코딩 (One-hot encoding)의 복습</h2>
+<p>초창기 텍스트 데이터의 컴퓨터 입력 방식입니다. 내 자리 인덱스에만 <code class="language-plaintext highlighter-rouge">1</code>을 켜고, 나머지 온 동네에는 무자비하게 <code class="language-plaintext highlighter-rouge">0</code>을 다 때려 박았습니다.</p>
 
-<p><img src="../img/sec01_embedding_concept.svg" alt="Word Embedding Concept" />
-<em>어휘 집합의 크기만큼 팽창하는 10,000차원(Sparse)에서, 스스로 학습하여 축소된 128차원(Dense)으로의 진화</em></p>
+\[\vec{v}_{\text{사과}} = [0, 0, 1, 0, 0, \dots, 0] \in \mathbb{R}^{|V|}\]
 
-<p>이렇게 실수값으로 매핑된 단어들은 유클리디안 거리(Euclidean Distance)나 코사인 유사도 등을 통해 <strong>단어 간의 의미적 친밀도</strong>를 수치화할 수 있으며, 심지어 벡터의 덧셈/뺄셈 연산을 통해 단어의 의미적 지형도를 파악할 수도 있습니다.</p>
+<h2 id="02-원-핫-인코딩의-구조">02. 원-핫 인코딩의 구조</h2>
+<p>아래와 같이 하나의 문서는 수많은 <code class="language-plaintext highlighter-rouge">0</code>이 박힌 희소 행렬(Sparse Matrix)로 그려지게 됩니다.</p>
 
-<p><img src="../img/sec01_embedding_3dplot.svg" alt="Word Embedding 3D Plot" />
-<em>3차원 공간에서 각 단어의 거리를 통해 유사도를 측정하는 사상(Mapping) 개념도</em></p>
+<p><img src="./img/sec01_onehot_matrix.svg" alt="One-Hot Matrix Issue" /></p>
 
-<p><img src="../img/sec01_embedding_math.svg" alt="Word Embedding Math" />
-<em>대수학적 사칙연산을 구사하여 의미를 추론하는 벡터 연산 (King - Man + Woman = Queen)</em></p>
+<h2 id="03-원-핫-인코딩의-치명적-한계점-차원의-저주">03. 원-핫 인코딩의 치명적 한계점: 차원의 저주</h2>
+<p>사전의 단어가 10만 개라면, 고작 “사과”라는 단어 하나를 메모리에 올리기 위해 <strong>99,999칸의 쓸데없는 빈칸(<code class="language-plaintext highlighter-rouge">0</code>)</strong>을 할당해야 합니다!</p>
 
-<hr />
+<blockquote>
+  <p>[!WARNING]<br />
+<strong>📖 초심자를 위한 쉬운 해설</strong><br />
+모래사장에서 바늘 하나를 찾기 위해 해수욕장 전체를 통째로 컴퓨터 메모리에 로드하는 멍청한 짓입니다. 이를 수학적으로 <strong>차원의 저주(Curse of Dimensionality)</strong>라고 부르며, 딥러닝 망을 미친 듯이 무겁게 만드는 주범이 됩니다.</p>
+</blockquote>
 
-<h2 id="3-학습-기법의-발전">3. 학습 기법의 발전</h2>
+<h2 id="04-원-핫-인코딩의-의미적-한계-상호-직교-유사도-0">04. 원-핫 인코딩의 의미적 한계: 상호 직교 (유사도 0)</h2>
+<p>더 치명적인 문제는 원-핫 벡터들이 공간에서 무조건 서로 <strong>수직(Orthogonal)</strong>으로 놓인다는 점입니다. 두 벡터의 코사인 내적을 구해볼까요?</p>
 
-<h3 id="잠재-의미-분석-lsa-latent-semantic-analysis">잠재 의미 분석 (LSA, Latent Semantic Analysis)</h3>
+\[\vec{v}_{\text{개}} \cdot \vec{v}_{\text{강아지}} = [1, 0, 0] \cdot [0, 1, 0] = 1\times0 + 0\times1 + 0\times0 = 0\]
 
-<p>수많은 0으로 이루어진 원본 행렬에서 수학적인 선형변환 과정인 <strong>절단된 특이값 분해(Truncated SVD)</strong>를 통해 노이즈를 제거하고 ‘비슷한 단어들로 압축된’ 저차원의 잠재 의미 공간을 뽑아냅니다. 이 방법론은 이후 문서의 잠재 구조를 확률적으로 해석하려는 “토픽 모델링(Topic Modeling)”으로 진화하게 됩니다.</p>
+<p><img src="./img/sec01_onehot_limitation.svg" alt="One-Hot Limitation" /></p>
 
-<p><img src="../img/sec01_lsa_svd.svg" alt="LSA &amp; SVD" /></p>
+<p>기하학적 연산 결과가 <code class="language-plaintext highlighter-rouge">0</code>입니다. 즉, 컴퓨터 뇌 구조상 <strong>‘개’와 ‘강아지’는 우주 끝과 끝처럼 아무런 연관이 없는 완전한 남남</strong>으로 판별됩니다!</p>
 
-<h3 id="뉴럴네트워크-언어모델-nnlm">뉴럴네트워크 언어모델 (NNLM)</h3>
-
-<p>과거 빈도수 통계 기반 N-gram 언어 모델은 “학습 데이터에 등장하지 않은 순서(Sequence)”가 나타나면 예측 확률이 0이 되어 멈춰버리는 한계가 있었습니다.</p>
-
-<p><img src="../img/sec01_ngram_limit.svg" alt="N-gram Limit" />
-<em>조합의 수를 통째로 외우는 N-gram 방식이 맞닥뜨린 희소성(Sparsity) 문제</em></p>
-
-<p>이를 해결하고, ‘단어 사이의 유사성’을 엮어 일반화하려는 시도가 뉴럴네트워크 언어모델(NNLM)입니다.</p>
-
-<p><img src="../img/sec01_nnlm_architecture.svg" alt="NNLM Architecture" /></p>
-
+<h2 id="05-워드-임베딩-word-embedding-이란">05. 워드 임베딩 (Word Embedding) 이란?</h2>
+<p>의미 파탄 상태인 원-핫을 버리고 등장한 딥러닝의 축복입니다.</p>
 <ul>
-  <li>
-    <p><strong>투사층 (Projection Layer / Lookup Table)</strong>: NNLM의 핵심 아이디어. 입력된 원-핫 벡터를 가중치 행렬(Matrix W)의 특정 행을 읽어오는 형태로 매핑시켜 밀집 벡터로 변환합니다. 변환층에는 일반적인 활성함수나 편향(Bias)이 존재하지 않습니다.</p>
-
-    <p><img src="../img/sec01_nnlm_lookup.svg" alt="NNLM Lookup" />
-<em>복잡한 연산 없이 원-핫 벡터의 1이 가리키는 위치의 임베딩 행(Row)을 복사해오는 Lookup 기법</em></p>
-  </li>
-  <li>
-    <p><strong>의미</strong>: NNLM의 룩업 테이블 훈련 철학은 단순 빈도 계산을 탈피하여 “주변/유사 단어는 비슷한 임베딩 값을 갖는다”는 사상을 퍼뜨렸습니다. 이는 Word2Vec, FastText 등으로 발전하였고 현재 최신 대형언어모델(LLM)들의 임베딩 계층의 근간이 되었습니다.</p>
-  </li>
+  <li>무식하게 컸던 차원을 확 구겨버려서(예: 10만 고정 $\to$ 256차원 고정), <strong>‘작은 차원의 압축 공간 안의 밀집된 실수(Float) 좌표’</strong>로 표기합니다.</li>
+  <li>드디어 단어들 간의 각도를 잴 수 있게 되어 <strong>기하학적 유사도 연산</strong>이 완벽하게 가능해집니다.</li>
 </ul>
 
-<p><img src="../img/sec01_ngram_nnlm_table.svg" alt="N-gram vs NNLM" />
-<em>단순 모방(N-gram)에서 의미적 추론(NNLM)으로의 진화 요약</em></p>
+<h2 id="06-워드-임베딩의-물리적-2대-특징">06. 워드 임베딩의 물리적 2대 특징</h2>
+<p>| 특징 | 수학적 설명 | 비유 |
+|:—:|:—|:—|
+| <strong>분산 표현 (Distributed Representation)</strong> | 단어의 의미적 속성(강도, 성별, 품사)을 여러 축으로 잘게 쪼개어 수치화함. | 성격 테스트 그래프처럼 다방면의 능력치(육각형 스탯)를 배분함. |
+| <strong>밀집 벡터 (Dense Vector)</strong> | 무의미한 <code class="language-plaintext highlighter-rouge">0</code>의 나열 대신, $[-1.24, 0.88, 3.14]$ 같은 꽉 찬 실수 배열을 가짐. | 텅빈 해수욕장 대신, 에스프레소 원액처럼 성분이 고농축된 액기스 한 잔. |</p>
+
+<p><img src="./img/sec01_embedding_concept.svg" alt="Embedding Concept" /></p>
+
+<h2 id="07-워드-임베딩-유사도-3d-예시">07. 워드 임베딩 유사도 3D 예시</h2>
+<p>임베딩 압축을 통해 10만 차원의 거대한 우주를 우리가 볼 수 있는 <strong>3D 공간(X, Y, Z)</strong>으로 우겨 넣었다고 쳐봅시다.</p>
+
+<p><img src="./img/sec01_embedding_3dplot.svg" alt="Embedding 3D Plot" /></p>
+
+<ul>
+  <li>공간에 둥둥 떠다니는 단어들: $\vec{v}<em>{\text{man}} = (0, 1, 0)$, $\vec{v}</em>{\text{woman}} = (1, 1, 0)$</li>
+</ul>
+
+<h2 id="08-워드-임베딩을-통한-기하학-연산-유클리드-거리">08. 워드 임베딩을 통한 기하학 연산 (유클리드 거리)</h2>
+<p>공간에 점이 확실히 찍혔으므로, 이제 자(Ruler)를 들고 두 점 사이의 거리를 측정(유클리디안 공식)할 수 있습니다.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">woman</code>과 <code class="language-plaintext highlighter-rouge">man</code> 사이의 거리가 <code class="language-plaintext highlighter-rouge">princess</code>와의 거리보다 수학적으로 더 가깝게 측정됩니다. 즉, 이 둘이 의미적으로 더 유사하다는 뜻입니다!</li>
+</ul>
+
+<h2 id="09-워드-임베딩-벡터-추론-방정식-유추">09. 워드 임베딩 벡터 추론 방정식 (유추)</h2>
+<p>워드 임베딩 알고리즘의 대성공을 전 세계에 알린 전설적인 수학 방정식 단어 연산입니다.</p>
+<ul>
+  <li>기하학적인 실수 좌표가 있으니 덧셈/뺄셈 산수 수식을 돌릴 수 있습니다!</li>
+</ul>
+
+<p><img src="./img/sec01_embedding_math.svg" alt="Embedding Math" /></p>
+
+<p>\(\vec{v}_{\text{King}} - \vec{v}_{\text{Man}} + \vec{v}_{\text{Woman}} \approx \vec{v}_{\text{Queen}}\)
+<em>(대충 좌표에 대입해 보면)</em>
+\((0, 1, 1) - (0, 1, 0) + (1, 1, 0) = (1, 1, 1) \to \text{Queen 위치 발견!}\)</p>
+
+<blockquote>
+  <p>[!TIP]<br />
+<strong>📖 초심자를 위한 쉬운 해설</strong><br />
+AI가 왕(King)과 여왕(Queen)이 뭔지 아는 게 아닙니다!<br />
+그저 왕의 좌표에서 남자의 성질 축을 스윽 빼버리고, 여자의 성질 축 값을 쓱 더했더니 마침 그 허공의 공간 근처에 ‘Queen’ 이라는 둥둥 떠다니는 단어가 우연히 찍혀있을 뿐입니다. 이것이 바로 임베딩의 마법입니다!</p>
+</blockquote>
+
+<h2 id="10-통계-기반-기술-tf-idf의-맹점-상기">10. 통계 기반 기술 (TF-IDF의 맹점 상기)</h2>
+<p>과거의 TF-IDF는 <code class="language-plaintext highlighter-rouge">car</code>와 <code class="language-plaintext highlighter-rouge">automobile</code>이 아예 동의어라는 걸 죽었다 깨어나도 구별하지 못하며 0점 처리해 버립니다.</p>
+
+<h2 id="11-통계의-반격-잠재-의미-분석-lsa-행렬-분해">11. 통계의 반격: 잠재 의미 분석 (LSA, 행렬 분해)</h2>
+<p>딥러닝 기술이 나오기 바로 직전에 쓰이던 최후의 고급 수학 기법이었습니다.</p>
+<ul>
+  <li>커다란 원-핫 행렬이나 DTM(문서 행렬)을 통째로 썰어버려서 저차원으로 압축(<strong>선형 변환</strong>)시키는 무지막지한 기술입니다.</li>
+</ul>
+
+\[A \approx U_k \Sigma_k V_k^T\]
+
+<p><img src="./img/sec01_lsa_svd.svg" alt="Truncated LSA SVD" /></p>
+
+<ul>
+  <li><strong>절단된 특이값 분해(Truncated SVD)</strong> 공식을 거쳐 덜 중요한 행과 열을 가위표 마냥 쳐내버리고 노이즈를 날립니다.</li>
+</ul>
+
+<h2 id="12-n-gram-통계-언어-모델의-한계-재확인">12. N-gram 통계 언어 모델의 한계 재확인</h2>
+<p>결국 이전 주차에 배웠던 $P(\text{is} \mid \text{boy})$ 식의 한계점, <strong>“한 번도 보지 못한 문장 조합이 들어오면 확률을 0으로 뿜어내며 모델이 죽는 현상”</strong>을 해결해야 합니다.</p>
+
+<p><img src="./img/sec01_ngram_limit.svg" alt="Ngram Limit Review" /></p>
+
+<h2 id="13-최초의-혁명-뉴럴-네트워크-언어모델-nnlm">13. 최초의 혁명: 뉴럴 네트워크 언어모델 (NNLM)</h2>
+<p>단어 횟수나 세던 통계학 장부에서 벗어나, 언어 모델 판에 <strong>최초로 뇌세포(인공 신경망) 아키텍처</strong>를 투입시킨 전설의 구원자입니다.</p>
+
+<p><img src="./img/sec01_nnlm_architecture.svg" alt="NNLM Architecture Overview" /></p>
+
+<ul>
+  <li>마르코프 N-gram처럼 최근 $n$개의 단어만 넣지만, 단순히 분수 놀음이 아니라 은닉망 가중치를 학습하여 다음 단어를 추론합니다.</li>
+</ul>
+
+<h2 id="14-nnlm의-핵심-투사층-projection-layer">14. NNLM의 핵심: 투사층 (Projection Layer)</h2>
+<p>NNLM은 아주 독특하게 구조 첫 단추에 가중치가 비어있는 <strong>투사층(Projection)</strong> 껍데기를 가집니다.</p>
+<ul>
+  <li>거대한 원-핫 배열이 시그모이드(비선형 함수) 없이 이 층을 통과하며 거대한 가중치 행렬 $W$와 곱해져, 아담한 실수 밀집 벡터로 체중 감량(압축)을 합니다.</li>
+</ul>
+
+<h2 id="15-천재적인-트릭-임베딩-룩업-테이블-lookup-table">15. 천재적인 트릭: 임베딩 룩업 테이블 (Lookup Table)</h2>
+<p>대충 보면 <code class="language-plaintext highlighter-rouge">원-핫 벡터 x 가중치 행렬 $W$</code>의 아주아주 거대한 크기의 행렬 곱셈 연산식 같지만, 사실 곱셈을 아예 안 합니다!</p>
+
+<p><img src="./img/sec01_nnlm_lookup.svg" alt="NNLM Lookup Concept" /></p>
+
+<blockquote>
+  <p>[!IMPORTANT]<br />
+<strong>📖 초심자를 위한 쉬운 해설</strong><br />
+<code class="language-plaintext highlighter-rouge">[0, 0, 1, 0...]</code> 처럼 1이 단 한 개 들어있는 행렬 곱은, 사실상 곱셈이 아니라 <strong>가중치 행렬의 3번째 줄(Row)을 그냥 긁어서 복사해오는 것</strong>과 결과가 소름 돋게 100% 똑같습니다. <br />
+따라서 값비싼 GPU 전력을 낭비하며 곱하기를 하지 않고, 무식하게 엑셀 검색(Look-Up)을 하듯이 그냥 값을 빼옵니다! 이 혁신적인 스킬 덕분에 연산 속도가 수백 배 비약합니다.</p>
+</blockquote>
+
+<h2 id="16-nnlm-모델-체계-요약표-vs-n-gram">16. NNLM 모델 체계 요약표 (vs N-gram)</h2>
+
+<p><img src="./img/sec01_ngram_nnlm_table.svg" alt="Comparison NNLM Ngram" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">비교 항목</th>
+      <th style="text-align: left">N-gram (통계 모델)</th>
+      <th style="text-align: left">NNLM (신경망 모델)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>학습 방식</strong></td>
+      <td style="text-align: left">무식하게 출현 횟수 숫자 카운트</td>
+      <td style="text-align: left">레이어 가중치(파라미터) 업데이트 정밀 예측</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>OOV / 희소성 방어</strong></td>
+      <td style="text-align: left">데이터에 없으면 무조건 0 반환 (에러)</td>
+      <td style="text-align: left">데이터에 없던 문장이어도, ‘좌표 공간 상의 비슷한 동의어’가 있으면 유연하게 임기응변! (대성공)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>특성</strong></td>
+      <td style="text-align: left">이산적 구조 (딱딱함)</td>
+      <td style="text-align: left">연속적, 기하학 일반화 가능 (말랑말랑함)</td>
+    </tr>
+  </tbody>
+</table>
 
 
             <!-- 구글 애드센스 출력 -->

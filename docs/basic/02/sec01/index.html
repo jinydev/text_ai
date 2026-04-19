@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>문자와 단어 표현</title>
-  <meta name="title" content="문자와 단어 표현" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="문자와 단어 표현"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
+  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>텍스트 문자와 단어 표현</title>
+  <meta name="title" content="텍스트 문자와 단어 표현" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="텍스트 문자와 단어 표현"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
   <meta property="og:url" content="http://localhost:4001/basic/02/sec01/">
 
-  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="문자와 단어 표현"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="텍스트 문자와 단어 표현"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="문자와 단어 표현" />
+<meta property="og:title" content="텍스트 문자와 단어 표현" />
 <meta name="author" content="Hojin" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
@@ -22,9 +22,9 @@
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="문자와 단어 표현" />
+<meta property="twitter:title" content="텍스트 문자와 단어 표현" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"문자와 단어 표현","url":"http://localhost:4001/basic/02/sec01/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"텍스트 문자와 단어 표현","url":"http://localhost:4001/basic/02/sec01/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -374,7 +374,7 @@
         
         
         
-        <li class="breadcrumb-item active" aria-current="page">문자와 단어 표현</li>
+        <li class="breadcrumb-item active" aria-current="page">텍스트 문자와 단어 표현</li>
         
         
         
@@ -382,61 +382,214 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="자연어-처리의-3가지-표현-단위-문자와-단어-표현">자연어 처리의 3가지 표현 단위: 문자와 단어 표현</h1>
+            <h1 id="문자와-단어-표현-어휘-구문-의미-표현">문자와 단어 표현 (어휘, 구문, 의미 표현)</h1>
 
-<p>어떤 복잡한 자연어 처리 시스템이라도 결국엔 사람이 입력한 <strong>글자(Text)</strong>를 어떻게 분해하고 이해할 것인가의 문제로 귀결됩니다. 텍스트를 컴퓨터가 이해할 수 있는 단위로 쪼개는 작업은 크게 어휘, 구문, 의미의 3가지 추상화 계층으로 나눌 수 있습니다. 이번 섹션에서는 그 기초 단계인 <strong>어휘 표현(Lexical)</strong> 과 <strong>구문 표현(Syntactic)</strong> 단위의 분석 기법들을 중점적으로 알아봅니다.</p>
-
-<p><img src="../img/sec01_text_layers.svg" alt="Text Abstract Layers" />
-<em>텍스트가 처리되는 3단계의 계층 구조</em></p>
+<p>이 문서에서는 프로그래밍 초보자가 텍스트 데이터를 어떻게 컴퓨터가 다루기 쉬운 조각으로 쪼개고(토큰화) 계층화하는지를 일상적인 비유를 통해 아주 쉽고 직관적으로 배웁니다.</p>
 
 <hr />
 
-<h2 id="1-토큰화-tokenization">1. 토큰화 (Tokenization)</h2>
+<h2 id="00-문자와-단어-표현">00. 문자와 단어 표현</h2>
+<p>인간의 언어를 컴퓨터가 분석 가능한 단위로 부수는(쪼개는) 기법의 기초를 배웁니다.</p>
 
-<p>주어진 텍스트를 분석에 유용한 의미 체계를 가진 단위(Token)로 잘게 나누는 작업을 <strong>토큰화</strong>라고 합니다. 통계 모델에서는 보통 단어 기준 띄어쓰기 토큰화를 선호하지만, 목표에 따라 그 단위는 유동적으로 바뀝니다.</p>
+<p><img src="./img/sec01_00_intro.png" alt="Breaking Text into Atoms" /></p>
 
-<p><img src="../img/sec01_tokenization.svg" alt="Tokenization Difference" /></p>
+<blockquote>
+  <p>[!NOTE]<br />
+<strong>📖 초심자를 위한 쉬운 해설</strong><br />
+컴퓨터는 “안녕하세요 선생님” 이라는 긴 문장을 덩어리째 주면 절대 소화하지 못합니다. 마치 아기에게 스테이크를 통째로 먹이는 것과 같죠.<br />
+NLP의 첫 단추는 이 거대한 고기(문장)를 가장 먹기 좋은 크기(단어, 글자)로 사각사각 잘라주는 <strong>칼질(토큰화)</strong>에서 시작됩니다.</p>
+</blockquote>
+
+<h2 id="01-텍스트의-3가지-표현-단위">01. 텍스트의 3가지 표현 단위</h2>
+<p>자연어 텍스트는 크게 3가지 계층의 관점에서 바라볼 수 있습니다.</p>
+
+<p><img src="./img/sec01_text_layers.svg" alt="Text Layers" /></p>
+
+<blockquote>
+  <p>[!TIP]<br />
+<strong>📖 초심자를 위한 쉬운 해설</strong></p>
+  <ol>
+    <li><code class="language-plaintext highlighter-rouge">어휘</code> 단계는 낱말 카드 하나하나를 쳐다보는 것입니다. (예: “안녕”, “사과”)</li>
+    <li><code class="language-plaintext highlighter-rouge">구문</code> 단계는 카드를 조합해서 문장이라는 뼈대를 만드는 것입니다. (예: “나는 사과를 먹는다”)</li>
+    <li><code class="language-plaintext highlighter-rouge">의미</code> 단계는 뼈대 뒤에 숨겨진 글쓴이의 진짜 시그널(감정, 의도)을 파악하는 것입니다.</li>
+  </ol>
+</blockquote>
+
+<h2 id="02-어휘-표현-lexical">02. 어휘 표현 (Lexical)</h2>
+<p>단어와 문자 그 자체가 가진 형태학적 특성에 집중하는 가장 밑바닥 기초 단계입니다.</p>
+
+<p><img src="./img/sec01_02_lexical.svg" alt="Lexical Layer" /></p>
+
+<blockquote>
+  <p>[!IMPORTANT]<br />
+<strong>📖 초심자를 위한 쉬운 해설</strong><br />
+마치 영어 사전의 가장 첫 페이지를 펼쳐놓고 ‘A’부터 ‘Z’까지 글자 자체의 스펠링이나 뜻만 달달 외우는 작업과 똑같습니다. 문장이 전체적으로 무슨 뜻인지는 이 단계에서는 전혀 관심이 없습니다. 오로지 “저 단어의 품사가 명사인가?”만 신경 씁니다.</p>
+</blockquote>
+
+<h2 id="03-구문-표현-syntactic">03. 구문 표현 (Syntactic)</h2>
+<p>단어들이 모여 문장을 이룰 때 보여주는 구조적 또는 통계적 뼈대를 파악하는 단계입니다.</p>
+
+<p><img src="./img/sec01_03_syntactic.svg" alt="Syntactic Layer" /></p>
+
+<h2 id="04-의미론적-표현-semantic">04. 의미론적 표현 (Semantic)</h2>
+<p>텍스트의 이면에 깔려 있는 진정한 뜻과 개념들을 도출해 내는 가장 고차원적인 최종 목적지입니다.</p>
+
+<p><img src="./img/sec01_04_semantic.svg" alt="Semantic Layer" /></p>
+
+<h2 id="05-문자-단위-텍스트-분석">05. 문자 단위 텍스트 분석</h2>
+<p>글자 하나하나가 분석 단위 요소가 되는 방법입니다. (기본 ‘글자’와 ‘구분 기호’로 나뉨)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">구분</th>
+      <th style="text-align: left">설명</th>
+      <th style="text-align: left">데이터 예시</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>기본 글자</strong></td>
+      <td style="text-align: left">영문 알파벳, 한글 자모음 등</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">A, B, C</code>, <code class="language-plaintext highlighter-rouge">가, 나, 다</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>구분 기호</strong></td>
+      <td style="text-align: left">마침표, 쉼표 등 문장이 끊기는 곳</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">. , ? ! :</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="06-단어-단위-텍스트-분석">06. 단어 단위 텍스트 분석</h2>
+<p>[단어] 하나가 분석 요소가 되는 형태입니다. NLP에서 가장 널리 쓰이고 무난한 표준 방법입니다.</p>
+
+<blockquote>
+  <p>[!TIP]<br />
+<strong>📖 초심자를 위한 쉬운 해설</strong><br />
+한국어는 띄어쓰기를 기준으로 숭덩숭덩 자르기만 해도 꽤 훌륭한 [단어 단위] 조각(토큰)들이 발생합니다. 이 조각들 하나하나를 바구니에 담아서 분석하는 것이 자연어처리의 가장 흔한 시작입니다.</p>
+</blockquote>
+
+<h2 id="07-토큰화-tokenization">07. 토큰화 (Tokenization)</h2>
+<p>주어진 원시 텍스트(문자열)를 분석에 유용한 조각 요소(<strong>Token</strong>)로 잘게 자르는 핵심 작업입니다.</p>
+
+<p><img src="./img/sec01_tokenization.svg" alt="Tokenization Step" /></p>
+
+<h2 id="08-단어-단위-vs-문장-단위-토큰화-비교">08. 단어 단위 vs 문장 단위 토큰화 비교</h2>
+<p>스테이크(텍스트)를 얼마나 크게 자를 것인가에 대한 선택입니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">단위</th>
+      <th style="text-align: left">예시 (“Hello. I am Tom.”)</th>
+      <th style="text-align: left">장단점 및 비유</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>문장 단위</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">["Hello."]</code>, <code class="language-plaintext highlighter-rouge">["I am Tom."]</code></td>
+      <td style="text-align: left">뼈째로 자르기. 문맥은 잘 유지되나 디테일 분석이 불가능합니다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>단어 단위</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">["Hello", ".", "I", "am", "Tom", "."]</code></td>
+      <td style="text-align: left">다지기로 잘게 썰기. 단어별 통계를 내기엔 무척 쉽지만 문장의 전체 느낌은 잃어버릴 수 있습니다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="09-품사-태깅-pos-tagging">09. 품사 태깅 (POS Tagging)</h2>
+<p>나뉘어진 각각의 단어에게 “너는 명사야, 너는 동사야” 하고 알맞은 문법적 이름표(Labeling)를 붙여주는 작업입니다.</p>
+
+<p><img src="./img/sec01_pos_tagging.svg" alt="POS Tagging" /></p>
+
+<h2 id="10-품사-태깅의-두-가지-통계-기법-비교">10. 품사 태깅의 두 가지 통계 기법 비교</h2>
+<p>과거 방식(사전)과 현재 방식(확률 모델)의 차이입니다.</p>
+
+<p><img src="./img/sec01_10_pos_methods.svg" alt="POS Tagging Methods" /></p>
+
+<blockquote>
+  <p>[!NOTE]<br />
+<strong>📖 초심자를 위한 쉬운 해설</strong><br />
+<code class="language-plaintext highlighter-rouge">규칙 기반(과거)</code>은 수백쪽짜리 국어사전을 옆에 펴두고, 컴퓨터가 “어? ‘가다’는 무조건 동사네!” 라고 외워서 푸는 무식한 방식입니다.<br />
+<code class="language-plaintext highlighter-rouge">확률 모델(현대)</code>은 앞뒤에 어떤 단어가 왔는지를 슬쩍 보고 “음… 앞에 ‘맛있는’ 이라는 형용사가 왔으니 지금 이 단어는 무조건 [명사] 품사이겠구나!” 라고 눈치껏(확률로) 맞춰버리는 고급 스킬입니다.</p>
+</blockquote>
+
+<h2 id="11-구-표현-n-gram-이란">11. 구 표현: N-gram 이란?</h2>
+<p>단어 한 개씩만 자르면(Uni-gram) 앞뒤 맥락이 다 끊겨버리는 치명적인 문제를 막기 위해 등장했습니다. 여러 단어를 하나로 이어 붙여 기차량 칸으로 묶어버립니다.</p>
+
+<p><img src="./img/sec01_11_ngram_concept.svg" alt="Ngram Train Cars" /></p>
+
+<blockquote>
+  <p>[!IMPORTANT]<br />
+<strong>📖 초심자를 위한 쉬운 해설</strong><br />
+“나는 사과가 엄청 <strong>싫다</strong>” 라는 문장을 1단어(Uni-gram)로만 자르면 <code class="language-plaintext highlighter-rouge">[엄청]</code>, <code class="language-plaintext highlighter-rouge">[싫다]</code> 로 떨어집니다. 하지만 만약 문장이 “나는 사과가 엄청 <strong>좋지는 않다</strong>” 라면? 이걸 1단어씩 쪼개버리면 억울하게 <code class="language-plaintext highlighter-rouge">[좋지는]</code> 이라는 단어 때문에 컴퓨터가 “오! 긍정적인 글!” 이라고 오해합니다.<br />
+이를 막고자 2량 기차표 테이프(Bi-gram)를 써서 아예 <code class="language-plaintext highlighter-rouge">[좋지는 않다]</code>를 하나의 묶음 덩어리로 잘라내면 의미가 파괴되지 않고 안전합니다.</p>
+</blockquote>
+
+<h2 id="12-n-gram-예시-실습">12. N-gram 예시 실습</h2>
+<p>원문: <code class="language-plaintext highlighter-rouge">The future depends on what we do in the present</code></p>
 
 <ul>
-  <li><strong>문자 단위 (Character)</strong>: 글자 하나하나 쪼갭니다. 의미는 없지만 희귀단어 처리에 강점이 있습니다.</li>
-  <li><strong>단어 단위 (Word)</strong>: 자연어 분석의 가장 보편적인 쪼개기 방식입니다. 구두점이나 따옴표 역시 독립적인 토큰이 됩니다.</li>
-  <li><strong>문장 단위 (Sentence)</strong>: 여러 문장이 뭉쳐있는 긴 문단에서, 마침표(.)를 기준으로 문맥의 덩어리를 얻어냅니다.</li>
+  <li><strong>uni-gram</strong>: <code class="language-plaintext highlighter-rouge">[The]</code>, <code class="language-plaintext highlighter-rouge">[future]</code>, <code class="language-plaintext highlighter-rouge">[depends]</code>, <code class="language-plaintext highlighter-rouge">[on]</code>, …</li>
+  <li><strong>bi-gram</strong>: <code class="language-plaintext highlighter-rouge">[The future]</code>, <code class="language-plaintext highlighter-rouge">[future depends]</code>, <code class="language-plaintext highlighter-rouge">[depends on]</code>, …</li>
+  <li><strong>tri-gram</strong>: <code class="language-plaintext highlighter-rouge">[The future depends]</code>, <code class="language-plaintext highlighter-rouge">[future depends on]</code>, …</li>
 </ul>
 
-<hr />
+<h2 id="13-텍스트-단위화-chunking">13. 텍스트 단위화 (Chunking)</h2>
+<p>단순 무식한 N-gram 기차를 넘어, 어휘적으로 상호 관련이 깊은 단어들의 의미 덩어리(Chunk)로 유연하게 나누는 고급 기법입니다.</p>
 
-<h2 id="2-품사-태깅-pos-tagging-part-of-speech">2. 품사 태깅 (POS Tagging: Part-Of-Speech)</h2>
+<p><img src="./img/sec01_chunking_bio.svg" alt="Chunking BIO" /></p>
 
-<p>동일한 ‘배(Ship, Pear, Stomach 등)’라는 단어도 문맥에 따라 명사일 수도 있고, 전혀 다른 의미일 수도 있습니다. 형태소(토큰) 단위로 분리된 단어들에 알맞은 <strong>품사(명사, 동사 등)</strong> 를 달아주어 모호성을 지우는 작업입니다.</p>
+<h2 id="14-텍스트-단위화-트리-기반">14. 텍스트 단위화 (트리 기반)</h2>
+<p>텍스트를 문법 규칙에 종속시켜 명사구(NP) 등 트리 구조의 가지 형태로 위에서 아래로 뻗어가며 그리는 클래식한 학술 분석 방법입니다.</p>
 
-<p><img src="../img/sec01_pos_tagging.svg" alt="POS Tagging Models" />
-<em>인간의 문법 규칙을 입력하는 규칙 기반과, 말뭉치의 통계를 이용하는 확률 기반 기법</em></p>
+<h2 id="15-텍스트-단위화-태그-기반---bio-태그-방식">15. 텍스트 단위화 (태그 기반 - BIO 태그 방식)</h2>
+<p>복잡한 그림(트리) 구조를 쓰지 않고, 단어 옆에 <strong>[알파벳 라벨 기호]</strong>만 붙여서 덩어리의 시작과 끝을 나타내는 매우 효율적인 기법입니다.</p>
 
-<ul>
-  <li>최근의 품사 태깅은 막대한 코퍼스를 토대로 한 HMM(은닉 마르코프 모델) 기반의 <strong>확률 기반 기법</strong> 혹은 딥러닝 기반 태거가 주류를 이루고 있습니다.</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">기호</th>
+      <th style="text-align: left">의미 (Meaning)</th>
+      <th style="text-align: left">설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>B</strong></td>
+      <td style="text-align: left">Begin</td>
+      <td style="text-align: left">의미 덩어리가 시작되는 첫 번째 단어 (머리)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>I</strong></td>
+      <td style="text-align: left">Inside</td>
+      <td style="text-align: left">머리에 이어져 따라오는 꼬리 내부 단어들</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>O</strong></td>
+      <td style="text-align: left">Outside</td>
+      <td style="text-align: left">지금 이 덩어리와 아무 상관없는 동떨어진 단어</td>
+    </tr>
+  </tbody>
+</table>
 
-<hr />
+<h2 id="16-검색-증강-생성rag에서의-최신-청킹chunking-사례">16. 검색 증강 생성(RAG)에서의 최신 청킹(Chunking) 사례</h2>
+<p>최근 챗GPT 등 LLM에게 회사의 수백 장짜리 PDF 메뉴얼을 읽힐 때, 문서를 적절한 크기의 문맥 덩어리로 썰어서(Chunk) 먹여줘야 성능이 극대화됩니다.</p>
 
-<h2 id="3-구문-표현-청킹chunking과-bio-태깅">3. 구문 표현: 청킹(Chunking)과 BIO 태깅</h2>
+<p><img src="./img/sec01_rag_chunking.svg" alt="RAG Chunking" /></p>
 
-<p>단어 그 자체의 품사만으로는 부족할 때, 의미적으로 뭉쳐 다니는 단어의 그룹 즉, <strong>덩어리(Chunk)</strong> 를 묶어주는 과정이 청킹입니다. 구문 분석(Parsing) 트리 모양으로 파악하는 방법과 함께, <strong>BIO 태그</strong> 방식이 가장 유명합니다.</p>
+<h2 id="17-rag-청킹-예시-긴-청킹-길이-과도한-문맥-모호화">17. RAG 청킹 예시: 긴 청킹 길이 (과도한 문맥 모호화)</h2>
+<p>만약 덩어리를 너무 길고 큼지막하게 대충 자르면 치명적인 부작용이 발생합니다.</p>
 
-<p><img src="../img/sec01_chunking_bio.svg" alt="Chunking BIO Tag" />
-<em>Begin-Inside-Outside의 약자로, 청크 덩어리의 ‘시작-중간부분-나머지(밖)’를 구별합니다.</em></p>
+<p><img src="./img/sec01_17_long_chunk.svg" alt="Long Chunk Effect" /></p>
 
-<hr />
+<h2 id="18-rag-청킹-예시-짧은-청킹-길이-적정한-정보-밀도">18. RAG 청킹 예시: 짧은 청킹 길이 (적정한 정보 밀도)</h2>
+<p>청크를 적절하고 짧게 나누게 되면, 해당 의미의 문서 블록에 딱 맞는 검색 키워드를 매치시킬 확률이 비약적으로 점프합니다.</p>
 
-<h2 id="4-심화-llm-프롬프트-검색rag에서의-청킹-chunking-전략">4. [심화] LLM 프롬프트 검색(RAG)에서의 청킹 (Chunking) 전략</h2>
-
-<p>최근 ChatGPT와 같이 방대한 외부 지식을 텍스트로 참조해서 대답하는 <strong>RAG(검색 증강 생성)</strong> 기술에 있어서도 문서 쪼개기(청킹)는 필수 불가결한 핵심입니다.</p>
-
-<p><img src="../img/sec01_rag_chunking.svg" alt="RAG Chunking" /></p>
-
-<ul>
-  <li><strong>긴 길이의 청크</strong>: 문맥의 흐름은 잘 유지되지만, 청크 안에 상반된 너무 많은 정보(신혼부부 정책 + 청년통장 + 역세권 주택)가 얽혀 있어 모듈이 “이 문단이 정확히 무엇에 관한 문단인지” 검색의 정확도를 상실하기 십상입니다.</li>
-  <li><strong>짧고 최적화된 청크</strong>: 주제별로 예리하게 잘린 청크를 사용하면, LLM이 사용자의 질문(Query)에 부합하는 매칭 문서만을 쏙쏙 골라와 정확한 대답을 생성할 수 있습니다. 즉, 현대 AI 개발에 있어서 <strong>의도와 문단에 맞춘 적절한 청킹 길이 설계</strong>는 성능의 성패를 가릅니다.</li>
-</ul>
+<p><img src="./img/sec01_18_short_chunk.svg" alt="Short Chunk Effect" /></p>
 
 
             <!-- 구글 애드센스 출력 -->

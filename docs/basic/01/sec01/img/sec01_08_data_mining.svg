@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f1f3f5"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  <rect width="800" height="350" fill="url(#bg)"/>
+
+  <!-- Core Idea -->
+  <g transform="translate(300, 30)" filter="url(#shadow)">
+    <rect width="200" height="60" fill="#343a40" rx="10"/>
+    <text x="100" y="37" font-family="'Inter', sans-serif" font-size="18" font-weight="bold" fill="#fff" text-anchor="middle">거대 데이터 마이닝</text>
+  </g>
+
+  <!-- Connectors from Core -->
+  <path d="M 400 90 L 400 120" stroke="#868e96" stroke-width="3"/>
+  <path d="M 220 120 L 580 120" stroke="#868e96" stroke-width="3"/>
+  <path d="M 220 120 L 220 150" stroke="#868e96" stroke-width="3"/>
+  <path d="M 400 120 L 400 150" stroke="#868e96" stroke-width="3"/>
+  <path d="M 580 120 L 580 150" stroke="#868e96" stroke-width="3"/>
+
+  <!-- Left -->
+  <g transform="translate(120, 150)" filter="url(#shadow)">
+    <rect width="200" height="60" fill="#adb5bd" rx="10"/>
+    <text x="100" y="37" font-family="'Inter', sans-serif" font-size="16" font-weight="bold" fill="#fff" text-anchor="middle">수치/통계 마이닝</text>
+  </g>
+  <!-- Right -->
+  <g transform="translate(480, 150)" filter="url(#shadow)">
+    <rect width="200" height="60" fill="#adb5bd" rx="10"/>
+    <text x="100" y="37" font-family="'Inter', sans-serif" font-size="16" font-weight="bold" fill="#fff" text-anchor="middle">웹/로그 마이닝</text>
+  </g>
+  <!-- Middle (Target) -->
+  <g transform="translate(300, 150)" filter="url(#shadow)">
+    <rect width="200" height="60" fill="#ff6b6b" rx="10"/>
+    <text x="100" y="37" font-family="'Inter', sans-serif" font-size="18" font-weight="bold" fill="#fff" text-anchor="middle">✨ 텍스트 마이닝</text>
+  </g>
+
+  <path d="M 400 210 L 400 240" stroke="#ff8787" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
+  
+  <g transform="translate(250, 250)">
+    <rect width="300" height="60" fill="#ffe3e3" rx="10" stroke="#ffa8a8" stroke-width="2"/>
+    <text x="150" y="35" font-family="'Inter', sans-serif" font-size="16" font-weight="bold" fill="#c92a2a" text-anchor="middle">수백만 건의 글에서 황금(트렌드) 캐기</text>
+  </g>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ff8787" />
+    </marker>
+  </defs>
+</svg>

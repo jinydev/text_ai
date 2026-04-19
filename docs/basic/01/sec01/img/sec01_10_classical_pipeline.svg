@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250" width="100%" height="100%">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  <rect width="800" height="250" fill="#f4f6f8" rx="10"/>
+
+  <g transform="translate(50, 80)">
+    <rect width="180" height="80" rx="10" fill="#e3fafc" stroke="#3bc9db" stroke-width="2" filter="url(#shadow)"/>
+    <text x="90" y="35" font-family="'Inter', sans-serif" font-size="16" font-weight="bold" fill="#0b7285" text-anchor="middle">1. 기초 재료 (텍스트)</text>
+    <text x="90" y="60" font-family="'Inter', sans-serif" font-size="20" fill="#0b7285" text-anchor="middle">"안녕하세요"</text>
+  </g>
+
+  <path d="M 230 120 L 290 120" stroke="#adb5bd" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g transform="translate(300, 80)">
+    <rect width="200" height="80" rx="10" fill="#fff5f5" stroke="#ff8787" stroke-width="2" filter="url(#shadow)"/>
+    <text x="100" y="35" font-family="'Inter', sans-serif" font-size="16" font-weight="bold" fill="#c92a2a" text-anchor="middle">2. 주방 보조 (고전 NLP)</text>
+    <text x="100" y="60" font-family="'Inter', sans-serif" font-size="14" fill="#c92a2a" text-anchor="middle">형태소 절단: [안녕] + [하+세+요]</text>
+  </g>
+
+  <path d="M 500 120 L 560 120" stroke="#adb5bd" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g transform="translate(570, 80)">
+    <rect width="180" height="80" rx="10" fill="#fff9db" stroke="#fcc419" stroke-width="2" filter="url(#shadow)"/>
+    <text x="90" y="35" font-family="'Inter', sans-serif" font-size="16" font-weight="bold" fill="#e67700" text-anchor="middle">3. 분석 (텍스트 마이닝)</text>
+    <text x="90" y="60" font-family="'Inter', sans-serif" font-size="14" fill="#e67700" text-anchor="middle">"안녕" 10번 등장 = 긍정!</text>
+  </g>
+
+  <text x="400" y="210" font-family="'Inter', sans-serif" font-size="18" font-weight="bold" fill="#495057" text-anchor="middle">고전적 파이프라인: NLP는 핵심이 아닌 단순 '도구(전처리)' 역할</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#adb5bd" />
+    </marker>
+  </defs>
+</svg>

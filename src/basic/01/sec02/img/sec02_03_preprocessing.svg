@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="100%" height="100%">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="200" fill="#fff" rx="10"/>
+
+  <g transform="translate(50, 60)">
+    <rect width="180" height="80" rx="40" fill="#f8f9fa" stroke="#adb5bd" stroke-width="2" filter="url(#shadow)"/>
+    <text x="90" y="35" font-family="'Inter', sans-serif" font-size="14" fill="#495057" text-anchor="middle">"안녕하세요!! ㅋㅋ"</text>
+    <text x="90" y="55" font-family="'Inter', sans-serif" font-size="12" fill="#adb5bd" text-anchor="middle">#원시 텍스트(노이즈)</text>
+  </g>
+
+  <!-- Pipe -->
+  <path d="M 230 100 L 290 100" stroke="#3bc9db" stroke-width="8" stroke-dasharray="10,5"/>
+
+  <!-- Washer -->
+  <g transform="translate(300, 40)">
+    <rect width="200" height="120" rx="15" fill="#e3fafc" stroke="#15aabf" stroke-width="3" filter="url(#shadow)"/>
+    <text x="100" y="40" font-family="'Inter', sans-serif" font-size="30" text-anchor="middle">🚿</text>
+    <text x="100" y="75" font-family="'Inter', sans-serif" font-size="16" font-weight="bold" fill="#0b7285" text-anchor="middle">데이터 세척 (전처리)</text>
+    <text x="100" y="95" font-family="'Inter', sans-serif" font-size="12" fill="#0b7285" text-anchor="middle">불용어 제거, 특수문자 삭제</text>
+  </g>
+
+  <!-- Pipe -->
+  <path d="M 500 100 L 560 100" stroke="#3bc9db" stroke-width="8" stroke-dasharray="10,5"/>
+
+  <g transform="translate(570, 60)">
+    <rect width="180" height="80" rx="10" fill="#f4fce3" stroke="#82c91e" stroke-width="2" filter="url(#shadow)"/>
+    <text x="90" y="35" font-family="'Inter', sans-serif" font-size="16" font-weight="bold" fill="#2b8a3e" text-anchor="middle">["안녕", "하", "세", "요"]</text>
+    <text x="90" y="55" font-family="'Inter', sans-serif" font-size="12" fill="#5c940d" text-anchor="middle">정제된 토큰 리스트</text>
+  </g>
+
+</svg>

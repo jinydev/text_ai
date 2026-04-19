@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#212529" />
+      <stop offset="100%" stop-color="#343a40" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="300" rx="15" fill="url(#bg-grad)"/>
+
+  <text x="400" y="45" font-family="'Inter', sans-serif" font-size="24" font-weight="bold" fill="#f8f9fa" text-anchor="middle">현대적 '텍스트'의 다양한 범위 확장</text>
+
+  <!-- Cards -->
+  <!-- Card 1 -->
+  <g transform="translate(50, 80)" filter="url(#shadow)">
+    <rect width="150" height="180" rx="15" fill="#4facfe" opacity="0.9"/>
+    <text x="75" y="70" font-family="'Inter', sans-serif" font-size="40" text-anchor="middle" fill="#fff">💬</text>
+    <text x="75" y="120" font-family="'Inter', sans-serif" font-size="18" font-weight="bold" fill="#fff" text-anchor="middle">메신저/SNS</text>
+    <text x="75" y="150" font-family="'Inter', sans-serif" font-size="12" fill="#e9ecef" text-anchor="middle">비정형 일상 대화</text>
+  </g>
+
+  <!-- Card 2 -->
+  <g transform="translate(230, 80)" filter="url(#shadow)">
+    <rect width="150" height="180" rx="15" fill="#00f2fe" opacity="0.9"/>
+    <text x="75" y="70" font-family="'Inter', sans-serif" font-size="40" text-anchor="middle" fill="#fff">🧾</text>
+    <text x="75" y="120" font-family="'Inter', sans-serif" font-size="18" font-weight="bold" fill="#fff" text-anchor="middle">영수증/로그</text>
+    <text x="75" y="150" font-family="'Inter', sans-serif" font-size="12" fill="#343a40" text-anchor="middle">기계 생성 데이터</text>
+  </g>
+
+  <!-- Card 3 -->
+  <g transform="translate(410, 80)" filter="url(#shadow)">
+    <rect width="150" height="180" rx="15" fill="#fa709a" opacity="0.9"/>
+    <text x="75" y="70" font-family="'Inter', sans-serif" font-size="40" text-anchor="middle" fill="#fff">📚</text>
+    <text x="75" y="120" font-family="'Inter', sans-serif" font-size="18" font-weight="bold" fill="#fff" text-anchor="middle">기사/소설</text>
+    <text x="75" y="150" font-family="'Inter', sans-serif" font-size="12" fill="#f8f9fa" text-anchor="middle">장문의 정제된 글</text>
+  </g>
+
+  <!-- Card 4 -->
+  <g transform="translate(590, 80)" filter="url(#shadow)">
+    <rect width="150" height="180" rx="15" fill="#fee140" opacity="0.9"/>
+    <text x="75" y="70" font-family="'Inter', sans-serif" font-size="40" text-anchor="middle" fill="#343a40">💻</text>
+    <text x="75" y="120" font-family="'Inter', sans-serif" font-size="18" font-weight="bold" fill="#343a40" text-anchor="middle">프로그램 코드</text>
+    <text x="75" y="150" font-family="'Inter', sans-serif" font-size="12" fill="#495057" text-anchor="middle">기호 시퀀스 결합</text>
+  </g>
+
+</svg>

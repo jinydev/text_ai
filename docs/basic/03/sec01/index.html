@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>텍스트의 벡터 표현 (카운트 기반)</title>
-  <meta name="title" content="텍스트의 벡터 표현 (카운트 기반)" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="텍스트의 벡터 표현 (카운트 기반)"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
+  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>카운트 기반 텍스트 표현</title>
+  <meta name="title" content="카운트 기반 텍스트 표현" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="카운트 기반 텍스트 표현"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
   <meta property="og:url" content="http://localhost:4001/basic/03/sec01/">
 
-  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="텍스트의 벡터 표현 (카운트 기반)"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="카운트 기반 텍스트 표현"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="텍스트의 벡터 표현 (카운트 기반)" />
+<meta property="og:title" content="카운트 기반 텍스트 표현" />
 <meta name="author" content="Hojin" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
@@ -22,9 +22,9 @@
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="텍스트의 벡터 표현 (카운트 기반)" />
+<meta property="twitter:title" content="카운트 기반 텍스트 표현" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"텍스트의 벡터 표현 (카운트 기반)","url":"http://localhost:4001/basic/03/sec01/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"카운트 기반 텍스트 표현","url":"http://localhost:4001/basic/03/sec01/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -374,7 +374,7 @@
         
         
         
-        <li class="breadcrumb-item active" aria-current="page">텍스트의 벡터 표현 (카운트 기반)</li>
+        <li class="breadcrumb-item active" aria-current="page">카운트 기반 텍스트 표현</li>
         
         
         
@@ -382,61 +382,158 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="텍스트의-벡터-표현-통계-기반-모델">텍스트의 벡터 표현 (통계 기반 모델)</h1>
+            <h1 id="단어-임베딩의-기초-카운트-기반-텍스트-표현">단어 임베딩의 기초: 카운트 기반 텍스트 표현</h1>
 
-<p>자연어 처리의 첫 관문은 사람이 사용하는 일상적인 ‘언어’를 컴퓨터가 무리 없이 소화할 수 있도록 수학적인 ‘숫자’ 모음으로 변환하는 것입니다. 본 섹션에서는 컴퓨터가 문서를 통계적으로 이해하기 위해 텍스트를 대수적 좌표계(Vector Space)로 옮겨 놓는 <strong>벡터 공간 모델(Vector Space Model)</strong> 과 가장 밑바탕이 되는 <strong>카운트(등장 빈도) 기반 기법</strong>들을 알아봅니다.</p>
-
-<hr />
-
-<h2 id="1-글을-이해하는-방식의-차이-사람-vs-컴퓨터">1. 글을 이해하는 방식의 차이: 사람 vs 컴퓨터</h2>
-
-<p>인간은 문법과 구조, 행간의 의미를 살피며 글을 ‘처음부터 끝까지 순서대로’ 읽어 내려갑니다. 하지만 초기 컴퓨터 알고리즘은 이렇게 맥락을 파악할 능력이 없었습니다. 대신, 특정 단어가 문서 내에 ‘몇 번이나 나타나는지’를 헤아린 <strong>빈도수(통계)</strong> 를 통해 문서의 특징을 짐작합니다.</p>
-
-<p><img src="../img/sec01_human_vs_computer.svg" alt="Human vs Computer" />
-<em>순차적으로 읽어들이는 사람의 방식과 단순히 단어의 카운트만 수집하는 컴퓨터의 통계 기반 방식 비교</em></p>
+<p>기계가 이 세상을 이해하기 위해 자연어를 수학적인 공간(Vector Space)으로 맵핑하는 ‘고전 통계 기반’ 기법의 첫걸음을 뗍니다. 가장 쉬운 수식인 빈도수 카운트부터 시작해 봅시다!</p>
 
 <hr />
 
-<h2 id="2-벡터-공간-모델-vector-space-model">2. 벡터 공간 모델 (Vector Space Model)</h2>
+<h2 id="00-카운트-기반-텍스트-표현">00. 카운트 기반 텍스트 표현</h2>
+<p>“사과라는 글자가 문서에 3번 등장했네!” 텍스트를 숫자로 바꾸어 기계에 알려주는 모델링의 시작입니다.</p>
 
-<p>문서는 더 이상 단순한 글씨가 아니라 수학적 연산(코사인 유사도 계산 등)이 가능한 벡터(Vector)로 탈바꿈되어야 합니다. 이때 문서에 쓰인 각각의 단어들은 벡터를 이루는 ‘차원(Dimension)’ 하나하나로서 대응됩니다.</p>
+<p><img src="./img/sec01_00_intro.png" alt="Word into Mathematics" /></p>
 
-<h3 id="원-핫-인코딩-one-hot-encoding">원-핫 인코딩 (One-hot Encoding)</h3>
+<blockquote>
+  <p>[!NOTE]<br />
+<strong>📖 초심자를 위한 쉬운 해설</strong><br />
+AI는 한글이든 영어든 단어 그 자체를 절대 읽지 못합니다. 무조건 ‘숫자’로 바꿔줘야만 연산(덧셈, 곱셈)을 할 수 있습니다. 
+오늘 배울 ‘카운트 기반 방식’은 가장 단순무식하게 <strong>“단어가 몇 번 나왔냐?”</strong> 에 따라 숫자를 부여하는 원초적인 기법입니다.</p>
+</blockquote>
 
-<p>가장 직관적인 방법은, 만들고 싶은 전체 단어 사전(Vocabulary)을 구성한 뒤, 해당 단어가 차지하는 순서(인덱스) 칸에만 1을 주고 나머지 모든 수만 개의 칸은 0으로 도배하는 방식입니다.</p>
+<h2 id="01-글을-이해하는-방식---사람">01. 글을 이해하는 방식 - 사람</h2>
+<ul>
+  <li>사람은 글을 읽을 때 앞에서부터 뒤로 순서대로 단어들을 읽어가면서 문맥의 흐름과 뉘앙스를 파악합니다.</li>
+</ul>
 
-<p><img src="../img/sec01_onehot_encoding.svg" alt="One-hot Encoding" />
-<em>직관적이지만 차원의 압박과 ‘희소성’이라는 엄청난 메모리 제약을 야기하는 원-핫 인코딩</em></p>
+<h2 id="02-글을-이해하는-방식--컴퓨터-딥러닝-트랜스포머-기반">02. 글을 이해하는 방식 – 컴퓨터 (딥러닝 트랜스포머 기반)</h2>
+<ul>
+  <li>현대의 최첨단 딥러닝 LLM 모델(트랜스포머 기반) 또한 기본적으로 문장이 주어지면, 숨겨진 뉘앙스(Context)와 연결성을 파악하려고 미친 듯이 노력합니다.</li>
+</ul>
 
-<p>이처럼 대부분의 공간이 아무 쓸모없는 0으로 가득 차 있는 벡터들을 가리켜 <strong>희소 벡터(Sparse Vector)</strong> 라고 부릅니다.</p>
+<p><img src="./img/sec01_human_vs_computer.svg" alt="Human vs Computer" /></p>
 
-<hr />
+<h2 id="03-글을-이해하는-방식--컴퓨터-통계-기반-모델">03. 글을 이해하는 방식 – 컴퓨터 (통계 기반 모델)</h2>
+<ul>
+  <li>반면 딥러닝 이전 시대의 전통적인 고전 통계 모델은, 문서에 나타나는 단어의 <strong>얼마나 자주 등장했는가(단순 빈도수)</strong>만을 가지고 눈치껏 문서의 주제를 파악하고자 시도합니다.</li>
+</ul>
 
-<h3 id="문서-단어-행렬-dtm-document-term-matrix">문서-단어 행렬 (DTM: Document-Term Matrix)</h3>
+<blockquote>
+  <p>[!TIP]<br />
+<strong>📖 초심자를 위한 쉬운 해설</strong><br />
+통계 모델은 “어… 이 100장짜리 문서에 우울하다는 단어가 70번, 주식차트라는 단어가 40번 쓰였네? 그럼 100% 한강 주식 투자자의 글이구나!” 라고 빈도수로 때려잡는 방식입니다. 앞뒤 문맥(문장 순서)을 모두 놓치지만 빠르고 가벼워서 가성비가 훌륭합니다.</p>
+</blockquote>
 
-<p>원-핫 인코딩을 기반으로 문서를 단어의 바구니(Bag-of-Words, BoW)로 취급하면, 여러 개의 문서가 모였을 때 거대한 하나의 행렬(Matrix)로 만들 수 있습니다. 가로축은 전체 단어, 세로축은 각각의 문서들로 채워 넣으면 <strong>문서-단어 행렬(DTM)</strong> 이 완성됩니다.</p>
+<h2 id="04-카운트-기반-텍스트-표현-수학적-공간">04. 카운트 기반 텍스트 표현 (수학적 공간)</h2>
+<p>텍스트의 통계적 빈도를 숫자로 이루어진 <strong>벡터(Vector)</strong>로 만들어 기하학적인 좌표계, 즉 <strong>수학적 공간(Vector Space)</strong>으로 쏘아 올립니다.</p>
 
-<p><img src="../img/sec01_dtm_matrix.svg" alt="DTM Matrix" /></p>
+\[\mathbf{v} = [c_1, c_2, c_3, \dots, c_n]\]
 
-<p>하지만 <strong>DTM 역시 치명적인 한계점</strong>들을 가집니다.</p>
-<ol>
-  <li><strong>메모리 낭비 (희소성)</strong>: 10만 개의 단어장에 1만 개의 문서가 모이면 $100,000 \times 10,000$ 의 공간이 필요하지만, 그 안의 무려 99% 이상이 전부 빈도수 0인 상태(희소 행렬)로 방치되어 하드웨어 계산이 무척 느려집니다.</li>
-  <li><strong>문맥 파괴</strong>: 오로지 ‘등장 숫자의 크기’만 남으므로 단어의 시퀀스 순서(문맥 정보)가 모조리 파괴됩니다.</li>
-  <li><strong>무의미한 빈도로 인한 착시</strong>: ‘먹고, 싶은’ 처럼 문장 내에서 중요한 뜻을 가지는 단어와, 한국어의 ‘은, 는, 이, 가’나 영어의 정관사 ‘the’처럼 아무런 뜻거리도 없이 습관적으로 많이 튀어나오는 무의미한 단어들을 구별할 수 없습니다.</li>
-</ol>
+<p>여기서 $c_i$는 해당 사전에서 단어가 등장한 횟수(Count)를 뜻합니다.</p>
 
-<hr />
+<h2 id="05-텍스트의-특성-feature-벡터-공간-매핑">05. 텍스트의 특성 (Feature) 벡터 공간 매핑</h2>
+<ul>
+  <li>특성(Feature)은 <strong>단어 사전(Vocabulary)</strong>으로 규정하며, 좌표축의 값은 단어가 텍스트에 나타나는 <strong>횟수(카운트)</strong>가 됩니다.</li>
+</ul>
 
-<h2 id="3-지프의-법칙-zipfs-law">3. 지프의 법칙 (Zipf’s Law)</h2>
+<p><img src="./img/sec01_05_feature_vector.svg" alt="Feature Vector Representation" /></p>
 
-<p>‘자주 나오는 단어일수록 핵심 키워드겠지’라는 카운트 기반 모델의 소박한 환상은 <strong>지프의 법칙(Zipf’s law)</strong> 앞에서 무너집니다.</p>
+<h3 id="파이썬-프로그래밍-예시-딕셔너리-구조">파이썬 프로그래밍 예시 (딕셔너리 구조)</h3>
+<p>문장: <code class="language-plaintext highlighter-rouge">"text mining is the process of deriving high quality information from text"</code></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 'text' 단어는 2번 등장했으므로 값(수학적 좌표 축)이 2를 갖게 됨.
+</span><span class="n">feature_vector</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sh">'</span><span class="s">text</span><span class="sh">'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="sh">'</span><span class="s">mining</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sh">'</span><span class="s">is</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sh">'</span><span class="s">the</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sh">'</span><span class="s">process</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sh">'</span><span class="s">of</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+    <span class="sh">'</span><span class="s">deriving</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sh">'</span><span class="s">high</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sh">'</span><span class="s">quality</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sh">'</span><span class="s">information</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sh">'</span><span class="s">from</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-<p>언어학자 지프가 발견한 바에 따르면, 인간의 자연어 문서 어딘가를 열어보아도 상위 1~3위에 랭크되는 소수의 관사 및 조사(‘the’, ‘of’, ‘a’ 등)들이 전체 문서의 절반 가까이를 차지할 정도로 극단적으로 빈번히 발생합니다.</p>
+<h2 id="06-벡터-공간-모델-vector-space-model-이란">06. 벡터 공간 모델 (Vector Space Model) 이란?</h2>
+<ul>
+  <li>여러 텍스트 문서들을 통계적으로 집계하여 대수적인 공간 좌표의 ‘점’ 이나 ‘화살표’로 나타내는 모델입니다.</li>
+  <li>대표 기술: 원-핫 인코딩(One-hot), 백 오브 워즈(BoW), DTM, TF-IDF 등</li>
+</ul>
 
-<p><img src="../img/sec01_zipfs_law.svg" alt="Zipf's Law" />
-<em>어떤 언어, 어떤 분야의 문서를 가져와도 빈도수 랭킹 1위의 단어가 압도적인 횟수를 점유하는 파워 로우(Power law) 커브 현상</em></p>
+<h2 id="07-원-핫-인코딩-one-hot-encoding---개념">07. 원-핫 인코딩 (One-hot encoding) - 개념</h2>
+<p>문서에 존재하는 모든 단어의 사전을 짠 뒤, 나를 뜻하는 칸 하나에만 불이 들어오게(Hot)하는 방식입니다.</p>
 
-<p>결국 단순 빈도수에만 의지한 DTM 행렬은, 사실상 ‘the’나 ‘of’ 같이 문서의 진짜 주제와 상관없이 습관적으로 나온 불용어(Stopword)들에게 가장 높은 점수를 주는 바보 같은 모델이 되어버리는 것입니다. 따라서 이를 조율할 보다 논리적인 평가 방법론이 필요하게 되었으며, 이것이 바로 다음 장에서 다룰 <strong>TF-IDF 기법의 탄생 배경</strong>입니다.</p>
+<p><img src="./img/sec01_onehot_encoding.svg" alt="One-hot Encoding Intro" /></p>
+
+<h2 id="08-원-핫-인코딩---정수-희소-벡터-표현">08. 원-핫 인코딩 - 정수 희소 벡터 표현</h2>
+<p>내가 원하는 단어의 인덱스에만 <code class="language-plaintext highlighter-rouge">1</code>을 켜고, 나머지 모든 단어 지점에는 모조리 <code class="language-plaintext highlighter-rouge">0</code>을 때려 박습니다.</p>
+
+<p>문장: <code class="language-plaintext highlighter-rouge">"나는 자연언어 처리를 배운다"</code>
+단어 사전: <code class="language-plaintext highlighter-rouge">{'나': 0, '는': 1, '자연언어': 2, '처리': 3, '를': 4, '배운다': 5}</code></p>
+
+<p>\(\mathbf{v}_{\text{자연언어}} = [0, 0, 1, 0, 0, 0]\)
+(3번째 인덱스 위치(자연언어)만 뜨겁게 불이 켜진 1을 가짐)</p>
+
+<h2 id="09-백-오브-워즈-bag-of-words-bow---문장의-표현">09. 백 오브 워즈 (Bag-of-Words, BoW) - 문장의 표현</h2>
+<ul>
+  <li>단어들이 문서에 등장하는 <strong>순서, 문법은 완전히 깡그리 개무시</strong>하고, 오직 <strong>출현 빈도수</strong>만 세는 무식하지만 강력한 기법.</li>
+</ul>
+
+<p><img src="./img/sec01_09_bow.png" alt="Bag of Words Concept" /></p>
+
+<blockquote>
+  <p>[!WARNING]<br />
+<strong>📖 초심자를 위한 쉬운 해설</strong><br />
+명사와 동사를 거대한 쓰레기 봉투(Bag) 안에 다 쓸어 담고 마구마구 흔들어 섞어버립니다.<br />
+문법 질서가 다 파괴된 채 봉투 안에서 손을 집어넣어 “어? 빨간색 단어 3개 나왔네.” 하고 숫자만 세는 것입니다.</p>
+</blockquote>
+
+<h2 id="10-백-오브-워즈-bag-of-words-bow---문서의-표현">10. 백 오브 워즈 (Bag-of-Words, BoW) - 문서의 표현</h2>
+<ul>
+  <li>원-핫 인코딩은 단어 1개 밖에 표현 못하지만, BoW는 긴 문장 혹은 100페이지짜리 책 전체를 단 하나의 벡터($V$)로 압축시킵니다.</li>
+</ul>
+
+<p>\(\text{Book Vector} = [6, 3, 2, 0, 1, \dots, 5]\)
+(The가 6번 등장, red가 3번, dog가 2번… 으로 거대한 문서 벡터 수식 완성)</p>
+
+<h2 id="11-문서-단어-행렬-document-term-matrix-dtm">11. 문서-단어 행렬 (Document-Term Matrix, DTM)</h2>
+<ul>
+  <li>다수의 문서(Document)와 각 단어(Term)들을 하나의 커다란 엑셀 시트 행과 열 모양의 <strong>2차원 행렬(Matrix)</strong> 수식으로 합쳐버립니다.</li>
+</ul>
+
+<p><img src="./img/sec01_dtm_matrix.svg" alt="DTM Data Matrix" /></p>
+
+\[D = 
+\begin{pmatrix}
+1 &amp; 0 &amp; 2 &amp; \cdots &amp; 0 \\
+0 &amp; 3 &amp; 1 &amp; \cdots &amp; 1 \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; 5 &amp; \cdots &amp; 2 
+\end{pmatrix}\]
+
+<h2 id="12-dtm의-엄청난-한계점---공간적-낭비와-희소성">12. DTM의 엄청난 한계점 - 공간적 낭비와 희소성</h2>
+<p>전 세계 모든 영단어가 10만 개라고 해봅시다. 오늘 제가 쓴 일기장에는 딱 50개의 단어만 사용되었습니다.</p>
+
+<p><img src="./img/sec01_12_sparse_matrix.svg" alt="Sparse Matrix Problem" /></p>
+
+<blockquote>
+  <p>[!CAUTION]<br />
+<strong>📖 초심자를 위한 쉬운 해설 (희소 행렬 문제)</strong><br />
+DTM은 규격(차원)을 맞춰야 하므로 무조건 10만 칸짜리 배열표를 메모리에 그려야 합니다!!!<br />
+50칸엔 제가 쓴 단어가 숫자로 적히지만, 나머지 무려 99,950개의 칸에는 죽을 때까지 쓰지 않을 <strong>거대한 <code class="language-plaintext highlighter-rouge">0</code></strong> 들이 채워지면서 컴퓨터 램(RAM) 용량을 미친 듯이 갉아먹는 치명타(Sparsity)를 입힙니다.</p>
+</blockquote>
+
+<h2 id="13-dtm의-한계점---연관성의-제한">13. DTM의 한계점 - 연관성의 제한</h2>
+<ul>
+  <li>가장 쓸모없는 단어인 <code class="language-plaintext highlighter-rouge">the</code>, <code class="language-plaintext highlighter-rouge">a</code>, <code class="language-plaintext highlighter-rouge">is</code> 같은 녀석들이 무조건 가장 많은 빈도수 카운트 점수를 독점해 버립니다.</li>
+  <li>기계가 볼 때는 중요한 핵심 키워드(예: 자동차)보다 의미 없는 관사(the)를 더 중요한 핵심 단어라고 오판하게 됩니다!</li>
+</ul>
+
+<h2 id="14-지프의-법칙-zipfs-law---통계학적-증명">14. 지프의 법칙 (Zipf’s law) - 통계학적 증명</h2>
+<p>어느 언어든, 제일 자주 쓰는 단어 1위가 전체 말뭉치 등장 횟수를 비정상적으로 홀로 빨아먹는다는 롱테일(Long-tail) 수리통계 법칙입니다.</p>
+
+<p><img src="./img/sec01_zipfs_law.svg" alt="Zipfs Law" /></p>
+
+<p>\(f \propto \frac{1}{r}\)
+<em>(단어의 등장 빈도수 $f$는 사용 순위 $r$에 반비례한다)</em></p>
+
+<h2 id="15-지프의-법칙과-단순-빈도-기반의-패배-요인">15. 지프의 법칙과 단순 빈도 기반의 패배 요인</h2>
+<p>이 법칙에 따르면 사용 빈도 1위(영어 관사 ‘the’)는 단 하나가 전체 문서의 7% 지분을 먹어치웁니다.
+따라서, 그냥 무식하게 숫자 방문 횟수만 세는 <strong>단순 카운트 기반 예측 모델(BoW, DTM)</strong>은 너무 자주나오는 ‘the’ 같은 쓰레기 단어를 제거하지 않으면 절대 똑똑해질 수 없습니다.</p>
+
+<p><strong>(이 억울함을 타개하기 위해 다음 시간에 <code class="language-plaintext highlighter-rouge">TF-IDF</code>라는 보정 공식을 배우게 됩니다!)</strong></p>
 
 
             <!-- 구글 애드센스 출력 -->

@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>언어모델의 성능 평가</title>
-  <meta name="title" content="언어모델의 성능 평가" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="언어모델의 성능 평가"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
+  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>언어 모델 평가지표 - PPL</title>
+  <meta name="title" content="언어 모델 평가지표 - PPL" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="언어 모델 평가지표 - PPL"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
   <meta property="og:url" content="http://localhost:4001/basic/04/sec02/">
 
-  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="언어모델의 성능 평가"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="언어 모델 평가지표 - PPL"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="언어모델의 성능 평가" />
+<meta property="og:title" content="언어 모델 평가지표 - PPL" />
 <meta name="author" content="Hojin" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
@@ -22,9 +22,9 @@
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="언어모델의 성능 평가" />
+<meta property="twitter:title" content="언어 모델 평가지표 - PPL" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"언어모델의 성능 평가","url":"http://localhost:4001/basic/04/sec02/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"언어 모델 평가지표 - PPL","url":"http://localhost:4001/basic/04/sec02/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -374,7 +374,7 @@
         
         
         
-        <li class="breadcrumb-item active" aria-current="page">언어모델의 성능 평가</li>
+        <li class="breadcrumb-item active" aria-current="page">언어 모델 평가지표 - PPL</li>
         
         
         
@@ -382,47 +382,131 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="언어-모델language-model의-성능-평가">언어 모델(Language Model)의 성능 평가</h1>
+            <h1 id="언어-모델의-성능-평가-지표-perplexity-ppl">언어 모델의 성능 평가 지표: Perplexity (PPL)</h1>
 
-<p>이미지 분류는 명확한 ‘정답 클래스’가 있기에 정확도(Accuracy)를 쉽게 측정할 수 있습니다. 반면, 언어 모델은 “선생님이 부리나케 달려갔다”와 “선생님이 빨리 뛰어갔다”처럼 표현 방식에 따라 수많은 ‘정답’이 존재할 수 있기에 기존의 정확도 평가 방식으론 한계가 있습니다. 본 섹션에서는 확률 분포의 근사를 목표로 하는 언어 모델의 특성에 맞춘 고유한 성능 평가 지표를 알아봅니다.</p>
+<p>주관식 시험(자연어 텍스트)에는 완벽한 유일 정답이 없습니다!! 정답이 없는 언어 모델의 예측 성능을 통계학과 수학 분기 계수(Branching Factor) 개념으로 날카롭게 채점하는 PPL 공식과 지표들을 배웁니다.</p>
 
 <hr />
 
-<h2 id="1-perplexity-ppl-당혹도혼란도">1. Perplexity (PPL, 당혹도/혼란도)</h2>
+<h2 id="00-언어모델의-성능평가-도입">00. 언어모델의 성능평가 도입</h2>
+<p>우리가 앞서 만든 확률적 확률 모델이 얼마나 훌륭한 문장을 만들어 내는지, 기계 구조적으로 측정해야 합니다.</p>
 
-<p>가장 대표적인 언어 모델의 내부 평가(Intrinsic evaluation) 지표는 <strong>Perplexity(PPL)</strong> 입니다. 단어 그대로 모델이 다음 단어를 예측할 때 얼마나 “헷갈려하고(당혹스러워) 있는지”를 나타내는 수치입니다. 따라서 <strong>PPL 수치가 낮을수록 훌륭한 언어 모델</strong>을 의미합니다.</p>
+<h2 id="01-성능-평가의-기준-이미지-분류-vs-텍스트-생성">01. 성능 평가의 기준: 이미지 분류 vs 텍스트 생성</h2>
+<p>분류(Classifier)와 생성(Generative)은 채점 방식 자체가 아예 다를 수밖에 없습니다.</p>
 
-<p><img src="../img/sec02_ppl_formula.svg" alt="PPL Formula" />
-<em>문장의 확률의 역수를 정규화한 값으로 구하는 PPL의 수학적 정의</em></p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">모델 형태</th>
+      <th style="text-align: left">비유 (문제 형태)</th>
+      <th style="text-align: left">특징과 채점 방식</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>이미지 객체 탐지</strong></td>
+      <td style="text-align: left"><strong>객관식 시험</strong> (정답 딱 1개)</td>
+      <td style="text-align: left">(강아지를 보여주며) 강아지라고 맞히면 <code class="language-plaintext highlighter-rouge">100점</code>, 고양이라고 하면 가차 없이 <code class="language-plaintext highlighter-rouge">0점</code>. 매우 직관적이고 칼같은 채점.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>자연어 텍스트 생성</strong></td>
+      <td style="text-align: left"><strong>주관식 논술</strong> (정답 수만 개)</td>
+      <td style="text-align: left">“선생님이 교실을 부리나케 ( )” $\to$ “달려갔다”, “뛰어갔다”, “향했다” 등 수백 개 형태가 다 말이 됩니다. 채점이 수학적으로 불명확합니다.</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>의미론적으로 PPL은 모델의 <strong>분기 계수(Branching Factor)</strong>를 의미합니다. 모델이 다음 단어를 산출할 때 마음속으로 대략 몇 개의 가능한 오답들 사이에서 저울질(고민)하고 있는지를 직관적인 수치로 보여줍니다.</p>
+<h2 id="02-자연어-정답-기반-평가-메커니즘의-붕괴">02. 자연어 정답 기반 평가 메커니즘의 붕괴</h2>
+<ul>
+  <li>만약 언어에서도 “밥을 먹었다”만을 유일한 <code class="language-plaintext highlighter-rouge">100점 정답</code>으로 잡고 평가하면?</li>
+  <li>모델이 “식사를 했다”라고 완벽한 대답을 해도 기계는 <code class="language-plaintext highlighter-rouge">0점</code>으로 채점해 버립니다.</li>
+  <li>이런 방식으로 사람이 일일이 채점하면 비용과 시간이 극도로 낭비되며 AI 연구 속도가 박살 납니다.</li>
+</ul>
 
-<p><img src="../img/sec02_branching_factor.svg" alt="Branching Factor" />
-<em>PPL=1은 정답을 확신함(Best)을 의미하고, PPL=10은 열 가지 보기 중에서 갈팡질팡함을 의미</em></p>
+<h2 id="03-텍스트-평가지표-perplexity-ppl-란">03. 텍스트 평가지표: Perplexity (PPL) 란?</h2>
+<p>이러한 주관성 문제를 타개하기 위해 나온 수학, 정보이론 통계 지표입니다.</p>
+<ul>
+  <li>언어모델이 다음 단어를 지칭할 때(예측할 때), <strong>얼마나 혼란스러워하지 않고 확신을 가지고 확률을 모아서 맞췄는가</strong>를 숫자율로 재는 것입니다.</li>
+  <li>퍼플렉서티(PPL, 헷갈림 정도)는 수치가 <strong>낮을수록(덜 헤맬수록)</strong> 절대적으로 우수한 성능의 언어모델입니다!</li>
+</ul>
 
-<p>실제로 방대한 월스트리트 저널 기사를 바탕으로 N-gram을 학습시켰을 때, 참고하는 문맥의 창 크기(n) 커질수록 힌트를 많이 얻어 PPL 수치가 뚝뚝 떨어짐을 관찰할 수 있습니다.</p>
+<h2 id="04-perplexity-ppl-의-무시무시한-수학-공식">04. Perplexity (PPL) 의 무시무시한 수학 공식</h2>
+<p>$N$개의 단어로 구성된 문장 $W$의 PPL(헷갈림 지수)은, 단어 확률들의 곱을 길이에 따라 기하평균을 낸 후 역수(루트)를 취하여 계산됩니다.</p>
 
-<p><img src="../img/sec02_ngram_ppl.svg" alt="N-gram PPL Summary" />
-<em>많은 이전 단어(n)를 참고할수록 다음 예측의 불확실성이 줄어들어 PPL이 감소함</em></p>
+<p><img src="./img/sec02_ppl_formula.svg" alt="PPL Formula Calculation" /></p>
+
+\[\text{PPL}(W) = P(w_1, w_2, \dots, w_N)^{-\frac{1}{N}} = \sqrt[N]{\frac{1}{P(w_1, w_2, \dots, w_N)}}\]
 
 <blockquote>
-  <p><strong>[주의점]</strong> PPL이 낮다고 해서 문장의 의미적, 사실적 ‘진실성’까지 훌륭하다고 보장할 수는 없습니다. 단순히 주어진 말뭉치(Corpus)의 전후 확률 분포를 유창하게 잘 모방했다는 뜻에 불과하기 때문입니다.</p>
+  <p>[!TIP]<br />
+<strong>📖 초심자를 위한 쉬운 해설: 헷갈린 방의 갯수</strong><br />
+루트와 분수가 떠다니는 저 공식이 끔찍해 보이지만, 아주 쉬운 철학입니다.<br />
+PPL 지표는 곧 <strong>분기 계수(Branching Factor)</strong>를 뜻합니다.<br />
+즉 문장을 생성할 때, 기계 머릿속에서 <strong>“음, 다음 단어로 쓸데없는 후보들이 총 몇 개나 있지?”</strong>라며 쥔 보기 카드의 갯수를 뜻합니다.</p>
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">PPL = 1</code> : “무조건 100% 이거야!” 하고 다른 보기를 생각조차 안 함 (천재)</li>
+    <li><code class="language-plaintext highlighter-rouge">PPL = 100</code> : “어… 다음 단어로 갈 길이 100갈래나 되는데 어디로 가지?” 이마에 땀을 뻘뻘 흘리는 수치 (바보)</li>
+  </ul>
 </blockquote>
 
-<hr />
+<p><img src="./img/sec02_branching_factor.svg" alt="Branching Factor Confusion" /></p>
 
-<h2 id="2-기타-과업-특화-언어-모델-평가-지표">2. 기타 과업 특화 언어 모델 평가 지표</h2>
+<h2 id="05-연쇄-법칙을-치환한-최종-ppl-수식-연산">05. 연쇄 법칙을 치환한 최종 PPL 수식 연산</h2>
+<p>우리가 이전 챕터에서 배운 연쇄법칙(Chain Rule) 덧셈 곱셈표를 저 무서운 분모(루트 구멍 안)에 집어넣어 전개해 보면,</p>
 
-<p>PPL이 언어 모델 자체의 문장 생성 능숙함을 보는 것이라면, 실제 응용 애플리케이션의 ‘목적’에 특화된 실무적인 평가 지표들(Extrinsic evaluation)도 활발히 쓰이고 있습니다.</p>
+\[\text{PPL}(W) = \sqrt[N]{\frac{1}{\prod_{i=1}^N P(w_i \mid w_1, \dots, w_{i-1})}}\]
 
-<p><img src="../img/sec02_lm_metrics.svg" alt="Other NLP Metrics" /></p>
+<p>(각 단어가 등장할 조건부 확률을 곱한 것의 루트 역수로 깔끔하게 딱 떨어집니다!)</p>
+
+<h2 id="06-ppl-응용-예시-n-gram-체급별-헷갈림-차이">06. PPL 응용 예시: N-gram 체급별 헷갈림 차이</h2>
+<p>월스트리트 저널 데이터 3,800만 단어를 통과시킨 실험 모델의 채점 결과표입니다!</p>
+
+<p><img src="./img/sec02_ngram_ppl.svg" alt="Ngram Test Models" /></p>
 
 <ul>
-  <li><strong>BLEU</strong>: 기계 번역에서 인간이 번역한 정답지와 모델의 번역 결과가 얼마나 단어/순서 측면에서 일치하는지를 엄격하게 측정합니다.</li>
-  <li><strong>ROUGE</strong>: 문서 요약에서 사람이 뽑아낸 핵심(중요 단어)를 인공지능이 도망치지 않고(Recall) 얼마나 잘 포함했는지를 측정합니다.</li>
-  <li><strong>MMLU</strong>: 최신 LLM의 똑똑함을 잴 때 가장 흔히 쓰이는 57개 주제(의학, 법학 등)의 거대한 객관식 시험지입니다.</li>
-  <li><strong>LLM-as-a-Judge</strong>: 인간 평가자가 일일이 점수를 매기기에는 챗봇의 답변이 너무 길고 많으므로, 평가에 있어 압도적인 지능을 지닌 최상위급 LLM(예: GPT-4)을 초빙하여 후배 모델들의 퀄리티를 평가(1~10점)하게 하는 트렌디한 방식입니다.</li>
+  <li><strong>1단계 (Uni-gram)</strong>: 직전 앞 단어를 아예 안 보고 추측하는 장님 모델 $\to$ PPL이 무려 <code class="language-plaintext highlighter-rouge">962</code> (900갈림길에서 헤매는 수준)</li>
+  <li><strong>3단계 (Tri-gram)</strong>: 앞에 나온 두 개 단어를 참고해서 추측하는 양반 모델 $\to$ PPL이 <code class="language-plaintext highlighter-rouge">109</code>로 급감!</li>
+  <li><strong>결론</strong>: 문맥(앞 단어)을 길게 참고할수록 컴퓨터의 헷갈림(PPL) 지수는 극적으로 하락하여 아주 똑똑해집니다!</li>
 </ul>
+
+<h2 id="07-ppl-평가방법의-주의사항-만능은-아니다">07. PPL 평가방법의 주의사항: 만능은 아니다!</h2>
+<p>PPL은 모델 가중치의 수학적 성능을 자랑하기 좋지만, 인간의 공감능력을 설명해 주진 못합니다.</p>
+<ul>
+  <li>PPL 결과는 단지 ‘지가 공부한 모의고사(테스트 데이터) 환경 안에서의 상대적인 등락’일 뿐입니다.</li>
+  <li>언어의 확률적인 생성 문법 능력만 쳐다볼 뿐, 모델의 발언이 진실인지 거짓인지 <strong>비윤리적이고 의미 없는 헛소리(환각)인지에 대한 필터링 감별 기능이 전혀 없습니다!</strong> (이것이 LLM의 근본 리스크입니다)</li>
+</ul>
+
+<h2 id="08-현대-딥러닝-텍스트-생성-평가지표-4대장">08. 현대 딥러닝 텍스트 생성 평가지표 4대장</h2>
+<p>미래의 LLM 생태계에서는 단순한 다음 단어 예측(PPL)을 넘어서, 실제로 어떤 태스크를 푸느냐에 따라 지표가 전문 분화되었습니다.</p>
+
+<p><img src="./img/sec02_lm_metrics.svg" alt="Modern NLP Metrics Tools" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">지표명 (Metrics)</th>
+      <th style="text-align: left">약자 설명 및 작동 원리 규칙</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>BLEU</strong></td>
+      <td style="text-align: left">번역기 전문 채점 표 (전문가가 쓴 직역 문장과 형태소가 얼마나 수학적으로 겹치는가?)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>ROUGE</strong></td>
+      <td style="text-align: left">뉴스 요약 AI 전문 채점 (핵심 단어들이 하나도 안 빠지고 요약문에 쏙 담겼는가 비율 컷!)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>MMLU</strong></td>
+      <td style="text-align: left">고도화 지식 채점 (GPT들이 대학 법학, 의학 기출문제 시험지를 억지로 풀게 시켜서 정답률 산출)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>Judge (심판 모델)</strong></td>
+      <td style="text-align: left">윤리성/논리성은 수식 채점이 불가능하니, 걍 제일 똑똑한 최상위 모델(GPT-4)이 후배의 대답을 “흠, 이 대답은 논리가 빈약하네 4점” 이라고 AI가 AI를 채점해 버리는 방식!</td>
+    </tr>
+  </tbody>
+</table>
 
 
             <!-- 구글 애드센스 출력 -->

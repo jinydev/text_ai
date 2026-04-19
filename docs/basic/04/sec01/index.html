@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>통계적 언어모델의 개념</title>
-  <meta name="title" content="통계적 언어모델의 개념" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="통계적 언어모델의 개념"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
+  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>언어 모델 개념</title>
+  <meta name="title" content="언어 모델 개념" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="언어 모델 개념"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
   <meta property="og:url" content="http://localhost:4001/basic/04/sec01/">
 
-  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="통계적 언어모델의 개념"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="언어 모델 개념"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="통계적 언어모델의 개념" />
+<meta property="og:title" content="언어 모델 개념" />
 <meta name="author" content="Hojin" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
@@ -22,9 +22,9 @@
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="통계적 언어모델의 개념" />
+<meta property="twitter:title" content="언어 모델 개념" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"통계적 언어모델의 개념","url":"http://localhost:4001/basic/04/sec01/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"언어 모델 개념","url":"http://localhost:4001/basic/04/sec01/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -374,7 +374,7 @@
         
         
         
-        <li class="breadcrumb-item active" aria-current="page">통계적 언어모델의 개념</li>
+        <li class="breadcrumb-item active" aria-current="page">언어 모델 개념</li>
         
         
         
@@ -382,63 +382,140 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="통계적-언어-모델statistical-language-model의-개념">통계적 언어 모델(Statistical Language Model)의 개념</h1>
+            <h1 id="통계-기반-언어-모델의-확률론적-이해">통계 기반 언어 모델의 확률론적 이해</h1>
 
-<p>자연어 처리에서 “어떤 문장이 더 그럴듯하고 자연스러운가?”를 판별하는 것은 수많은 애플리케이션의 핵심 근간입니다. 이 섹션에서는 수학적 확률 기반으로 언어 현상을 모델링하는 통계적 언어 모델과 N-gram, 그리고 그 근원적인 한계에 대해 다룹니다.</p>
-
-<hr />
-
-<h2 id="1-언어-모델language-model이란">1. 언어 모델(Language Model)이란?</h2>
-
-<p>언어 모델은 단어의 시퀀스(문장)에 확률을 할당하는 시스템입니다. “이전 단어들이 주어졌을 때, 다음에 올 단어는 무엇일까?”를 맞추기 위해 훈련 데이터로부터 단어 조합의 확률 분포를 파악(근사)합니다. 언어는 여러 대안 중 하나를 고르는 불확실한 연속 과정이기 때문에 필연적으로 수학의 <strong>확률(Probability)</strong> 이 개입될 수밖에 없습니다.</p>
-
-<p><img src="../img/sec01_lm_application.svg" alt="Language Model Applications" />
-<em>확률 분포를 통해 더 자연스러운 문맥을 고르는 기계 번역, 오타 교정, 음성 인식 시나리오</em></p>
+<p>기계가 한글과 영어를 조합해서 문장을 만들어 낼 때, 그 과정이 인간의 창조능력이 아니라 그저 지독한 “확률(Probability) 숫자 맞추기 게임”에 불과하다는 씁쓸한 진실을 수학적으로 배웁니다.</p>
 
 <hr />
 
-<h2 id="2-조건부-확률의-연쇄-법칙-chain-rule">2. 조건부 확률의 연쇄 법칙 (Chain Rule)</h2>
+<h2 id="00-통계적-언어모델의-개념">00. 통계적 언어모델의 개념</h2>
+<p>단어가 모여 문장이 될 때 그 조합이 무작위인지 자연스러운 언어인지 통계와 확률 수식으로 증명합니다.</p>
 
-<p>그렇다면 전체 문장의 번역기나 음성 인식이 도출해내는 ‘문장이 발생할 전체 확률’은 어떻게 구할까요? 통계적 언어 모델(SLM)에서는 이를 <strong>조건부 확률(Conditional Probability)의 연쇄 법칙</strong>으로 정의합니다. 즉, 문장의 확률은 “앞 단어들까지 등장했을 때 다음 단어가 등장할 확률”들의 연속된 곱셈으로 쪼개어 구할 수 있습니다.</p>
+<p><img src="./img/sec04_01_00_prob.png" alt="Language Model Probability Concept" /></p>
 
-<p><img src="../img/sec01_chain_rule.svg" alt="Chain Rule of Probability" /></p>
+<blockquote>
+  <p>[!NOTE]<br />
+<strong>📖 초심자를 위한 쉬운 해설</strong><br />
+AI는 내일 주식 시장을 예측하는 것처럼, 다음 단어를 예측하기 위해 주사위를 굴립니다. AI에게 주사위 굴리기는 결코 운이 아니라 <strong>과거의 엄청난 학습 데이터를 통해 계산된 가장 높은 확률을 찾는 정교한 수학 연산</strong>입니다.</p>
+</blockquote>
 
-<hr />
+<h2 id="01-언어모델language-model이란">01. 언어모델(Language Model)이란?</h2>
+<p>단어의 순서(시퀀스) 전체에 <strong>논리적인 확률 값을 할당하는 통계 모델</strong>입니다.</p>
+<ul>
+  <li>목표: 이전 단어들이 쭉 주어졌을 때, 그 <strong>다음 단어가 무엇일지를 확률적으로 예측</strong>하는 것.</li>
+</ul>
 
-<h2 id="3-통계적-한계-희소-문제-sparsity-problem">3. 통계적 한계: 희소 문제 (Sparsity Problem)</h2>
+<h2 id="02-언어모델-왜-하필-수학-확률인가">02. 언어모델: 왜 하필 수학 ‘확률’인가?</h2>
+<p>자연어는 $1+1=2$ 처럼 딱 떨어지는 정답이 없고, 수많은 선택지 중 가장 그럴싸한(자연스러운) 하나를 고르는 불확실성의 미학이기 때문입니다.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">“오늘 점심 뭐 먹지? ( )”</code> → <code class="language-plaintext highlighter-rouge">“짜장면”</code>, <code class="language-plaintext highlighter-rouge">“김치찌개”</code> 등이 나올 확률이 높지, <code class="language-plaintext highlighter-rouge">“시멘트”</code>가 나올 확률은 <code class="language-plaintext highlighter-rouge">0%</code>에 수렴합니다.</li>
+</ul>
+
+<h2 id="03-언어모델의-필요성-확률-점수의-대결">03. 언어모델의 필요성 (확률 점수의 대결)</h2>
+<p>어떤 문장이 사람이 쓴 자연어에 가까운지 점수를 매기는 데 쓰입니다.</p>
 
 <table>
+  <thead>
+    <tr>
+      <th style="text-align: left">문장 후보</th>
+      <th style="text-align: left">자연어 점수 확률 $P(W)$</th>
+      <th style="text-align: left">평가</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>고전적인 통계적 언어 모델은 확률을 오직 카운트(등장 횟수) 기반으로 도출합니다. $P(\text{is}</td>
-      <td>\text{boy}) = \frac{\text{count(boy is)}}{\text{count(boy)}}$ 처럼 훈련 데이터(Corpus)에 존재하는 개수를 곧바로 확률로 치환합니다. 그러나 여기에는 치명적인 문제가 있습니다.</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">I eat apple</code></td>
+      <td style="text-align: left">$P = 0.85$ (높음!)</td>
+      <td style="text-align: left">👍 정상적인 자연어</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Apple eat I</code></td>
+      <td style="text-align: left">$P = 0.0001$ (최악)</td>
+      <td style="text-align: left">❌ 외계어 (버림)</td>
     </tr>
   </tbody>
 </table>
 
-<p><img src="../img/sec01_sparsity_problem.svg" alt="Sparsity Problem" />
-<em>방대한 기사들을 모두 읽어도 한 번도 등장하지 않은 특정 문구의 조합은 확률이 0이 되는 희소 문제</em></p>
+<h2 id="04-언어모델-적용-예시-기계-번역--오타-교정--음성-인식">04. 언어모델 적용 예시 (기계 번역 / 오타 교정 / 음성 인식)</h2>
+<p>가장 보편적인 활용법들은 모두 확률론적 승부입니다.</p>
 
-<hr />
+<p><img src="./img/sec01_lm_application.svg" alt="LM Application Structure" /></p>
 
-<h2 id="4-n-gram-언어-모델과-마르코프-가정">4. N-gram 언어 모델과 마르코프 가정</h2>
+<ul>
+  <li><strong>기계 번역</strong>: $P(\text{나는 버스를 탔다}) &gt; P(\text{나는 버스를 태운다})$ (왼쪽 승리!)</li>
+  <li><strong>오타 교정</strong>: “선생님이 부리나케 ( )” $\to P(\text{달려갔다}) &gt; P(\text{잘려갔다})$ (달려갔다 승리!)</li>
+  <li><strong>음성 인식</strong>: 발음이 뭉개졌을 때 $\to P(\text{메론을 먹는다}) &gt; P(\text{메롱을 먹는다})$ (메론 승리!)</li>
+</ul>
 
-<p>희소 문제로 인해 문장이 조금만 길어져도 확률이 무조건 0에 수렴하는 문제를 해결하기 위해, 문장의 맨 처음부터 끝까지 전체를 다 보지 말고 <strong>직전 $n$개의 단어만 참고하자(근사 approximation)</strong>는 논리가 탄생하며, 이를 <strong>N-gram 언어 모델</strong>이라고 부릅니다.</p>
+<h2 id="05-통계적-언어모델slm의-수학적-계산-원리">05. 통계적 언어모델(SLM)의 수학적 계산 원리</h2>
+<p>과거 딥러닝 이전 시대(SLM)에는 “수억 권의 책”을 쌓아두고 직접 횟수를 카운트했습니다.</p>
 
-<p>마치 “현재 상태만 알면 미래는 과거와 독립적이다”라고 보는 마르코프 체인(Markov Chain)의 성질을 언어에 도입하여 희소성을 줄인 아이디어입니다.</p>
+<p><strong>목표 명제</strong>: 문장 전체 확률 $P(W)$ 구하기.
+여기서 $W$는 $n$개의 단어 시퀀스 $(w_1, w_2, \dots, w_n)$ 입니다.</p>
 
-<p><img src="../img/sec01_ngram_approximation.svg" alt="N-gram Approximation" />
-<em>참고하는 윈도우 크기($n$)의 조절을 통해 trade-off를 해결하려는 접근</em></p>
+<h2 id="06-조건부-확률conditional-probability의-도입">06. 조건부 확률(Conditional Probability)의 도입</h2>
+<p>단어는 문맥 때문에 이전 단어들의 절대적인 영향을 받습니다. 따라서 고등학교 통계의 <strong>조건부 확률($P(B \mid A)$)</strong> 공식을 빌려옵니다.</p>
 
-<hr />
+\[P(B \mid A) = \frac{P(A,B)}{P(A)}\]
 
-<h2 id="5-결론-확률적-앵무새라는-본질적-한계">5. 결론: “확률적 앵무새”라는 본질적 한계</h2>
+<h2 id="07-조건부-확률의-연쇄법칙chain-rule">07. 조건부 확률의 연쇄법칙(Chain Rule)</h2>
+<p>길고 엄청난 문장은 하나의 덩어리 확률이 아니라, 단어들이 도미노처럼 연속해서 벌어지는 곱셈($\prod$)으로 증명할 수 있습니다.</p>
 
-<p>이처럼 텍스트를 카운트와 확률로만 접근하는 방식은 한계를 지닙니다. 과거 N-gram 모델의 경우는 <code class="language-plaintext highlighter-rouge">0</code>이라는 확률때문에 생성 자체가 멈춰버리는 1차원적인 불안정성이 있었지만, 문맥 창을 무한대로 키운 최신 LLM(대형언어모델) 마저도 그 본질은 통계를 기반으로 합니다.</p>
+\[P(w_1, w_2, \dots, w_n) = \prod_{i=1}^{n} P(w_i \mid w_1, \dots, w_{i-1})\]
 
-<p><img src="../img/sec01_stochastic_parrot.svg" alt="Stochastic Parrot Limit" /></p>
+<p><img src="./img/sec01_chain_rule.svg" alt="Chain Rule Multiplication" /></p>
 
-<p>연구자들은 최신 LLM이 인간의 언어를 지능적으로 이해한 것이 아니라, 그저 학습 데이터를 기반으로 확률에 맞춰 치장된 텍스트를 뱉어내는 <strong>“확률적 앵무새(Stochastic parrot)”</strong> 에 불과하다는 뼈아픈 시각을 제시하기도 합니다. 이런 맹점을 보여주는 대표적인 결과가 바로 문맥은 그럴듯하나 사실이 아닌 내용을 생성해내는 환각(Hallucination) 현상입니다.</p>
+<ul>
+  <li>예를 들어, 4단어 문장의 발생 확률은 아래 확률의 곱과 같습니다.
+\(P(A, B, C, D) = P(A) \times P(B \mid A) \times P(C \mid A,B) \times P(D \mid A,B,C)\)</li>
+</ul>
+
+<h2 id="08-단어가-등장할-확률-카운트-기반-계산">08. 단어가 등장할 확률: 카운트 기반 계산</h2>
+<p>그렇다면 저 확률값들은 도대체 어디서 가져올까요? 바로 <strong>데이터셋의 출현 빈도수 수작업 카운트</strong>에서 가져옵니다.</p>
+
+\[P(\text{is} \mid \text{An adorable little boy}) = \frac{\text{Count}(\text{An adorable little boy is})}{\text{Count}(\text{An adorable little boy})}\]
+
+<blockquote>
+  <p>[!TIP]<br />
+<strong>📖 초심자를 위한 쉬운 해설</strong><br />
+즉, 내 백과사전에 <code class="language-plaintext highlighter-rouge">An adorable little boy</code> 라는 영어 문장이 딱 100번 쓰였는데, 그 바로 뒤에 <code class="language-plaintext highlighter-rouge">is</code>가 따라붙은 경우가 30번이라면, 저 분수식의 정답은 $\frac{30}{100} = 0.3 (30\%)$ 가 되는 초등학생 수준의 명료한 산수입니다.</p>
+</blockquote>
+
+<h2 id="09-카운트-기반-언어모델의-치명적-한계-희소-문제-sparsity">09. 카운트 기반 언어모델의 치명적 한계: 희소 문제 (Sparsity)</h2>
+<p>완벽해 보이지만 이 수학 공식에는 치명적인 폭탄이 숨겨져 있습니다.</p>
+
+<p><img src="./img/sec01_sparsity_problem.svg" alt="Sparsity Concept Image" /></p>
+
+<blockquote>
+  <p>[!CAUTION]<br />
+<strong>희소 문제 (Sparsity Problem)</strong>: 내가 쓴 소설 문장이 전 세계 인터넷 데이터베이스를 다 뒤져도 단 한 번도 존재한 적이 없는 희귀 문장이라면? 분모값인 $\text{Count}$가 <code class="language-plaintext highlighter-rouge">0</code>이 되어 버리며 에러가 폭발합니다.</p>
+</blockquote>
+
+<h2 id="10-언어모델의-진화-타협점-n-gram-전체-대신-일부만-보기">10. 언어모델의 진화 타협점: N-gram (전체 대신 일부만 보기)</h2>
+<p>이 희소성 에러를 막고자 통계학자들은 <strong>잔머리(근사화, Approximation)</strong>를 굴렸습니다. 문맥 전체를 통째로 보려니까 데이터가 없는 것입니다. 앞의 주어를 쿨하게 다 버리고, <strong>“이전 단어 $N$개”</strong>만 보고 확률을 맞추기로 타협합니다.</p>
+
+<p><img src="./img/sec01_ngram_approximation.svg" alt="Ngram Approximation Rules" /></p>
+
+<ul>
+  <li>(전체 문맥) $P(\text{is} \mid \text{An adorable little boy})$</li>
+  <li><strong>(N-gram 근사 적용)</strong> 억지로 잘라내어 타협 $\approx P(\text{is} \mid \text{boy})$</li>
+</ul>
+
+<h2 id="11-n-gram-모델의-마르코프-체인markov-chain">11. N-gram 모델의 마르코프 체인(Markov Chain)</h2>
+<p>이 철학은 통계학의 <strong>마르코프 성질</strong>에 완벽히 의존합니다.
+“현재의 상태를 예측하기 위해서는 너무나 아득한 먼 과거(주어)는 필요 없고, 아주 최근 과거 정보(바로 전 단어)만으로 충분히 논리적으로 독립적이다.” 라는 대전제입니다.</p>
+
+<h2 id="12-딥러닝-시대의-통계-한계-확률적-앵무새-stochastic-parrot">12. 딥러닝 시대의 통계 한계: 확률적 앵무새 (Stochastic Parrot)</h2>
+<p>과거의 통계(SLM)를 넘어 강력한 딥러닝(LLM 챗GPT)이 왔지만, 여전히 본질은 “수학적 확률 맞추기”에 지나지 않아 치명적인 문제가 발생합니다.</p>
+
+<p><img src="./img/sec04_01_23_parrot.png" alt="Stochastic Parrot Concept" /></p>
+
+<blockquote>
+  <p>[!WARNING]<br />
+<strong>📖 초심자를 위한 쉬운 해설: 환각(Hallucination)의 이유</strong><br />
+AI는 내가 쓴 글을 우아하게 이해해서 대답하는 것이 아닙니다.<br />
+뱃속에 계산기를 품은 <strong>확률적 앵무새(Stochastic Parrot)</strong>에 불과합니다. “세종대왕이 아이폰을 언제 집어던졌지?” 라고 물어보면, 아무 생각 없이 인터넷에서 배운 확률(세종대왕 다음에 아이폰 단어가 올 확률 1% 라도 있으면 조합해버림)로 미친 듯이 그럴싸한 소설(거짓말) 확률을 지저귀기 바쁩니다. 의미와 진리를 모른다는 철학적 비판이기도 합니다.</p>
+</blockquote>
 
 
             <!-- 구글 애드센스 출력 -->

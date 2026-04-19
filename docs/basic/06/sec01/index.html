@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>텍스트 분류의 개념</title>
-  <meta name="title" content="텍스트 분류의 개념" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="텍스트 분류의 개념"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
+  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>나이브 베이즈와 텍스트 분류</title>
+  <meta name="title" content="나이브 베이즈와 텍스트 분류" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="나이브 베이즈와 텍스트 분류"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
   <meta property="og:url" content="http://localhost:4001/basic/06/sec01/">
 
-  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="텍스트 분류의 개념"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="나이브 베이즈와 텍스트 분류"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="텍스트 분류의 개념" />
+<meta property="og:title" content="나이브 베이즈와 텍스트 분류" />
 <meta name="author" content="Hojin" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
@@ -22,9 +22,9 @@
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="텍스트 분류의 개념" />
+<meta property="twitter:title" content="나이브 베이즈와 텍스트 분류" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"텍스트 분류의 개념","url":"http://localhost:4001/basic/06/sec01/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"나이브 베이즈와 텍스트 분류","url":"http://localhost:4001/basic/06/sec01/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -374,7 +374,7 @@
         
         
         
-        <li class="breadcrumb-item active" aria-current="page">텍스트 분류의 개념</li>
+        <li class="breadcrumb-item active" aria-current="page">나이브 베이즈와 텍스트 분류</li>
         
         
         
@@ -382,109 +382,129 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="텍스트-분류-text-classification">텍스트 분류 (Text Classification)</h1>
+            <h1 id="기계학습-모델을-활용한-문서-분류-기법">기계학습 모델을 활용한 문서 분류 기법</h1>
 
-<p>자연언어처리(NLP) 분야에서는 수집된 텍스트들을 효과적으로 분석하고 활용하기 위해 다양한 기법들이 존재합니다. 형태소 분석부터 네트워크 분석, 기계번역 등 다양한 갈래 중에서도, 텍스트가 어떤 범주(Category)에 속하는지 식별해내는 작업을 가리켜 <strong>텍스트 분류(Text Classification)</strong>라고 합니다.</p>
-<ul>
-  <li><strong>예시</strong>: 메일의 스팸/정상 여부 분류, 뉴스 기사의 주제별 분류, 리뷰의 감성(긍정/부정) 분류 등</li>
-</ul>
+<p>이전 주차까지 텍스트를 기하학적 숫자(벡터)로 바꾸는 법을 배웠습니다. 이제 기계가 그 벡터를 씹어 삼켜서, 이 문서가 과연 ‘긍정’인지 ‘부정’인지 ‘스팸’인지를 스스로 판별해 내는 <strong>텍스트 분류(Classification)</strong> 머신러닝의 대단원을 시작합니다.</p>
 
 <hr />
 
-<h2 id="1-텍스트-분류-과정-training--prediction">1. 텍스트 분류 과정 (Training &amp; Prediction)</h2>
+<h2 id="00-텍스트-분류의-개념">00. 텍스트 분류의 개념</h2>
+<p>현업에서 가장 돈이 되고 수요가 많은 애플리케이션 중 최고봉입니다.</p>
 
-<p>텍스트 분류 모델을 만들고 사용하는 과정은 크게 <strong>학습 과정(Training Phase)</strong>과 <strong>예측 과정(Prediction Phase)</strong>으로 나뉩니다.</p>
+<p><img src="./img/sec06_01_00_classifier.png" alt="Text Classification AI" /></p>
 
-<p><img src="../img/sec01_classification_process.svg" alt="Text Classification Process" /></p>
+<h2 id="01-자연언어처리-기법의-파이프라인">01. 자연언어처리 기법의 파이프라인</h2>
+<ul>
+  <li><strong>텍스트 수집</strong>: 크롤링 등</li>
+  <li><strong>텍스트 전처리</strong>: 불용어 파괴, 형태소 쪼개기</li>
+  <li><strong>특성 추출(Feature Extraction)</strong>: 카운트를 기반으로 벡터 만들기 (BoW, TF-IDF, 임베딩)</li>
+  <li><strong>$\to$ 텍스트 분석 (문서 분류)</strong>: (우리가 지금 서 있는 위치) “이 메일은 스팸 범죄입니다!” 도출!</li>
+</ul>
+
+<h2 id="02-텍스트-분류의-내부-과정도">02. 텍스트 분류의 내부 과정도</h2>
+<p>텍스트 분류 머신러닝은 무조건 <code class="language-plaintext highlighter-rouge">학습(Train)</code>과 <code class="language-plaintext highlighter-rouge">예측(Predict)</code> 두 단계 엔진으로 구동됩니다.</p>
+<ul>
+  <li><strong>학습 엔진</strong>: 텍스트와 그 답지 레이블(Label)을 묶어서 무수히 밀어 넣으며 통계 가중치를 적응시킵니다.</li>
+  <li><strong>예측 엔진</strong>: 처음 보는 문장이 들어와도, 학습된 가중치 모델을 바탕으로 알아서 클래스(예: 정치 기사)를 도출합니다.</li>
+</ul>
+
+<p><img src="./img/sec01_classification_process.svg" alt="Machine Classification Process" /></p>
+
+<h2 id="03-과거의-유산-피처-익스트랙터-feature-extractor">03. 과거의 유산: 피처 익스트랙터 (Feature Extractor)</h2>
+<p>모델은 바보이기 때문에 “I love it” 같은 사람이 읽는 영어를 던지면 무조건 계산 에러가 뜹니다.
+따라서 이전에 배웠던 <code class="language-plaintext highlighter-rouge">BoW</code> 매트릭스나 <code class="language-plaintext highlighter-rouge">TF-IDF</code> 가중치 변환기 등의 <strong>전처리 추출 모듈</strong>을 반드시 먼저 통과시켜서 숫자로 구워 넘겨주어야 기계가 수학적 분류 연산을 할 수 있습니다.</p>
+
+<h2 id="04-텍스트-특성-벡터화-리뷰---bow-단어-가방">04. 텍스트 특성 벡터화 리뷰 - BoW (단어 가방)</h2>
+<p>단순 빈도수 카운트표. 가장 멍청하지만 확실합니다.</p>
+
+<p><img src="./img/sec01_bow_example.svg" alt="BoW Method Review" /></p>
+
+<h2 id="05-텍스트-특성-벡터화-리뷰---tf-idf">05. 텍스트 특성 벡터화 리뷰 - TF-IDF</h2>
+<p>단순 카운트의 맹점(The나 a 같은 쓸데없는 단어가 1위를 독식하는 현상)을 수학적으로 극복한 로그($\ln$) 보정식 적용본. 핵심 식별 명사(<code class="language-plaintext highlighter-rouge">스팸</code>, <code class="language-plaintext highlighter-rouge">대출</code>)에 더 높은 가중치를 배당하여 분류기 성능을 멱살 잡고 끌어올리는 주역입니다.</p>
+
+<p><img src="./img/sec01_tfidf_example.svg" alt="TF-IDF Review" /></p>
+
+<hr />
+
+<h2 id="06-통계학의-위대한-아버지-나이브-베이즈-분류기-naive-bayes">06. 통계학의 위대한 아버지: 나이브 베이즈 분류기 (Naive Bayes)</h2>
+<p>딥러닝의 복잡한 레이어가 등장하기 훨씬 전부터 존재한, 가장 역사가 깊고 직관적이며 속도가 무식하게 빠른 통계 문서 분류기입니다. <strong>베이즈 규칙(Bayes rule)</strong> 확률 방정식에 그 근간을 둡니다.</p>
+
+<p><img src="./img/sec01_naive_bayes.svg" alt="Naive Bayes Structure Formula" /></p>
+
+<h3 id="베이즈-공식">베이즈 공식</h3>
+<p>문서 $d$가 주어졌을 때, 그것이 클래스 $c$(예: 스팸)일 확률:
+\(P(c|d) = \frac{P(d|c)P(c)}{P(d)}\)</p>
+
+<h2 id="07-나이브-베이즈의-억지스러운-두-가지-가정-naive">07. 나이브 베이즈의 억지스러운 두 가지 가정 (Naive)</h2>
+<p>수학적 확률 계산의 폭발을 막기 위해, 통계학자들은 아주 ‘Naive(너무 순진하고 멍청한)’한 억지 가정을 세우고 수학식을 난도질했습니다.</p>
 
 <ol>
-  <li><strong>학습 과정</strong>: 이미 정답(Label)이 주어진 수많은 텍스트 데이터를 통해 패턴을 찾습니다. 텍스트를 기계가 알아들을 수 있는 수치형 ‘특성(Features)’으로 추출한 뒤 이를 ML 알고리즘을 이용해 학습시켜 모델을 도출합니다.</li>
-  <li><strong>예측 과정</strong>: 학습된 모델을 활용해, 정답이 없는 새로운 문서가 들어왔을 때 기존 규칙과 동일하게 특성 추출을 거친 뒤 그 문서가 어떤 카테고리(Label)에 속할지 예측합니다.</li>
+  <li><strong>위치(순서) 독립성 무시</strong>: 단어가 문장 앞에 오든 뒤에 오든 뉘앙스 차이를 아예 100% 무시합니다. (BoW 사상 유지)</li>
+  <li><strong>조건부 독립성 억지</strong>: 엄청난 길이의 텍스트가 들어왔을 때, <code class="language-plaintext highlighter-rouge">good</code>과 <code class="language-plaintext highlighter-rouge">movie</code> 같은 연관 깊은 단어조차 “얘네들은 피차 아무 영향을 안 주고 완전히 우연히 독립적으로 떠오른 단어들이야” 라며 억지로 사건 수식을 분리(독립 사건 취급)해 버립니다.</li>
 </ol>
-
-<hr />
-
-<h2 id="2-텍스트-특성feature-추출">2. 텍스트 특성(Feature) 추출</h2>
-
-<p>분석 과정에서 가장 중요한 것은 인간의 언어를 기계가 이해할 수 있는 수학적 <strong>숫자 특성 벡터(Feature Vector)</strong>로 변환하는 일입니다. 가장 기본적인 2가지 방법을 살펴봅니다.</p>
-
-<h3 id="2-1-bag-of-words-bow">2-1. Bag of Words (BoW)</h3>
-
-<p>BoW는 텍스트를 단순히 “단어들의 가방”으로 취급하는 가장 직관적인 방식입니다. <strong>단어의 문법이나 어순(위치)은 완전히 무시</strong>하고, 오직 <strong>특정 단어가 몇 번 등장했는지(빈도수)</strong>만을 카운트하여 벡터로 기록합니다.</p>
-
-<p><img src="../img/sec01_bow_example.svg" alt="Bag of Words Example" /></p>
-
-<ul>
-  <li>단점: ‘the’나 ‘a’, ‘is’처럼 모든 문서에 자주 등장하는 무의미한 단어들 때문에 핵심 단어의 가치가 묻힐 수 있습니다.</li>
-</ul>
-
-<h3 id="2-2-tf-idf-term-frequency---inverse-document-frequency">2-2. TF-IDF (Term Frequency - Inverse Document Frequency)</h3>
-
-<p>단순 빈도로만 측정하는 BoW의 한계를 극복하기 위해 등장한 가중치 기법입니다.</p>
-<ul>
-  <li><strong>TF(단어 빈도)</strong>: 특정 문서 내에서 단어가 얼마나 자주 등장했는가?</li>
-  <li><strong>IDF(역 문서 빈도)</strong>: 전체 문서군을 통틀어 보았을 때, 이 단어가 얼마나 흔하게 등장하는 단어인가? (흔한 단어일수록 페널티를 부여)</li>
-</ul>
-
-<p>TF-IDF는 이 두 값을 곱하여 가중치를 구하므로, ‘the’ 같이 뻔한 단어의 점수는 낮아지고, 해당 문서의 ‘핵심 주제’를 담은 희소성 있는 단어의 점수는 높아지게 됩니다.</p>
-
-<p><img src="../img/sec01_tfidf_example.svg" alt="TF-IDF Matrix Example" />
-<em>희귀 단어에 가중치를 부여하는 TF-IDF 행렬 변환 예시 표</em></p>
 
 <blockquote>
-  <p>20개의 서로 다른 뉴스 카테고리를 모아둔 20 뉴스 그룹 데이터셋 등을 분석할 때, BoW로 적용하면 수많은 0들이 섞인 희소 행렬(Sparse Matrix)이 나오지만 단순 숫자만 찍히고, TF-IDF는 핵심 키워드를 더욱 두드러지게 표현하는 차이가 있습니다.</p>
+  <p>[!WARNING]<br />
+<strong>📖 초심자를 위한 쉬운 해설</strong><br />
+“나이브”하다는 건 컴퓨터가 바보처럼 앞뒤 맥락을 포기하고 “단어들이 다 남남이지 뭐!”로 퉁친다는 겁니다. 현실 세계 언어 법칙에 크게 위배되는 쓰레기 억지 가정 같지만, 신기하게도 실제 스팸 분리 같은 곳에 적용해 보면 딥러닝급으로 엄청나게 답을 잘 맞춥니다!</p>
 </blockquote>
 
-<hr />
+<h2 id="08-모델-학습-최우도-추정법-mle-maximum-likelihood">08. 모델 학습: 최우도 추정법 (MLE, Maximum Likelihood)</h2>
+<p>나이브 베이즈 모델이 학습 데이터로부터 확률 파라미터 점수를 수확하는 수학적 과정입니다.</p>
 
-<h2 id="3-대표적인-분류-모델">3. 대표적인 분류 모델</h2>
-
-<p>문서를 벡터로 변환했다면, 이 숫자화된 문서를 바탕으로 어떤 카테고리인지 결론 지을 <strong>Classification Model (분류 모델)</strong>을 입혀야 합니다.</p>
-
-<h3 id="3-1-나이브-베이즈-naive-bayes-분류기">3-1. 나이브 베이즈 (Naive Bayes) 분류기</h3>
-
-<p>조건부 확률 기반의 <strong>베이즈 정리(Bayes Theorem)</strong>를 사용하는 가장 단순하지만 강력한 모델입니다.</p>
-
-<p><img src="../img/sec01_naive_bayes.svg" alt="Naive Bayes" /></p>
-
-<p>가장 큰 특징은 <strong>“단순한(Naive) 가정”</strong>에 기반한다는 것입니다.</p>
-<ol>
-  <li>문장 내에서 단어의 <strong>위치</strong>는 무관하다.</li>
-  <li>각 단어들이 등장하는 사건은 서로 <strong>조건부 독립적</strong>이다. (즉, ‘apple’이 나왔다고 해서 ‘pie’가 나올 확률이 변하지 않는다고 가정함)</li>
-</ol>
-
-<p>이러한 조건부 독립 가정 하에서, 나이브 베이즈 알고리즘은 아래와 같이 과거 텍스트 분포로부터 <strong>최대 우도 추정(MLE)</strong>을 계산하는 산식을 취합니다.</p>
-
-<p><img src="../img/sec01_nb_mle.svg" alt="Naive Bayes MLE" />
-<em>전체 데이터 대비 해당 클래스의 비율과, 클래스 내 특정 단어 파편의 비율을 독립적으로 구하는 직관적인 산식</em></p>
-
-<p>이런 단순화 덕분에 매우 빠르고 계산 비용이 적어 스팸 분류, 텍스트 긍정/부정(감성 분석)에서 널리 사용됩니다.</p>
-
-<p><img src="../img/sec01_nb_example_table.svg" alt="Naive Bayes Probability Example" />
-<em>문장을 이루는 각 단어들의 개별 확률을 서로 곱하여(독립 사건 취급), 최종 점수가 가장 높은 클래스(긍정)로 분류해내는 과정</em></p>
-
-<h3 id="3-2-로지스틱-회귀와-소프트맥스-회귀">3-2. 로지스틱 회귀와 소프트맥스 회귀</h3>
-
-<p>단순한 확률 통계가 아닌, 기계학습 모델의 최적 파라미터(Weight)를 학습해 판단 영역의 선을 긋는 함수 모델입니다.</p>
-
-<p><img src="../img/sec01_logistic_vs_softmax.svg" alt="Logistic vs Softmax" /></p>
+\[P(w_k | c) = \frac{N(w_k, c) + \alpha}{N(c) + \alpha |V|}\]
 
 <ul>
-  <li><strong>로지스틱 회귀 (Logistic Regression)</strong>: 최종 결과물을 S자 형태의 Sigmoid 함수로 감싸 0에서 1사이의 결괏값으로 출력합니다. 그래서 결과가 A아니면 B인 0/1 <strong>이진 분류(Binary Classification)</strong>에 최적화되어 있습니다.</li>
-  <li><strong>소프트맥스 회귀 (Softmax Regression)</strong>: Softmax 함수를 이용하면 출력 결과물의 확률 총합을 1.0(100%)으로 만들어줍니다. 여러 카테고리로 나누어야 할 때 (예: 스포츠/정치/경제/사회 중 하나 배정), <strong>다중 분류(Multi-class Classification)</strong> 시스템으로 확장된 방식입니다.</li>
+  <li>클래스(스팸) 집단 폴더 내부에 포함된 전체 단어들 중에서 특정 단어 <code class="language-plaintext highlighter-rouge">W(대출)</code>가 등장한 <strong>발현율을 단순하게 카운트하여 분수 수학 계산</strong>으로 추정합니다.</li>
+  <li>분모의 $\alpha$는 한 번도 본 적 없는 단어(OOV) 확률이 0으로 폭발하는 것을 막기 위한 라플라스 스무딩(보험)입니다.</li>
 </ul>
 
-<hr />
+<p><img src="./img/sec01_nb_mle.svg" alt="Maximum Likelihood Estimation Method" /></p>
 
-<h2 id="4-분류-성능-최적화를-위한-접근-전략">4. 분류 성능 최적화를 위한 접근 전략</h2>
+<h2 id="09-이진-분류-예측-연산-예시-영화-리뷰">09. 이진 분류 예측 연산 예시 (영화 리뷰)</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">“I love this fun film”</code> 문장이 들어왔습니다! 이게 긍정 리뷰일지 부정 리뷰일지 어떻게 예측할까요?</li>
+</ul>
 
-<p>실제 텍스트 분류 문제에서 성능을 극대화하려면 모델 알고리즘 외에도 다음과 같은 최적화 접근이 필요합니다.</p>
+\[\hat{c} = \arg\max_{c \in C} P(c) \prod_{i=1}^n P(w_i | c)\]
 
-<ol>
-  <li><strong>텍스트 전처리 준비</strong>: 분석할 가치가 적은 텍스트 노이즈를 제거하기 위해 정규표현식 클렌징, 영문 불용어(the, is 등) 제거, 어간(Stemming) 추출 등을 사전 진행합니다.</li>
-  <li><strong>N-gram 도입</strong>: 단어 순서가 파괴되는 BoW 방식의 한계를 보완하기 위해 단어를 1개(Unigram) 단위가 아니라 2개 구(Bi-gram)나 3개 구(Tri-gram) 단위로 묶어서 특성사전에 반영하여 약간의 <em>문맥</em>을 학습시킵니다.</li>
-  <li><strong>알고리즘 선정 및 하이퍼파라미터 튜닝</strong>: 문제에 맞춰 로지스틱 회귀나 트리모델(Random Forest), 딥러닝(RNN, BERT) 등 최적의 모델을 고르고 내부 모수를 섬세하게 튜닝합니다.</li>
-</ol>
+<ul>
+  <li>위 무서워 보이는 $\arg\max$와 $\prod$(곱하기) 공식을 풀어쓰면 정말 어이없을 만큼 단순한 아래의 엑셀 곱하기가 됩니다.</li>
+</ul>
+
+<p><img src="./img/sec01_nb_example_table.svg" alt="Naive Bayes Math Table Example" /></p>
+
+<p><em>(모델의 뇌 구조 시뮬레이션)</em></p>
+<ul>
+  <li>긍정 쪽 확률($P(c)$)과 단어들의 확률들을 쭉 곱해봤더니 긍정 점수 <code class="language-plaintext highlighter-rouge">5e-8</code> 달성!</li>
+  <li>부정 쪽 확률들을 찝찝하게 쭉 곱해봤더니 부정 점수 <code class="language-plaintext highlighter-rouge">1e-9</code> 도출.</li>
+  <li><strong>$\to$ 결론:</strong> 긍정 점수가 압도적으로 높으므로 이 문장은 “긍정(Positive)” 판정!</li>
+</ul>
+
+<h2 id="10-선을-긋는다-로지스틱-회귀-logistic-regression">10. 선을 긋는다: 로지스틱 회귀 (Logistic regression)</h2>
+<p>주사위 수학(나이브 베이즈)의 한계를 깨기 위해 들이댄 본격 머신러닝의 꽃입니다. (분류 문제의 기본 모델)</p>
+<ul>
+  <li>데이터들의 특징(숫자 벡터)과 파라미터 가중치를 곱해 선형 조합을 산출한 뒤, 가장 알맞게 영역을 쪼개는 결정 경계선(Decision Boundary) 함수를 긋는 방식입니다.</li>
+</ul>
+
+<h2 id="11-로지스틱과-시그모이드-sigmoid-함수">11. 로지스틱과 시그모이드 (Sigmoid) 함수</h2>
+<p>이 모델이 내놓는 숫자는 마이너스 무한대부터 플러스 무한대까지 날뜁니다. 여기서 아름다운 마법의 곡선(<code class="language-plaintext highlighter-rouge">S커브</code>, 시그모이드) 수식을 통과시켜 <strong>분류 확률 강제 압착</strong>을 시도합니다.</p>
+
+\[\sigma(z) = \frac{1}{1 + e^{-z}}\]
+
+<ul>
+  <li>이 함수는 세상의 아~무리 큰 데이터 수치라도 무조건 <code class="language-plaintext highlighter-rouge">0</code>과 <code class="language-plaintext highlighter-rouge">1</code> 사이의 작은 실수 비율(확률 퍼센트)로 납작하게 만들어버립니다!</li>
+  <li>“스팸 확률이 85%($0.85$) 네요!” 라고 말할 수 있게 해주는 마법입니다.</li>
+</ul>
+
+<h2 id="12-다중-클래스로의-확장-소프트맥스softmax">12. 다중 클래스로의 확장: 소프트맥스(Softmax)</h2>
+<p>스팸/정상 2개(이진 분류)가 아니라 카테고리가 15개(정치/사회/경제/스포츠 등)면 로지스틱의 선 하나로는 부족합니다.</p>
+
+<p><img src="./img/sec01_logistic_vs_softmax.svg" alt="Logistic and Softmax Math Functions" /></p>
+
+<ul>
+  <li>마지막 출력단에 전체 카테고리 확률의 압착 총합이 무조건 <strong><code class="language-plaintext highlighter-rouge">1.0 (100%)</code></strong>이 되게끔 비중을 분산 펌핑하는 <strong>소프트맥스(Softmax)</strong> 확률분포 회귀 수식을 탑재시켜서 다중 분석 분류기로 맹활약하게 합니다.</li>
+</ul>
 
 
             <!-- 구글 애드센스 출력 -->

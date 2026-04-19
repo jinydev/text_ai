@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>텍스트 전처리 기법의 이해</title>
-  <meta name="title" content="텍스트 전처리 기법의 이해" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="텍스트 전처리 기법의 이해"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
+  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>텍스트 전처리 체계</title>
+  <meta name="title" content="텍스트 전처리 체계" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="텍스트 전처리 체계"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
   <meta property="og:url" content="http://localhost:4001/basic/02/sec02/">
 
-  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="텍스트 전처리 기법의 이해"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="텍스트 전처리 체계"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="텍스트 전처리 기법의 이해" />
+<meta property="og:title" content="텍스트 전처리 체계" />
 <meta name="author" content="Hojin" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
@@ -22,9 +22,9 @@
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="텍스트 전처리 기법의 이해" />
+<meta property="twitter:title" content="텍스트 전처리 체계" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"텍스트 전처리 기법의 이해","url":"http://localhost:4001/basic/02/sec02/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"텍스트 전처리 체계","url":"http://localhost:4001/basic/02/sec02/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -374,7 +374,7 @@
         
         
         
-        <li class="breadcrumb-item active" aria-current="page">텍스트 전처리 기법의 이해</li>
+        <li class="breadcrumb-item active" aria-current="page">텍스트 전처리 체계</li>
         
         
         
@@ -382,55 +382,154 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="텍스트-전처리-기법의-이해-및-활용">텍스트 전처리 기법의 이해 및 활용</h1>
+            <h1 id="텍스트-전처리-파이프라인의-이해-및-활용">텍스트 전처리 파이프라인의 이해 및 활용</h1>
 
-<p>수집된 자연어 오리지널 원본 텍스트 데이터는 날것(Raw) 그대로 모델에게 학습시킬 수 없습니다. 특수문자, 오타, HTML 태그, 혹은 무의미한 단어들로 오염되어 있기 때문입니다. 머신러닝의 성능을 좌우하는 기초공사라 불리는 <strong>텍스트 전처리(Text Preprocessing)의 6가지 필수 단계</strong>를 차례대로 살펴봅니다.</p>
-
-<p><img src="../img/sec02_preprocessing_steps.svg" alt="Preprocessing Steps" />
-<em>방대한 말뭉치를 정제하고 표준화하는 6단계 전처리 과정</em></p>
+<p>정형화되지 않은 더러운 텍스트(야생의 데이터)에서 쓰레기를 걸러내고, 기계가 학습하기 좋은 깔끔한 토큰 포맷으로 변형(Cleaning)하는 파이썬 전처리 코딩 실무의 심화 과정을 배웁니다.</p>
 
 <hr />
 
-<h2 id="1-토큰화-tokenization">1. 토큰화 (Tokenization)</h2>
+<h2 id="00-텍스트-전처리-기법의-이해">00. 텍스트 전처리 기법의 이해</h2>
+<p>데이터 사이언티스트 삶의 80%를 차지하는, 가장 고통스럽지만 중요한 ‘데이터 청소 막노동’에 오신 것을 환영합니다!</p>
 
-<p>텍스트를 의미가 있는 가장 작은 덩어리(Token)로 자르는 첫 단계입니다. 영어의 경우 보통 띄어쓰기(어절) 기준으로 토큰화하면 꽤 정확한 의미 단위가 도출됩니다.</p>
+<p><img src="./img/sec02_00_preprocessing.png" alt="Preprocessing Janitor Robot" /></p>
 
-<h3 id="한국어-토큰화의-특징">한국어 토큰화의 특징</h3>
+<blockquote>
+  <p>[!NOTE]<br />
+<strong>📖 초심자를 위한 쉬운 해설</strong><br />
+AI는 천재 요리사입니다. 하지만 식재료인 텍스트가 흙(특수기호)이 잔뜩 묻어있고, 상한 부위(무의미한 ㅋㅋㅋ ㅎㅎㅎ 오타)가 가득하다면 음식이 망출 수밖에 없습니다. 개발자가 직접 뜰채와 가위를 들고 더러운 문자열들을 씻고 다듬는 이 모든 고된 청소 과정을 <strong>전처리(Preprocessing)</strong>라고 부릅니다.</p>
+</blockquote>
 
-<p>하지만 한국어는 영어와 달리 조사가 발달한 <strong>교착어</strong>입니다. “에디가”, “에디는”을 어절 단위로 자르면 컴퓨터는 완전히 다른 두 개의 토큰으로 인식해 버리는 대참사가 일어납니다.</p>
+<h2 id="01-텍스트-전처리의-6단계-구조">01. 텍스트 전처리의 6단계 구조</h2>
+<p>텍스트 데이터를 인터넷 웹 등에서 수집한 직후 가장 먼저 거쳐야 할 정석 파이프라인(순서도)입니다.</p>
 
-<p><img src="../img/sec02_korean_morph.svg" alt="Korean Morpheme Analysis" /></p>
+<p><img src="./img/sec02_preprocessing_steps.svg" alt="Preprocessing Steps" /></p>
 
-<p>따라서 한국어는 독자적인 뜻을 가진 <strong>자립 형태소</strong>(에디, 책)와 생략해도 되는 <strong>의존 형태소</strong>(가, 을, 다)로 단어를 산산조각 내는 <strong>형태소(Morpheme) 토큰화</strong>가 필수적입니다. KoNLPy 등의 라이브러리가 이를 수행합니다.</p>
+<h2 id="02-텍스트-전처리---토큰화-tokenization">02. 텍스트 전처리 - 토큰화 (Tokenization)</h2>
+<p>주어진 원시 텍스트(무한한 문자열)를 공백이나 구두점 기준으로 잘라서, 파이썬이 좋아하는 ‘리스트 배열(Token 리스트)’로 나누어 담습니다.</p>
 
-<hr />
+<p><img src="./img/sec02_02_tokenization.svg" alt="Tokenization Python List" /></p>
 
-<h2 id="2-정제cleaning와-정규화normalization">2. 정제(Cleaning)와 정규화(Normalization)</h2>
+<h3 id="python-코드의-작동">Python 코드의 작동</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">nltk.tokenize</span> <span class="kn">import</span> <span class="n">TreebankWordTokenizer</span>
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="nc">TreebankWordTokenizer</span><span class="p">()</span>
+<span class="n">text</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Starting a home-based restaurant may be an ideal.</span><span class="sh">"</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">.</span><span class="nf">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<span class="c1"># 결과: 영어 문장을 공백 기준으로 깔끔하게 칼질해서 파이썬 리스트[] 배열로 묶어줍니다!
+# ['Starting', 'a', 'home-based', 'restaurant', 'may', 'be', 'an', 'ideal.']
+</span></code></pre></div></div>
 
-<p>단어를 잘 토큰화했다 하더라도, 기계가 분석하기 위해선 불필요한 단어를 지우고, 이명을 하나로 통합하는 과정이 이어져야 합니다.</p>
+<h2 id="03-한국어-텍스트-전처리---교착어와-형태소의-악몽">03. 한국어 텍스트 전처리 - 교착어와 형태소의 악몽</h2>
+<p>영어는 스페이스(띄어쓰기)만 잘해도 토큰이 깔끔하게 떨어집니다. 하지만 한국어는 절대 불가능합니다!</p>
 
-<p><img src="../img/sec02_cleaning_normalization.svg" alt="Cleaning vs Normalization" /></p>
+<p><img src="./img/sec02_korean_morph.svg" alt="Korean Morphology Complexity" /></p>
+
+<blockquote>
+  <p>[!WARNING]<br />
+<strong>📖 초심자를 위한 쉬운 해설</strong><br />
+한국어는 <code class="language-plaintext highlighter-rouge">사과가</code>, <code class="language-plaintext highlighter-rouge">사과를</code>, <code class="language-plaintext highlighter-rouge">사과도</code>, <code class="language-plaintext highlighter-rouge">사과만</code> 처럼 하나의 영어 단어(Apple) 뒤에 수만 가지 조사나 어미가 찰싹 달라붙어 문장을 바꾸는 악랄한 <strong>‘교착어’</strong>입니다.<br />
+띄어쓰기로만 자르면 컴퓨터는 저 단어들을 모두 다른 파일로 분리해 세어버리는 사태가 일어납니다. 따라서 한국어는 무조건 <strong>형태소 단위(“사과” + “가”) 로 미세하게 쪼개는 엔진(KoNLPy 등)</strong>을 반드시 구입해 장착해야만 합니다.</p>
+</blockquote>
+
+<h2 id="04-텍스트-전처리--정제-cleaning">04. 텍스트 전처리 – 정제 (Cleaning)</h2>
+<p>분석 목적과 상관없는 불필요한 시각적/의미론적 노이즈를 강력한 체망으로 걸러내서 버리는 작업입니다.</p>
+
+<p><img src="./img/sec02_cleaning_normalization.svg" alt="Cleaning Filter Process" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">버려야 할 쓰레기들</th>
+      <th style="text-align: left">특징 설명 및 비유</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>저빈도 찌꺼기</strong></td>
+      <td style="text-align: left">“테스트우하핫” 처럼 1번 등장하는 무의미 체류 데이터. 공간 낭비 방지를 위해 싹 다 버립니다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>짧은 단어</strong></td>
+      <td style="text-align: left">글자 수가 아예 1개 길이인 <code class="language-plaintext highlighter-rouge">I</code>, <code class="language-plaintext highlighter-rouge">a</code> 는 구문 분석 가치가 적어 지워버립니다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>불용어 (Stopwords)</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">of</code>, <code class="language-plaintext highlighter-rouge">the</code>, <code class="language-plaintext highlighter-rouge">아이고</code>, <code class="language-plaintext highlighter-rouge">그게 참</code> 등 해석에 1g의 도움도 안 되는 감탄사 전치사 (미리 폐기물 리스트를 설정함)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>태그 찌꺼기</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">div</code>, <code class="language-plaintext highlighter-rouge">span</code>, CSS 코드 같은 수집기 스크래핑 파편들</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="05-텍스트-전처리--정규화-normalization">05. 텍스트 전처리 – 정규화 (Normalization)</h2>
+<p>정규화는 같은 의미인데 꼴랑 철자 대소문자나 표기가 달라서 서로 남남 행세를 하는 단어들을 강제로 <strong>가족(하나)으로 호적 통합</strong> 시켜버리는 작업입니다.</p>
 
 <ul>
-  <li><strong>정제(Cleaning)</strong>: 전체 10만 단어 중 단 1번만 등장한 극희귀 단어, 스크래핑 과정에서 딸려온 HTML 태그, 그리고 영어의 ‘the’, ‘a’ 같이 문법적으로만 존재할 뿐 정보 값이 아예 없는 <strong>불용어(Stopword)</strong>를 가차 없이 삭제합니다.</li>
-  <li><strong>정규화(Normalization)</strong>: 대소문자 차이로 서로 다른 토큰으로 취급되는 USA, U.S.A, usa, US 등을 하나의 표준 표현으로 묶어 어휘 사전의 부피를 줄입니다. (이때, <strong>정규표현식(Regex)</strong>이 특수문자를 추출하거나 패턴(전화번호 등)을 정규화하는 데 활약합니다.)</li>
+  <li><code class="language-plaintext highlighter-rouge">USA</code> 와 <code class="language-plaintext highlighter-rouge">US</code> 와 <code class="language-plaintext highlighter-rouge">U.S.A</code> -&gt; 무조건 전부 <code class="language-plaintext highlighter-rouge">USA</code> 로 강제 통일!</li>
+  <li><code class="language-plaintext highlighter-rouge">AI</code> 와 <code class="language-plaintext highlighter-rouge">ai</code> 와 <code class="language-plaintext highlighter-rouge">Ai</code> -&gt; 무조건 전부 가장 작은 <code class="language-plaintext highlighter-rouge">ai</code> (소문자) 로 강제 통일!</li>
 </ul>
 
-<hr />
+<blockquote>
+  <p>[!CAUTION]<br />
+무조건 싹 다 소문자로 바꾸는 정규화 함수(<code class="language-plaintext highlighter-rouge">lower()</code>)를 잘못 쓰면 코딩 회사의 <strong>‘Apple’</strong>과 과일의 <strong>‘apple’</strong>이 믹스되어 모델이 완전히 파괴될 수 있습니다! 조심해서 사용하세요.</p>
+</blockquote>
 
-<h2 id="3-표제어-추출lemmatization과-어간-추출stemming">3. 표제어 추출(Lemmatization)과 어간 추출(Stemming)</h2>
+<h2 id="06-텍스트-전처리--정규-표현식-regular-expression">06. 텍스트 전처리 – 정규 표현식 (Regular Expression)</h2>
+<p>파이썬 문자열 검색의 제왕 스킬입니다! 기호 문법으로 특정 문자만 한 번에 싹 잡아내는 사기적인 마법 그물망입니다.</p>
 
-<p>자연어는 단/복수에 따라 꼬리가 바뀌기도 하고(s, es), 시제에 따라 불규칙하게 글자가 변환(lives, dies 등)되기도 합니다. 이를 하나로 통일하면 학습 데이터를 기하급수적으로 다이어트할 수 있습니다.</p>
+<p><img src="./img/sec02_06_regex.svg" alt="Regex Fishing Net" /></p>
 
-<p><img src="../img/sec02_stem_lemma.svg" alt="Stem vs Lemma" />
-<em>어미를 무식하게 잘라버리는 어간 추출과, 문맥을 읽어 사전에 존재하는 원형을 뽑아내는 표제어 추출</em></p>
+<h3 id="python-코드의-작동-1">Python 코드의 작동</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">nltk.tokenize</span> <span class="kn">import</span> <span class="n">RegexpTokenizer</span>
+<span class="n">text</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Help!! I want #1 apple_% @here!!</span><span class="sh">"</span>
 
-<ol>
-  <li><strong>어간 추출(Stemming)</strong>: 어형의 꼬리 접사를 휴리스틱(규칙)하게 기계적으로 잘라냅니다. <code class="language-plaintext highlighter-rouge">automate/automatic/automation</code>의 뒤를 모조리 잘라 <code class="language-plaintext highlighter-rouge">automat</code>이라는 사전에 없는 기계어휘 하나로 통일시킵니다. (속도가 빠름)</li>
-  <li><strong>표제어 추출(Lemmatization)</strong>: 해당 단어가 쓰인 품사의 위치와 주변 문맥 데이터를 읽어내어 <code class="language-plaintext highlighter-rouge">lives</code>를 사전에 보존된 원형 그대로인 <code class="language-plaintext highlighter-rouge">life</code>로 정확히 돌려놓습니다. (정확도가 높지만 느림)</li>
-</ol>
+<span class="c1"># [마법의 뜰채]: 영문 알파벳과 숫자(\w)만 통과시키고 기호는 버려주세요!
+</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="nc">RegexpTokenizer</span><span class="p">(</span><span class="sh">'</span><span class="s">[\w]+</span><span class="sh">'</span><span class="p">)</span> 
 
-<p>이후 최종적으로 문맥상 이 단어의 문법 구조를 명시해 주는 <strong>품사 태깅(POS Tagging)</strong> 작업을 거치면 텍스트 모델 학습을 위한 준비가 마무리됩니다.</p>
+<span class="nf">print</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">.</span><span class="nf">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<span class="c1"># 결과물: 지저분한 기호가 마법같이 날아갑니다.
+# ['Help', 'I', 'want', '1', 'apple_', 'here']
+</span></code></pre></div></div>
+
+<h2 id="07-텍스트-전처리--표제어-추출과-어간-추출-어원-찾기">07. 텍스트 전처리 – 표제어 추출과 어간 추출 (어원 찾기)</h2>
+<p>이것도 정규화의 한 종류입니다. 다양한 동사 과거형/미래형 변형들 뒤의 꼬리를 싹둑 잘라서 <strong>태초의 기본 단어(원형)</strong> 로 압축해버리는 무시무시한 다이어트 기법입니다.</p>
+
+<p><img src="./img/sec02_stem_lemma.svg" alt="Stemming vs Lemmatization" /></p>
+
+<ul>
+  <li><strong>어간 추출 (Stemming)</strong>: 무자비한 기계식 톱니바퀴. <code class="language-plaintext highlighter-rouge">automatic</code>, <code class="language-plaintext highlighter-rouge">automation</code> 뒷부분을 무식하게 잘라서 그냥 <code class="language-plaintext highlighter-rouge">automat</code> 이라는 이상한 외계어를 사전에 등록시킴 (속도는 빠름).</li>
+  <li><strong>표제어 추출 (Lemmatization)</strong>: 똑똑한 교과서. <code class="language-plaintext highlighter-rouge">lives</code> 를 보면 문맥을 읽어서 “이거 살다의 <code class="language-plaintext highlighter-rouge">life</code> 구나?” 라며 완벽한 원형 영어명사로 복원시킴 (정확하지만 느림).</li>
+</ul>
+
+<h2 id="08-텍스트-전처리--한국어-품사-태깅-konlpy">08. 텍스트 전처리 – 한국어 품사 태깅 (KoNLPy)</h2>
+<p>한국어를 처리할 때 이 모듈(<code class="language-plaintext highlighter-rouge">KoNLPy</code>)이 없다면 지옥을 맛보게 됩니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">konlpy.tag</span> <span class="kn">import</span> <span class="n">Kkma</span>  <span class="c1"># 꼬꼬마(Kkma) 한국어 분석기 클래스 로드!
+</span><span class="n">kkma</span> <span class="o">=</span> <span class="nc">Kkma</span><span class="p">()</span>
+
+<span class="c1"># 한국어 텍스트 문장을 넣으면, 무려 알아서 쪼개고 한자/영어 약호 태그표를 다 달아줍니다.
+</span><span class="nf">print</span><span class="p">(</span><span class="n">kkma</span><span class="p">.</span><span class="nf">pos</span><span class="p">(</span><span class="sa">u</span><span class="sh">"</span><span class="s">오류보고는 설명을 최대한 상세히 해라</span><span class="sh">"</span><span class="p">))</span>
+
+<span class="c1"># 결과 리스트 반환: [('오류', '명사'), ('보고', '명사'), ('는', '조사'), ('설명', '명사')...]
+</span></code></pre></div></div>
+
+<h2 id="09-llm의-최강-무기-서브워드-토큰화-bpe">09. LLM의 최강 무기: 서브워드 토큰화 (BPE)</h2>
+<p>현대의 챗GPT 같은 초거대 모델들은 1단어(띄어쓰기) 단위로 자르거나 국어사전에 집착하지 않습니다! 단어를 그냥 <strong>원자 레벨(글자 알파벳)</strong>로 산산조각 내서 <strong>미지의 외계어(OOV)</strong>를 아예 원천 방어합니다.</p>
+
+<p><img src="./img/sec02_09_subword_bpe.svg" alt="Subword BPE Concept" /></p>
+
+<blockquote>
+  <p>[!NOTE]<br />
+<strong>📖 초심자를 위한 쉬운 해설</strong><br />
+과거엔 <code class="language-plaintext highlighter-rouge">존맛탱</code> 이라는 신조어가 들어오면 엑셀 국어사전에 “여…이런게 없습니다!” 하며 <strong>에러(OOV, 미등록 단어 에러)</strong>를 뿜고 컴퓨터가 죽었습니다.<br />
+현대 BPE(Byte Pair Encoding) 방식은 그 단어를 <code class="language-plaintext highlighter-rouge">[존]</code>, <code class="language-plaintext highlighter-rouge">[맛]</code>, <code class="language-plaintext highlighter-rouge">[탱]</code> 세 글자로 뜯어내버린 뒤 자기가 아는 “맛” 이라도 통계에 써먹기 때문에 절대 죽지 않는 진공청소기입니다. 전 세계 LLM들이 쓰는 필수 1순위 기술입니다.</p>
+</blockquote>
+
+<h2 id="10-파이썬-코드-실습-안내">10. 파이썬 코드 실습 안내</h2>
+<p>파이썬 NLTK의 무한한 전처리 스킬들을 직접 눈으로 보고 두드려보세요!</p>
+
+<p>동봉된 실습용 쥬피터 노트북 코드 팩 파일(<code class="language-plaintext highlighter-rouge">Week_2_grad_text_preprocessing.ipynb</code>)을 열람하면, 이 복잡한 파이프라인 과정을 눈 깜짝할 사이에 치워버리는 코딩 마술을 경험하실 수 있습니다.</p>
 
 
             <!-- 구글 애드센스 출력 -->

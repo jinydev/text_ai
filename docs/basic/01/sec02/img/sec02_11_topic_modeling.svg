@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250" width="100%" height="100%">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="250" fill="#fff" rx="10"/>
+
+  <!-- Left: Messy Text -->
+  <g transform="translate(100, 40)">
+    <rect width="250" height="170" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2" rx="10"/>
+    <text x="125" y="40" font-family="'Inter', sans-serif" font-size="14" fill="#868e96" text-anchor="middle">사과, 주식, 배터리, 금리, 포도...</text>
+    <text x="125" y="70" font-family="'Inter', sans-serif" font-size="14" fill="#868e96" text-anchor="middle">바나나, 배당금, 전기차...</text>
+    <text x="125" y="100" font-family="'Inter', sans-serif" font-size="14" fill="#868e96" text-anchor="middle">수박, 채권, 수소차...</text>
+  </g>
+
+  <!-- Magnifying Glass -->
+  <g transform="translate(230, 70)">
+    <circle cx="100" cy="50" r="60" fill="none" stroke="#228be6" stroke-width="8" filter="url(#shadow)"/>
+    <path d="M 140 90 L 180 130" stroke="#228be6" stroke-width="12" stroke-linecap="round"/>
+    <text x="100" y="60" font-family="'Inter', sans-serif" font-size="16" font-weight="bold" fill="#1864ab" text-anchor="middle">"주제" 탐색</text>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M 450 125 L 500 125" stroke="#adb5bd" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <!-- Right: Topics -->
+  <g transform="translate(530, 40)">
+    <!-- Topic 1 -->
+    <rect x="0" y="0" width="180" height="45" fill="#e3fafc" rx="5"/>
+    <text x="90" y="27" font-family="'Inter', sans-serif" font-size="14" font-weight="bold" fill="#0b7285" text-anchor="middle">과일: 사과, 바나나, 수박</text>
+
+    <!-- Topic 2 -->
+    <rect x="0" y="60" width="180" height="45" fill="#fff0f6" rx="5"/>
+    <text x="90" y="87" font-family="'Inter', sans-serif" font-size="14" font-weight="bold" fill="#a61e4d" text-anchor="middle">경제: 주식, 금리, 채권</text>
+
+    <!-- Topic 3 -->
+    <rect x="0" y="120" width="180" height="45" fill="#f4fce3" rx="5"/>
+    <text x="90" y="147" font-family="'Inter', sans-serif" font-size="14" font-weight="bold" fill="#2b8a3e" text-anchor="middle">자동차: 배터리, 전기차</text>
+  </g>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#adb5bd" />
+    </marker>
+  </defs>
+</svg>
