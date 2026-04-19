@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #94a3b8; stroke-width: 2; rx: 8; ry: 8; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .lbl { font-size: 14px; font-weight: bold; fill: #1e293b; }
+      .word { font-family: 'Roboto', sans-serif; font-size: 18px; font-weight: bold; fill: white; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">한국어의 특징: 띄어쓰기 대신 형태소(Morpheme) 단위 토큰화</text>
+  <text x="400" y="55" font-size="14" fill="#64748b">교착어인 한국어는 단어(어절)에 조사가 자석처럼 붙어있으므로, 가장 작은 의미인 형태소로 쪼개야 합니다.</text>
+
+  <!-- Original -->
+  <g transform="translate(100, 100)">
+    <rect x="0" y="0" width="100" height="40" class="box" fill="#f1f5f9" />
+    <text x="50" y="20" class="lbl">원본 문장</text>
+
+    <text x="300" y="20" font-size="20" font-weight="bold" fill="#0f172a">"에디가 책을 읽었다"</text>
+  </g>
+
+  <!-- Word Tokenization (Bad for Korean) -->
+  <g transform="translate(100, 160)">
+    <rect x="0" y="0" width="100" height="40" class="box" fill="#fef2f2" stroke="#fca5a5" />
+    <text x="50" y="20" class="lbl" fill="#b91c1c">어절 토큰화</text>
+    
+    <rect x="150" y="5" width="80" height="30" rx="4" fill="#ef4444" />
+    <text x="190" y="20" class="word">에디가</text>
+
+    <rect x="250" y="5" width="80" height="30" rx="4" fill="#ef4444" />
+    <text x="290" y="20" class="word">책을</text>
+
+    <rect x="350" y="5" width="80" height="30" rx="4" fill="#ef4444" />
+    <text x="390" y="20" class="word">읽었다</text>
+
+    <text x="560" y="20" font-size="13" font-weight="bold" fill="#ef4444">컴퓨터는 '에디가' 와 '에디는'을</text>
+    <text x="560" y="35" font-size="13" font-weight="bold" fill="#ef4444">전혀 다른 단어 목록으로 취급함</text>
+  </g>
+
+  <!-- Morpheme Tokenization (Good for Korean) -->
+  <g transform="translate(100, 230)">
+    <rect x="0" y="0" width="100" height="80" class="box" fill="#f0fdf4" stroke="#4ade80" />
+    <text x="50" y="40" class="lbl" fill="#15803d">형태소 토큰화</text>
+    
+    <!-- Independent -->
+    <rect x="150" y="5" width="50" height="30" rx="4" fill="#3b82f6" />
+    <text x="175" y="20" class="word">에디</text>
+
+    <rect x="250" y="5" width="50" height="30" rx="4" fill="#3b82f6" />
+    <text x="275" y="20" class="word">책</text>
+    
+    <text x="340" y="20" font-size="13" font-weight="bold" fill="#1d4ed8">← 자립 형태소 (핵심 의미)</text>
+
+    <!-- Dependent -->
+    <rect x="205" y="45" width="30" height="30" rx="4" fill="#a855f7" />
+    <text x="220" y="60" class="word">가</text>
+
+    <rect x="305" y="45" width="30" height="30" rx="4" fill="#a855f7" />
+    <text x="320" y="60" class="word">을</text>
+
+    <rect x="350" y="45" width="40" height="30" rx="4" fill="#a855f7" />
+    <text x="370" y="60" class="word">읽</text>
+
+    <rect x="400" y="45" width="40" height="30" rx="4" fill="#a855f7" />
+    <text x="420" y="60" class="word">었</text>
+
+    <rect x="450" y="45" width="40" height="30" rx="4" fill="#a855f7" />
+    <text x="470" y="60" class="word">다</text>
+
+    <text x="560" y="60" font-size="13" font-weight="bold" fill="#7e22ce">← 의존 형태소 (조사 등 생략 가능)</text>
+  </g>
+
+</svg>

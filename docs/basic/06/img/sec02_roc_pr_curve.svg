@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #ffffff; }
+      .axis { stroke: #94a3b8; stroke-width: 2; fill: none; }
+      .grid { stroke: #e2e8f0; stroke-width: 1; stroke-dasharray: 4; fill: none; }
+      .roc-curve { fill: #fef2f2; stroke: #dc2626; stroke-width: 3; }
+      .pr-curve { fill: #eff6ff; stroke: #2563eb; stroke-width: 3; }
+      .baseline { stroke: #1e293b; stroke-width: 2; stroke-dasharray: 6; fill: none; }
+      .title { font-size: 16px; font-weight: bold; fill: #0f172a; }
+      .label { font-size: 12px; fill: #475569; }
+      .area-roc { fill: rgba(220, 38, 38, 0.1); }
+      .area-pr { fill: rgba(37, 99, 235, 0.1); }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <!-- Graph 1: ROC Curve -->
+  <g transform="translate(100, 80)">
+    <text x="125" y="-30" class="title">ROC Curve</text>
+    
+    <!-- Grid and Area -->
+    <path d="M 0 0 L 250 0 M 0 50 L 250 50 M 0 100 L 250 100 M 0 150 L 250 150 M 0 200 L 250 200" class="grid" />
+    <path d="M 0 0 L 0 200 M 50 0 L 50 200 M 100 0 L 100 200 M 150 0 L 150 200 M 200 0 L 200 200 M 250 0 L 250 200" class="grid" />
+    
+    <path d="M 0 200 Q 20 50 100 20 T 250 0 L 250 200 Z" class="area-roc" />
+    <path d="M 0 200 Q 20 50 100 20 T 250 0" stroke="#dc2626" stroke-width="3" fill="none" />
+    <path d="M 0 200 L 250 0" class="baseline" />
+
+    <!-- Axes -->
+    <path d="M 0 0 L 0 200 L 250 200" class="axis" />
+    
+    <text x="-40" y="100" class="label" transform="rotate(-90, -40, 100)">True Positive Rate (Recall)</text>
+    <text x="125" y="230" class="label">False Positive Rate (1 - Specificity)</text>
+
+    <!-- Legend -->
+    <rect x="120" y="150" width="120" height="40" fill="white" stroke="#cbd5e1" />
+    <line x1="130" y1="160" x2="150" y2="160" stroke="#dc2626" stroke-width="3" />
+    <text x="195" y="160" font-size="10" fill="#1e293b">Model (AUC=0.96)</text>
+    <line x1="130" y1="180" x2="150" y2="180" class="baseline" stroke-width="1" />
+    <text x="195" y="180" font-size="10" fill="#1e293b">Random Guess</text>
+
+  </g>
+
+  <!-- Graph 2: Precision-Recall Curve -->
+  <g transform="translate(480, 80)">
+    <text x="125" y="-30" class="title">Precision-Recall Curve</text>
+    
+    <!-- Grid and Area -->
+    <path d="M 0 0 L 250 0 M 0 50 L 250 50 M 0 100 L 250 100 M 0 150 L 250 150 M 0 200 L 250 200" class="grid" />
+    <path d="M 0 0 L 0 200 M 50 0 L 50 200 M 100 0 L 100 200 M 150 0 L 150 200 M 200 0 L 200 200 M 250 0 L 250 200" class="grid" />
+    
+    <path d="M 0 0 C 150 10, 200 80, 250 200 L 0 200 Z" class="area-pr" />
+    <path d="M 0 0 C 150 10, 200 80, 250 200" stroke="#2563eb" stroke-width="3" fill="none" />
+    <path d="M 0 180 L 250 180" class="baseline" />
+
+    <!-- Axes -->
+    <path d="M 0 0 L 0 200 L 250 200" class="axis" />
+    
+    <text x="-40" y="100" class="label" transform="rotate(-90, -40, 100)">Precision</text>
+    <text x="125" y="230" class="label">Recall (Sensitivity)</text>
+
+    <!-- Legend -->
+    <rect x="130" y="-10" width="120" height="40" fill="white" stroke="#cbd5e1" />
+    <line x1="140" y1="0" x2="160" y2="0" stroke="#2563eb" stroke-width="3" />
+    <text x="205" y="0" font-size="10" fill="#1e293b">Model (AP=0.75)</text>
+    <line x1="140" y1="20" x2="160" y2="20" class="baseline" stroke-width="1" />
+    <text x="205" y="20" font-size="10" fill="#1e293b">Baseline</text>
+
+  </g>
+
+  <rect x="250" y="340" width="300" height="40" fill="#fdf2f8" stroke="#be185d" rx="8" />
+  <text x="400" y="360" font-size="16" font-weight="bold" fill="#be185d">* 곡선 상의 각 점(Point)은 분류 임계값(Threshold)을 의미함</text>
+
+</svg>

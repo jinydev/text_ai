@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #ffffff; }
+      .cell { fill: #ffffff; stroke: #94a3b8; stroke-width: 1; }
+      .header { fill: #f1f5f9; font-weight: bold; font-size: 15px; fill: #1e293b; }
+      .val-pos { font-size: 16px; font-weight: bold; fill: #10b981; }
+      .val-neg { font-size: 16px; font-weight: bold; fill: #ef4444; }
+      .val-result { font-size: 18px; font-weight: bold; fill: #be185d; }
+      .math { font-family: 'Roboto', sans-serif; font-style: italic; }
+      .sentence { font-size: 22px; font-weight: bold; fill: #0f172a; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="40" font-size="24" font-weight="bold" fill="#0f172a">문장의 긍정/부정 확률 계산(이진 나이브 베이즈)</text>
+  <text x="400" y="65" font-size="14" fill="#64748b">문장 구성 단어별 확률(P(w|c))을 곱하여 긍정/부정 최종 확률 비교</text>
+
+  <text x="400" y="110" class="sentence">“I love this fun film”</text>
+
+  <g transform="translate(100, 150)">
+    <!-- Headers -->
+    <rect x="0" y="0" width="100" height="40" class="cell header" />
+    <rect x="100" y="0" width="80" height="40" class="cell header" />
+    <rect x="180" y="0" width="80" height="40" class="cell header" />
+    <rect x="260" y="0" width="80" height="40" class="cell header" />
+    <rect x="340" y="0" width="80" height="40" class="cell header" />
+    <rect x="420" y="0" width="80" height="40" class="cell header" />
+    <rect x="500" y="0" width="100" height="40" fill="#fce7f3" stroke="#94a3b8" stroke-width="1" />
+
+    <text x="50" y="20" class="header">Class</text>
+    <text x="140" y="20" class="header">I</text>
+    <text x="220" y="20" class="header">love</text>
+    <text x="300" y="20" class="header">this</text>
+    <text x="380" y="20" class="header">fun</text>
+    <text x="460" y="20" class="header">film</text>
+    <text x="550" y="20" class="header" fill="#be185d">P(s|c) 결과</text>
+
+    <!-- Positive Row -->
+    <rect x="0" y="40" width="100" height="50" class="cell" />
+    <rect x="100" y="40" width="80" height="50" class="cell" />
+    <rect x="180" y="40" width="80" height="50" class="cell" />
+    <rect x="260" y="40" width="80" height="50" class="cell" />
+    <rect x="340" y="40" width="80" height="50" class="cell" />
+    <rect x="420" y="40" width="80" height="50" class="cell" />
+    <rect x="500" y="40" width="100" height="50" fill="#fdf2f8" stroke="#94a3b8" />
+
+    <text x="50" y="65" class="header">긍정 (+)</text>
+    <text x="140" y="65" class="val-pos">0.1</text>
+    <text x="220" y="65" class="val-pos">0.1</text>
+    <text x="300" y="65" class="val-pos">0.01</text>
+    <text x="380" y="65" class="val-pos">0.05</text>
+    <text x="460" y="65" class="val-pos">0.1</text>
+    <text x="550" y="65" class="val-result">5e-8</text>
+
+    <!-- Negative Row -->
+    <rect x="0" y="90" width="100" height="50" class="cell" />
+    <rect x="100" y="90" width="80" height="50" class="cell" />
+    <rect x="180" y="90" width="80" height="50" class="cell" />
+    <rect x="260" y="90" width="80" height="50" class="cell" />
+    <rect x="340" y="90" width="80" height="50" class="cell" />
+    <rect x="420" y="90" width="80" height="50" class="cell" />
+    <rect x="500" y="90" width="100" height="50" fill="#fdf2f8" stroke="#94a3b8" />
+
+    <text x="50" y="115" class="header">부정 (-)</text>
+    <text x="140" y="115" class="val-neg">0.2</text>
+    <text x="220" y="115" class="val-neg">0.001</text>
+    <text x="300" y="115" class="val-neg">0.01</text>
+    <text x="380" y="115" class="val-neg">0.005</text>
+    <text x="460" y="115" class="val-neg">0.1</text>
+    <text x="550" y="115" class="val-result" fill="#1e293b">1e-9</text>
+  </g>
+
+  <rect x="150" y="300" width="500" height="40" fill="#f0fdd4" stroke="#84cc16" stroke-width="2" rx="8" />
+  <text x="400" y="320" font-size="16" fill="#4d7c0f" font-weight="bold">결론: 5e-8 > 1e-9 이므로, 이 문장 구조는 '긍정'으로 분류됨</text>
+
+</svg>

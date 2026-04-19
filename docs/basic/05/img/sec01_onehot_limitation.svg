@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #e2e8f0; stroke-width: 2; rx: 8; ry: 8; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .desc { font-size: 14px; fill: #475569; }
+      .math { font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: bold; fill: #1e293b; }
+      .highlight { fill: #ef4444; font-weight: bold; font-family: 'Roboto', sans-serif; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">원-핫 인코딩(One-hot encoding)의 결정적 한계점</text>
+  
+  <g transform="translate(50, 80)">
+    <rect x="0" y="0" width="330" height="200" class="box" fill="#eff6ff" stroke="#3b82f6" />
+    <text x="165" y="30" class="title" fill="#1d4ed8">1. 공간적 비효율성</text>
+    <text x="165" y="65" class="desc">주어진 단어 수만큼 차원이 팽창함</text>
+    
+    <text x="165" y="110" font-weight="bold" fill="#0f172a">"만약 데이터에 400,000개의 단어가 있다면?"</text>
+    
+    <rect x="25" y="140" width="280" height="40" fill="white" stroke="#94a3b8" />
+    <text x="165" y="160" class="math">V = [ 0, 0, 0, ..., <tspan fill="#ef4444">1</tspan>, ..., 0, 0 ]</text>
+    <text x="165" y="185" font-size="12" fill="#ef4444">399,999개의 0과 1개의 1로 구성된 메모리 낭비</text>
+  </g>
+
+  <g transform="translate(420, 80)">
+    <rect x="0" y="0" width="330" height="200" class="box" fill="#fef2f2" stroke="#ef4444" />
+    <text x="165" y="30" class="title" fill="#b91c1c">2. 단어 의미 표현의 부재</text>
+    <text x="165" y="65" class="desc">모든 단어 간 코사인 유사도(내적)가 딱 0이 됨</text>
+    
+    <text x="165" y="100" font-weight="bold" fill="#0f172a">Cat = [1, 0, 0] / Dog = [0, 1, 0]</text>
+    
+    <rect x="25" y="130" width="280" height="50" fill="white" stroke="#94a3b8" />
+    <text x="165" y="155" class="math">Cat(v) · Dog(w) = (1×0) + (0×1) + (0×0) = 0</text>
+    <text x="165" y="185" font-size="13" fill="#b91c1c">의미가 비슷하든 딴판이든 컴퓨터에겐 다 똑같은 '0'의 관계</text>
+  </g>
+
+  <rect x="150" y="300" width="500" height="30" fill="#fef08a" stroke="#eab308" rx="8" />
+  <text x="400" y="315" font-size="14" font-weight="bold" fill="#854d0e">결론: 컴퓨터에게 단어 간의 "유사도(친밀도)"를 가르칠 완전히 새로운 방법이 필요해졌다!</text>
+
+</svg>

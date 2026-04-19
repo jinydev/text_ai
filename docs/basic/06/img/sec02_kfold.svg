@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .box-train { fill: #bfdbfe; stroke: #3b82f6; stroke-width: 2; rx: 4; ry: 4; }
+      .box-val { fill: #fde68a; stroke: #f59e0b; stroke-width: 2; rx: 4; ry: 4; }
+      .iter-text { font-size: 16px; font-weight: bold; fill: #334155; }
+      .desc { font-size: 14px; fill: #64748b; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="40" class="title">K-Fold 교차 검증 (K-Fold Cross-Validation, K=5 예시)</text>
+  <text x="400" y="65" class="desc">특정 데이터만 Validation으로 빠지는 편향을 잡기 위해, 돌아가며 5번 교차 검증하여 평균 성능을 냅니다.</text>
+
+  <!-- K-fold visualizations box width=100, spacing=10 -->
+  <g transform="translate(150, 100)">
+    
+    <!-- Iteration 1 -->
+    <text x="-40" y="20" class="iter-text">Fold 1</text>
+    <rect x="0" y="0" width="100" height="40" class="box-val" />
+    <text x="50" y="20" font-weight="bold" fill="#b45309">Validation</text>
+    
+    <rect x="110" y="0" width="100" height="40" class="box-train" />
+    <rect x="220" y="0" width="100" height="40" class="box-train" />
+    <rect x="330" y="0" width="100" height="40" class="box-train" />
+    <rect x="440" y="0" width="100" height="40" class="box-train" />
+
+    <!-- Iteration 2 -->
+    <text x="-40" y="70" class="iter-text">Fold 2</text>
+    <rect x="0" y="50" width="100" height="40" class="box-train" />
+    
+    <rect x="110" y="50" width="100" height="40" class="box-val" />
+    <text x="160" y="70" font-weight="bold" fill="#b45309">Validation</text>
+
+    <rect x="220" y="50" width="100" height="40" class="box-train" />
+    <rect x="330" y="50" width="100" height="40" class="box-train" />
+    <rect x="440" y="50" width="100" height="40" class="box-train" />
+
+    <!-- Iteration 3 -->
+    <text x="-40" y="120" class="iter-text">Fold 3</text>
+    <rect x="0" y="100" width="100" height="40" class="box-train" />
+    <rect x="110" y="100" width="100" height="40" class="box-train" />
+    
+    <rect x="220" y="100" width="100" height="40" class="box-val" />
+    <text x="270" y="120" font-weight="bold" fill="#b45309">Validation</text>
+
+    <rect x="330" y="100" width="100" height="40" class="box-train" />
+    <rect x="440" y="100" width="100" height="40" class="box-train" />
+
+    <!-- Iteration 4 -->
+    <text x="-40" y="170" class="iter-text">Fold 4</text>
+    <rect x="0" y="150" width="100" height="40" class="box-train" />
+    <rect x="110" y="150" width="100" height="40" class="box-train" />
+    <rect x="220" y="150" width="100" height="40" class="box-train" />
+    
+    <rect x="330" y="150" width="100" height="40" class="box-val" />
+    <text x="380" y="170" font-weight="bold" fill="#b45309">Validation</text>
+
+    <rect x="440" y="150" width="100" height="40" class="box-train" />
+
+    <!-- Iteration 5 -->
+    <text x="-40" y="220" class="iter-text">Fold 5</text>
+    <rect x="0" y="200" width="100" height="40" class="box-train" />
+    <rect x="110" y="200" width="100" height="40" class="box-train" />
+    <rect x="220" y="200" width="100" height="40" class="box-train" />
+    <rect x="330" y="200" width="100" height="40" class="box-train" />
+    
+    <rect x="440" y="200" width="100" height="40" class="box-val" />
+    <text x="490" y="220" font-weight="bold" fill="#b45309">Validation</text>
+    
+  </g>
+
+  <rect x="250" y="300" width="300" height="30" fill="#fef2f2" stroke="#ef4444" rx="4" />
+  <text x="400" y="315" font-weight="bold" fill="#b91c1c">최종 Error = (E1 + E2 + E3 + E4 + E5) / 5</text>
+
+</svg>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; }
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #cbd5e1; stroke-width: 2; }
+      .title { font-size: 16px; font-weight: bold; fill: #334155; }
+      .pt-gray { fill: #64748b; }
+      .pt-blue { fill: #3b82f6; }
+      .pt-yellow { fill: #eab308; }
+      .pt-green { fill: #10b981; }
+      .pt-pink { fill: #ec4899; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <!-- Panel 1: Original -->
+  <g transform="translate(30, 40)">
+    <rect x="0" y="0" width="160" height="200" class="box" />
+    <!-- Top blob -->
+    <circle cx="60" cy="50" r="3" class="pt-gray" /> <circle cx="70" cy="45" r="3" class="pt-gray" /> <circle cx="50" cy="60" r="3" class="pt-gray" /> <circle cx="80" cy="55" r="3" class="pt-gray" />
+    <circle cx="65" cy="70" r="3" class="pt-gray" /> <circle cx="90" cy="65" r="3" class="pt-gray" /> <circle cx="100" cy="50" r="3" class="pt-gray" /> <circle cx="75" cy="40" r="3" class="pt-gray" />
+    <!-- Bottom blob -->
+    <circle cx="80" cy="140" r="3" class="pt-gray" /> <circle cx="70" cy="150" r="3" class="pt-gray" /> <circle cx="90" cy="145" r="3" class="pt-gray" /> <circle cx="100" cy="160" r="3" class="pt-gray" />
+    <circle cx="110" cy="150" r="3" class="pt-gray" /> <circle cx="85" cy="170" r="3" class="pt-gray" /> <circle cx="60" cy="160" r="3" class="pt-gray" /> <circle cx="120" cy="140" r="3" class="pt-gray" />
+    
+    <rect x="25" y="215" width="110" height="30" rx="15" fill="#e2e8f0" />
+    <text x="80" y="235" class="title" text-anchor="middle">원본 데이터</text>
+  </g>
+
+  <!-- Panel 2: K=2 -->
+  <g transform="translate(220, 40)">
+    <rect x="0" y="0" width="160" height="200" class="box" />
+    <!-- Top blob -->
+    <circle cx="60" cy="50" r="3" class="pt-blue" /> <circle cx="70" cy="45" r="3" class="pt-blue" /> <circle cx="50" cy="60" r="3" class="pt-blue" /> <circle cx="80" cy="55" r="3" class="pt-blue" />
+    <circle cx="65" cy="70" r="3" class="pt-blue" /> <circle cx="90" cy="65" r="3" class="pt-blue" /> <circle cx="100" cy="50" r="3" class="pt-blue" /> <circle cx="75" cy="40" r="3" class="pt-blue" />
+    <!-- Bottom blob -->
+    <circle cx="80" cy="140" r="3" class="pt-yellow" /> <circle cx="70" cy="150" r="3" class="pt-yellow" /> <circle cx="90" cy="145" r="3" class="pt-yellow" /> <circle cx="100" cy="160" r="3" class="pt-yellow" />
+    <circle cx="110" cy="150" r="3" class="pt-yellow" /> <circle cx="85" cy="170" r="3" class="pt-yellow" /> <circle cx="60" cy="160" r="3" class="pt-yellow" /> <circle cx="120" cy="140" r="3" class="pt-yellow" />
+    
+    <rect x="40" y="215" width="80" height="30" rx="15" fill="#e2e8f0" />
+    <text x="80" y="235" class="title" text-anchor="middle">K=2</text>
+  </g>
+
+  <!-- Panel 3: K=3 -->
+  <g transform="translate(410, 40)">
+    <rect x="0" y="0" width="160" height="200" class="box" />
+    <!-- Top blob -->
+    <circle cx="60" cy="50" r="3" class="pt-green" /> <circle cx="70" cy="45" r="3" class="pt-green" /> <circle cx="50" cy="60" r="3" class="pt-green" /> <circle cx="80" cy="55" r="3" class="pt-green" />
+    <circle cx="65" cy="70" r="3" class="pt-green" /> <circle cx="90" cy="65" r="3" class="pt-green" /> <circle cx="100" cy="50" r="3" class="pt-green" /> <circle cx="75" cy="40" r="3" class="pt-green" />
+    <!-- Bottom Left blob -->
+    <circle cx="60" cy="140" r="3" class="pt-blue" /> <circle cx="70" cy="150" r="3" class="pt-blue" /> <circle cx="50" cy="145" r="3" class="pt-blue" /> <circle cx="65" cy="160" r="3" class="pt-blue" />
+    <circle cx="75" cy="170" r="3" class="pt-blue" />
+    <!-- Bottom Right blob -->
+    <circle cx="100" cy="145" r="3" class="pt-yellow" /> <circle cx="110" cy="150" r="3" class="pt-yellow" /> <circle cx="95" cy="130" r="3" class="pt-yellow" /> <circle cx="120" cy="140" r="3" class="pt-yellow" />
+    <circle cx="105" cy="160" r="3" class="pt-yellow" />
+    
+    <rect x="40" y="215" width="80" height="30" rx="15" fill="#e2e8f0" />
+    <text x="80" y="235" class="title" text-anchor="middle">K=3</text>
+  </g>
+
+  <!-- Panel 4: K=4 -->
+  <g transform="translate(600, 40)">
+    <rect x="0" y="0" width="160" height="200" class="box" />
+    <!-- Top blob -->
+    <circle cx="60" cy="50" r="3" class="pt-blue" /> <circle cx="70" cy="45" r="3" class="pt-blue" /> <circle cx="50" cy="60" r="3" class="pt-blue" /> <circle cx="80" cy="55" r="3" class="pt-blue" />
+    <!-- Top Right blob -->
+    <circle cx="105" cy="70" r="3" class="pt-yellow" /> <circle cx="95" cy="65" r="3" class="pt-yellow" /> <circle cx="120" cy="50" r="3" class="pt-yellow" /> <circle cx="105" cy="40" r="3" class="pt-yellow" />
+    <!-- Bottom Left blob -->
+    <circle cx="60" cy="140" r="3" class="pt-green" /> <circle cx="70" cy="150" r="3" class="pt-green" /> <circle cx="50" cy="145" r="3" class="pt-green" /> <circle cx="65" cy="160" r="3" class="pt-green" />
+    <circle cx="75" cy="170" r="3" class="pt-green" />
+    <!-- Bottom Right blob -->
+    <circle cx="110" cy="145" r="3" class="pt-pink" /> <circle cx="100" cy="150" r="3" class="pt-pink" /> <circle cx="120" cy="130" r="3" class="pt-pink" /> <circle cx="115" cy="160" r="3" class="pt-pink" />
+    
+    <rect x="40" y="215" width="80" height="30" rx="15" fill="#e2e8f0" />
+    <text x="80" y="235" class="title" text-anchor="middle">K=4</text>
+  </g>
+</svg>

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .cell { fill: white; stroke: #94a3b8; stroke-width: 1; }
+      .header-col { fill: #eff6ff; font-weight: bold; font-size: 16px; fill: #1e293b; }
+      .header-row { fill: #eff6ff; font-weight: bold; font-size: 16px; fill: #1e293b; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .math { font-family: 'Roboto', sans-serif; font-size: 20px; font-weight: bold; }
+      .num { font-size: 24px; font-weight: bold; fill: #0f172a; }
+      .highlight-prec { fill: #fdf2f8; stroke: #be185d; stroke-width: 3; }
+      .highlight-rec { fill: #fffbeb; stroke: #d97706; stroke-width: 3; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">혼동 행렬 값을 통한 지표 산출 예시</text>
+
+  <!-- Confusion Matrix Example -->
+  <g transform="translate(100, 70)">
+    
+    <!-- Top Headers (Predicted) -->
+    <rect x="150" y="0" width="200" height="40" class="cell header-col" />
+    <text x="250" y="20" class="header-col">예측 클래스 (Predicted)</text>
+    
+    <rect x="150" y="40" width="100" height="40" class="cell" fill="#f8fafc" />
+    <rect x="250" y="40" width="100" height="40" class="cell" fill="#f8fafc" />
+    <text x="200" y="60" font-weight="bold">Positive</text>
+    <text x="300" y="60" font-weight="bold">Negative</text>
+
+    <!-- Side Headers (Actual) -->
+    <rect x="0" y="80" width="150" height="80" class="cell header-row" />
+    <text x="75" y="120" class="header-row">실제 클래스 (Actual)</text>
+    
+    <rect x="75" y="80" width="75" height="40" class="cell" fill="#f8fafc" />
+    <rect x="75" y="120" width="75" height="40" class="cell" fill="#f8fafc" />
+    <text x="112" y="100" font-weight="bold">Positive</text>
+    <text x="112" y="140" font-weight="bold">Negative</text>
+
+    <!-- Matrix Cells -->
+    <rect x="150" y="80" width="100" height="40" class="cell tp" />
+    <text x="200" y="100" class="num">3</text>
+    
+    <rect x="250" y="80" width="100" height="40" class="cell fn" />
+    <text x="300" y="100" class="num">2</text>
+    
+    <rect x="150" y="120" width="100" height="40" class="cell fp" />
+    <text x="200" y="120" class="num">1</text>
+    
+    <rect x="250" y="120" width="100" height="40" class="cell tn" />
+    <text x="300" y="120" class="num">4</text>
+  </g>
+
+  <!-- Metric 1: Precision -->
+  <g transform="translate(500, 70)">
+    <text x="100" y="20" class="math" fill="#be185d">정밀도 = TP / (TP+FP)</text>
+    <rect x="50" y="80" width="100" height="80" fill="none" stroke="#be185d" stroke-width="4" rx="4" />
+    <text x="100" y="60" font-weight="bold" fill="#be185d">세로 방향 비율</text>
+    
+    <text x="100" y="120" class="math">= 3 / (3 + 1) = 0.75</text>
+  </g>
+
+  <!-- Metric 2: Recall -->
+  <g transform="translate(140, 260)">
+    <text x="100" y="20" class="math" fill="#d97706">재현율 = TP / (TP+FN)</text>
+    <rect x="110" y="-110" width="200" height="40" fill="none" stroke="#d97706" stroke-width="4" rx="4" />
+    <text x="100" y="60" font-weight="bold" fill="#d97706">가로 방향 비율</text>
+
+    <text x="100" y="120" class="math">= 3 / (3 + 2) = 0.60</text>
+  </g>
+
+  <!-- Metric 3: Accuracy -->
+  <g transform="translate(500, 260)">
+    <text x="100" y="20" class="math" fill="#047857">정확도 = (TP+TN) / TOTAL</text>
+    
+    <text x="100" y="60" font-weight="bold" fill="#047857">정답 맞춘 비율 총합</text>
+    
+    <text x="100" y="120" class="math">= (3 + 4) / 10 = 0.70</text>
+  </g>
+
+</svg>

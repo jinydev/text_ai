@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #ffffff; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .math { font-family: 'Roboto', sans-serif; font-size: 24px; font-weight: bold; fill: #1e293b; }
+      .desc { font-size: 14px; fill: #475569; }
+      .matrix-box { fill: #f1f5f9; stroke: #94a3b8; stroke-width: 2; }
+      .cell-1 { fill: #3b82f6; stroke: #1e3a8a; }
+      .cell-0 { fill: #e2e8f0; stroke: #94a3b8; }
+      .cell-m { fill: #fbbf24; stroke: #b45309; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="40" class="title">NNLM 투사층 동작: 임베딩 룩업 (Embedding Lookup)</text>
+  <text x="400" y="65" class="desc">One-hot 벡터와 크기가 방대한 가중치 행렬 W를 곱하는 것은, 결국 해당 인덱스의 행을 '읽어오는(Lookup)' 것과 같습니다.</text>
+
+  <!-- x_fat (One Hot Vector 1x6) -->
+  <g transform="translate(100, 160)">
+    <text x="75" y="-20" class="math">x_t (입력 단어)</text>
+    <text x="75" y="-40" class="desc" fill="#ef4444">1 × V 차원</text>
+    <rect x="0" y="0" width="25" height="25" class="cell-0" />
+    <rect x="25" y="0" width="25" height="25" class="cell-0" />
+    <rect x="50" y="0" width="25" height="25" class="cell-1" />
+    <rect x="75" y="0" width="25" height="25" class="cell-0" />
+    <rect x="100" y="0" width="25" height="25" class="cell-0" />
+    <rect x="125" y="0" width="25" height="25" class="cell-0" />
+    
+    <text x="63" y="15" font-family="Roboto" font-weight="bold" fill="white">1</text>
+  </g>
+
+  <text x="300" y="172" class="math">×</text>
+
+  <!-- W_matrix (6x4) -->
+  <g transform="translate(350, 120)">
+    <text x="75" y="-20" class="math">W_matrix</text>
+    <text x="75" y="-40" class="desc" fill="#3b82f6">V × M 차원</text>
+    <!-- Row 1 -->
+    <rect x="0" y="0" width="37.5" height="18" class="cell-0" />
+    <rect x="37.5" y="0" width="37.5" height="18" class="cell-0" />
+    <rect x="75" y="0" width="37.5" height="18" class="cell-0" />
+    <rect x="112.5" y="0" width="37.5" height="18" class="cell-0" />
+    <!-- Row 2 -->
+    <rect x="0" y="18" width="37.5" height="18" class="cell-0" />
+    <rect x="37.5" y="18" width="37.5" height="18" class="cell-0" />
+    <rect x="75" y="18" width="37.5" height="18" class="cell-0" />
+    <rect x="112.5" y="18" width="37.5" height="18" class="cell-0" />
+    <!-- Row 3 (Highlighted) -->
+    <rect x="0" y="36" width="37.5" height="18" class="cell-m" />
+    <rect x="37.5" y="36" width="37.5" height="18" class="cell-m" />
+    <rect x="75" y="36" width="37.5" height="18" class="cell-m" />
+    <rect x="112.5" y="36" width="37.5" height="18" class="cell-m" />
+    <!-- Row 4 -->
+    <rect x="0" y="54" width="37.5" height="18" class="cell-0" />
+    <rect x="37.5" y="54" width="37.5" height="18" class="cell-0" />
+    <rect x="75" y="54" width="37.5" height="18" class="cell-0" />
+    <rect x="112.5" y="54" width="37.5" height="18" class="cell-0" />
+    <!-- Row 5 -->
+    <rect x="0" y="72" width="37.5" height="18" class="cell-0" />
+    <rect x="37.5" y="72" width="37.5" height="18" class="cell-0" />
+    <rect x="75" y="72" width="37.5" height="18" class="cell-0" />
+    <rect x="112.5" y="72" width="37.5" height="18" class="cell-0" />
+    <!-- Row 6 -->
+    <rect x="0" y="90" width="37.5" height="18" class="cell-0" />
+    <rect x="37.5" y="90" width="37.5" height="18" class="cell-0" />
+    <rect x="75" y="90" width="37.5" height="18" class="cell-0" />
+    <rect x="112.5" y="90" width="37.5" height="18" class="cell-0" />
+  </g>
+
+  <text x="540" y="172" class="math">=</text>
+
+  <!-- Result e_fat (1x4) -->
+  <g transform="translate(580, 160)">
+    <text x="60" y="-20" class="math" fill="#b45309">e_t (임베딩 벡터)</text>
+    <text x="60" y="-40" class="desc" fill="#b45309">1 × M 차원</text>
+    
+    <rect x="0" y="0" width="30" height="25" class="cell-m" />
+    <rect x="30" y="0" width="30" height="25" class="cell-m" />
+    <rect x="60" y="0" width="30" height="25" class="cell-m" />
+    <rect x="90" y="0" width="30" height="25" class="cell-m" />
+  </g>
+
+  <!-- Illustration of mapping -->
+  <path d="M 175 160 C 250 100, 250 150, 350 160" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5" />
+  
+  <rect x="100" y="300" width="600" height="30" fill="#fef2f2" stroke="#ef4444" rx="8" />
+  <text x="400" y="315" font-size="14" font-weight="bold" fill="#b91c1c">원-핫 벡터 안의 진짜 '1' 위치를 W 행렬의 인덱스 좌표로 삼아 그 줄(행)을 그대로 복사해옵니다.</text>
+
+</svg>

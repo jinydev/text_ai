@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #94a3b8; stroke-width: 2; rx: 8; ry: 8; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .col-title { font-size: 18px; font-weight: bold; fill: white; }
+      .item { font-size: 14px; font-weight: bold; fill: #334155; }
+      .sub-item { font-size: 13px; fill: #64748b; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">자연언어처리와 텍스트 마이닝의 패러다임 변화</text>
+  <text x="400" y="55" font-size="14" fill="#64748b">과거의 파편화된 통계 분석 도구들이 거대한 대형언어모델(LLM) 환경 아래 하나의 프레임워크로 통합되었습니다.</text>
+
+  <!-- Classical NLP -->
+  <g transform="translate(60, 90)">
+    <rect x="0" y="0" width="300" height="230" class="box" fill="#f1f5f9" />
+    <rect x="0" y="0" width="300" height="40" fill="#64748b" rx="8" />
+    <path d="M 0 30 L 300 30 L 300 40 L 0 40 Z" fill="#64748b" />
+    <text x="150" y="20" class="col-title">고전적 관점 (통계 기반)</text>
+
+    <!-- Traits -->
+    <rect x="20" y="60" width="260" height="45" rx="8" fill="white" stroke="#cbd5e1" />
+    <text x="150" y="75" class="item">설계 방식: 인간의 수작업 의존</text>
+    <text x="150" y="92" class="sub-item">사람이 직접 특징(Feature)과 규칙을 설계</text>
+
+    <rect x="20" y="115" width="260" height="45" rx="8" fill="white" stroke="#cbd5e1" />
+    <text x="150" y="130" class="item">범용성: Task마다 별도 모델 편조</text>
+    <text x="150" y="147" class="sub-item">번역기 따로, 요약기 따로, 형태소 분석기 따로</text>
+
+    <rect x="20" y="170" width="260" height="45" rx="8" fill="white" stroke="#cbd5e1" />
+    <text x="150" y="185" class="item" fill="#ef4444">한계: 대규모 일반화 불가</text>
+    <text x="150" y="202" class="sub-item">복잡한 문맥이나 새로운 상황에 극도로 취약함</text>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M 370 205 L 410 205" stroke="#3b82f6" stroke-width="4" marker-end="url(#arrow-blue)" />
+  <text x="390" y="190" font-family="Roboto" font-weight="bold" fill="#2563eb">Shift</text>
+
+  <!-- Modern NLP -->
+  <g transform="translate(430, 90)">
+    <rect x="0" y="0" width="300" height="230" class="box" fill="#eff6ff" stroke="#3b82f6" />
+    <rect x="0" y="0" width="300" height="40" fill="#3b82f6" rx="8" />
+    <path d="M 0 30 L 300 30 L 300 40 L 0 40 Z" fill="#3b82f6" />
+    <text x="150" y="20" class="col-title">현대적 관점 (LLM 중심 딥러닝)</text>
+
+    <!-- Traits -->
+    <rect x="20" y="60" width="260" height="45" rx="8" fill="white" stroke="#bfdbfe" />
+    <text x="150" y="75" class="item">설계 방식: 모델 스스로의 표현 학습</text>
+    <text x="150" y="92" class="sub-item">데이터 속에서 기계가 스스로 규칙과 문맥을 파악</text>
+
+    <rect x="20" y="115" width="260" height="45" rx="8" fill="white" stroke="#bfdbfe" />
+    <text x="150" y="130" class="item">범용성: 통합 파운데이션 알고리즘</text>
+    <text x="150" y="147" class="sub-item">하나의 거대한 모델(LLM)이 모든 언어 과업을 수행</text>
+
+    <rect x="20" y="170" width="260" height="45" rx="8" fill="white" stroke="#bfdbfe" />
+    <text x="150" y="185" class="item" fill="#1d4ed8">장점: 유연한 구조와 막강한 추론력</text>
+    <text x="150" y="202" class="sub-item">과거 독립적이었던 기술들을 프레임워크로 흡수</text>
+  </g>
+
+  <defs>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6" />
+    </marker>
+  </defs>
+
+</svg>

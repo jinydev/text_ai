@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; }
+      .bg { fill: #ffffff; }
+      .cell { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1; }
+      .header-bg { fill: #3b82f6; }
+      .header-text { fill: #ffffff; font-weight: bold; font-size: 16px; text-anchor: middle; dominant-baseline: middle; }
+      .content-text { fill: #334155; font-size: 16px; text-anchor: middle; dominant-baseline: middle; }
+      .content-topic { fill: #0ea5e9; font-size: 16px; text-anchor: middle; dominant-baseline: middle; }
+      .highlight-bg { fill: #f43f5e; }
+      .highlight-topic { fill: #1e293b; font-size: 18px; font-weight: bold; text-anchor: middle; dominant-baseline: middle; }
+      .doc-title { font-size: 20px; font-weight: bold; fill: #1e3a8a; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <!-- Doc 1 Group -->
+  <g transform="translate(50, 50)">
+    <text x="0" y="-10" class="doc-title">[Doc1]</text>
+    
+    <!-- Headers -->
+    <rect x="0" y="0" width="100" height="40" class="header-bg" stroke="#1e3a8a" />
+    <text x="50" y="20" class="header-text">Word</text>
+    
+    <rect x="100" y="0" width="120" height="40" fill="#60a5fa" stroke="#1e3a8a" />
+    <text x="160" y="20" class="header-text">Baseball</text>
+
+    <rect x="220" y="0" width="120" height="40" fill="#60a5fa" stroke="#1e3a8a" />
+    <text x="280" y="20" class="header-text">Basketball</text>
+
+    <rect x="340" y="0" width="120" height="40" class="highlight-bg" stroke="#9f1239" />
+    <text x="400" y="20" class="header-text">Baseball</text>
+
+    <rect x="460" y="0" width="120" height="40" fill="#60a5fa" stroke="#1e3a8a" />
+    <text x="520" y="20" class="header-text">Money</text>
+
+    <rect x="580" y="0" width="120" height="40" fill="#60a5fa" stroke="#1e3a8a" />
+    <text x="640" y="20" class="header-text">Money</text>
+
+    <!-- Rows -->
+    <rect x="0" y="40" width="100" height="40" class="cell" />
+    <text x="50" y="60" class="content-text" font-weight="bold">Topic</text>
+
+    <rect x="100" y="40" width="120" height="40" class="cell" />
+    <text x="160" y="60" class="content-topic">Topic2</text>
+
+    <rect x="220" y="40" width="120" height="40" class="cell" />
+    <text x="280" y="60" class="content-topic">Topic2</text>
+
+    <rect x="340" y="40" width="120" height="40" class="cell" />
+    <text x="400" y="60" class="highlight-topic">?</text>
+
+    <rect x="460" y="40" width="120" height="40" class="cell" />
+    <text x="520" y="60" class="content-topic">Topic1</text>
+
+    <rect x="580" y="40" width="120" height="40" class="cell" />
+    <text x="640" y="60" class="content-topic">Topic1</text>
+  </g>
+
+  <!-- Doc 2 Group -->
+  <g transform="translate(50, 180)">
+    <text x="0" y="-10" class="doc-title">[Doc2]</text>
+    
+    <!-- Headers -->
+    <rect x="0" y="0" width="100" height="40" class="header-bg" stroke="#1e3a8a" />
+    <text x="50" y="20" class="header-text">Word</text>
+    
+    <rect x="100" y="0" width="120" height="40" class="header-bg" stroke="#1e3a8a" />
+    <text x="160" y="20" class="header-text">Interest</text>
+
+    <rect x="220" y="0" width="120" height="40" class="header-bg" stroke="#1e3a8a" />
+    <text x="280" y="20" class="header-text">Rate</text>
+
+    <rect x="340" y="0" width="120" height="40" class="header-bg" stroke="#1e3a8a" />
+    <text x="400" y="20" class="header-text">Cash</text>
+
+    <rect x="460" y="0" width="120" height="40" fill="#60a5fa" stroke="#1e3a8a" />
+    <text x="520" y="20" class="header-text">Baseball</text>
+
+    <rect x="580" y="0" width="120" height="40" fill="#60a5fa" stroke="#1e3a8a" />
+    <text x="640" y="20" class="header-text">Baseball</text>
+
+    <!-- Rows -->
+    <rect x="0" y="40" width="100" height="40" class="cell" />
+    <text x="50" y="60" class="content-text" font-weight="bold">Topic</text>
+
+    <rect x="100" y="40" width="120" height="40" class="cell" />
+    <text x="160" y="60" class="content-topic" fill="#1e293b">Topic2</text>
+
+    <rect x="220" y="40" width="120" height="40" class="cell" />
+    <text x="280" y="60" class="content-topic" fill="#1e293b">Topic1</text>
+
+    <rect x="340" y="40" width="120" height="40" class="cell" />
+    <text x="400" y="60" class="content-topic" fill="#1e293b">Topic1</text>
+
+    <rect x="460" y="40" width="120" height="40" class="cell" />
+    <text x="520" y="60" class="content-topic">Topic2</text>
+
+    <rect x="580" y="40" width="120" height="40" class="cell" />
+    <text x="640" y="60" class="content-topic">Topic2</text>
+  </g>
+
+  <text x="400" y="320" font-size="14" fill="#64748b" text-anchor="middle">현재 할당을 무효화한 단어 'Baseball'의 새로운 토픽을 추론 중인 상태</text>
+
+</svg>

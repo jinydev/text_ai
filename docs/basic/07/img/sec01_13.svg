@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Roboto', sans-serif; }
+      .kor { font-family: 'Noto Sans KR', sans-serif; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e293b"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#ffffff" />
+
+  <!-- Left Side: Models -->
+  <g transform="translate(100, 100)">
+    <!-- Cylinder 1 -->
+    <ellipse cx="40" cy="0" rx="30" ry="10" fill="none" stroke="#64748b" stroke-width="2"/>
+    <line x1="10" y1="0" x2="10" y2="100" stroke="#64748b" stroke-width="2"/>
+    <line x1="70" y1="0" x2="70" y2="100" stroke="#64748b" stroke-width="2"/>
+    <path d="M 10 100 A 30 10 0 0 0 70 100 A 30 10 0 0 0 10 100" fill="none" stroke="#64748b" stroke-width="2"/>
+    <text x="40" y="55" font-size="24" font-weight="bold" fill="#0f172a" text-anchor="middle">?</text>
+    <text x="40" y="130" font-size="16" font-weight="bold" fill="#334155" text-anchor="middle">TOPIC 1</text>
+
+    <!-- Cylinder 2 -->
+    <g transform="translate(0, 160)">
+      <ellipse cx="40" cy="0" rx="30" ry="10" fill="none" stroke="#64748b" stroke-width="2"/>
+      <line x1="10" y1="0" x2="10" y2="100" stroke="#64748b" stroke-width="2"/>
+      <line x1="70" y1="0" x2="70" y2="100" stroke="#64748b" stroke-width="2"/>
+      <path d="M 10 100 A 30 10 0 0 0 70 100 A 30 10 0 0 0 10 100" fill="none" stroke="#64748b" stroke-width="2"/>
+      <text x="40" y="55" font-size="24" font-weight="bold" fill="#0f172a" text-anchor="middle">?</text>
+      <text x="40" y="130" font-size="16" font-weight="bold" fill="#334155" text-anchor="middle">TOPIC 2</text>
+    </g>
+  </g>
+
+  <!-- Big question mark and arrows -->
+  <text x="210" y="240" font-size="30" font-weight="bold" fill="#0f172a">?</text>
+
+  <!-- Arrows -->
+  <line x1="240" y1="210" x2="300" y2="150" stroke="#1e293b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="240" y1="230" x2="300" y2="230" stroke="#1e293b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="240" y1="250" x2="300" y2="310" stroke="#1e293b" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Right Side: Documents -->
+  <g transform="translate(320, 130)">
+    <!-- DOC 1 -->
+    <text x="0" y="0" font-size="14" fill="#334155"><tspan font-weight="bold">DOC1:</tspan> money? bank? loan?</text>
+    <text x="0" y="20" font-size="14" fill="#334155">bank? money? money?</text>
+    <text x="0" y="40" font-size="14" fill="#334155">bank? loan?</text>
+
+    <!-- DOC 2 -->
+    <g transform="translate(0, 100)">
+      <text x="0" y="0" font-size="14" fill="#334155"><tspan font-weight="bold">DOC2:</tspan> money? bank?</text>
+      <text x="0" y="20" font-size="14" fill="#334155">bank? river? loan? stream?</text>
+      <text x="0" y="40" font-size="14" fill="#334155">bank? money?</text>
+    </g>
+
+    <!-- DOC 3 -->
+    <g transform="translate(0, 190)">
+      <text x="0" y="0" font-size="14" fill="#334155"><tspan font-weight="bold">DOC3:</tspan> river? bank?</text>
+      <text x="0" y="20" font-size="14" fill="#334155">stream? bank? river? river?</text>
+      <text x="0" y="40" font-size="14" fill="#334155">stream? bank?</text>
+    </g>
+  </g>
+
+  <!-- Explanation Texts on the far right -->
+  <g transform="translate(520, 130)">
+    <circle cx="10" cy="-5" r="5" fill="#8b5cf6" />
+    <text x="25" y="0" font-size="18" font-weight="bold" fill="#475569" class="kor">각 토픽의 단어 분포의 확률은</text>
+    <text x="25" y="30" font-size="18" font-weight="bold" fill="#475569" class="kor">미리 알 수 없음</text>
+
+    <circle cx="10" cy="95" r="5" fill="#8b5cf6" />
+    <text x="25" y="100" font-size="18" font-weight="bold" fill="#475569" class="kor">주어진 문서 집합 내 <tspan fill="#e11d48">관측된</tspan></text>
+    <text x="25" y="130" font-size="18" font-weight="bold" fill="#e11d48" class="kor">단어를 기반<tspan fill="#475569">으로 데이터를</tspan></text>
+    <text x="25" y="160" font-size="18" font-weight="bold" fill="#475569" class="kor">생성할 가능성이 가장 높은</text>
+    <text x="25" y="190" font-size="18" font-weight="bold" fill="#e11d48" class="kor">토픽 모델을 추론</text>
+  </g>
+</svg>

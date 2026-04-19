@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #94a3b8; stroke-width: 2; rx: 8; ry: 8; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .word { font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: bold; fill: white; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">Skip-gram with Negative Sampling (SGNS)</text>
+  <text x="400" y="55" font-size="14" fill="#64748b">다중 클래스 예측(거대한 연산량)을 이진 분류(True/False 맞추기)로 단순화하여 성능 최적화</text>
+
+  <!-- Old Skip-gram -->
+  <g transform="translate(60, 100)">
+    <text x="140" y="-10" font-size="18" font-weight="bold" fill="#0f172a">기존 Skip-gram</text>
+    
+    <rect x="0" y="30" width="80" height="30" rx="4" fill="#fbbf24" />
+    <text x="40" y="45" class="word" fill="#78350f">not</text>
+
+    <rect x="120" y="10" width="160" height="70" class="box" fill="#f8fafc" />
+    <text x="200" y="30" font-size="12" font-weight="bold" fill="#64748b" font-family="Roboto">Untrained Model</text>
+    <text x="200" y="50" font-size="12" font-weight="bold" fill="#1e293b" font-family="Roboto">Task: Predict Neighbour word</text>
+    <text x="200" y="65" font-size="12" font-weight="bold" fill="#ef4444" font-family="Roboto">(소프트맥스 다중분류)</text>
+
+    <path d="M 90 45 L 110 45" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" />
+    <path d="M 290 45 L 310 45" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" />
+
+    <rect x="320" y="30" width="60" height="30" rx="4" fill="#fca5a5" />
+    <text x="350" y="45" class="word" fill="#7f1d1d">thou</text>
+  </g>
+
+  <!-- SGNS -->
+  <g transform="translate(420, 100)">
+    <text x="140" y="-10" font-size="18" font-weight="bold" fill="#0f172a">SGNS (Negative Sampling)</text>
+    
+    <rect x="0" y="10" width="80" height="30" rx="4" fill="#fbbf24" />
+    <text x="40" y="25" class="word" fill="#78350f">not</text>
+    
+    <rect x="0" y="50" width="80" height="30" rx="4" fill="#60a5fa" />
+    <text x="40" y="65" class="word">thou</text>
+
+    <path d="M 90 45 L 110 45" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" />
+
+    <rect x="120" y="10" width="160" height="70" class="box" fill="#f8fafc" />
+    <text x="200" y="30" font-size="12" font-weight="bold" fill="#64748b" font-family="Roboto">Untrained Model</text>
+    <text x="200" y="50" font-size="12" font-weight="bold" fill="#1e293b" font-family="Roboto">Task: Are they neighbors?</text>
+    <text x="200" y="65" font-size="12" font-weight="bold" fill="#10b981" font-family="Roboto">(이진 분류)</text>
+
+    <path d="M 290 45 L 310 45" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" />
+
+    <text x="330" y="45" font-size="20" font-weight="bold" fill="#059669" font-family="Roboto">1 (True)</text>
+  </g>
+
+  <rect x="150" y="270" width="500" height="50" fill="#fef2f2" stroke="#ef4444" rx="8" />
+  <text x="400" y="285" font-size="14" font-weight="bold" fill="#b91c1c">원래 이웃인 단어에게는 '1' 레이블을 주고,</text>
+  <text x="400" y="305" font-size="14" font-weight="bold" fill="#b91c1c">가짜로 만든 오답 쌍(Negative sample)에게는 '0' 레이블을 주어 학습!</text>
+
+</svg>

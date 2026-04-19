@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #94a3b8; stroke-width: 2; rx: 8; ry: 8; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .subtitle { font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: bold; fill: #1e3a8a; }
+      .num { font-family: 'Roboto', sans-serif; font-size: 14px; font-weight: bold; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">통계 기반 접근법: 원-핫 인코딩과 Bag of Words(BoW)</text>
+  <text x="400" y="55" font-size="14" fill="#64748b">단어를 숫자로 바꾸는 가장 원시적이면서도 효과적이었던 통계적 모델링 기법입니다.</text>
+
+  <!-- One-hot Encoding -->
+  <g transform="translate(60, 90)">
+    <rect x="0" y="0" width="300" height="230" class="box" fill="#eff6ff" stroke="#3b82f6" />
+    <rect x="0" y="0" width="300" height="40" fill="#3b82f6" rx="8" />
+    <path d="M 0 30 L 300 30 L 300 40 L 0 40 Z" fill="#3b82f6" />
+    <text x="150" y="20" font-size="18" font-weight="bold" fill="white">원-핫 인코딩 (One-Hot)</text>
+
+    <text x="150" y="65" font-size="13" font-weight="bold" fill="#1e3a8a">타켓 단어만 1, 나머지는 전부 0으로 마킹</text>
+
+    <!-- Matrix Visualization -->
+    <text x="50" y="100" font-size="12" fill="#64748b" font-weight="bold">apple</text>
+    <text x="100" y="100" font-size="12" fill="#64748b" font-weight="bold">banana</text>
+    <text x="150" y="100" font-size="12" fill="#1d4ed8" font-weight="bold" text-decoration="underline">cat</text>
+    <text x="200" y="100" font-size="12" fill="#64748b" font-weight="bold">dog</text>
+    <text x="250" y="100" font-size="12" fill="#64748b" font-weight="bold">egg</text>
+
+    <rect x="35" y="115" width="30" height="30" fill="white" stroke="#cbd5e1" />
+    <text x="50" y="130" class="num" fill="#94a3b8">0</text>
+    
+    <rect x="85" y="115" width="30" height="30" fill="white" stroke="#cbd5e1" />
+    <text x="100" y="130" class="num" fill="#94a3b8">0</text>
+
+    <rect x="135" y="115" width="30" height="30" fill="#bfdbfe" stroke="#3b82f6" />
+    <text x="150" y="130" class="num" fill="#1d4ed8">1</text>
+
+    <rect x="185" y="115" width="30" height="30" fill="white" stroke="#cbd5e1" />
+    <text x="200" y="130" class="num" fill="#94a3b8">0</text>
+
+    <rect x="235" y="115" width="30" height="30" fill="white" stroke="#cbd5e1" />
+    <text x="250" y="130" class="num" fill="#94a3b8">0</text>
+
+    <text x="150" y="170" font-size="12" fill="#ef4444" font-weight="bold">치명적 단점: 희소성(Sparsity)</text>
+    <text x="150" y="190" font-size="12" fill="#64748b">사전에 단어가 10만 개라면 배열 크기가 10만 개가 됨</text>
+  </g>
+
+  <!-- Bag of Words -->
+  <g transform="translate(420, 90)">
+    <rect x="0" y="0" width="320" height="230" class="box" fill="#f0fdf4" stroke="#10b981" />
+    <rect x="0" y="0" width="320" height="40" fill="#10b981" rx="8" />
+    <path d="M 0 30 L 320 30 L 320 40 L 0 40 Z" fill="#10b981" />
+    <text x="160" y="20" font-size="18" font-weight="bold" fill="white">BoW (Bag of Words)</text>
+
+    <text x="160" y="65" font-size="13" font-weight="bold" fill="#064e3b">단어들의 문법과 순서를 무시하고, 출현 빈도만 카운트</text>
+
+    <!-- Sentences -->
+    <rect x="20" y="85" width="280" height="30" fill="white" stroke="#cbd5e1" />
+    <text x="160" y="100" class="num" fill="#334155">Doc: The red dog eats the red cat.</text>
+
+    <!-- Counts -->
+    <rect x="30" y="130" width="260" height="40" rx="8" fill="#d1fae5" stroke="#10b981" />
+    
+    <text x="60" y="140" font-size="12" fill="#64748b">the</text>
+    <text x="60" y="160" class="num" fill="#047857">2</text>
+
+    <text x="100" y="140" font-size="12" fill="#1d4ed8">red</text>
+    <text x="100" y="160" class="num" fill="#1d4ed8">2</text>
+
+    <text x="140" y="140" font-size="12" fill="#64748b">dog</text>
+    <text x="140" y="160" class="num" fill="#047857">1</text>
+
+    <text x="180" y="140" font-size="12" fill="#64748b">eats</text>
+    <text x="180" y="160" class="num" fill="#047857">1</text>
+
+    <text x="220" y="140" font-size="12" fill="#64748b">cat</text>
+    <text x="220" y="160" class="num" fill="#047857">1</text>
+
+    <text x="160" y="195" font-size="12" fill="#047857" font-weight="bold">장점: 단어의 등장 빈도로 핵심 주제 파악 가능</text>
+    <text x="160" y="215" font-size="12" fill="#64748b">("red"가 2번 들어갔으니 색깔 관련 문장일 확률이 높음!)</text>
+
+  </g>
+
+</svg>

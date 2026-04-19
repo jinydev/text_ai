@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .box { fill: white; stroke: #cbd5e1; stroke-width: 2; }
+      .text-val { font-size: 16px; font-weight: bold; fill: #1e293b; }
+      .text-sub { font-size: 14px; fill: #475569; }
+      .highlight { fill: #3b82f6; stroke: #1e40af; stroke-width: 2; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title" fill="#ef4444">데이터 불균형 상황에서의 "정확도(Accuracy)" 해석 오류의 함정</text>
+  
+  <text x="400" y="70" font-size="20" font-weight="bold" fill="#1e293b">정확도 = 맞게 예측한 데이터 개수(정답) / 전체 데이터 개수</text>
+
+  <!-- Actual Data Box -->
+  <g transform="translate(100, 120)">
+    <rect x="0" y="0" width="180" height="120" fill="white" stroke="#64748b" stroke-width="2" />
+    <rect x="100" y="0" width="80" height="60" class="highlight" />
+    
+    <text x="140" y="20" font-size="14" font-weight="bold" fill="white">스팸메일</text>
+    <text x="140" y="40" font-size="14" fill="white">(1개)</text>
+
+    <text x="80" y="90" font-size="18" font-weight="bold" fill="#0f172a">정상 메일 (99개)</text>
+    <text x="90" y="-15" font-weight="bold" fill="#475569" font-size="18">Test Data (전체 100개)</text>
+  </g>
+
+  <!-- Dumb Model -->
+  <path d="M 300 180 L 330 180" stroke="#ef4444" stroke-width="3" marker-end="url(#arrow)" />
+
+  <g transform="translate(350, 120)">
+    <rect x="0" y="0" width="150" height="120" fill="white" stroke="#64748b" stroke-width="2" />
+    <text x="75" y="40" font-size="18" font-weight="bold" fill="#1e293b">모든 메일은</text>
+    <text x="75" y="80" font-size="18" font-weight="bold" fill="#1e293b">→ 정상메일</text>
+    
+    <text x="75" y="-15" font-weight="bold" fill="#475569" font-size="18">분류 모델 (멍청함)</text>
+  </g>
+
+  <!-- Accuracy Metric -->
+  <g transform="translate(580, 120)">
+    <text x="60" y="-15" font-weight="bold" fill="#475569" font-size="18">정확도 (Accuracy)</text>
+    
+    <text x="40" y="40" font-size="24" font-weight="bold" fill="#0f172a">99</text>
+    <line x1="20" y1="60" x2="60" y2="60" stroke="#0f172a" stroke-width="3" />
+    <text x="40" y="80" font-size="24" font-weight="bold" fill="#0f172a">100</text>
+
+    <text x="110" y="60" font-size="32" font-weight="bold" fill="#ef4444">= 99%</text>
+
+    <text x="70" y="130" font-size="14" fill="#64748b">정확도는 99%지만,</text>
+    <text x="70" y="150" font-size="14" fill="#64748b" font-weight="bold">스팸은 하나도 못 잡았습니다.</text>
+  </g>
+
+</svg>

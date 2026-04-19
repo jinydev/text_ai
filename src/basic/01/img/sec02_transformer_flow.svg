@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #94a3b8; stroke-width: 2; rx: 8; ry: 8; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .card-title { font-size: 16px; font-weight: bold; fill: #1e293b; }
+      .desc { font-size: 12px; fill: #475569; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">LLM 기반 접근: Transformer의 작동 흐름</text>
+  <text x="400" y="55" font-size="14" fill="#64748b">현대 자연어처리의 핵심인 트랜스포머 아키텍처가 텍스트를 인식하고 문장을 생성하는 근본 원리</text>
+
+  <!-- Flow Steps -->
+  <g transform="translate(40, 100)">
+    
+    <!-- 1. Prompt -->
+    <rect x="0" y="0" width="120" height="180" class="box" fill="#f8fafc" />
+    <circle cx="60" cy="30" r="14" fill="#64748b" />
+    <text x="60" y="30" fill="white" font-weight="bold">1</text>
+    <text x="60" y="65" class="card-title">입력 프롬프트</text>
+    <text x="60" y="90" class="desc">사용자가 입력한</text>
+    <text x="60" y="105" class="desc">자연어 문장</text>
+    <rect x="15" y="130" width="90" height="30" rx="4" fill="#e2e8f0" />
+    <text x="60" y="145" font-size="12" font-weight="bold" fill="#0f172a">"안녕 GPT야"</text>
+
+    <path d="M 120 90 L 140 90" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)" />
+
+    <!-- 2. Tokenizer & Embedding -->
+    <rect x="145" y="0" width="120" height="180" class="box" fill="#eff6ff" stroke="#3b82f6" />
+    <circle cx="205" cy="30" r="14" fill="#3b82f6" />
+    <text x="205" y="30" fill="white" font-weight="bold">2</text>
+    <text x="205" y="65" class="card-title" fill="#1d4ed8">토큰화 임베딩</text>
+    <text x="205" y="90" class="desc">단어를 쪼개고</text>
+    <text x="205" y="105" class="desc">고차원 벡터로 변환</text>
+    <rect x="160" y="130" width="90" height="30" rx="4" fill="#bfdbfe" />
+    <text x="205" y="145" font-size="12" font-weight="bold" fill="#1e3a8a">[0.41, 0.9, -0.2]</text>
+
+    <path d="M 265 90 L 285 90" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)" />
+
+    <!-- 3. Self-Attention -->
+    <rect x="290" y="0" width="140" height="180" class="box" fill="#fdf4ff" stroke="#a855f7" />
+    <circle cx="360" cy="30" r="14" fill="#a855f7" />
+    <text x="360" y="30" fill="white" font-weight="bold">3</text>
+    <text x="360" y="65" class="card-title" fill="#7e22ce">셀프 어텐션</text>
+    <text x="360" y="90" class="desc">문장 내 단어들 간의</text>
+    <text x="360" y="105" class="desc">문맥적 중요도 연산</text>
+    <!-- Attention lines -->
+    <path d="M 320 145 C 340 120, 380 120, 400 145" stroke="#d8b4fe" stroke-width="2" fill="none" />
+    <text x="320" y="155" font-size="12" font-weight="bold" fill="#6b21a8">I</text>
+    <text x="360" y="155" font-size="12" fill="#6b21a8">am</text>
+    <text x="400" y="155" font-size="12" font-weight="bold" fill="#6b21a8">student</text>
+
+    <path d="M 430 90 L 450 90" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)" />
+
+    <!-- 4. Parameter Calculation -->
+    <rect x="455" y="0" width="120" height="180" class="box" fill="#fffbeb" stroke="#f59e0b" />
+    <circle cx="515" cy="30" r="14" fill="#f59e0b" />
+    <text x="515" y="30" fill="white" font-weight="bold">4</text>
+    <text x="515" y="65" class="card-title" fill="#b45309">파라미터 연산</text>
+    <text x="515" y="90" class="desc">수억 개의 매개변수</text>
+    <text x="515" y="105" class="desc">추론 레이어 통과</text>
+    <rect x="485" y="125" width="60" height="40" rx="4" fill="#fde68a" />
+    <text x="515" y="145" font-size="20">⛁</text>
+
+    <path d="M 575 90 L 595 90" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)" />
+
+    <!-- 5. Sampling -->
+    <rect x="600" y="0" width="120" height="180" class="box" fill="#f0fdf4" stroke="#10b981" />
+    <circle cx="660" cy="30" r="14" fill="#10b981" />
+    <text x="660" y="30" fill="white" font-weight="bold">5</text>
+    <text x="660" y="65" class="card-title" fill="#047857">결과 샘플링</text>
+    <text x="660" y="90" class="desc">확률에 따라 가장</text>
+    <text x="660" y="105" class="desc">어울리는 단어 생성</text>
+    <rect x="615" y="130" width="90" height="30" rx="4" fill="#a7f3d0" />
+    <text x="660" y="145" font-size="12" font-weight="bold" fill="#064e3b">"반갑습니다!"</text>
+
+  </g>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
+    </marker>
+  </defs>
+
+</svg>

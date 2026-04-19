@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #0284c7; stroke-width: 2; rx: 4; ry: 4; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .word { font-family: 'Roboto', sans-serif; font-size: 18px; font-weight: bold; fill: #0f172a; }
+      .sub { font-family: 'Roboto', sans-serif; font-size: 16px; fill: #0369a1; font-weight: bold; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">FastText의 핵심: 서브워드(Subword) 분리 기법</text>
+  <text x="400" y="55" font-size="14" fill="#64748b">단어를 쪼개어 Character N-gram 단위로 학습하므로 OOV나 오타(Typo)에 매우 강건함</text>
+
+  <g transform="translate(100, 100)">
+    
+    <rect x="0" y="0" width="120" height="40" rx="20" fill="#bae6fd" />
+    <text x="60" y="20" class="word" fill="#0369a1">eating</text>
+    
+    <path d="M 130 20 L 160 20" stroke="#94a3b8" stroke-width="2" />
+
+    <rect x="180" y="-30" width="500" height="110" class="box" fill="#f0f9ff" />
+    
+    <text x="250" y="-10" font-size="14" font-weight="bold" fill="#64748b">Character N-grams 추출</text>
+    
+    <!-- 3-gram -->
+    <text x="210" y="20" font-size="14" font-weight="bold" fill="#0f172a">n=3</text>
+    <text x="450" y="20" class="sub" xml:space="preserve">&lt;ea,  eat,  ati,  tin,  ing,  ng&gt;</text>
+
+    <!-- 4-gram -->
+    <text x="210" y="50" font-size="14" font-weight="bold" fill="#0f172a">n=4</text>
+    <text x="450" y="50" class="sub" xml:space="preserve">&lt;eat,  eati,  atin,  ting,  ing&gt;</text>
+    
+    <!-- 5-gram -->
+    <text x="210" y="80" font-size="14" font-weight="bold" fill="#0f172a">n=5</text>
+    <text x="450" y="80" class="sub" xml:space="preserve">&lt;eati,  eatin,  ating,  ting&gt;</text>
+
+  </g>
+
+  <rect x="100" y="240" width="600" height="40" fill="#f0fdf4" stroke="#4ade80" rx="8" />
+  <text x="400" y="260" font-size="14" font-weight="bold" fill="#166534">이후 이 조각난 N-gram들의 임베딩 벡터를 모두 합산하여 최종 'eating'의 벡터값을 도출합니다.</text>
+
+</svg>

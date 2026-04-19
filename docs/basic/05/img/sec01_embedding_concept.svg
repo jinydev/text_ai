@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .desc { font-size: 14px; fill: #475569; }
+      .box-sparse { fill: #fef2f2; stroke: #fca5a5; stroke-width: 2; rx: 4; ry: 4; }
+      .box-dense { fill: #ecfdf5; stroke: #6ee7b7; stroke-width: 2; rx: 4; ry: 4; }
+      .arr-text { font-size: 16px; font-family: 'Roboto', sans-serif; font-weight: bold; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">워드 임베딩: 밀집 벡터분산 표현 (Distribute Representation)</text>
+  <text x="400" y="55" class="desc">의미없는 거대한 0의 바다에서 작지만 꽉 찬 실수(Real Number)들의 벡터로 압축</text>
+
+  <!-- One-hot representation -->
+  <g transform="translate(100, 100)">
+    <text x="30" y="20" font-size="18" font-weight="bold" fill="#0f172a">강아지 = </text>
+    <rect x="80" y="0" width="450" height="40" class="box-sparse" />
+    <text x="305" y="22" class="arr-text" fill="#991b1b">[ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, ... 중략 ... , 0 ]</text>
+    <text x="600" y="20" font-size="16" font-weight="bold" fill="#ef4444">차원수: 10,000</text>
+    
+    <text x="305" y="-15" font-size="14" font-weight="bold" fill="#ef4444">원-핫 인코딩 (희소 벡터, Sparse Vector)</text>
+  </g>
+
+  <!-- Arrow Down -->
+  <path d="M 400 150 L 400 180" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" />
+  <rect x="360" y="155" width="80" height="20" fill="white" />
+  <text x="400" y="165" font-size="12" font-weight="bold" fill="#3b82f6">학습 유도</text>
+
+  <!-- Word Embedding representation -->
+  <g transform="translate(100, 200)">
+    <text x="30" y="20" font-size="18" font-weight="bold" fill="#0f172a">강아지 = </text>
+    <rect x="80" y="0" width="450" height="40" class="box-dense" />
+    <text x="305" y="22" class="arr-text" fill="#065f46">[ 0.2, 1.8, 1.1, -2.1, 1.1, 2.8, ... 중략 ... , -0.4 ]</text>
+    <text x="600" y="20" font-size="16" font-weight="bold" fill="#10b981">차원수: 128</text>
+    
+    <text x="305" y="60" font-size="14" font-weight="bold" fill="#10b981">워드 임베딩 (밀집 벡터, Dense Vector)</text>
+  </g>
+
+</svg>

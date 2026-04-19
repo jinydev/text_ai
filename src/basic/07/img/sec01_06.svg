@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      .math { font-family: 'Roboto', sans-serif; font-style: italic; }
+      .text { font-family: 'Noto Sans KR', sans-serif; fill: #334155; }
+    </style>
+  </defs>
+
+  <!-- Background grid for mathematical feel -->
+  <rect width="100%" height="100%" fill="#f8fafc" />
+  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e2e8f0" stroke-width="0.5" />
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#grid)" />
+
+  <g transform="translate(50, 80)">
+    <!-- A_k matrix -->
+    <rect x="0" y="0" width="120" height="160" fill="#f472b6" stroke="#db2777" stroke-width="2" />
+    <text x="-15" y="85" class="math" font-size="16" fill="#334155">m</text>
+    <text x="60" y="-10" class="math" font-size="16" fill="#334155">n</text>
+    
+    <path d="M 0 -5 L 0 -15 L 120 -15 L 120 -5" fill="none" stroke="#64748b" />
+    <path d="M -5 0 L -15 0 L -15 160 L -5 160" fill="none" stroke="#64748b" />
+    
+    <text x="60" y="85" class="math" font-size="24" font-weight="bold" fill="#831843" text-anchor="middle">A<tspan font-size="16" dy="5">k</tspan></text>
+
+    <!-- Equals sign -->
+    <text x="150" y="85" class="math" font-size="40" font-weight="bold" fill="#334155" text-anchor="middle">=</text>
+
+    <!-- U_k matrix -->
+    <rect x="190" y="0" width="70" height="160" fill="#fbcfe8" stroke="#db2777" stroke-width="2" />
+    <rect x="260" y="0" width="50" height="160" fill="white" stroke="#94a3b8" stroke-width="2" />
+    
+    <text x="175" y="85" class="math" font-size="16" fill="#334155">m</text>
+    <text x="225" y="-10" class="math" font-size="16" fill="#334155">k</text>
+    
+    <path d="M 190 -5 L 190 -15 L 260 -15 L 260 -5" fill="none" stroke="#64748b" />
+    <path d="M 185 0 L 175 0 L 175 160 L 185 160" fill="none" stroke="#64748b" />
+    
+    <text x="225" y="85" class="math" font-size="24" font-weight="bold" fill="#831843" text-anchor="middle">U<tspan font-size="16" dy="5">k</tspan></text>
+
+    <!-- Sigma_k matrix -->
+    <rect x="340" y="0" width="70" height="70" fill="#f1f5f9" stroke="#475569" stroke-width="2" />
+    <rect x="410" y="0" width="50" height="160" fill="white" stroke="#94a3b8" stroke-width="2" />
+    <rect x="340" y="70" width="70" height="90" fill="white" stroke="#94a3b8" stroke-width="2" />
+    
+    <text x="325" y="40" class="math" font-size="16" fill="#334155">k</text>
+    <text x="375" y="-10" class="math" font-size="16" fill="#334155">k</text>
+    
+    <path d="M 340 -5 L 340 -15 L 410 -15 L 410 -5" fill="none" stroke="#64748b" />
+    <path d="M 335 0 L 325 0 L 325 70 L 335 70" fill="none" stroke="#64748b" />
+    
+    <text x="375" y="40" font-family="Times New Roman" font-size="24" font-weight="bold" fill="#334155" text-anchor="middle">Σ<tspan font-family="Roboto" font-size="16" dy="5">k</tspan></text>
+
+    <!-- V_k transpose matrix -->
+    <rect x="490" y="0" width="120" height="70" fill="#bfdbfe" stroke="#3b82f6" stroke-width="2" />
+    <rect x="490" y="70" width="120" height="50" fill="white" stroke="#94a3b8" stroke-width="2" />
+    
+    <text x="475" y="40" class="math" font-size="16" fill="#334155">k</text>
+    <text x="550" y="-10" class="math" font-size="16" fill="#334155">n</text>
+    
+    <path d="M 490 -5 L 490 -15 L 610 -15 L 610 -5" fill="none" stroke="#64748b" />
+    <path d="M 485 0 L 475 0 L 475 70 L 485 70" fill="none" stroke="#64748b" />
+    
+    <text x="550" y="40" class="math" font-size="24" font-weight="bold" fill="#1e3a8a" text-anchor="middle">V<tspan font-size="16" dy="-10">T</tspan><tspan font-size="14" dy="15">k</tspan></text>
+  </g>
+</svg>

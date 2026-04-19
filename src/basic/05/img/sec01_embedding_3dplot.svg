@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #cbd5e1; stroke-width: 2; rx: 8; ry: 8; }
+      .axis { stroke: #94a3b8; stroke-width: 2; fill: none; }
+      .grid { stroke: #e2e8f0; stroke-width: 1; stroke-dasharray: 4; fill: none; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .word { font-family: 'Roboto', sans-serif; font-size: 14px; fill: #1e293b; }
+      .point { fill: #84cc16; }
+      .label-box { fill: #ecfccb; stroke: #a3e635; stroke-width: 1; rx: 12; ry: 12; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">워드 임베딩: 3차원 공간에서의 의미적 유사도 (Semantic Similarity)</text>
+  <text x="400" y="55" font-size="14" fill="#64748b">워드 임베딩 공간에서 계산되는 유클리디안 거리(Euclidean Distance)</text>
+
+  <!-- 3D Graph Mockup -->
+  <g transform="translate(150, 420)">
+    <!-- Y axis (royalty) -->
+    <path d="M 0 0 L 0 -280" class="axis" />
+    <text x="-40" y="-120" class="word" font-weight="bold" transform="rotate(-90, -40, -120)">royalty (왕족성)</text>
+    
+    <!-- X axis (gender) -->
+    <path d="M 0 0 L 280 0" class="axis" />
+    <text x="140" y="40" class="word" font-weight="bold">gender (성별)</text>
+
+    <!-- Z axis (age) -->
+    <path d="M 0 0 L 150 -100" class="axis" />
+    <text x="170" y="-100" class="word" font-weight="bold">age (나이)</text>
+
+    <!-- Tics & Grids -->
+    <path d="M 0 -130 L 280 -130" class="grid" />
+    <path d="M 0 -260 L 280 -260" class="grid" />
+    <path d="M 130 0 L 130 -280" class="grid" />
+    <path d="M 260 0 L 260 -280" class="grid" />
+
+    <!-- Points (Conceptual mapping) -->
+    <circle cx="100" cy="-60" r="4" class="point" />
+    <text x="125" y="-60" class="word">man</text>
+
+    <circle cx="210" cy="-70" r="4" class="point" />
+    <text x="240" y="-70" class="word">woman</text>
+
+    <circle cx="60" cy="-30" r="4" class="point" />
+    <text x="85" y="-30" class="word">boy</text>
+
+    <circle cx="160" cy="-40" r="4" class="point" />
+    <text x="180" y="-40" class="word">girl</text>
+
+    <circle cx="100" cy="-150" r="4" class="point" />
+    <text x="135" y="-150" class="word">prince</text>
+
+    <circle cx="220" cy="-170" r="4" class="point" />
+    <text x="260" y="-170" class="word">princess</text>
+
+    <circle cx="120" cy="-240" r="4" class="point" />
+    <text x="145" y="-240" class="word">king</text>
+
+    <circle cx="250" cy="-250" r="4" class="point" />
+    <text x="280" y="-250" class="word">queen</text>
+
+    <!-- Distance connection to show man is closer to woman than princess -->
+    <path d="M 100 -60 L 210 -70" stroke="#f43f5e" stroke-width="2" stroke-dasharray="5" />
+    <path d="M 100 -60 L 220 -170" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5" />
+  </g>
+
+  <!-- Side Box for Example -->
+  <g transform="translate(550, 150)">
+    <rect x="-50" y="0" width="230" height="130" class="label-box" />
+    <rect x="-40" y="-15" width="40" height="30" rx="15" fill="#ca8a04" />
+    <text x="-20" y="0" font-weight="bold" fill="white">예</text>
+    
+    <text x="50" y="40" class="word" font-weight="bold" font-size="18">man (0, 1, 0)</text>
+    <text x="60" y="75" class="word" font-weight="bold" font-size="18">princess (1, 0, 1)</text>
+
+    <text x="50" y="110" font-size="13" font-weight="bold" fill="#047857">결과: man은 princess보다</text>
+    <text x="50" y="130" font-size="13" font-weight="bold" fill="#047857">woman(1,1,0)과 유클리디안</text>
+    <text x="50" y="150" font-size="13" font-weight="bold" fill="#047857">거리가 더 가까움 (유사성 높음)</text>
+  </g>
+
+</svg>

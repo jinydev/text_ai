@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .cell { fill: white; stroke: #94a3b8; stroke-width: 2; }
+      .header { font-weight: bold; font-size: 16px; fill: #1e293b; }
+      .tp { fill: #dcfce7; }
+      .tn { fill: #eff6ff; }
+      .fp { fill: #fef08a; }
+      .fn { fill: #fecdd3; }
+      .bold-text { font-size: 24px; font-weight: bold; fill: #0f172a; }
+      .sub-text { font-size: 14px; fill: #475569; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="40" font-size="24" font-weight="bold" fill="#0f172a">혼동 행렬 (Confusion Matrix)</text>
+  <text x="400" y="65" font-size="14" fill="#64748b">분류 모델의 실제 클래스와 예측 클래스 간의 교차 표 (2x2)</text>
+
+  <g transform="translate(180, 100)">
+    
+    <!-- Top Headers (Predicted) -->
+    <text x="250" y="-20" class="header">예측 클래스 (Predicted Class)</text>
+    <rect x="150" y="10" width="150" height="40" class="cell" fill="#f1f5f9" />
+    <rect x="300" y="10" width="150" height="40" class="cell" fill="#f1f5f9" />
+    <text x="225" y="30" class="header" fill="#10b981">Positive (1)</text>
+    <text x="375" y="30" class="header" fill="#ef4444">Negative (0)</text>
+
+    <!-- Side Headers (Actual) -->
+    <text x="-40" y="110" class="header" transform="rotate(-90, -40, 110)">실제 클래스 (Actual)</text>
+    <rect x="0" y="50" width="150" height="80" class="cell" fill="#f1f5f9" />
+    <rect x="0" y="130" width="150" height="80" class="cell" fill="#f1f5f9" />
+    <text x="75" y="90" class="header" fill="#10b981">Positive (1)</text>
+    <text x="75" y="170" class="header" fill="#ef4444">Negative (0)</text>
+
+    <!-- Cells -->
+    <rect x="150" y="50" width="150" height="80" class="cell tp" />
+    <text x="225" y="80" class="bold-text">TP</text>
+    <text x="225" y="105" class="sub-text">True Positive</text>
+
+    <rect x="300" y="50" width="150" height="80" class="cell fn" />
+    <text x="375" y="80" class="bold-text">FN</text>
+    <text x="375" y="105" class="sub-text">False Negative</text>
+
+    <rect x="150" y="130" width="150" height="80" class="cell fp" />
+    <text x="225" y="160" class="bold-text">FP</text>
+    <text x="225" y="185" class="sub-text">False Positive</text>
+
+    <rect x="300" y="130" width="150" height="80" class="cell tn" />
+    <text x="375" y="160" class="bold-text">TN</text>
+    <text x="375" y="185" class="sub-text">True Negative</text>
+  </g>
+
+  <rect x="100" y="320" width="600" height="20" fill="none" />
+  <text x="400" y="330" font-size="14" fill="#be185d" font-weight="bold">* 해석 요령: 1번째 글자(T/F) = 예측 성공 여부, 2번째 글자(P/N) = 모델이 뱉은 결괏값</text>
+
+</svg>

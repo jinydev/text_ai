@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      .text { font-family: 'Roboto', sans-serif; fill: #1e293b; }
+      .topic-box { stroke: #334155; stroke-width: 2; fill: white; }
+      .bold { font-weight: bold; }
+      .title { font-size: 24px; font-weight: bold; fill: #475569; }
+      .sub { font-size: 14px; fill: #64748b; }
+    </style>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#ffffff" />
+  
+  <text x="100" y="140" class="title" text-anchor="middle">Topics</text>
+  <text x="100" y="170" class="text sub" text-anchor="middle">(0...N)</text>
+
+  <!-- Topic 0 -->
+  <g transform="translate(180, 50)">
+    <polygon points="40,0 120,0 120,20 160,20 160,140 0,140 0,20 40,20" class="topic-box"/>
+    <line x1="0" y1="20" x2="160" y2="20" stroke="#334155" stroke-dasharray="2,2"/>
+    <text x="80" y="15" class="text bold" font-size="16" text-anchor="middle">Topic 0</text>
+    
+    <text x="10" y="45" class="text" font-style="italic" font-size="14">heart</text>
+    <text x="140" y="45" class="text bold" font-size="14" text-anchor="end">0.5</text>
+    <text x="10" y="70" class="text" font-style="italic" font-size="14">cardiac</text>
+    <text x="140" y="70" class="text bold" font-size="14" text-anchor="end">0.3</text>
+    <text x="10" y="95" class="text" font-style="italic" font-size="14">circulatory</text>
+    <text x="140" y="95" class="text bold" font-size="14" text-anchor="end">0.1</text>
+    <text x="10" y="120" class="text bold" font-size="14">...</text>
+    
+    <!-- Cut corner effect -->
+    <polygon points="130,140 160,110 160,140" fill="#334155"/>
+  </g>
+
+  <!-- Topic 1 -->
+  <g transform="translate(380, 50)">
+    <polygon points="40,0 120,0 120,20 160,20 160,140 0,140 0,20 40,20" class="topic-box"/>
+    <line x1="0" y1="20" x2="160" y2="20" stroke="#334155" stroke-dasharray="2,2"/>
+    <text x="80" y="15" class="text bold" font-size="16" text-anchor="middle">Topic 1</text>
+    
+    <text x="10" y="45" class="text" font-style="italic" font-size="14">muscle</text>
+    <text x="140" y="45" class="text bold" font-size="14" text-anchor="end">0.3</text>
+    <text x="10" y="70" class="text" font-style="italic" font-size="14">contraction</text>
+    <text x="140" y="70" class="text bold" font-size="14" text-anchor="end">0.2</text>
+    <text x="10" y="95" class="text" font-style="italic" font-size="14">fibers</text>
+    <text x="140" y="95" class="text bold" font-size="14" text-anchor="end">0.1</text>
+    <text x="10" y="120" class="text bold" font-size="14">...</text>
+    
+    <!-- Cut corner effect -->
+    <polygon points="130,140 160,110 160,140" fill="#334155"/>
+  </g>
+
+  <text x="580" y="130" class="title" font-size="30">...</text>
+
+  <!-- Topic N -->
+  <g transform="translate(630, 50)">
+    <polygon points="20,0 100,0 100,20 140,20 140,140 0,140 0,20 20,20" class="topic-box"/>
+    <line x1="0" y1="20" x2="140" y2="20" stroke="#334155" stroke-dasharray="2,2"/>
+    <text x="70" y="15" class="text bold" font-size="16" text-anchor="middle">Topic N</text>
+    
+    <text x="10" y="45" class="text" font-style="italic" font-size="14">liver</text>
+    <text x="120" y="45" class="text bold" font-size="14" text-anchor="end">0.4</text>
+    <text x="10" y="70" class="text" font-style="italic" font-size="14">bile</text>
+    <text x="120" y="70" class="text bold" font-size="14" text-anchor="end">0.3</text>
+    <text x="10" y="95" class="text" font-style="italic" font-size="14">hepatitis</text>
+    <text x="120" y="95" class="text bold" font-size="14" text-anchor="end">0.2</text>
+    <text x="10" y="120" class="text bold" font-size="14">...</text>
+    
+    <!-- Cut corner effect -->
+    <polygon points="110,140 140,110 140,140" fill="#334155"/>
+  </g>
+
+</svg>

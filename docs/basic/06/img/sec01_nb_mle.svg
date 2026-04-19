@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #e2e8f0; stroke-width: 2; rx: 8; ry: 8; }
+      .math { font-family: 'Roboto', sans-serif; font-style: italic; }
+      .math-bold { font-family: 'Roboto', sans-serif; font-weight: bold; font-style: italic; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .title-desc { font-size: 14px; fill: #64748b; }
+      .kor-desc { font-size: 14px; fill: #475569; }
+      .highlight-box { fill: #fce7f3; stroke: #be185d; stroke-width: 2; rx: 4; ry: 4; }
+      .highlight-text { fill: #be185d; font-weight: bold; font-size: 20px; }
+      .line { stroke: #cbd5e1; stroke-width: 2; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#be185d" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="40" class="title">나이브 베이즈 분류기 확률 학습</text>
+  <text x="400" y="65" class="title-desc">최대 우도 추정 (Maximum Likelihood Estimation, MLE)</text>
+
+  <!-- Big Formula -->
+  <g transform="translate(200, 100)">
+    <text x="60" y="30" font-size="28" class="math-bold" fill="#1e293b">C<tspan dy="10" font-size="16">NB</tspan></text>
+    <text x="110" y="30" font-size="28" class="math-bold" fill="#1e293b">=</text>
+    <text x="190" y="25" font-size="24" class="math" fill="#1e293b">argmax</text>
+    <text x="190" y="45" font-size="14" class="math" fill="#475569">c∈C</text>
+  </g>
+
+  <!-- Prior Probability Bound -->
+  <rect x="440" y="100" width="70" height="50" class="highlight-box" />
+  <text x="475" y="125" class="math-bold highlight-text">P(c_j)</text>
+  
+  <!-- Product symbol representing likelihood -->
+  <text x="535" y="135" font-size="40" font-weight="bold" fill="#1e293b" font-family="'Times New Roman', serif">∏</text>
+  <text x="535" y="160" font-size="12" class="math" fill="#475569">x∈X</text>
+
+  <!-- Likelihood Bound -->
+  <rect x="560" y="100" width="120" height="50" class="highlight-box" />
+  <text x="620" y="125" class="math-bold highlight-text">P(x_i | c_j)</text>
+
+  <!-- Arrows and explanations below -->
+  <path d="M 475 150 L 475 190 L 250 220" stroke="#be185d" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+  <path d="M 620 150 L 620 190 L 550 220" stroke="#be185d" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+
+  <!-- Left: Prior Probability P(c) -->
+  <g transform="translate(150, 240)">
+    <text x="100" y="0" font-size="22" class="math-bold" fill="#0f172a">P(c_j) =</text>
+    <text x="240" y="-15" font-size="20" class="math" fill="#0f172a">doccount(C = c_j)</text>
+    <line x1="160" y1="5" x2="320" y2="5" stroke="#0f172a" stroke-width="2" />
+    <text x="240" y="25" font-size="20" class="math" fill="#0f172a">N_doc</text>
+    
+    <text x="150" y="80" class="kor-desc" font-weight="bold" fill="#be185d">전체 문서에서 클래스 c_j 에</text>
+    <text x="150" y="100" class="kor-desc" font-weight="bold" fill="#be185d">해당하는 문서의 비율</text>
+  </g>
+
+  <!-- Right: Likelihood P(x|c) -->
+  <g transform="translate(420, 240)">
+    <text x="90" y="0" font-size="22" class="math-bold" fill="#0f172a">P(w_i | c_j) =</text>
+    <text x="250" y="-15" font-size="20" class="math" fill="#0f172a">count(w_i, c_j)</text>
+    <line x1="170" y1="5" x2="340" y2="5" stroke="#0f172a" stroke-width="2" />
+    <text x="210" y="30" font-size="30" class="math" fill="#0f172a">∑</text>
+    <text x="260" y="25" font-size="20" class="math" fill="#0f172a">count(w, c_j)</text>
+    
+    <text x="180" y="80" class="kor-desc" font-weight="bold" fill="#be185d">클래스 c_j 에 포함된 전체 단어 중</text>
+    <text x="180" y="100" class="kor-desc" font-weight="bold" fill="#be185d">특정 단어 w_i 가 등장한 비율</text>
+  </g>
+
+</svg>
