@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #3b82f6; stroke-width: 2; rx: 8; ry: 8; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .math { font-family: 'Roboto', sans-serif; font-size: 18px; font-weight: bold; fill: #1e3a8a; }
+      .approx { font-family: 'Roboto', sans-serif; font-size: 28px; font-weight: bold; fill: #10b981; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">N-gram 언어 모델의 해결책: 마르코프 가정 (Markov Assumption)</text>
+  <text x="400" y="55" font-size="14" fill="#64748b">문장이 통째로 등장할 확률은 0이더라도, "바로 직전의 n개의 단어"만 참고하도록 스코프를 제한(근사)합니다.</text>
+
+  <!-- Big n-gram box -->
+  <rect x="50" y="90" width="700" height="150" class="box" fill="#f0fdf4" stroke="#22c55e" />
+
+  <text x="180" y="160" class="math" fill="#64748b" text-decoration="line-through">P( is | An adorable little boy )</text>
+  
+  <text x="360" y="155" class="approx">≈</text>
+  
+  <text x="450" y="160" class="math" font-size="22" fill="#15803d">P( is | little boy )</text>
+
+  <!-- Explanations -->
+  <text x="180" y="210" font-size="12" font-weight="bold" fill="#ef4444">전체를 다 보려니 데이터가 0 (희소 문제)</text>
+  <text x="450" y="210" font-size="12" font-weight="bold" fill="#15803d">직전 2단어(little, boy)만 참고! (Tri-gram, n=3)</text>
+
+  <!-- Bottom Details -->
+  <rect x="50" y="270" width="700" height="50" fill="#eff6ff" stroke="#3b82f6" rx="8" />
+  <text x="400" y="285" font-size="14" font-weight="bold" fill="#1d4ed8">Trade-off의 존재</text>
+  <text x="400" y="305" font-size="12" fill="#1e3a8a">n을 키우면 문맥은 정확해지나 0이 될 확률이 높아지고, n을 줄이면 문맥 파악이 안 되지만 계산은 잘됩니다.</text>
+
+</svg>

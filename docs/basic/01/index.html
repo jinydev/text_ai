@@ -8,7 +8,7 @@
   <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>01주차</title>
   <meta name="title" content="01주차" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="01주차"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="http://localhost:4001/basic/01/">
+  <meta property="og:url" content="https://text.ai.jiny.dev/basic/01/">
 
   <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="01주차"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
@@ -17,14 +17,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="http://localhost:4001/basic/01/" />
-<meta property="og:url" content="http://localhost:4001/basic/01/" />
+<link rel="canonical" href="https://text.ai.jiny.dev/basic/01/" />
+<meta property="og:url" content="https://text.ai.jiny.dev/basic/01/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="01주차" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"01주차","url":"http://localhost:4001/basic/01/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"01주차","url":"https://text.ai.jiny.dev/basic/01/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -377,8 +377,51 @@
 <p>1주차 과정에서는 자연언어처리의 거시적 개념과 패러다임 변화를 다룹니다.</p>
 
 <ul>
-  <li><a href="/basic/01/sec01/">섹션 01. 자연언어 처리의 개념과 마이닝</a></li>
-  <li><a href="/basic/01/sec02/">섹션 02. 자연언어처리 기법 및 활용 사례</a></li>
+  <li><strong><a href="/basic/01/sec01/">섹션 01. 자연언어처리와 텍스트 마이닝의 본질</a></strong>
+    <ul>
+      <li>분석가와 통역사의 차이</li>
+      <li>자연언어처리의 궁극적인 목적</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/01/sec02/">섹션 02. 자연언어의 끔찍한 모호성과 텍스트 특성</a></strong>
+    <ul>
+      <li>컴퓨터가 멘붕에 빠지는 세계: 2가지 언어 대립</li>
+      <li>확장되는 자연언어의 세계 (모든 기호 = 텍스트)</li>
+      <li>자연어를 정복하기 위한 4대 기계 임무 (Tasks)</li>
+      <li>사람을 미치게 하는 텍스트의 성질 (비정형 데이터)</li>
+      <li>텍스트 마이닝의 원동력: 정보의 대폭발</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/01/sec03/">섹션 03. 텍스트 마이닝 공정과 고전 분석 방식의 한계</a></strong>
+    <ul>
+      <li>비정형 쓰레기를 황금으로: 통계적 기계 작동 4단계</li>
+      <li>고대의 NLP: 어설펐던 룰 베이스(Rule-based)의 시대</li>
+      <li>과거 고전적 분석 방식의 치명적 몰락 원인</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/01/sec04/">섹션 04. 트랜스포머의 제국 통일과 LLM의 환각</a></strong>
+    <ul>
+      <li>세 번째 패러다임: LLM 기반의 세계 정복 (현대 NLP 대통합)</li>
+      <li>트랜스포머의 심장: 셀프 어텐션(Self-Attention)의 무서운 눈치술</li>
+      <li>딥러닝계 최고의 사기꾼, ‘환각(Hallucination)’ 현상</li>
+      <li>환각을 묶는 인간의 목줄 방어막 도구 (RAG &amp; RLHF)</li>
+      <li>현업 엔지니어의 최후의 도구 선택 잣대</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/01/sec05/">섹션 05. 자연어 전처리와 벡터화 수치 계산 기초</a></strong>
+    <ul>
+      <li>기계의 뱃밥을 짓다: 데이터 전처리의 세부 공정 3단계</li>
+      <li>가장 무식하고 원시적인 번역: 원-핫 인코딩 (One-hot encoding)</li>
+      <li>문법 따위 무시하고 쪽수로 승부한다: BoW 패러다임</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/01/sec06/">섹션 06. 딥러닝(NLP)의 화려한 실무 산업 활용 사례</a></strong>
+    <ul>
+      <li>문서 요약 프레스 기계 (Summarization)</li>
+      <li>오싹한 감성 분석기 (Sentiment Analysis)</li>
+      <li>눈이 달린 초월적 언어모델 (Multi-modal: VQA, Text-to-Image)</li>
+    </ul>
+  </li>
 </ul>
 
 

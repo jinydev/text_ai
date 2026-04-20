@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #94a3b8; stroke-width: 2; rx: 8; ry: 8; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .card-title { font-size: 18px; font-weight: bold; fill: white; }
+      .desc { font-size: 14px; fill: #334155; }
+      .tag { font-family: 'Roboto', sans-serif; font-size: 12px; font-weight: bold; fill: white; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">품사 태깅 (POS Tagging) 기법 비교</text>
+  <text x="400" y="55" font-size="14" fill="#64748b">단어가 가진 여러 품사의 모호성을 해소하고 문맥에 맞는 품사를 레이블링합니다.</text>
+
+  <!-- Rule-based -->
+  <g transform="translate(80, 100)">
+    <rect x="0" y="0" width="300" height="200" class="box" fill="#eff6ff" stroke="#60a5fa" />
+    <rect x="0" y="0" width="300" height="40" fill="#3b82f6" rx="8" />
+    <path d="M 0 30 L 300 30 L 300 40 L 0 40 Z" fill="#3b82f6" />
+    <text x="150" y="20" class="card-title">규칙 기반 (Rule-based)</text>
+
+    <text x="150" y="65" class="desc" font-weight="bold">인간이 직접 만든 규칙 사전 활용</text>
+    <path d="M 50 85 L 250 85" stroke="#bfdbfe" stroke-width="2" />
+    
+    <text x="150" y="110" font-size="13" fill="#1e3a8a">Word: 'promised' -> VBD, VBN</text>
+    <text x="150" y="130" font-size="13" fill="#1e3a8a">Word: 'to' -> TO</text>
+    <text x="150" y="150" font-size="13" font-weight="bold" fill="#1d4ed8">규칙: "만약 뒤에 'to'가 오면 무조건 VBD"</text>
+    
+    <rect x="110" y="170" width="80" height="20" rx="10" fill="#1d4ed8" />
+    <text x="150" y="180" class="tag">Result: VBD</text>
+  </g>
+
+  <!-- Probability-based -->
+  <g transform="translate(420, 100)">
+    <rect x="0" y="0" width="300" height="200" class="box" fill="#fdf4ff" stroke="#c084fc" />
+    <rect x="0" y="0" width="300" height="40" fill="#a855f7" rx="8" />
+    <path d="M 0 30 L 300 30 L 300 40 L 0 40 Z" fill="#a855f7" />
+    <text x="150" y="20" class="card-title">확률 기반 (Probability-based)</text>
+    
+    <text x="150" y="65" class="desc" font-weight="bold">은닉 마르코프 모델(HMM) 등 활용</text>
+    <path d="M 50 85 L 250 85" stroke="#e9d5ff" stroke-width="2" />
+
+    <text x="150" y="110" font-size="13" fill="#581c87">"과거 100만 문장을 통계 내어보니,"</text>
+    <text x="150" y="130" font-size="13" fill="#581c87">"명사(NN) 뒤에 이 단어는 95% 확률로</text>
+    <text x="150" y="150" font-size="13" font-weight="bold" fill="#7e22ce">동사과거형(VBD) 이었어!"</text>
+    
+    <rect x="110" y="170" width="80" height="20" rx="10" fill="#7e22ce" />
+    <text x="150" y="180" class="tag">Result: VBD</text>
+  </g>
+
+</svg>

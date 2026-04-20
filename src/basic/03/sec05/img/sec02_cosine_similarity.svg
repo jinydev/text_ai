@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #94a3b8; stroke-width: 2; rx: 8; ry: 8; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .subtitle { font-size: 16px; font-weight: bold; fill: #1e293b; }
+      .angle { font-family: 'Roboto', sans-serif; font-size: 18px; font-weight: bold; fill: #ef4444; }
+      .cos { font-family: 'Roboto', sans-serif; font-size: 14px; font-weight: bold; fill: #1d4ed8; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">코사인 유사도 (Cosine Similarity)</text>
+  <text x="400" y="55" font-size="14" fill="#64748b">문서 벡터 간의 크기(길이)에 무관하게 '방향의 각도'만을 이용해 문서의 유사성을 비교합니다.</text>
+
+  <!-- Sim 1 (0 deg) -->
+  <g transform="translate(80, 100)">
+    <rect x="0" y="0" width="200" height="200" class="box" fill="#f0fdf4" stroke="#4ade80" />
+    <text x="100" y="30" class="subtitle" fill="#166534">완전 일치 / 매우 유사</text>
+    
+    <!-- Vectors -->
+    <path d="M 50 140 L 150 140" stroke="#3b82f6" stroke-width="4" marker-end="url(#arrow-blue)" />
+    <path d="M 50 140 L 120 140" stroke="#ef4444" stroke-width="4" stroke-dasharray="4" />
+    
+    <text x="100" y="100" class="angle">0°</text>
+    <text x="100" y="170" class="cos">cos(0) = 1.0</text>
+  </g>
+
+  <!-- Sim 0 (90 deg) -->
+  <g transform="translate(300, 100)">
+    <rect x="0" y="0" width="200" height="200" class="box" fill="#f8fafc" />
+    <text x="100" y="30" class="subtitle">전혀 관계 없음 (독립)</text>
+
+    <!-- Vectors -->
+    <path d="M 60 140 L 160 140" stroke="#3b82f6" stroke-width="4" marker-end="url(#arrow-blue)" />
+    <path d="M 60 140 L 60 50" stroke="#ef4444" stroke-width="4" marker-end="url(#arrow-red)" />
+    
+    <!-- Right angle indicator -->
+    <path d="M 60 120 L 80 120 L 80 140" fill="none" stroke="#94a3b8" stroke-width="2" />
+    
+    <text x="110" y="90" class="angle">90°</text>
+    <text x="100" y="170" class="cos">cos(90) = 0.0</text>
+  </g>
+
+  <!-- Sim -1 (180 deg) -->
+  <g transform="translate(520, 100)">
+    <rect x="0" y="0" width="200" height="200" class="box" fill="#fef2f2" stroke="#fca5a5" />
+    <text x="100" y="30" class="subtitle" fill="#991b1b">완전 반대 관계</text>
+
+    <!-- Vectors -->
+    <path d="M 100 140 L 180 140" stroke="#3b82f6" stroke-width="4" marker-end="url(#arrow-blue)" />
+    <path d="M 100 140 L 20 140" stroke="#ef4444" stroke-width="4" marker-end="url(#arrow-red)" />
+    
+    <!-- Curve -->
+    <path d="M 130 140 A 30 30 0 0 0 70 140" fill="none" stroke="#94a3b8" stroke-width="2" />
+    
+    <text x="100" y="100" class="angle">180°</text>
+    <text x="100" y="170" class="cos" fill="#b91c1c">cos(180) = -1.0</text>
+  </g>
+
+  <defs>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444" />
+    </marker>
+  </defs>
+
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="c1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#43e97b"/>
+      <stop offset="100%" stop-color="#38f9d7"/>
+    </linearGradient>
+    <linearGradient id="c2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f6d365"/>
+      <stop offset="100%" stop-color="#fda085"/>
+    </linearGradient>
+    <linearGradient id="c3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff0844"/>
+      <stop offset="100%" stop-color="#ffb199"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="300" fill="#f8f9fa" rx="10"/>
+
+  <text x="400" y="50" font-family="'Inter', sans-serif" font-size="24" font-weight="bold" fill="#343a40" text-anchor="middle">텍스트 데이터의 3가지 고유 특성</text>
+
+  <!-- Box 1 -->
+  <g transform="translate(50, 100)" filter="url(#shadow)">
+    <rect width="200" height="150" fill="url(#c1)" rx="15" opacity="0.9"/>
+    <text x="100" y="45" font-family="'Inter', sans-serif" font-size="30" text-anchor="middle" fill="#fff">💡</text>
+    <text x="100" y="80" font-family="'Inter', sans-serif" font-size="18" font-weight="bold" fill="#343a40" text-anchor="middle">1. 의미 직관성</text>
+    <text x="100" y="110" font-family="'Inter', sans-serif" font-size="14" fill="#343a40" text-anchor="middle">단어 자체가 의도를</text>
+    <text x="100" y="130" font-family="'Inter', sans-serif" font-size="14" fill="#343a40" text-anchor="middle">노골적으로 담아냄</text>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M 270 175 L 300 175" stroke="#ced4da" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="285" y="165" font-family="'Inter', sans-serif" font-size="14" font-weight="bold" fill="#adb5bd" text-anchor="middle">하지만</text>
+
+  <!-- Box 2 -->
+  <g transform="translate(300, 100)" filter="url(#shadow)">
+    <rect width="200" height="150" fill="url(#c2)" rx="15" opacity="0.9"/>
+    <text x="100" y="45" font-family="'Inter', sans-serif" font-size="30" text-anchor="middle" fill="#fff">🎭</text>
+    <text x="100" y="80" font-family="'Inter', sans-serif" font-size="18" font-weight="bold" fill="#343a40" text-anchor="middle">2. 숨겨진 문맥성</text>
+    <text x="100" y="110" font-family="'Inter', sans-serif" font-size="14" fill="#343a40" text-anchor="middle">비꼬기, 줄임말 등</text>
+    <text x="100" y="130" font-family="'Inter', sans-serif" font-size="14" fill="#343a40" text-anchor="middle">불확실한 내용 내포</text>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M 520 175 L 550 175" stroke="#ced4da" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="535" y="165" font-family="'Inter', sans-serif" font-size="14" font-weight="bold" fill="#adb5bd" text-anchor="middle">따라서</text>
+
+  <!-- Box 3 -->
+  <g transform="translate(550, 100)" filter="url(#shadow)">
+    <rect width="200" height="150" fill="url(#c3)" rx="15" opacity="0.9"/>
+    <text x="100" y="45" font-family="'Inter', sans-serif" font-size="30" text-anchor="middle" fill="#fff">🧩</text>
+    <text x="100" y="80" font-family="'Inter', sans-serif" font-size="18" font-weight="bold" fill="#fff" text-anchor="middle">3. 고도의 비정형성</text>
+    <text x="100" y="110" font-family="'Inter', sans-serif" font-size="14" fill="#fff" text-anchor="middle">문법 파괴와 불규칙한</text>
+    <text x="100" y="130" font-family="'Inter', sans-serif" font-size="14" fill="#fff" text-anchor="middle">길이로 처리가 까다로움</text>
+  </g>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ced4da" />
+    </marker>
+  </defs>
+</svg>

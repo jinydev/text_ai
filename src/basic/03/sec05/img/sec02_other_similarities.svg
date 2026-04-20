@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #94a3b8; stroke-width: 2; rx: 8; ry: 8; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .sub { font-size: 16px; font-weight: bold; fill: #1e293b; }
+      .desc { font-size: 14px; fill: #475569; }
+      .formula { font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: bold; fill: #0f172a; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">여러가지 벡터 및 집합 유사도 기법</text>
+
+  <!-- Euclidean -->
+  <g transform="translate(100, 80)">
+    <rect x="0" y="0" width="280" height="200" class="box" fill="#eff6ff" stroke="#60a5fa" />
+    <text x="140" y="30" class="sub" fill="#1d4ed8">유클리드 유사도</text>
+    <text x="140" y="55" class="desc" fill="#1e3a8a">(Euclidean Distance)</text>
+    
+    <!-- Graph -->
+    <path d="M 50 160 L 50 80" stroke="#94a3b8" stroke-width="2" />
+    <path d="M 50 160 L 230 160" stroke="#94a3b8" stroke-width="2" />
+    
+    <circle cx="80" cy="140" r="5" fill="#3b82f6" />
+    <text x="60" y="130" font-family="Roboto" font-weight="bold" fill="#1e3a8a">A</text>
+    
+    <circle cx="180" cy="90" r="5" fill="#ef4444" />
+    <text x="200" y="80" font-family="Roboto" font-weight="bold" fill="#991b1b">B</text>
+    
+    <!-- Distance line -->
+    <path d="M 80 140 L 180 90" stroke="#10b981" stroke-width="3" stroke-dasharray="5,5" />
+    <text x="140" y="130" font-family="Roboto" font-size="12" font-weight="bold" fill="#047857">직선 거리 측정</text>
+    
+    <text x="140" y="180" class="formula">d(A, B) = √(Σ(Bᵢ - Aᵢ)²)</text>
+  </g>
+
+  <!-- Jaccard -->
+  <g transform="translate(420, 80)">
+    <rect x="0" y="0" width="280" height="200" class="box" fill="#fdf4ff" stroke="#c084fc" />
+    <text x="140" y="30" class="sub" fill="#7e22ce">자카드 유사도</text>
+    <text x="140" y="55" class="desc" fill="#581c87">(Jaccard Similarity)</text>
+
+    <!-- Venn Diagram -->
+    <circle cx="110" cy="110" r="40" fill="#3b82f6" fill-opacity="0.3" stroke="#2563eb" stroke-width="2" />
+    <text x="80" y="110" font-family="Roboto" font-weight="bold" fill="#1e3a8a">A</text>
+    
+    <circle cx="170" cy="110" r="40" fill="#ef4444" fill-opacity="0.3" stroke="#dc2626" stroke-width="2" />
+    <text x="200" y="110" font-family="Roboto" font-weight="bold" fill="#991b1b">B</text>
+
+    <!-- Intersection Highlight lines pseudo -->
+    <text x="140" y="110" font-size="24" font-weight="bold" fill="#7e22ce">∩</text>
+    <text x="140" y="150" font-family="Roboto" font-size="12" font-weight="bold" fill="#7e22ce">교집합의 비율</text>
+
+    <text x="140" y="180" class="formula">J(A, B) = |A ∩ B| / |A ∪ B|</text>
+  </g>
+
+</svg>

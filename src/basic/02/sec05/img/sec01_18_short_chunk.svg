@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250" width="100%" height="100%">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="250" fill="#fff" rx="10"/>
+
+  <g transform="translate(50, 50)" filter="url(#shadow)">
+    <rect width="300" height="80" rx="10" fill="#ebfbee" stroke="#40c057" stroke-width="2"/>
+    <text x="150" y="25" font-family="'Inter', sans-serif" font-size="14" font-weight="bold" fill="#2b8a3e" text-anchor="middle">적절하게 자른 덩어리 (고밀도)</text>
+    <text x="20" y="50" font-family="'Inter', sans-serif" font-size="12" fill="#2b8a3e">1. 역세권 청년 주택 모집 공고...</text>
+    <text x="20" y="65" font-family="'Inter', sans-serif" font-size="12" fill="#2b8a3e">2. 임차보증금 무이자 지원 사업...</text>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M 370 90 L 420 90" stroke="#40c057" stroke-width="4" marker-end="url(#arrow-green)"/>
+  <text x="395" y="70" font-family="'Inter', sans-serif" font-size="30" text-anchor="middle">🎯</text>
+
+  <g transform="translate(450, 50)">
+    <rect width="300" height="100" rx="10" fill="#f4fce3" stroke="#40c057" stroke-width="3"/>
+    <text x="150" y="30" font-family="'Inter', sans-serif" font-size="16" font-weight="bold" fill="#2b8a3e" text-anchor="middle">검색 키워드 매칭 100%</text>
+    <text x="150" y="60" font-family="'Inter', sans-serif" font-size="14" fill="#2b8a3e" text-anchor="middle">원하는 정보 덩어리만 핀셋으로</text>
+    <text x="150" y="80" font-family="'Inter', sans-serif" font-size="14" fill="#2b8a3e" text-anchor="middle">가져와서 LLM에게 깨끗하게 전달</text>
+  </g>
+
+  <defs>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#40c057" />
+    </marker>
+  </defs>
+</svg>

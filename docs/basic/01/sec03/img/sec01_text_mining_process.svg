@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #94a3b8; stroke-width: 2; rx: 8; ry: 8; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .step-title { font-size: 16px; font-weight: bold; fill: #1e293b; }
+      .item { font-size: 13px; fill: #475569; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">일반적인 텍스트 마이닝(Text Mining) 프로세스</text>
+  <text x="400" y="55" font-size="14" fill="#64748b">비정형 텍스트로부터 유의미한 정보와 패턴을 발굴해내는 일련의 과정</text>
+
+  <!-- Step 1: Collection -->
+  <g transform="translate(40, 100)">
+    <rect x="0" y="0" width="160" height="180" class="box" fill="#eff6ff" stroke="#3b82f6" />
+    <text x="80" y="30" class="step-title" fill="#1d4ed8">1. 텍스트 수집</text>
+    <path d="M 20 45 L 140 45" stroke="#bfdbfe" stroke-width="2" />
+    
+    <text x="80" y="80" class="item">• 웹 스크래핑</text>
+    <text x="80" y="110" class="item">• API 활용 수집</text>
+    <text x="80" y="140" class="item">• 데이터베이스 연동</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <path d="M 210 190 L 230 190" stroke="#94a3b8" stroke-width="4" marker-end="url(#arrow)" />
+
+  <!-- Step 2: Preprocessing -->
+  <g transform="translate(240, 100)">
+    <rect x="0" y="0" width="160" height="180" class="box" fill="#fef2f2" stroke="#ef4444" />
+    <text x="80" y="30" class="step-title" fill="#b91c1c">2. 텍스트 전처리</text>
+    <path d="M 20 45 L 140 45" stroke="#fecaca" stroke-width="2" />
+    
+    <text x="80" y="80" class="item">• 토큰화 및 정제</text>
+    <text x="80" y="110" class="item">• 형태소 분석</text>
+    <text x="80" y="140" class="item">• 워드 임베딩 변환</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <path d="M 410 190 L 430 190" stroke="#94a3b8" stroke-width="4" marker-end="url(#arrow)" />
+
+  <!-- Step 3: Analysis -->
+  <g transform="translate(440, 100)">
+    <rect x="0" y="0" width="160" height="180" class="box" fill="#f0fdf4" stroke="#10b981" />
+    <text x="80" y="30" class="step-title" fill="#047857">3. 텍스트 분석</text>
+    <path d="M 20 45 L 140 45" stroke="#a7f3d0" stroke-width="2" />
+    
+    <text x="80" y="70" class="item">• 문서 분류 / 요약</text>
+    <text x="80" y="100" class="item">• 토픽 모델링</text>
+    <text x="80" y="130" class="item">• 감성 분석</text>
+    <text x="80" y="160" class="item">• 문서 생성</text>
+  </g>
+
+  <!-- Arrow 3 -->
+  <path d="M 610 190 L 630 190" stroke="#94a3b8" stroke-width="4" marker-end="url(#arrow)" />
+
+  <!-- Step 4: Visualization -->
+  <g transform="translate(640, 100)">
+    <rect x="0" y="0" width="140" height="180" class="box" fill="#fdf4ff" stroke="#a855f7" />
+    <text x="70" y="30" class="step-title" fill="#7e22ce">4. 데이터 시각화</text>
+    <path d="M 20 45 L 120 45" stroke="#e9d5ff" stroke-width="2" />
+    
+    <text x="70" y="80" class="item">• 워드 클라우드</text>
+    <text x="70" y="110" class="item">• 트리맵</text>
+    <text x="70" y="140" class="item">• 연관어 네트워크</text>
+  </g>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
+    </marker>
+  </defs>
+
+</svg>

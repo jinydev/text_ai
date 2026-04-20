@@ -8,7 +8,7 @@
   <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>07주차</title>
   <meta name="title" content="07주차" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="07주차"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="http://localhost:4001/basic/07/">
+  <meta property="og:url" content="https://text.ai.jiny.dev/basic/07/">
 
   <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="07주차"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
@@ -17,14 +17,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="http://localhost:4001/basic/07/" />
-<meta property="og:url" content="http://localhost:4001/basic/07/" />
+<link rel="canonical" href="https://text.ai.jiny.dev/basic/07/" />
+<meta property="og:url" content="https://text.ai.jiny.dev/basic/07/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="07주차" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"07주차","url":"http://localhost:4001/basic/07/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"07주차","url":"https://text.ai.jiny.dev/basic/07/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -372,13 +372,45 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="7주차-트랜스포머와-bert의-혁명">7주차. 트랜스포머와 BERT의 혁명</h1>
+            <h1 id="7주차-텍스트-주제-분석과-토픽-모델링">7주차. 텍스트 주제 분석과 토픽 모델링</h1>
 
-<p>고질적인 RNN의 메모리 한계를 타파하고 LLM 시대를 열게 해 준 근본, ‘초거대 언어 모델’의 핵심 파운데이션인 Transformer 알고리즘과 BERT 모델의 구조를 학습합니다.</p>
+<p>세상의 수만 장의 뉴스, 블로그 기사들이 어떤 공통된 카테고리를 은밀히 파벌을 이루며 공유하고 있는지를 기계 스스로 눈치채게 돕는 “비지도 학습”의 꽃! 잠재의미분석(LSA)의 행렬 분해 마법과, 조물주의 주사위를 역으로 훔쳐보는 디리클레 할당(LDA) 통계 역산 모델을 배웁니다.</p>
 
 <ul>
-  <li><a href="/basic/07/sec01/">섹션 01. 텍스트 분류와 정보 검색의 개념 정리</a></li>
-  <li><a href="/basic/07/sec02/">섹션 02. Transformer 알고리즘의 Self-Attention 구조 파헤치기</a></li>
+  <li><strong><a href="/basic/07/sec01/">섹션 01. 비지도 학습: 자율주행 텍스트 주제 분석과 차원 집합의 철학</a></strong>
+    <ul>
+      <li>분류 모형과 군집 분석 모형의 철학적 전제 차이</li>
+      <li>물리적 거리를 재는 K-means 클러스터링의 맹점</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/07/sec02/">섹션 02. 잠재축의 파괴적 차원 압축: 잠재의미분석 (LSA)</a></strong>
+    <ul>
+      <li>DTM 매트릭스를 납작하게 써는 특이값 분해(SVD)</li>
+      <li>새로운 데이터(오버피팅) 유입에 파괴되는 LSA의 연쇄 재부팅 버그</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/07/sec03/">섹션 03. 패러다임의 전환: 신의 확률적 문서 생성과 확률론의 역습</a></strong>
+    <ul>
+      <li>무작위 단어 조합으로 문서를 짜깁기하는 확률 공장 시뮬레이션</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/07/sec04/">섹션 04. 확률 역추적의 성배: 잠재 디리클레 할당 (LDA) 도입부</a></strong>
+    <ul>
+      <li>두 가지 수학적 파이프라인: 토픽 룰렛($\theta$)과 단어 셔플러($\phi$)의 분리 공정</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/07/sec05/">섹션 05. 디리클레 확률 판과 생성 플레이트 표기법 (Plate Notation)</a></strong>
+    <ul>
+      <li>극단적 편식과 박애 확장을 돕는 디리클레 분포 하이퍼파라미터</li>
+      <li>컴퓨터의 확률 상상 과정을 도면화한 플레이트 설계 노테이션</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/07/sec06/">섹션 06. 커닝의 미학: MCMC 방식의 깁스 샘플링(Gibbs) 통계 역추적 추론</a></strong>
+    <ul>
+      <li>초기 난장판 스티커 할당과 무한 최적화 루프 검수기</li>
+      <li>내 주변 동네 형제와 바깥 친척을 확률로 노려보는 2가지 조건부 방정식</li>
+    </ul>
+  </li>
 </ul>
 
 

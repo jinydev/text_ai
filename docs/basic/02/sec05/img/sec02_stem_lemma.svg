@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #94a3b8; stroke-width: 2; rx: 8; ry: 8; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .card-title { font-size: 18px; font-weight: bold; fill: white; }
+      .word { font-family: 'Roboto', sans-serif; font-size: 18px; font-weight: bold; fill: #1e293b; }
+      .result { font-family: 'Roboto', sans-serif; font-size: 22px; font-weight: bold; fill: white; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">어간 추출(Stemming) vs 표제어 추출(Lemmatization)</text>
+  <text x="400" y="55" font-size="14" fill="#64748b">과거나 복수형으로 뒤틀린 단어들을 하나의 원형으로 묶어 어휘 사전의 양을 최적화합니다.</text>
+
+  <!-- Stemming -->
+  <g transform="translate(80, 90)">
+    <rect x="0" y="0" width="300" height="230" class="box" fill="#eff6ff" stroke="#3b82f6" />
+    <rect x="0" y="0" width="300" height="40" fill="#3b82f6" rx="8" />
+    <path d="M 0 30 L 300 30 L 300 40 L 0 40 Z" fill="#3b82f6" />
+    <text x="150" y="20" class="card-title">어간 추출 (Stemming)</text>
+    
+    <text x="150" y="65" font-size="13" font-weight="bold" fill="#1e3a8a">어미를 기계적으로 단순 절단 (사전 등록 X)</text>
+    <path d="M 50 80 L 250 80" stroke="#bfdbfe" stroke-width="2" />
+
+    <text x="150" y="110" class="word">automate</text>
+    <text x="150" y="135" class="word">automatic</text>
+    <text x="150" y="160" class="word">automation</text>
+
+    <!-- Cutter -->
+    <path d="M 200 95 L 200 170" stroke="#ef4444" stroke-width="2" stroke-dasharray="4" />
+    
+    <rect x="70" y="185" width="160" height="35" rx="8" fill="#1d4ed8" />
+    <text x="150" y="202" class="result">automat</text>
+  </g>
+
+  <!-- Lemmatization -->
+  <g transform="translate(420, 90)">
+    <rect x="0" y="0" width="300" height="230" class="box" fill="#f0fdf4" stroke="#10b981" />
+    <rect x="0" y="0" width="300" height="40" fill="#10b981" rx="8" />
+    <path d="M 0 30 L 300 30 L 300 40 L 0 40 Z" fill="#10b981" />
+    <text x="150" y="20" class="card-title">표제어 추출 (Lemmatization)</text>
+
+    <text x="150" y="65" font-size="13" font-weight="bold" fill="#047857">품사와 언어학적 지식을 고려한 정밀 추출</text>
+    <path d="M 50 80 L 250 80" stroke="#a7f3d0" stroke-width="2" />
+
+    <text x="150" y="110" class="word">lives</text>
+    <text x="150" y="135" class="word">dies</text>
+    <text x="150" y="160" class="word">swimming</text>
+    
+    <rect x="40" y="185" width="70" height="30" rx="8" fill="#059669" />
+    <text x="75" y="200" class="result" font-size="16">life</text>
+
+    <rect x="115" y="185" width="70" height="30" rx="8" fill="#059669" />
+    <text x="150" y="200" class="result" font-size="16">die</text>
+
+    <rect x="190" y="185" width="70" height="30" rx="8" fill="#059669" />
+    <text x="225" y="200" class="result" font-size="16">swim</text>
+  </g>
+
+</svg>

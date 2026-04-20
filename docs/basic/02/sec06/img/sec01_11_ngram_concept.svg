@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250" width="100%" height="100%">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <rect width="800" height="250" fill="#f8f9fa"/>
+  <text x="400" y="40" font-family="'Inter', sans-serif" font-size="20" font-weight="bold" fill="#343a40" text-anchor="middle">N-gram: 단어 기차 연결법</text>
+
+  <!-- Unigram -->
+  <g transform="translate(100, 70)">
+    <text x="0" y="20" font-family="'Inter', sans-serif" font-size="14" font-weight="bold" fill="#495057">Uni-gram (1량)</text>
+    <rect x="0" y="30" width="80" height="40" rx="5" fill="#d0ebff" stroke="#1864ab" stroke-width="2" filter="url(#shadow)"/>
+    <text x="40" y="55" font-family="'Inter', sans-serif" font-size="14" fill="#1864ab" text-anchor="middle">The</text>
+    <rect x="90" y="30" width="80" height="40" rx="5" fill="#d0ebff" stroke="#1864ab" stroke-width="2" filter="url(#shadow)"/>
+    <text x="130" y="55" font-family="'Inter', sans-serif" font-size="14" fill="#1864ab" text-anchor="middle">future</text>
+  </g>
+
+  <!-- Bigram -->
+  <g transform="translate(450, 70)">
+    <text x="0" y="20" font-family="'Inter', sans-serif" font-size="14" font-weight="bold" fill="#495057">Bi-gram (2량 연결)</text>
+    <rect x="0" y="30" width="160" height="40" rx="5" fill="#fcc419" stroke="#e67700" stroke-width="2" filter="url(#shadow)"/>
+    <text x="80" y="55" font-family="'Inter', sans-serif" font-size="14" fill="#e67700" text-anchor="middle">[The, future]</text>
+  </g>
+
+  <!-- Trigram -->
+  <g transform="translate(100, 160)">
+    <text x="0" y="20" font-family="'Inter', sans-serif" font-size="14" font-weight="bold" fill="#495057">Tri-gram (3량 통짜 연결)</text>
+    <rect x="0" y="30" width="240" height="40" rx="5" fill="#ffc9c9" stroke="#c92a2a" stroke-width="2" filter="url(#shadow)"/>
+    <text x="120" y="55" font-family="'Inter', sans-serif" font-size="14" fill="#c92a2a" text-anchor="middle">[The, future, depends]</text>
+  </g>
+</svg>

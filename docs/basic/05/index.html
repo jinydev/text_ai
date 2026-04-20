@@ -8,7 +8,7 @@
   <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>05주차</title>
   <meta name="title" content="05주차" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="05주차"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="http://localhost:4001/basic/05/">
+  <meta property="og:url" content="https://text.ai.jiny.dev/basic/05/">
 
   <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="05주차"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
@@ -17,14 +17,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="http://localhost:4001/basic/05/" />
-<meta property="og:url" content="http://localhost:4001/basic/05/" />
+<link rel="canonical" href="https://text.ai.jiny.dev/basic/05/" />
+<meta property="og:url" content="https://text.ai.jiny.dev/basic/05/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="05주차" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"05주차","url":"http://localhost:4001/basic/05/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"05주차","url":"https://text.ai.jiny.dev/basic/05/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -372,13 +372,47 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="5주차-딥러닝-워드-임베딩-기술">5주차. 딥러닝 워드 임베딩 기술</h1>
+            <h1 id="5주차-워드-임베딩-대수학-공간으로의-도약">5주차. 워드 임베딩: 대수학 공간으로의 도약</h1>
 
-<p>단순 숫자가 아닌, 단어의 숨겨진 의미를 벡터 기하학에 밀어넣는 “워드 임베딩” 기술의 역사(Word2Vec부터 GloVe, FastText까지)를 배웁니다.</p>
+<p>통계적 빈도수를 세던 구시대 기법을 넘어서, 단어의 숨겨진 의미와 문맥을 파악하여 인공지능의 뇌(기하학적 벡터 공간)에 쏘아 올리는 황홀한 “워드 임베딩” 기술의 눈부신 진화(NNLM $\to$ Word2Vec $\to$ GloVe $\to$ FastText)를 배웁니다.</p>
 
 <ul>
-  <li><a href="/basic/05/sec01/">섹션 01. 워드 임베딩(Word Embedding)의 이해와 Word2Vec</a></li>
-  <li><a href="/basic/05/sec02/">섹션 02. GloVe, FastText, Contextualized Word Embedding</a></li>
+  <li><strong><a href="/basic/05/sec01/">섹션 01. 차원의 저주와 임베딩(Embedding)의 좌표 마법</a></strong>
+    <ul>
+      <li>희분한 원-핫 인코딩의 치명적 한계 (상호 직교)</li>
+      <li>기하학적 유사도 추론 방정식 (King - Man = Queen)</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/05/sec02/">섹션 02. 통계의 종말: 투사층 룩업 테이블 트릭 (NNLM)</a></strong>
+    <ul>
+      <li>뉴럴 네트워크 언어모델(NNLM)의 첫 등장</li>
+      <li>GPU 연산을 아끼는 마법의 룩업 테이블(Lookup Table) 매핑</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/05/sec03/">섹션 03. 구글 워드 임베딩 제국 1부 (CBOW와 Skip-gram)</a></strong>
+    <ul>
+      <li>극단적 경량화로 은닉층을 도려낸 얕은 신경망 구조</li>
+      <li>빈칸 힌트 탐색기 CBOW와 독고다이 추론기 Skip-gram의 위력</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/05/sec04/">섹션 04. 구글 워드 임베딩 제국 2부 (SGNS 네거티브 샘플링)</a></strong>
+    <ul>
+      <li>구글 서버를 마비시킬 뻔한 소프트맥스의 분모 폭발</li>
+      <li>무작위 오답 갱신 트릭: 네거티브 샘플링(SGNS)의 승리</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/05/sec05/">섹션 05. 미지 단어(OOV)의 방어막: 서브워드 패키지 (FastText)</a></strong>
+    <ul>
+      <li>오타와 신조어 앞에 무너진 Word2Vec의 약점</li>
+      <li>철자 조각(n-gram) 레고 블록 합산으로 OOV를 막아내는 페이스북의 역습</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/05/sec06/">섹션 06. 신경망과 통계의 이종교배: 스탠포드 GloVe (Global Vectors)</a></strong>
+    <ul>
+      <li>좁은 창문(Local Window) 편식에 대한 스탠포드의 일침</li>
+      <li>전체 문헌의 동시 등장 엑셀 행렬과 오차 함수의 만남</li>
+    </ul>
+  </li>
 </ul>
 
 

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #94a3b8; stroke-width: 2; rx: 8; ry: 8; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .step-num { font-family: 'Roboto', sans-serif; font-size: 20px; font-weight: bold; fill: white; }
+      .step-title { font-size: 16px; font-weight: bold; fill: #1e3a8a; }
+      .desc { font-size: 13px; fill: #475569; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="40" class="title">자연어 텍스트 전처리(Preprocessing) 6단계</text>
+  <text x="400" y="65" font-size="14" fill="#64748b">정제되지 않은 원시 텍스트를 기계가 학습하기 좋은 깔끔한 상태로 탈바꿈시키는 필수 과정입니다.</text>
+
+  <!-- Step 1 & 2 -->
+  <g transform="translate(60, 110)">
+    <rect x="0" y="0" width="320" height="90" class="box" fill="#eff6ff" />
+    <circle cx="30" cy="45" r="20" fill="#3b82f6" />
+    <text x="30" y="45" class="step-num">1</text>
+    <text x="120" y="30" class="step-title">토큰화 (Tokenization)</text>
+    <text x="180" y="55" class="desc">문장을 가장 작은 의미 단위인 단어나</text>
+    <text x="180" y="75" class="desc">형태소(한국어) 단위로 조각내는 작업</text>
+  </g>
+
+  <g transform="translate(420, 110)">
+    <rect x="0" y="0" width="320" height="90" class="box" fill="#eff6ff" />
+    <circle cx="30" cy="45" r="20" fill="#3b82f6" />
+    <text x="30" y="45" class="step-num">2</text>
+    <text x="120" y="30" class="step-title">정제 (Cleaning)</text>
+    <text x="180" y="55" class="desc">분석에 방해만 되는 노이즈(HTML 태그,</text>
+    <text x="180" y="75" class="desc">특수문자, 불용어)들을 씻어내는 작업</text>
+  </g>
+
+  <!-- Step 3 & 4 -->
+  <g transform="translate(60, 220)">
+    <rect x="0" y="0" width="320" height="90" class="box" fill="#fdf4ff" />
+    <circle cx="30" cy="45" r="20" fill="#a855f7" />
+    <text x="30" y="45" class="step-num">3</text>
+    <text x="120" y="30" class="step-title" fill="#6b21a8">정규화 (Normalization)</text>
+    <text x="180" y="55" class="desc">동일한 단어인데 다르게 적힌 것들</text>
+    <text x="180" y="75" class="desc">(usa, U.S.A 등)을 하나로 통일</text>
+  </g>
+
+  <g transform="translate(420, 220)">
+    <rect x="0" y="0" width="320" height="90" class="box" fill="#fdf4ff" />
+    <circle cx="30" cy="45" r="20" fill="#a855f7" />
+    <text x="30" y="45" class="step-num">4</text>
+    <text x="120" y="30" class="step-title" fill="#6b21a8">정규 표현식 (Regex)</text>
+    <text x="180" y="55" class="desc">복잡하게 얽힌 패턴(전화번호, 이메일)</text>
+    <text x="180" y="75" class="desc">등을 정교하게 찾아내 지우거나 치환</text>
+  </g>
+
+  <!-- Step 5 & 6 -->
+  <g transform="translate(60, 330)">
+    <rect x="0" y="0" width="320" height="90" class="box" fill="#f0fdf4" />
+    <circle cx="30" cy="45" r="20" fill="#22c55e" />
+    <text x="30" y="45" class="step-num">5</text>
+    <text x="140" y="30" class="step-title" fill="#047857">표제어/어간 추출</text>
+    <text x="180" y="55" class="desc">과거형이나 복수형으로 뒤틀린 글자들을</text>
+    <text x="180" y="75" class="desc">단어 사전에 있는 본래 '원형'으로 복구</text>
+  </g>
+
+  <g transform="translate(420, 330)">
+    <rect x="0" y="0" width="320" height="90" class="box" fill="#f0fdf4" />
+    <circle cx="30" cy="45" r="20" fill="#22c55e" />
+    <text x="30" y="45" class="step-num">6</text>
+    <text x="120" y="30" class="step-title" fill="#047857">품사 태깅 (POS)</text>
+    <text x="180" y="55" class="desc">각각의 단어가 문장 속에서 명사인지,</text>
+    <text x="180" y="75" class="desc">동사인지 문법적 명찰을 달아주기</text>
+  </g>
+
+</svg>

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #94a3b8; stroke-width: 2; rx: 8; ry: 8; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .subtitle { font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: bold; fill: #1e293b; }
+      .bio-tag { font-family: 'Roboto', sans-serif; font-size: 18px; font-weight: bold; }
+      .bio-desc { font-size: 14px; fill: #475569; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">텍스트 단위화 (Chunking): BIO 태그 기반 기법</text>
+  <text x="400" y="55" font-size="14" fill="#64748b">상호 관련이 깊은 단어들의 덩어리(Chunk)의 경계를 구별하기 위해 각 토큰에 BIO 태그를 부착합니다.</text>
+
+  <!-- BIO Explanation -->
+  <g transform="translate(100, 90)">
+    <rect x="0" y="0" width="600" height="70" class="box" fill="#f0fdf4" stroke="#4ade80" />
+    
+    <text x="100" y="35" class="bio-tag" fill="#15803d">B (Begin)</text>
+    <text x="100" y="55" font-size="12" fill="#166534">청크의 시작 단어</text>
+    
+    <text x="300" y="35" class="bio-tag" fill="#0369a1">I (Inside)</text>
+    <text x="300" y="55" font-size="12" fill="#075985">청크 내부(두번째부터) 단어</text>
+    
+    <text x="500" y="35" class="bio-tag" fill="#64748b">O (Outside)</text>
+    <text x="500" y="55" font-size="12" fill="#334155">청크 외부에 있는 단어</text>
+  </g>
+
+  <!-- Example Sequence -->
+  <g transform="translate(50, 200)">
+    
+    <!-- He -->
+    <rect x="0" y="0" width="80" height="40" class="box" fill="#f8fafc" />
+    <text x="40" y="20" class="subtitle">He</text>
+    <rect x="0" y="50" width="80" height="30" rx="4" fill="#64748b" />
+    <text x="40" y="65" fill="white" font-weight="bold">O</text>
+
+    <!-- saw -->
+    <rect x="100" y="0" width="80" height="40" class="box" fill="#f8fafc" />
+    <text x="140" y="20" class="subtitle">saw</text>
+    <rect x="100" y="50" width="80" height="30" rx="4" fill="#64748b" />
+    <text x="140" y="65" fill="white" font-weight="bold">O</text>
+
+    <!-- the (NP Begin) -->
+    <rect x="200" y="0" width="80" height="40" class="box" fill="#eff6ff" stroke="#3b82f6" />
+    <text x="240" y="20" class="subtitle" fill="#1d4ed8">the</text>
+    <rect x="200" y="50" width="80" height="30" rx="4" fill="#22c55e" />
+    <text x="240" y="65" fill="white" font-weight="bold">B-NP</text>
+
+    <!-- big (NP Inside) -->
+    <rect x="300" y="0" width="80" height="40" class="box" fill="#eff6ff" stroke="#3b82f6" />
+    <text x="340" y="20" class="subtitle" fill="#1d4ed8">big</text>
+    <rect x="300" y="50" width="80" height="30" rx="4" fill="#0ea5e9" />
+    <text x="340" y="65" fill="white" font-weight="bold">I-NP</text>
+
+    <!-- dog (NP Inside) -->
+    <rect x="400" y="0" width="80" height="40" class="box" fill="#eff6ff" stroke="#3b82f6" />
+    <text x="440" y="20" class="subtitle" fill="#1d4ed8">dog</text>
+    <rect x="400" y="50" width="80" height="30" rx="4" fill="#0ea5e9" />
+    <text x="440" y="65" fill="white" font-weight="bold">I-NP</text>
+
+    <!-- on (O) -->
+    <rect x="500" y="0" width="80" height="40" class="box" fill="#f8fafc" />
+    <text x="540" y="20" class="subtitle">on</text>
+    <rect x="500" y="50" width="80" height="30" rx="4" fill="#64748b" />
+    <text x="540" y="65" fill="white" font-weight="bold">O</text>
+    
+    <!-- it (NP Begin) -->
+    <rect x="600" y="0" width="80" height="40" class="box" fill="#eff6ff" stroke="#3b82f6" />
+    <text x="640" y="20" class="subtitle" fill="#1d4ed8">it</text>
+    <rect x="600" y="50" width="80" height="30" rx="4" fill="#22c55e" />
+    <text x="640" y="65" fill="white" font-weight="bold">B-NP</text>
+
+    <!-- Chunk indicator -->
+    <path d="M 210 100 L 470 100" stroke="#3b82f6" stroke-width="3" />
+    <path d="M 210 95 L 210 105" stroke="#3b82f6" stroke-width="3" />
+    <path d="M 470 95 L 470 105" stroke="#3b82f6" stroke-width="3" />
+    <text x="340" y="115" font-family="Roboto" font-weight="bold" fill="#1d4ed8">Noun Phrase (명사구)</text>
+    
+  </g>
+
+</svg>

@@ -5,26 +5,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>신경망 기반 텍스트 성능 평가</title>
-  <meta name="title" content="신경망 기반 텍스트 성능 평가" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="신경망 기반 텍스트 성능 평가"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
+  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>영리한 바보 나이브 베이즈</title>
+  <meta name="title" content="영리한 바보 나이브 베이즈" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="영리한 바보 나이브 베이즈"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="http://localhost:4001/basic/06/sec02/">
+  <meta property="og:url" content="https://text.ai.jiny.dev/basic/06/sec02/">
 
-  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="신경망 기반 텍스트 성능 평가"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="영리한 바보 나이브 베이즈"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="신경망 기반 텍스트 성능 평가" />
+<meta property="og:title" content="영리한 바보 나이브 베이즈" />
 <meta name="author" content="Hojin" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="http://localhost:4001/basic/06/sec02/" />
-<meta property="og:url" content="http://localhost:4001/basic/06/sec02/" />
+<link rel="canonical" href="https://text.ai.jiny.dev/basic/06/sec02/" />
+<meta property="og:url" content="https://text.ai.jiny.dev/basic/06/sec02/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="신경망 기반 텍스트 성능 평가" />
+<meta property="twitter:title" content="영리한 바보 나이브 베이즈" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"신경망 기반 텍스트 성능 평가","url":"http://localhost:4001/basic/06/sec02/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"영리한 바보 나이브 베이즈","url":"https://text.ai.jiny.dev/basic/06/sec02/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -374,7 +374,7 @@
         
         
         
-        <li class="breadcrumb-item active" aria-current="page">신경망 기반 텍스트 성능 평가</li>
+        <li class="breadcrumb-item active" aria-current="page">영리한 바보 나이브 베이즈</li>
         
         
         
@@ -382,128 +382,78 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="모델의-오만함-판별-성능-평가-및-지표-교차-검증">모델의 오만함 판별: 성능 평가 및 지표 교차 검증</h1>
+            <h1 id="멍청한-통계의-기적-나이브-베이즈-분류기-naive-bayes">멍청한 통계의 기적: 나이브 베이즈 분류기 (Naive Bayes)</h1>
 
-<p>우리가 훈련시킨 멍청한 분류 모델이 실제로 현장에서 얼마나 잘 예측하는지, 혹은 정확도 99%라는 사기 뒤에서 어떤 뻔뻔한 치부를 숨기고 있는지를 <strong>엄격한 과학적 수학 지표</strong>로 해부하고 들춰내는 단원입니다.</p>
+<p>딥러닝의 거대한 블랙박스 우주가 다가오기 훨씬 전부터 존재한 고전 모델입니다. 가장 역사가 깊고 코드가 단 한 줄이라 속도가 미친 듯이 무식하게 빠르지만, 스팸 분류 실무에서 딥러닝 싸대기를 때릴 만큼 명중률이 어마무시한 통계 문서 분류기의 조상 <strong>나이브 베이즈(Naive Bayes)</strong> 를 배웁니다.</p>
 
 <hr />
 
-<h2 id="00-텍스트-분류-모델-평가-파트">00. 텍스트 분류 모델 평가 파트</h2>
-<p>“정확도 99%? 당장 버려라!” 단순한 정확도의 맹점을 깨고 진짜 실력을 캡처하는 혼동행렬의 시야로 들어옵니다.</p>
+<h2 id="00-베이즈의-정리-bayes-theorem">00. 베이즈의 정리 (Bayes’ Theorem)</h2>
+<p>확률 통계학의 위대한 아버지 토마스 베이즈가 창안한 <strong>베이즈 규칙(Bayes rule)</strong> 확률 방정식에 뼈대를 둡니다. 우리가 어떤 사건의 정답을 미리 알 수 없을 때, ‘과거의 경험(사전 확률)’과 ‘현재 떨어지는 단서들’을 종합해서 정답일 확률을 실시간으로 역으로 추적해 가는 수식입니다.</p>
 
-<h2 id="01-모델-채점을-위한-통계적-데이터-3분할">01. 모델 채점을 위한 통계적 데이터 3분할</h2>
-<p>우리가 문제집 1권을 다 풀었다고 해서, 똑같은 문제집으로 수능 시험 성적을 잴 수는 없습니다. 컴퓨터도 마찬가지입니다. (이런 부정행위를 <code class="language-plaintext highlighter-rouge">과적합/Overfitting</code> 이라고 부릅니다). 이를 막기 위해 데이터 파이 나누기를 합니다.</p>
+<p><img src="./img/../sec01/img/sec01_naive_bayes.svg" alt="Naive Bayes Structure Formula" /></p>
 
-<ul>
-  <li><strong>1. Train Data (학습 파트 - 60%)</strong>: 밥 먹고 오직 모델이 지식을 쌓고 가중치를 업데이트하는 데에만 쓰는 “일반 교과서”.</li>
-  <li><strong>2. Validation Data (검증 파트 - 20%)</strong>: 학습 중간중간 모델이 너무 자기 방어에 빠지지 않았는지 중간 체크하고, 하이퍼파라미터(설정값) 옵션을 세팅하는 “모의고사”.</li>
-  <li><strong>3. Test Data (시험 파트 - 20%)</strong>: 개발이 전부 끝나고 출고 직전에만 꺼내서, 모델의 찐 실력을 평가하기 위해 끝까지 꼭꼭 숨겨두는 “최종 수능 시험지”.</li>
-</ul>
+<h3 id="스팸의-베이즈-공식">스팸의 베이즈 공식</h3>
+<p>문서 텍스트($d$)가 입력으로 와장창 주어졌을 때, 과연 컴퓨터가 이 문서를 클래스($c$, 예: 스팸 메일)라고 판정내릴(결과) 종합 확률 계산:</p>
 
-<p><img src="./img/sec02_data_split.svg" alt="Data Splitting Diagram" /></p>
+\[P(c|d) = \frac{P(d|c)P(c)}{P(d)}\]
 
-<h2 id="02-k-fold-교차-검증-cross-validation">02. K-fold 교차 검증 (Cross-validation)</h2>
-<ul>
-  <li><strong>Hold-out의 불운</strong>: 만약 어쩌다 1번의 모의고사(Validation set)를 뗐는데 거기에 하필 극악 난이도 문제만 몰렸다면 모델 튜닝이 박살 납니다!</li>
-  <li><strong>K-Fold 교차방지 전략</strong>: 데이터를 무작위 5조각(<code class="language-plaintext highlighter-rouge">K=5</code>)으로 갈기갈기 찢은 뒤, 각 조각별로 4개씩 모아서 번갈아가며 학습하고, 남은 1개로 <strong>공평하게 순서대로 총 5회 모의고사</strong>를 치르는 방법입니다.</li>
-</ul>
+<h2 id="01-억지스러운-두-가지-가정-why-naive">01. 억지스러운 두 가지 가정 (Why “Naive”?)</h2>
+<p>베이즈 수식을 문서에 통째로 때려 박으려다 보니, 문맥 확률 곱하기가 10만 단어 단위로 넘어가면서 컴퓨터가 즉시 멎어버렸습니다. 수학적 연산 폭발을 억지로 틀어막기 위해 학자들은 아주 <strong>‘Naive(너무 순진하고 멍청한)’ 억지 가정 2가지</strong>를 세워 컴퓨터 뇌관을 잘라버립니다.</p>
 
-<p><img src="./img/sec02_kfold.svg" alt="K-fold Cross Validation Model" /></p>
-
-<h2 id="03-성능-평가에서-마주하는-치명적-오류-정확도accuracy-역설">03. 성능 평가에서 마주하는 치명적 오류: 정확도(Accuracy) 역설</h2>
-<p>정답을 맞춘 전체 비율만 보는 ‘그놈의 정확도’ 수치 하나만 맹신했다가는 회사가 부도날 수 있는 환경이 바로 <strong>‘극도로 불균형한 데이터 뻥튀기 환경(Imbalanced)’</strong>입니다.</p>
-
-<p><img src="./img/sec06_02_05_paradox.png" alt="Accuracy Imbalance Paradox Simulation" /></p>
+<ol>
+  <li><strong>위치와 순서 무시</strong>: 단어가 문장 맨 앞에 오든 맨 뒤에 오든 뉘앙스 차이를 아예 100% 개무시합니다. “빨간 사과”든 “사과 빨간”이든 수학자에게는 그냥 단어 2개 주머니일 뿐입니다.</li>
+  <li><strong>조건부 철저한 남남 취급 (독립 사건 억지)</strong>: 엄청난 길이의 텍스트가 들어왔을 때, <code class="language-plaintext highlighter-rouge">good</code>과 <code class="language-plaintext highlighter-rouge">movie</code> 같은 연관 깊은 형용사/명사조차 인공지능은 <strong>“얘네들은 피차 아무 영향을 안 주고 완전히 우연의 일치로 방에 따로따로 굴러다닌 파편 단어들이야”</strong> 라며 억지로 모든 단어를 구슬 꺼내듯 (독립 사건) 수학 기호로 조각내어 버립니다.</li>
+</ol>
 
 <blockquote>
-  <p>[!CAUTION]<br />
-<strong>📖 초심자를 위한 쉬운 해설: 99.9% 깡통 스팸 필터의 전설</strong><br />
-10,000통의 메일 중 진짜 스팸(빨간 독 편지)은 딱 1통뿐인 회사 메일함이 있습니다. 모델 개발자가 그냥 무조건 “모든 메일은 정상(<code class="language-plaintext highlighter-rouge">0</code>)이다!”라고 뇌를 빼고 출력만 찍어내는 쓰레기 AI 모델을 배포했습니다.</p>
-
-  <p>채점 결과 이 쓰레기 AI 모델의 <strong>‘정확도(Accuracy)’는 무려 99.99%</strong> 가 되어버립니다(9999통의 예측 적중)! 이처럼 정확도는 단 1개의 치명적인 범죄자를 다 놓쳤음에도 “나는 S급 완벽한 모델입니다!”라며 오만한 거짓 통계를 뿜어냅니다.</p>
+  <p>[!WARNING]<br />
+<strong>📖 초심자를 위한 쉬운 해설: 억지 가정이 왜 훌륭한가?</strong><br />
+“나이브”하다는 건 컴퓨터가 멍청하게 앞뒤 맥락을 포기하고 “단어들이 우연히 만난 남남이지 뭐!”로 대충 퉁치며 넘겨짚는다는 뜻입니다. 현실의 말하기 법칙을 완전히 파괴하는 깡패 논리 같지만, 신기하게도 모델 계산 속도가 1000배 이상 빨라지는 것은 물론, 이 논리 없음 덕분에 이진 분류(스팸 걸러내기, 영화 파악) 게임에서 그 어떤 알고리즘보다 오버피팅(과적합)을 예방하며 최고의 실사례 타율을 뽐냅니다.</p>
 </blockquote>
 
-<h2 id="04-진실의-방-혼동행렬-confusion-matrix-도출">04. 진실의 방: 혼동행렬 (Confusion Matrix) 도출</h2>
-<p>단순 정확도의 사기극을 타파하기 위해, 모델이 맞추긴 맞췄는데 <strong>‘어떻게 헛발질을 쳤고, 뭘로 잘못 찍었는지’</strong>까지 적나라하게 감별해 낸 크로스오버 채점표입니다.</p>
+<h2 id="02-모델-학습-최우도-추정법-mle-maximum-likelihood">02. 모델 학습: 최우도 추정법 (MLE, Maximum Likelihood)</h2>
+<p>나이브 베이즈 모델이 학습 데이터로부터 확률 파라미터 점수판을 엑셀로 짜깁기하는 수학적 통계 계산법입니다.</p>
 
-<p><img src="./img/sec02_confusion_matrix.svg" alt="Confusion Matrix Diagram Cross Check" /></p>
+\[P(w_k | c) = \frac{N(w_k, c) + \alpha}{N(c) + \alpha |V|}\]
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">지표 코드</th>
-      <th style="text-align: center">모델 예측</th>
-      <th style="text-align: center">실제 정답</th>
-      <th style="text-align: left">설명 방정식 및 해석 비유</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">TP</code></td>
-      <td style="text-align: center">True (범인이다!)</td>
-      <td style="text-align: center">True (범인 맞음!)</td>
-      <td style="text-align: left"><strong>(대성공)</strong> 경찰이 진짜 테러범을 잡아 구속시킴.</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">TN</code></td>
-      <td style="text-align: center">False (범인 아님)</td>
-      <td style="text-align: center">False (범인 아님)</td>
-      <td style="text-align: left"><strong>(성공)</strong> 선량한 대학생을 선량하다고 내버려 둠.</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">FP</code> (치명적)</td>
-      <td style="text-align: center">True (범인이다!)</td>
-      <td style="text-align: center">False (범인 아님)</td>
-      <td style="text-align: left"><strong>(억울함 대폭발-거짓 양성)</strong> 모델이 선량한 대학생을 범인으로 억울하게 지목해 평생 감옥에 가둬버림! (스팸 오판으로 중요 사업메일 날아감)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">FN</code> (치명적)</td>
-      <td style="text-align: center">False (범인 아님)</td>
-      <td style="text-align: center">True (범인 맞음!)</td>
-      <td style="text-align: left"><strong>(경찰청장 사퇴-거짓 음성)</strong> 모델이 속아서 진짜 테러범을 구경만 하고 풀어줘서 폭탄이 터져버림! (스팸 방어 시스템 붕괴)</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="05-정교한-성능-지표-precision-recall">05. 정교한 성능 지표 (Precision, Recall)</h2>
-<p>위의 표를 활용하면 모델의 진정한 본색 성향을 알 수 있습니다.</p>
-
-<h3 id="정밀도-precision-예민한-검찰점수">정밀도 (Precision: 예민한 검찰점수)</h3>
-<p><strong>“모델이 스팸(Positive)이라고 확신해서 의심한 놈들 중, 진짜 찐 스팸으로 밝혀진 범인 퍼센트!”</strong></p>
-
-<p>\(\text{Precision} = \frac{TP}{TP + FP}\)</p>
 <ul>
-  <li>(수사가 너무 허술하게 이것저것 막 잡아들여 억울한 시민(<code class="language-plaintext highlighter-rouge">FP</code>)이 감옥에 가면 정밀도가 수직으로 폭락합니다.)</li>
+  <li><strong>본질</strong>: 특정 스팸 폴더(클래스 $c$) 내부에 들어있는 전체 단어의 총합 갯수(분모) 중에서, 타겟 단어 <code class="language-plaintext highlighter-rouge">W(대출)</code> 가 등장한 <strong>발현 횟수(분자)의 비율을 단순 산수 나누기로 계산</strong>합니다.</li>
 </ul>
 
-<h3 id="재현율-recall-투망-사냥-그물점수">재현율 (Recall: 투망 사냥 그물점수)</h3>
-<p><strong>“실제 전국의 숨어있는 진짜 찐 스팸 놈들 전체 중에서, 내 모델이 놓치지 않고 싹 다 안으로 잡아들인 범인 비율!”</strong></p>
+<p><img src="./img/../sec01/img/sec01_nb_mle.svg" alt="Maximum Likelihood Estimation Method" /></p>
 
-<p>\(\text{Recall} = \frac{TP}{TP + FN}\)</p>
+<h3 id="-분모-폭발의-방어막-라플라스-스무딩-laplace-smoothing">🚨 분모 폭발의 방어막: 라플라스 스무딩 (Laplace Smoothing)</h3>
+<p>만약 오늘 아침에 탄생한 신조어 <code class="language-plaintext highlighter-rouge">영끌족(W)</code> 이라는 단어가 내 10년 치 메일함 학습에 한 번도 없었다고 가정해 봅시다.</p>
+<ol>
+  <li>과거에 없었으므로 분자 횟수가 <code class="language-plaintext highlighter-rouge">0</code> 이 됩니다.</li>
+  <li>나이브 베이즈는 모든 단어 확률을 연속으로 계속 곱하기($\prod$)하는 모델입니다.</li>
+  <li><strong>숫자 <code class="language-plaintext highlighter-rouge">0</code>이 식 하나에 들어오면 전체 곱연산 답안지가 모조리 <code class="language-plaintext highlighter-rouge">0</code>으로 파괴되는 핵폭탄</strong>이 터집니다!</li>
+</ol>
+
+<p>이 치명타를 예방하기 위해, 분자 분모 끝단에 $\alpha$ (보통 <code class="language-plaintext highlighter-rouge">1</code>) 이라는 임시 보험금 점수를 억지로 껴넣어서, 최소 확률이 <code class="language-plaintext highlighter-rouge">0</code>이 되는 파국만은 부드럽게 피해냅니다. 이것을 ‘스무딩’이라고 부릅니다.</p>
+
+<h2 id="03-실전-평가-스펙-엑셀-계산-주사위-굴리기">03. 실전 평가 스펙 엑셀 계산 (주사위 굴리기)</h2>
 <ul>
-  <li>(그물망을 헐겁게 쳐서 진짜 범인 놈(<code class="language-plaintext highlighter-rouge">FN</code>)들이 검색을 뚫고 도망가 버리면 재현율이 바닥에 꽂힙니다.)</li>
+  <li><strong>미션</strong>: 들어본 적 없는 문장 <code class="language-plaintext highlighter-rouge">“I love this fun film”</code> 이 방금 막 모델에 입력되었습니다! 정상이냐? 스팸이냐? (긍/부정 이진)</li>
 </ul>
 
-<h2 id="06-정밀도와-재현율의-딜레마">06. 정밀도와 재현율의 딜레마</h2>
-<p><strong>“억울한 1명의 무고한 시민이 감옥에 가도 99명의 범죄자를 다 잡을 것인가?(Recall 집중)”</strong> vs <strong>“범죄자를 설령 다 놓치는 한이 있더라도 억울한 무고한 시민을 재판에 세우지 않을 것인가?(Precision 집중)”</strong> 의 이 위대한 시소 게임(Trade-off)에서 머신러닝의 파라미터가 결정됩니다.</p>
+\[\hat{c} = \arg\max_{c \in C} P(c) \prod_{i=1}^n P(w_i | c)\]
 
-<h2 id="07-조화평균의-산물-f-1-score-지표">07. 조화평균의 산물: F-1 Score 지표</h2>
-<p>결국 재현율과 정밀도, 어느 한 쪽으로 극단적으로 쏠리지 않게 밸런스를 맞춘 <strong>머신러닝 최고 권위의 통합 분류 점수</strong>입니다. (현대의 기본값 메트릭)</p>
+<p>위의 무시무시한 대학 수식($\arg\max$와 $\prod$ 연속 곱하기)을 알맹이만 풀어쓰면, 사실 아래의 어처구니없게 초등학생스러운 일렬 엑셀 곱하기(주사위 게임) 연산입니다.</p>
 
-\[F_1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}\]
+<p><img src="./img/../sec01/img/sec01_nb_example_table.svg" alt="Naive Bayes Math Table Example" /></p>
 
-<p>단순한 산술평균이 아니라 <strong>조화평균(Harmonic Mean)</strong> 분수 역수를 치함으로써, 어느 한 지표라도 바닥을 기고 있으면 (예: 모델이 무조건 스팸이라고만 찍어서 재현율 100%, 정밀도 0%) F1 점수는 가차 없이 0점에 수렴하도록 설계되어 모델의 꼼수를 원천 차단합니다.</p>
+<p><em>(나이브 베이즈 시뮬레이터 가동)</em></p>
+<ol>
+  <li><strong>긍정(Positive) 통 계산</strong>: (기본 긍정 태생 룰렛 비율 $P(c)$) $\times$ (긍정 방에서 <code class="language-plaintext highlighter-rouge">I</code>가 나올 확률) $\times$ (긍정 방에서 <code class="language-plaintext highlighter-rouge">love</code> 확률) $\times$ (긍정 펀) $\times$ (긍정 필름) 을 주르륵 초등학생처럼 곱해봅니다!
+$\to$ 결과 점수 도출: <code class="language-plaintext highlighter-rouge">0.00000005</code> (<code class="language-plaintext highlighter-rouge">5e-8</code>)</li>
+  <li><strong>부정(Negative) 통 계산</strong>: 부정 방에서 똑같은 짓을 해서 곱해봅니다!
+$\to$ 결과 점수 도출: <code class="language-plaintext highlighter-rouge">0.000000001</code> (<code class="language-plaintext highlighter-rouge">1e-9</code>)</li>
+  <li><strong>최종 결론 (판사 대가리)</strong>: “어? 첫 번째 통의 룰렛 점수 결과가 압도적으로 크네! 그럼 이 문장은 무조건 <strong>긍정(Positive)</strong> 판정 땅땅땅!”</li>
+</ol>
 
-<p><img src="./img/sec02_metrics.svg" alt="Machine Evaluation Metrics All" /></p>
-
-<h2 id="08-임계점-곡선-roc--pr-curve-과-넓이-auc">08. 임계점 곡선 (ROC / PR Curve) 과 넓이 (AUC)</h2>
-<ul>
-  <li><strong>임계값 (Threshold)</strong>: 모델이 스팸 확률 $0.5$를 기준으로 범인을 잴 건지, 아니면 $0.8$ 이상은 돼야 범인으로 잡을 건지 기준값을 뜻합니다.</li>
-  <li>특정 임계값에 요동치는 정밀도와 재현율 그래프의 궤적(ROC 곡선 선형)을 그려놓고, 아예 <strong>그 선 아래의 모든 면적 구간(Area Under Curve, AUC)</strong> 점수 면적의 덩치를 재버립니다!</li>
-  <li>결국 외부의 설정값의 입력을 막론하고 이 모델 자체가 기본기(기초체력)가 얼마나 단단한 놈인지 알려주는 궁극의 평가 도구입니다.</li>
-</ul>
-
-<p><img src="./img/sec02_roc_pr_curve.svg" alt="ROC PR Curve Mathematical Setup" /></p>
+<p>이토록 유치하고 단순한 엑셀 비율 곱하기 원문이지만, 스팸 필터계에서 10년 이상 구글 메일함의 문지기를 거뜬히 해낸 전설적인 고전 명작 분류기입니다.</p>
 
 
             <!-- 구글 애드센스 출력 -->

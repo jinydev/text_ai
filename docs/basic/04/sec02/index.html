@@ -5,26 +5,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>언어 모델 평가지표 - PPL</title>
-  <meta name="title" content="언어 모델 평가지표 - PPL" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="언어 모델 평가지표 - PPL"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
+  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>조건부 확률과 도미노 연쇄</title>
+  <meta name="title" content="조건부 확률과 도미노 연쇄" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="조건부 확률과 도미노 연쇄"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="http://localhost:4001/basic/04/sec02/">
+  <meta property="og:url" content="https://text.ai.jiny.dev/basic/04/sec02/">
 
-  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="언어 모델 평가지표 - PPL"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="조건부 확률과 도미노 연쇄"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="언어 모델 평가지표 - PPL" />
+<meta property="og:title" content="조건부 확률과 도미노 연쇄" />
 <meta name="author" content="Hojin" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="http://localhost:4001/basic/04/sec02/" />
-<meta property="og:url" content="http://localhost:4001/basic/04/sec02/" />
+<link rel="canonical" href="https://text.ai.jiny.dev/basic/04/sec02/" />
+<meta property="og:url" content="https://text.ai.jiny.dev/basic/04/sec02/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="언어 모델 평가지표 - PPL" />
+<meta property="twitter:title" content="조건부 확률과 도미노 연쇄" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"언어 모델 평가지표 - PPL","url":"http://localhost:4001/basic/04/sec02/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"조건부 확률과 도미노 연쇄","url":"https://text.ai.jiny.dev/basic/04/sec02/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -374,7 +374,7 @@
         
         
         
-        <li class="breadcrumb-item active" aria-current="page">언어 모델 평가지표 - PPL</li>
+        <li class="breadcrumb-item active" aria-current="page">조건부 확률과 도미노 연쇄</li>
         
         
         
@@ -382,131 +382,67 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="언어-모델의-성능-평가-지표-perplexity-ppl">언어 모델의 성능 평가 지표: Perplexity (PPL)</h1>
+            <h1 id="조건부-확률과-도미노-연쇄법칙-chain-rule">조건부 확률과 도미노 연쇄법칙 (Chain Rule)</h1>
 
-<p>주관식 시험(자연어 텍스트)에는 완벽한 유일 정답이 없습니다!! 정답이 없는 언어 모델의 예측 성능을 통계학과 수학 분기 계수(Branching Factor) 개념으로 날카롭게 채점하는 PPL 공식과 지표들을 배웁니다.</p>
+<p>전 챕터에서 컴퓨터가 카운팅을 통해 다음 단어를 가장 로또 당첨 확률이 높은 놈으로 뽑는다는 것을 알았습니다. 그렇다면 문장 1개가 완전히 생성될 확률은 어떻게 구할까요? 고등학교 수학 시간에 우리를 괴롭혔던 ‘조건부 확률’과 ‘연쇄 곱셈법칙’을 텍스트 공학에 대입해 무너뜨려 봅니다.</p>
 
 <hr />
 
-<h2 id="00-언어모델의-성능평가-도입">00. 언어모델의 성능평가 도입</h2>
-<p>우리가 앞서 만든 확률적 확률 모델이 얼마나 훌륭한 문장을 만들어 내는지, 기계 구조적으로 측정해야 합니다.</p>
+<h2 id="00-과거-통계적-언어모델slm의-수학적-계산-원리">00. 과거 통계적 언어모델(SLM)의 수학적 계산 원리</h2>
+<p>과거 딥러닝 이전 시대(SLM)에는 지능이랄 게 없었습니다. 그냥 메모리에 “수십억 권의 책” 텍스트를 통째로 쌓아두고, 사람이 직접 돋보기로 앞 단어가 나올 횟수를 카운트했습니다.</p>
 
-<h2 id="01-성능-평가의-기준-이미지-분류-vs-텍스트-생성">01. 성능 평가의 기준: 이미지 분류 vs 텍스트 생성</h2>
-<p>분류(Classifier)와 생성(Generative)은 채점 방식 자체가 아예 다를 수밖에 없습니다.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">모델 형태</th>
-      <th style="text-align: left">비유 (문제 형태)</th>
-      <th style="text-align: left">특징과 채점 방식</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><strong>이미지 객체 탐지</strong></td>
-      <td style="text-align: left"><strong>객관식 시험</strong> (정답 딱 1개)</td>
-      <td style="text-align: left">(강아지를 보여주며) 강아지라고 맞히면 <code class="language-plaintext highlighter-rouge">100점</code>, 고양이라고 하면 가차 없이 <code class="language-plaintext highlighter-rouge">0점</code>. 매우 직관적이고 칼같은 채점.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>자연어 텍스트 생성</strong></td>
-      <td style="text-align: left"><strong>주관식 논술</strong> (정답 수만 개)</td>
-      <td style="text-align: left">“선생님이 교실을 부리나케 ( )” $\to$ “달려갔다”, “뛰어갔다”, “향했다” 등 수백 개 형태가 다 말이 됩니다. 채점이 수학적으로 불명확합니다.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="02-자연어-정답-기반-평가-메커니즘의-붕괴">02. 자연어 정답 기반 평가 메커니즘의 붕괴</h2>
 <ul>
-  <li>만약 언어에서도 “밥을 먹었다”만을 유일한 <code class="language-plaintext highlighter-rouge">100점 정답</code>으로 잡고 평가하면?</li>
-  <li>모델이 “식사를 했다”라고 완벽한 대답을 해도 기계는 <code class="language-plaintext highlighter-rouge">0점</code>으로 채점해 버립니다.</li>
-  <li>이런 방식으로 사람이 일일이 채점하면 비용과 시간이 극도로 낭비되며 AI 연구 속도가 박살 납니다.</li>
+  <li><strong>목표 명제</strong>: 문장 전체가 발생할 완벽한 확률 <strong>$P(W)$</strong> 구하기.</li>
+  <li>여기서 $W$는 $n$개의 단어가 줄줄이 소시지처럼 이어진 시퀀스 $(w_1, w_2, \dots, w_n)$ 를 뜻합니다.</li>
 </ul>
 
-<h2 id="03-텍스트-평가지표-perplexity-ppl-란">03. 텍스트 평가지표: Perplexity (PPL) 란?</h2>
-<p>이러한 주관성 문제를 타개하기 위해 나온 수학, 정보이론 통계 지표입니다.</p>
-<ul>
-  <li>언어모델이 다음 단어를 지칭할 때(예측할 때), <strong>얼마나 혼란스러워하지 않고 확신을 가지고 확률을 모아서 맞췄는가</strong>를 숫자율로 재는 것입니다.</li>
-  <li>퍼플렉서티(PPL, 헷갈림 정도)는 수치가 <strong>낮을수록(덜 헤맬수록)</strong> 절대적으로 우수한 성능의 언어모델입니다!</li>
-</ul>
+<h2 id="01-조건부-확률-conditional-probability">01. 조건부 확률 (Conditional Probability)</h2>
+<p>단어가 하늘에서 뚝 떨어지는 사건은 완전히 독립확률일까요? 아닙니다. 주어와 동사 명사는 앞뒤 ‘문맥(Context)’ 때문에 서로 물귀신처럼 지독하게 이전 단어들에 얽혀 영향을 받습니다. 
+따라서 자연어처리는 고등학교 수학의 <strong>조건부 확률($P(B \mid A)$)</strong> 공식을 빌려올 수밖에 없습니다.</p>
 
-<h2 id="04-perplexity-ppl-의-무시무시한-수학-공식">04. Perplexity (PPL) 의 무시무시한 수학 공식</h2>
-<p>$N$개의 단어로 구성된 문장 $W$의 PPL(헷갈림 지수)은, 단어 확률들의 곱을 길이에 따라 기하평균을 낸 후 역수(루트)를 취하여 계산됩니다.</p>
+<p>\(P(B \mid A) = \frac{P(A,B)}{P(A)}\)
+<em>(B라는 단어가 일어날 확률은, A라는 사건이 이미 터졌을 때를 가정해서 계산한다)</em></p>
 
-<p><img src="./img/sec02_ppl_formula.svg" alt="PPL Formula Calculation" /></p>
+<h2 id="02-도미노-연쇄-법칙-chain-rule의-완성">02. 도미노 연쇄 법칙 (Chain Rule)의 완성</h2>
+<p>“철수가 어제 맛있는 피자를 ( )” 
+문장 하나가 완성되기 위해서는 한 단어의 확률만 필요한 게 아닙니다. 길고 엄청난 문장은 단어 하나하나가 도미노처럼 연속해서 벌어지는 <strong>연속 곱셈($\prod$, Pi 기호)</strong> 으로 증명할 수밖에 없습니다.</p>
 
-\[\text{PPL}(W) = P(w_1, w_2, \dots, w_N)^{-\frac{1}{N}} = \sqrt[N]{\frac{1}{P(w_1, w_2, \dots, w_N)}}\]
+<p><img src="./img/mermaid_1.svg" alt="mermaid flowchart" /></p>
+
+<p>수식으로 펼치면 매우 우아한 모양이 나옵니다.
+\(P(w_1, w_2, \dots, w_n) = \prod_{i=1}^{n} P(w_i \mid w_1, \dots, w_{i-1})\)</p>
 
 <blockquote>
   <p>[!TIP]<br />
-<strong>📖 초심자를 위한 쉬운 해설: 헷갈린 방의 갯수</strong><br />
-루트와 분수가 떠다니는 저 공식이 끔찍해 보이지만, 아주 쉬운 철학입니다.<br />
-PPL 지표는 곧 <strong>분기 계수(Branching Factor)</strong>를 뜻합니다.<br />
-즉 문장을 생성할 때, 기계 머릿속에서 <strong>“음, 다음 단어로 쓸데없는 후보들이 총 몇 개나 있지?”</strong>라며 쥔 보기 카드의 갯수를 뜻합니다.</p>
+<strong>📖 초심자를 위한 쉬운 해설: 4단어 문장의 조건부 굴레</strong><br />
+예를 들어, <code class="language-plaintext highlighter-rouge">A, B, C, D</code> 라는 4단어로 구성된 문장의 총 발생 확률을 풀어헤쳐 보겠습니다.<br />
+\(P(A, B, C, D) = P(A) \times P(B \mid A) \times P(C \mid A,B) \times P(D \mid A,B,C)\)</p>
+
   <ul>
-    <li><code class="language-plaintext highlighter-rouge">PPL = 1</code> : “무조건 100% 이거야!” 하고 다른 보기를 생각조차 안 함 (천재)</li>
-    <li><code class="language-plaintext highlighter-rouge">PPL = 100</code> : “어… 다음 단어로 갈 길이 100갈래나 되는데 어디로 가지?” 이마에 땀을 뻘뻘 흘리는 수치 (바보)</li>
+    <li>1번: <code class="language-plaintext highlighter-rouge">A(철수)</code>는 혼자 편하게 등장합니다.</li>
+    <li>2번: <code class="language-plaintext highlighter-rouge">B(는)</code>는 이미 앞에 나타난 <code class="language-plaintext highlighter-rouge">A</code>의 눈치를 보면서 튀어나올 확률을 봅니다.</li>
+    <li>4번: 마지막단어 <code class="language-plaintext highlighter-rouge">D(먹는다)</code>는 가장 불쌍합니다. 자기가 태어나기 위해 이미 앞에 깔려버린 <code class="language-plaintext highlighter-rouge">A(철수), B(는), C(피자를)</code> 눈치를 전부 다 살펴본(조건부) 직후에야 자신의 확률을 결정지어 곱해버립니다.</li>
   </ul>
+
+  <p>문장이 길어질수록 맨 뒤에 붙는 단어는 앞의 수백 개의 조건부 단어를 눈치 봐야 하므로 연산량이 기하급수적으로 폭발하게 됩니다.</p>
 </blockquote>
 
-<p><img src="./img/sec02_branching_factor.svg" alt="Branching Factor Confusion" /></p>
+<h2 id="03-단어가-등장할-확률-단순무식-카운트-기반">03. 단어가 등장할 확률: 단순무식 카운트 기반</h2>
+<p>그렇다면 컴퓨터는 저 세부적인 조건부 확률($P$) 숫자값들을 도대체 어디서 구해올까요?</p>
 
-<h2 id="05-연쇄-법칙을-치환한-최종-ppl-수식-연산">05. 연쇄 법칙을 치환한 최종 PPL 수식 연산</h2>
-<p>우리가 이전 챕터에서 배운 연쇄법칙(Chain Rule) 덧셈 곱셈표를 저 무서운 분모(루트 구멍 안)에 집어넣어 전개해 보면,</p>
+<p>엄청난 공식이 있을 것 같지만, 허무하게도 그저 구글 서버에 저장된 <strong>인터넷 텍스트 데이터베이스의 생짜 [출현 빈도수 수작업 카운트 비율]</strong>에서 엑셀 나누기로 가져옵니다.</p>
 
-\[\text{PPL}(W) = \sqrt[N]{\frac{1}{\prod_{i=1}^N P(w_i \mid w_1, \dots, w_{i-1})}}\]
+\[P(\text{is} \mid \text{An adorable little boy}) = \frac{\text{Count}(\text{An adorable little boy is})}{\text{Count}(\text{An adorable little boy})}\]
 
-<p>(각 단어가 등장할 조건부 확률을 곱한 것의 루트 역수로 깔끔하게 딱 떨어집니다!)</p>
+<blockquote>
+  <p>[!WARNING]<br />
+<strong>📖 초심자를 위한 쉬운 해설: 초등학생 산수 나누기</strong><br />
+즉, 내 백과사전에 <code class="language-plaintext highlighter-rouge">An adorable little boy</code> 라는 긴 영어 구문이 지금까지 통틀어 딱 100번 쓰였다고 쳐봅시다. 
+그런데 그 100번 중에서 바로 뒤에 <code class="language-plaintext highlighter-rouge">is</code>가 따라붙은 케이스가 30번이라면? 
+그냥 분모 분자로 나눠서 $\frac{30}{100} = 0.3 (30\%)$ 가 되는 초등학생 수준의 명료한 산수 타겟팅입니다.</p>
+</blockquote>
 
-<h2 id="06-ppl-응용-예시-n-gram-체급별-헷갈림-차이">06. PPL 응용 예시: N-gram 체급별 헷갈림 차이</h2>
-<p>월스트리트 저널 데이터 3,800만 단어를 통과시킨 실험 모델의 채점 결과표입니다!</p>
-
-<p><img src="./img/sec02_ngram_ppl.svg" alt="Ngram Test Models" /></p>
-
-<ul>
-  <li><strong>1단계 (Uni-gram)</strong>: 직전 앞 단어를 아예 안 보고 추측하는 장님 모델 $\to$ PPL이 무려 <code class="language-plaintext highlighter-rouge">962</code> (900갈림길에서 헤매는 수준)</li>
-  <li><strong>3단계 (Tri-gram)</strong>: 앞에 나온 두 개 단어를 참고해서 추측하는 양반 모델 $\to$ PPL이 <code class="language-plaintext highlighter-rouge">109</code>로 급감!</li>
-  <li><strong>결론</strong>: 문맥(앞 단어)을 길게 참고할수록 컴퓨터의 헷갈림(PPL) 지수는 극적으로 하락하여 아주 똑똑해집니다!</li>
-</ul>
-
-<h2 id="07-ppl-평가방법의-주의사항-만능은-아니다">07. PPL 평가방법의 주의사항: 만능은 아니다!</h2>
-<p>PPL은 모델 가중치의 수학적 성능을 자랑하기 좋지만, 인간의 공감능력을 설명해 주진 못합니다.</p>
-<ul>
-  <li>PPL 결과는 단지 ‘지가 공부한 모의고사(테스트 데이터) 환경 안에서의 상대적인 등락’일 뿐입니다.</li>
-  <li>언어의 확률적인 생성 문법 능력만 쳐다볼 뿐, 모델의 발언이 진실인지 거짓인지 <strong>비윤리적이고 의미 없는 헛소리(환각)인지에 대한 필터링 감별 기능이 전혀 없습니다!</strong> (이것이 LLM의 근본 리스크입니다)</li>
-</ul>
-
-<h2 id="08-현대-딥러닝-텍스트-생성-평가지표-4대장">08. 현대 딥러닝 텍스트 생성 평가지표 4대장</h2>
-<p>미래의 LLM 생태계에서는 단순한 다음 단어 예측(PPL)을 넘어서, 실제로 어떤 태스크를 푸느냐에 따라 지표가 전문 분화되었습니다.</p>
-
-<p><img src="./img/sec02_lm_metrics.svg" alt="Modern NLP Metrics Tools" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">지표명 (Metrics)</th>
-      <th style="text-align: left">약자 설명 및 작동 원리 규칙</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center"><strong>BLEU</strong></td>
-      <td style="text-align: left">번역기 전문 채점 표 (전문가가 쓴 직역 문장과 형태소가 얼마나 수학적으로 겹치는가?)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>ROUGE</strong></td>
-      <td style="text-align: left">뉴스 요약 AI 전문 채점 (핵심 단어들이 하나도 안 빠지고 요약문에 쏙 담겼는가 비율 컷!)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>MMLU</strong></td>
-      <td style="text-align: left">고도화 지식 채점 (GPT들이 대학 법학, 의학 기출문제 시험지를 억지로 풀게 시켜서 정답률 산출)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>Judge (심판 모델)</strong></td>
-      <td style="text-align: left">윤리성/논리성은 수식 채점이 불가능하니, 걍 제일 똑똑한 최상위 모델(GPT-4)이 후배의 대답을 “흠, 이 대답은 논리가 빈약하네 4점” 이라고 AI가 AI를 채점해 버리는 방식!</td>
-    </tr>
-  </tbody>
-</table>
+<p>이처럼 옛날 언어모델은 우아한 수학이 아니라, 그저 100만 권짜리 책을 통째로 쑤셔넣고 뒤에서 단어가 몇 번 붙었나 단순무식하게 쪼아보는 카운팅에 의존했습니다. 그리고 이 무식함은 다음 장에서 살펴볼 <strong>차원의 붕괴(Sparsity 에러)</strong>라는 비참한 결말로 치닫게 됩니다.</p>
 
 
             <!-- 구글 애드센스 출력 -->

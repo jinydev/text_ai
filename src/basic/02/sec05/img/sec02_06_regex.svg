@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250" width="100%" height="100%">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="250" fill="#fff" rx="10"/>
+
+  <text x="400" y="40" font-family="'Inter', sans-serif" font-size="20" font-weight="bold" fill="#343a40" text-anchor="middle">정규 표현식: 조건 뜰채로 문자 낚아채기</text>
+
+  <!-- Left River -->
+  <g transform="translate(50, 70)">
+    <rect width="250" height="150" fill="#e3fafc" rx="10"/>
+    <text x="125" y="40" font-family="'Consolas', monospace" font-size="16" fill="#868e96" text-anchor="middle">Hello!!! @World 123...</text>
+    <text x="125" y="80" font-family="'Consolas', monospace" font-size="16" fill="#868e96" text-anchor="middle">What# is %this?</text>
+    <text x="125" y="120" font-family="'Inter', sans-serif" font-size="14" fill="#0b7285" text-anchor="middle">오염된 문자열의 강물</text>
+  </g>
+
+  <!-- Net -->
+  <g transform="translate(320, 100)" filter="url(#shadow)">
+    <path d="M 0 0 L 160 0 L 130 80 L 30 80 Z" fill="none" stroke="#228be6" stroke-width="4"/>
+    <line x1="20" y1="20" x2="140" y2="20" stroke="#228be6" stroke-width="2"/>
+    <line x1="40" y1="40" x2="150" y2="40" stroke="#228be6" stroke-width="2"/>
+    <line x1="60" y1="60" x2="140" y2="60" stroke="#228be6" stroke-width="2"/>
+    <text x="80" y="-10" font-family="'Consolas', monospace" font-size="18" font-weight="bold" fill="#1864ab" text-anchor="middle">[\w]+</text>
+    <text x="80" y="110" font-family="'Inter', sans-serif" font-size="14" font-weight="bold" fill="#1864ab" text-anchor="middle">"알파벳/숫자만 낚는 그물"</text>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M 500 130 L 530 130" stroke="#adb5bd" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <!-- Right Clean -->
+  <g transform="translate(550, 70)">
+    <rect width="200" height="150" fill="#ebfbee" rx="10"/>
+    <text x="100" y="40" font-family="'Consolas', monospace" font-size="16" font-weight="bold" fill="#2b8a3e" text-anchor="middle">['Hello', 'World', '123'</text>
+    <text x="100" y="80" font-family="'Consolas', monospace" font-size="16" font-weight="bold" fill="#2b8a3e" text-anchor="middle">'What', 'is', 'this']</text>
+    <text x="100" y="120" font-family="'Inter', sans-serif" font-size="14" fill="#2b8a3e" text-anchor="middle">깨끗해진 알맹이</text>
+  </g>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#adb5bd" />
+    </marker>
+  </defs>
+</svg>

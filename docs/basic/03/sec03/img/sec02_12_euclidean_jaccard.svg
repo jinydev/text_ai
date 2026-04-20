@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250" width="100%" height="100%">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="250" fill="#f8f9fa" rx="10"/>
+
+  <!-- Euclidean -->
+  <g transform="translate(100, 40)">
+    <rect width="250" height="150" fill="#fff" stroke="#dee2e6" stroke-width="2" rx="10" filter="url(#shadow)"/>
+    <text x="125" y="30" font-family="'Inter', sans-serif" font-size="16" font-weight="bold" fill="#fa5252" text-anchor="middle">유클리드 거리 (Euclidean)</text>
+    
+    <circle cx="80" cy="110" r="8" fill="#e03131"/>
+    <text x="60" y="115" font-family="'Inter', sans-serif" font-size="14" fill="#495057">A</text>
+    
+    <circle cx="180" cy="60" r="8" fill="#1864ab"/>
+    <text x="200" y="65" font-family="'Inter', sans-serif" font-size="14" fill="#495057">B</text>
+    
+    <!-- Hypotenuse -->
+    <path d="M 80 110 L 180 60" stroke="#f03e3e" stroke-width="4" stroke-dasharray="5,5"/>
+    <!-- Triangle -->
+    <path d="M 80 110 L 180 110 L 180 60" stroke="#adb5bd" stroke-width="2"/>
+    
+    <text x="125" y="140" font-family="'Inter', sans-serif" font-size="12" fill="#868e96" text-anchor="middle">"두 점 사이의 가장 짧은 직선 길이"</text>
+  </g>
+
+  <!-- Jaccard -->
+  <g transform="translate(450, 40)">
+    <rect width="250" height="150" fill="#fff" stroke="#dee2e6" stroke-width="2" rx="10" filter="url(#shadow)"/>
+    <text x="125" y="30" font-family="'Inter', sans-serif" font-size="16" font-weight="bold" fill="#0b7285" text-anchor="middle">자카드 유사도 (Jaccard)</text>
+    
+    <!-- Venn Diagram -->
+    <g transform="translate(90, 80)">
+      <circle cx="0" cy="0" r="35" fill="none" stroke="#228be6" stroke-width="3"/>
+      <circle cx="40" cy="0" r="35" fill="none" stroke="#fa5252" stroke-width="3"/>
+      
+      <!-- Intersection representation -->
+      <path d="M 20 -28 A 35 35 0 0 0 20 28 A 35 35 0 0 0 20 -28" fill="#eebefa"/>
+    </g>
+
+    <text x="125" y="140" font-family="'Inter', sans-serif" font-size="12" fill="#868e96" text-anchor="middle">"합집합 중 교집합이 가지는 비율"</text>
+  </g>
+</svg>

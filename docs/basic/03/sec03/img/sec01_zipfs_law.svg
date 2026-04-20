@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .axis { stroke: #64748b; stroke-width: 2; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .label { font-family: 'Roboto', sans-serif; font-size: 14px; font-weight: bold; fill: #475569; }
+      .word-label { font-family: 'Roboto', sans-serif; font-size: 12px; fill: #1e3a8a; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">지프의 법칙 (Zipf's Law) 곡선</text>
+  <text x="400" y="55" font-size="14" fill="#64748b">극소수의 단어들(the, a, is)이 전체 빈도의 대다수를 차지하며 빈도가 순위에 반비례하여 급감합니다.</text>
+
+  <g transform="translate(150, 100)">
+    
+    <!-- Y Axis (Frequency) -->
+    <path d="M 0 200 L 0 0" class="axis" />
+    <!-- X Axis (Rank) -->
+    <path d="M 0 200 L 500 200" class="axis" />
+
+    <text x="-40" y="100" class="label" transform="rotate(-90, -40, 100)">Frequency (빈도수)</text>
+    <text x="250" y="240" class="label">Rank (등수/순위)</text>
+
+    <!-- Zipf Curve -->
+    <path d="M 20 20 Q 50 180, 480 190" fill="none" stroke="#ef4444" stroke-width="4" />
+
+    <!-- Data points & Labels -->
+    <circle cx="20" cy="20" r="5" fill="#b91c1c" />
+    <text x="40" y="15" class="word-label" font-weight="bold" fill="#b91c1c">"the" (1위)</text>
+    <text x="40" y="30" class="word-label">전체의 7%</text>
+
+    <circle cx="70" cy="110" r="4" fill="#1e3a8a" />
+    <text x="70" y="95" class="word-label">"of" (2위)</text>
+    
+    <circle cx="120" cy="150" r="4" fill="#1e3a8a" />
+    <text x="120" y="135" class="word-label">"a" (3위)</text>
+
+    <text x="350" y="150" font-size="14" font-weight="bold" fill="#0f172a">Long Tail</text>
+    <text x="350" y="170" font-size="12" fill="#64748b">대부분의 단어는</text>
+    <text x="350" y="185" font-size="12" fill="#64748b">극히 드물게 출현</text>
+
+  </g>
+
+</svg>

@@ -8,7 +8,7 @@
   <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>06주차</title>
   <meta name="title" content="06주차" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="06주차"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="http://localhost:4001/basic/06/">
+  <meta property="og:url" content="https://text.ai.jiny.dev/basic/06/">
 
   <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="06주차"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
@@ -17,14 +17,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="http://localhost:4001/basic/06/" />
-<meta property="og:url" content="http://localhost:4001/basic/06/" />
+<link rel="canonical" href="https://text.ai.jiny.dev/basic/06/" />
+<meta property="og:url" content="https://text.ai.jiny.dev/basic/06/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="06주차" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"06주차","url":"http://localhost:4001/basic/06/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"06주차","url":"https://text.ai.jiny.dev/basic/06/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -372,13 +372,48 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="6주차-문서-분류-체계">6주차. 문서 분류 체계</h1>
+            <h1 id="6주차-텍스트-분류와-모델-성능-평가-지표">6주차. 텍스트 분류와 모델 성능 평가 지표</h1>
 
-<p>텍스트 분류가 스팸 메일 처리나 감성 분석에 어떻게 설계되어 딥러닝 알고리즘에 적용되는지 살펴보고, 나이브 베이즈부터 딥러닝 기반의 최신 분류기까지 알아봅니다.</p>
+<p>단어를 벡터 엑셀 표로 만드는 전단계를 넘어, 기계가 이 문서를 씹어 삼켜서 ‘긍정’, ‘부정’, ‘스팸’ 방으로 던져 넣는 텍스트 분류 모델(나이브 베이즈, 로지스틱)과 그들의 정확도 사기극을 감별하는 교차 채점 지표 기술을 배웁니다.</p>
 
 <ul>
-  <li><a href="/basic/06/sec01/">섹션 01. 문서의 분류 기준과 통계적 나이브 베이즈 모델</a></li>
-  <li><a href="/basic/06/sec02/">섹션 02. 신경망 기반 텍스트 분류와 RNN, LSTM 구조</a></li>
+  <li><strong><a href="/basic/06/sec01/">섹션 01. 기계학습: 텍스트 분류의 본질과 파이프라인</a></strong>
+    <ul>
+      <li>분류 모터(학습/예측)의 이중 심장 엔진 구조</li>
+      <li>피처 추출기(BoW 상기)의 역할</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/06/sec02/">섹션 02. 멍청한 통계의 기적: 나이브 베이즈 분류기 (Naive Bayes)</a></strong>
+    <ul>
+      <li>앞뒤 맥락을 포기하는 나이브 엑셀 주사위</li>
+      <li>분모가 $0$이 되는 폭발을 막는 스무딩 기법</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/06/sec03/">섹션 03. 결정 경계의 마법: 로지스틱 회귀와 소프트맥스 압축</a></strong>
+    <ul>
+      <li>이진 분류기의 꽃: 0%와 100%를 그리는 시그모이드 S-곡선</li>
+      <li>다중 카테고리 100% 피자 분배를 위한 소프트맥스(Softmax)</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/06/sec04/">섹션 04. 모델의 오만함 판별: 모의고사와 K-Fold 교차 검증</a></strong>
+    <ul>
+      <li>과적합 부정행위를 막는 데이터 3분할 홀드아웃(Hold-out)</li>
+      <li>극악의 난이도 불운을 타파하는 K-Fold 5조각 회전초밥 룰렛</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/06/sec05/">섹션 05. 오만한 정답률의 사기극: 혼동 행렬의 진실 방</a></strong>
+    <ul>
+      <li>랜섬웨어를 100% 놓지는 99.9% 깡통 스팸 분류기의 위협</li>
+      <li>치명적 오작동 4구역: TP, TN, FP(억울한 시민), FN(방관 경찰)</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/06/sec06/">섹션 06. 진실을 꿰뚫는 지표의 파괴력: 정밀도, 재현율, F1, ROC/AUC</a></strong>
+    <ul>
+      <li>사기 수사 억울함 방지 (정밀도) vs 테러범 그물 투망 사냥 (재현율)</li>
+      <li>극단적 치팅을 방어하는 조화 평균 F1 스코어의 파괴력</li>
+      <li>임계값 조작 꼼수를 막는 ROC 곡선 그리기와 AUC 덩치 분석</li>
+    </ul>
+  </li>
 </ul>
 
 

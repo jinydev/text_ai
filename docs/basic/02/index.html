@@ -8,7 +8,7 @@
   <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>02주차</title>
   <meta name="title" content="02주차" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="02주차"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="http://localhost:4001/basic/02/">
+  <meta property="og:url" content="https://text.ai.jiny.dev/basic/02/">
 
   <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="02주차"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
@@ -17,14 +17,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="http://localhost:4001/basic/02/" />
-<meta property="og:url" content="http://localhost:4001/basic/02/" />
+<link rel="canonical" href="https://text.ai.jiny.dev/basic/02/" />
+<meta property="og:url" content="https://text.ai.jiny.dev/basic/02/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="02주차" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"02주차","url":"http://localhost:4001/basic/02/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"02주차","url":"https://text.ai.jiny.dev/basic/02/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -377,8 +377,45 @@
 <p>2주차 과정에서는 기계가 텍스트를 인식하기 위해 전처리하는 과정과 쪼개는 방법을 알아봅니다.</p>
 
 <ul>
-  <li><a href="/basic/02/sec01/">섹션 01. 문자와 단어 표현 (토큰화 및 청킹)</a></li>
-  <li><a href="/basic/02/sec02/">섹션 02. 텍스트 전처리 기법의 이해 (6단계 파이프라인)</a></li>
+  <li><strong><a href="/basic/02/sec01/">섹션 01. 텍스트 데이터의 언어학적 계층 구조</a></strong>
+    <ul>
+      <li>컴퓨터가 고기를 먹는 토큰화 비유</li>
+      <li>텍스트 분석 스펙트럼 (어휘/구문/의미 표현)</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/02/sec02/">섹션 02. 토큰화(Tokenization) 기술과 품사 태깅</a></strong>
+    <ul>
+      <li>토큰 단위 크기 논쟁 (문자 vs 단어 vs 문장)</li>
+      <li>품사 태깅(POS)의 역사: 꽉 막힌 사전 vs 확률적 눈치</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/02/sec03/">섹션 03. 문맥의 보존 기술: N-gram과 RAG 청킹</a></strong>
+    <ul>
+      <li>구 표현의 혁명: N-gram 기차 칸 매달기</li>
+      <li>텍스트 덩어리화(Chunking)와 알파벳 BIO 태그</li>
+      <li>현대 RAG 검색 증강 시스템의 청킹 기술 딜레마</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/02/sec04/">섹션 04. 전처리 지옥의 6단계 파이프라인과 정제</a></strong>
+    <ul>
+      <li>데이터 청소(Preprocessing) 막노동 6단계 조립 라인</li>
+      <li>쓰레기 필터 소각장: 정제(Cleaning)의 실체</li>
+      <li>가족 호적 강제 통합: 정규화(Normalization)</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/02/sec05/">섹션 05. 마법의 그물망 정규표현식과 형태소 다이어트</a></strong>
+    <ul>
+      <li>문자열 검색 제왕: 정규표현식(Regex)</li>
+      <li>다이어트 성형: 표제어 추출과 어간 추출 (어원 찾기)</li>
+      <li>한글 전처리: 교착어 조사 분해기 (KoNLPy)</li>
+    </ul>
+  </li>
+  <li><strong><a href="/basic/02/sec06/">섹션 06. LLM의 미지 언어 방어막: 서브워드 토큰화 (BPE)</a></strong>
+    <ul>
+      <li>고전 NLP 심장마비의 원인: OOV 에러</li>
+      <li>띄어쓰기의 배신과 알파벳 쪼개기(BPE)의 구원</li>
+    </ul>
+  </li>
 </ul>
 
 

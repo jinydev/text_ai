@@ -5,26 +5,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>나이브 베이즈와 텍스트 분류</title>
-  <meta name="title" content="나이브 베이즈와 텍스트 분류" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="나이브 베이즈와 텍스트 분류"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
+  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>텍스트 분류의 본질</title>
+  <meta name="title" content="텍스트 분류의 본질" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="텍스트 분류의 본질"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="http://localhost:4001/basic/06/sec01/">
+  <meta property="og:url" content="https://text.ai.jiny.dev/basic/06/sec01/">
 
-  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="나이브 베이즈와 텍스트 분류"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="텍스트 분류의 본질"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="나이브 베이즈와 텍스트 분류" />
+<meta property="og:title" content="텍스트 분류의 본질" />
 <meta name="author" content="Hojin" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="http://localhost:4001/basic/06/sec01/" />
-<meta property="og:url" content="http://localhost:4001/basic/06/sec01/" />
+<link rel="canonical" href="https://text.ai.jiny.dev/basic/06/sec01/" />
+<meta property="og:url" content="https://text.ai.jiny.dev/basic/06/sec01/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="나이브 베이즈와 텍스트 분류" />
+<meta property="twitter:title" content="텍스트 분류의 본질" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"나이브 베이즈와 텍스트 분류","url":"http://localhost:4001/basic/06/sec01/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"텍스트 분류의 본질","url":"https://text.ai.jiny.dev/basic/06/sec01/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -374,7 +374,7 @@
         
         
         
-        <li class="breadcrumb-item active" aria-current="page">나이브 베이즈와 텍스트 분류</li>
+        <li class="breadcrumb-item active" aria-current="page">텍스트 분류의 본질</li>
         
         
         
@@ -382,129 +382,59 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="기계학습-모델을-활용한-문서-분류-기법">기계학습 모델을 활용한 문서 분류 기법</h1>
+            <h1 id="기계학습-텍스트-분류의-본질과-파이프라인">기계학습: 텍스트 분류의 본질과 파이프라인</h1>
 
-<p>이전 주차까지 텍스트를 기하학적 숫자(벡터)로 바꾸는 법을 배웠습니다. 이제 기계가 그 벡터를 씹어 삼켜서, 이 문서가 과연 ‘긍정’인지 ‘부정’인지 ‘스팸’인지를 스스로 판별해 내는 <strong>텍스트 분류(Classification)</strong> 머신러닝의 대단원을 시작합니다.</p>
+<p>이전 단원까지 우리는 글자를 좌표 위 숫자로 바꾸는 법(임베딩)을 배웠습니다. 이제 기계가 그 숫자가 박힌 엑셀 종이를 씹어 삼켜서, 이 문서가 과연 ‘긍정’인지 ‘부정’인지, 혹은 ‘스팸’인지를 스스로 판별해 내는 <strong>텍스트 분류(Text Classification)</strong> 머신러닝의 대단원을 시작합니다.</p>
 
 <hr />
 
-<h2 id="00-텍스트-분류의-개념">00. 텍스트 분류의 개념</h2>
-<p>현업에서 가장 돈이 되고 수요가 많은 애플리케이션 중 최고봉입니다.</p>
+<h2 id="00-텍스트-분류-text-classification-의-개념">00. 텍스트 분류 (Text Classification) 의 개념</h2>
+<p>현업에서 가장 돈이 많이 되고, 기업들의 치명적인 수요가 몰려있는 자연어 스킬 중 첫 번째 최고봉입니다.
+주어진 문장을 읽고, 우리가 미리 지정해둔 ‘범주(Category/Class)’ 안의 방 중 하나로 문서를 휙 던져 넣는 우체부 역할을 합니다.</p>
 
 <p><img src="./img/sec06_01_00_classifier.png" alt="Text Classification AI" /></p>
 
-<h2 id="01-자연언어처리-기법의-파이프라인">01. 자연언어처리 기법의 파이프라인</h2>
 <ul>
-  <li><strong>텍스트 수집</strong>: 크롤링 등</li>
-  <li><strong>텍스트 전처리</strong>: 불용어 파괴, 형태소 쪼개기</li>
-  <li><strong>특성 추출(Feature Extraction)</strong>: 카운트를 기반으로 벡터 만들기 (BoW, TF-IDF, 임베딩)</li>
-  <li><strong>$\to$ 텍스트 분석 (문서 분류)</strong>: (우리가 지금 서 있는 위치) “이 메일은 스팸 범죄입니다!” 도출!</li>
+  <li><strong>스팸 필터</strong>: (스팸 메일 방, 정상 메일 방) - 2개 범주 (이진 분류)</li>
+  <li><strong>감성 분석</strong>: (매우 긍정, 긍정, 중립, 부정, 매우 부정) - 5개 범주 (다중 분류)</li>
+  <li><strong>카테고리 자동화</strong>: 기사가 뉴스 서버에 올라오자마자 (정치, 경제, 연예, 스포츠) 폴더로 1초 만에 보내버림.</li>
 </ul>
 
-<h2 id="02-텍스트-분류의-내부-과정도">02. 텍스트 분류의 내부 과정도</h2>
-<p>텍스트 분류 머신러닝은 무조건 <code class="language-plaintext highlighter-rouge">학습(Train)</code>과 <code class="language-plaintext highlighter-rouge">예측(Predict)</code> 두 단계 엔진으로 구동됩니다.</p>
-<ul>
-  <li><strong>학습 엔진</strong>: 텍스트와 그 답지 레이블(Label)을 묶어서 무수히 밀어 넣으며 통계 가중치를 적응시킵니다.</li>
-  <li><strong>예측 엔진</strong>: 처음 보는 문장이 들어와도, 학습된 가중치 모델을 바탕으로 알아서 클래스(예: 정치 기사)를 도출합니다.</li>
-</ul>
-
-<p><img src="./img/sec01_classification_process.svg" alt="Machine Classification Process" /></p>
-
-<h2 id="03-과거의-유산-피처-익스트랙터-feature-extractor">03. 과거의 유산: 피처 익스트랙터 (Feature Extractor)</h2>
-<p>모델은 바보이기 때문에 “I love it” 같은 사람이 읽는 영어를 던지면 무조건 계산 에러가 뜹니다.
-따라서 이전에 배웠던 <code class="language-plaintext highlighter-rouge">BoW</code> 매트릭스나 <code class="language-plaintext highlighter-rouge">TF-IDF</code> 가중치 변환기 등의 <strong>전처리 추출 모듈</strong>을 반드시 먼저 통과시켜서 숫자로 구워 넘겨주어야 기계가 수학적 분류 연산을 할 수 있습니다.</p>
-
-<h2 id="04-텍스트-특성-벡터화-리뷰---bow-단어-가방">04. 텍스트 특성 벡터화 리뷰 - BoW (단어 가방)</h2>
-<p>단순 빈도수 카운트표. 가장 멍청하지만 확실합니다.</p>
-
-<p><img src="./img/sec01_bow_example.svg" alt="BoW Method Review" /></p>
-
-<h2 id="05-텍스트-특성-벡터화-리뷰---tf-idf">05. 텍스트 특성 벡터화 리뷰 - TF-IDF</h2>
-<p>단순 카운트의 맹점(The나 a 같은 쓸데없는 단어가 1위를 독식하는 현상)을 수학적으로 극복한 로그($\ln$) 보정식 적용본. 핵심 식별 명사(<code class="language-plaintext highlighter-rouge">스팸</code>, <code class="language-plaintext highlighter-rouge">대출</code>)에 더 높은 가중치를 배당하여 분류기 성능을 멱살 잡고 끌어올리는 주역입니다.</p>
-
-<p><img src="./img/sec01_tfidf_example.svg" alt="TF-IDF Review" /></p>
-
-<hr />
-
-<h2 id="06-통계학의-위대한-아버지-나이브-베이즈-분류기-naive-bayes">06. 통계학의 위대한 아버지: 나이브 베이즈 분류기 (Naive Bayes)</h2>
-<p>딥러닝의 복잡한 레이어가 등장하기 훨씬 전부터 존재한, 가장 역사가 깊고 직관적이며 속도가 무식하게 빠른 통계 문서 분류기입니다. <strong>베이즈 규칙(Bayes rule)</strong> 확률 방정식에 그 근간을 둡니다.</p>
-
-<p><img src="./img/sec01_naive_bayes.svg" alt="Naive Bayes Structure Formula" /></p>
-
-<h3 id="베이즈-공식">베이즈 공식</h3>
-<p>문서 $d$가 주어졌을 때, 그것이 클래스 $c$(예: 스팸)일 확률:
-\(P(c|d) = \frac{P(d|c)P(c)}{P(d)}\)</p>
-
-<h2 id="07-나이브-베이즈의-억지스러운-두-가지-가정-naive">07. 나이브 베이즈의 억지스러운 두 가지 가정 (Naive)</h2>
-<p>수학적 확률 계산의 폭발을 막기 위해, 통계학자들은 아주 ‘Naive(너무 순진하고 멍청한)’한 억지 가정을 세우고 수학식을 난도질했습니다.</p>
+<h2 id="01-자연언어처리-기법의-거대한-파이프라인">01. 자연언어처리 기법의 거대한 파이프라인</h2>
+<p>분류 모델은 갑자기 마법처럼 이메일을 나누는 게 아닙니다. 이전에 배웠던 모든 피눈물 나는 사전 작업이 컨베이어 벨트를 통해 들어와야 비로소 가동됩니다.</p>
 
 <ol>
-  <li><strong>위치(순서) 독립성 무시</strong>: 단어가 문장 앞에 오든 뒤에 오든 뉘앙스 차이를 아예 100% 무시합니다. (BoW 사상 유지)</li>
-  <li><strong>조건부 독립성 억지</strong>: 엄청난 길이의 텍스트가 들어왔을 때, <code class="language-plaintext highlighter-rouge">good</code>과 <code class="language-plaintext highlighter-rouge">movie</code> 같은 연관 깊은 단어조차 “얘네들은 피차 아무 영향을 안 주고 완전히 우연히 독립적으로 떠오른 단어들이야” 라며 억지로 사건 수식을 분리(독립 사건 취급)해 버립니다.</li>
+  <li><strong>텍스트 수집</strong>: 크롤링, DB 덤프</li>
+  <li><strong>텍스트 전처리</strong>: 불용어 파괴, 정규표현식을 통한 외계어 박살, 어간 추출</li>
+  <li><strong>특성 추출 (Feature Extraction)</strong>: 이전에 배웠던 빈도수 기반 카운트 엑셀표(BoW, TF-IDF) 또는 밀집 차원 공간(Word2Vec 임베딩 좌표)으로 변환</li>
+  <li><strong>$\to$ 텍스트 분석 (분류 모델 심사)</strong>: <strong>우리가 지금 서 있는 위치입니다.</strong> $\to$ “판사님, 이 메일은 스팸 범죄입니다!” 판결 도출!</li>
 </ol>
 
-<blockquote>
-  <p>[!WARNING]<br />
-<strong>📖 초심자를 위한 쉬운 해설</strong><br />
-“나이브”하다는 건 컴퓨터가 바보처럼 앞뒤 맥락을 포기하고 “단어들이 다 남남이지 뭐!”로 퉁친다는 겁니다. 현실 세계 언어 법칙에 크게 위배되는 쓰레기 억지 가정 같지만, 신기하게도 실제 스팸 분리 같은 곳에 적용해 보면 딥러닝급으로 엄청나게 답을 잘 맞춥니다!</p>
-</blockquote>
+<h2 id="02-텍스트-분류기의-내부-심장-구조-학습과-예측">02. 텍스트 분류기의 내부 심장 구조 (학습과 예측)</h2>
+<p>분류 머신러닝은 무조건 <code class="language-plaintext highlighter-rouge">학습(Train)</code> 모터와 <code class="language-plaintext highlighter-rouge">예측(Predict)</code> 모터 두 단계 엔진으로 구동파츠가 완전히 분리되어 작동합니다.</p>
 
-<h2 id="08-모델-학습-최우도-추정법-mle-maximum-likelihood">08. 모델 학습: 최우도 추정법 (MLE, Maximum Likelihood)</h2>
-<p>나이브 베이즈 모델이 학습 데이터로부터 확률 파라미터 점수를 수확하는 수학적 과정입니다.</p>
+<ol>
+  <li><strong>학습(Train) 엔진의 고통</strong>: 세상의 텍스트(X) 100만 건과, 사람이 직접 손으로 정답을 매겨둔 답안지 레이블(Y) 100만 장을 머신러닝 모델의 입에 무수히 꾸역꾸역 밀어 넣습니다. 기계는 오차를 줄이기 위해 통계 가중치를 이리저리 부딪혀가며 적응시키고 외웁니다.</li>
+  <li><strong>예측(Predict) 엔진의 실전</strong>: 학습이 다 끝나면(졸업), 이제 답안지(Y)를 숨기고 어제 갓 태어난 한 번도 본 적 없는 <strong>초면의 생판 새로운 뉴스를 입력(X)</strong>으로 던집니다. 졸업한 모델은 오로지 과거 자신의 학습된 지식 뇌세포를 바탕으로 알아서 클래스 방(예: 정치 기사)을 선언합니다.</li>
+</ol>
 
-\[P(w_k | c) = \frac{N(w_k, c) + \alpha}{N(c) + \alpha |V|}\]
+<p><img src="./img/../sec01/img/sec01_classification_process.svg" alt="Machine Classification Process" /></p>
 
-<ul>
-  <li>클래스(스팸) 집단 폴더 내부에 포함된 전체 단어들 중에서 특정 단어 <code class="language-plaintext highlighter-rouge">W(대출)</code>가 등장한 <strong>발현율을 단순하게 카운트하여 분수 수학 계산</strong>으로 추정합니다.</li>
-  <li>분모의 $\alpha$는 한 번도 본 적 없는 단어(OOV) 확률이 0으로 폭발하는 것을 막기 위한 라플라스 스무딩(보험)입니다.</li>
-</ul>
+<h2 id="03-과거의-유산-리뷰-피처-익스트랙터-feature-extractor">03. 과거의 유산 리뷰: 피처 익스트랙터 (Feature Extractor)</h2>
+<p>모델은 기본적으로 수학 계산기 바보이기 때문에 <code class="language-plaintext highlighter-rouge">"I love it"</code> 같은 사람이 읽는 영어를 던지면 무조건 미적분 계산 에러가 뜹니다.
+따라서 무조건 특성 추출기(전처리 모듈)를 한 번 통과시켜서 “숫자의 무게(수치)”로 구워 넘겨주어야 기계가 수학적 분류 연산을 할 수 있습니다.</p>
 
-<p><img src="./img/sec01_nb_mle.svg" alt="Maximum Likelihood Estimation Method" /></p>
+<h3 id="기억-되살리기-1-bow-단어-가방">기억 되살리기 1: BoW (단어 가방)</h3>
+<p>단순 빈도수 카운트표입니다. 가장 멍청하지만 확실하게 단어의 등장 횟수를 셉니다.
+<img src="./img/../sec01/img/sec01_bow_example.svg" alt="BoW Method Review" /></p>
 
-<h2 id="09-이진-분류-예측-연산-예시-영화-리뷰">09. 이진 분류 예측 연산 예시 (영화 리뷰)</h2>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">“I love this fun film”</code> 문장이 들어왔습니다! 이게 긍정 리뷰일지 부정 리뷰일지 어떻게 예측할까요?</li>
-</ul>
+<h3 id="기억-되살리기-2-tf-idf-저울-패널티">기억 되살리기 2: TF-IDF (저울 패널티)</h3>
+<p>단순 카운트의 맹점인 <code class="language-plaintext highlighter-rouge">The</code>나 <code class="language-plaintext highlighter-rouge">a</code> 같은 쓸데없는 발음 기호나 스팸 단어가 조회수 1위를 독식하는 현상을 로그($\log$) 보정식으로 극복했습니다.
+핵심 식별 명사(예: <code class="language-plaintext highlighter-rouge">대출</code>, <code class="language-plaintext highlighter-rouge">비아그라</code>)에 더 높은 가중치 점수를 배당하여 엑셀표에 구워놓으므로, 머신러닝 분류기가 스팸을 한 번에 집어낼 수 있게 멱살을 잡고 하드캐리하는 1등 공신 주역입니다.</p>
 
-\[\hat{c} = \arg\max_{c \in C} P(c) \prod_{i=1}^n P(w_i | c)\]
+<p><img src="./img/../sec01/img/sec01_tfidf_example.svg" alt="TF-IDF Review" /></p>
 
-<ul>
-  <li>위 무서워 보이는 $\arg\max$와 $\prod$(곱하기) 공식을 풀어쓰면 정말 어이없을 만큼 단순한 아래의 엑셀 곱하기가 됩니다.</li>
-</ul>
-
-<p><img src="./img/sec01_nb_example_table.svg" alt="Naive Bayes Math Table Example" /></p>
-
-<p><em>(모델의 뇌 구조 시뮬레이션)</em></p>
-<ul>
-  <li>긍정 쪽 확률($P(c)$)과 단어들의 확률들을 쭉 곱해봤더니 긍정 점수 <code class="language-plaintext highlighter-rouge">5e-8</code> 달성!</li>
-  <li>부정 쪽 확률들을 찝찝하게 쭉 곱해봤더니 부정 점수 <code class="language-plaintext highlighter-rouge">1e-9</code> 도출.</li>
-  <li><strong>$\to$ 결론:</strong> 긍정 점수가 압도적으로 높으므로 이 문장은 “긍정(Positive)” 판정!</li>
-</ul>
-
-<h2 id="10-선을-긋는다-로지스틱-회귀-logistic-regression">10. 선을 긋는다: 로지스틱 회귀 (Logistic regression)</h2>
-<p>주사위 수학(나이브 베이즈)의 한계를 깨기 위해 들이댄 본격 머신러닝의 꽃입니다. (분류 문제의 기본 모델)</p>
-<ul>
-  <li>데이터들의 특징(숫자 벡터)과 파라미터 가중치를 곱해 선형 조합을 산출한 뒤, 가장 알맞게 영역을 쪼개는 결정 경계선(Decision Boundary) 함수를 긋는 방식입니다.</li>
-</ul>
-
-<h2 id="11-로지스틱과-시그모이드-sigmoid-함수">11. 로지스틱과 시그모이드 (Sigmoid) 함수</h2>
-<p>이 모델이 내놓는 숫자는 마이너스 무한대부터 플러스 무한대까지 날뜁니다. 여기서 아름다운 마법의 곡선(<code class="language-plaintext highlighter-rouge">S커브</code>, 시그모이드) 수식을 통과시켜 <strong>분류 확률 강제 압착</strong>을 시도합니다.</p>
-
-\[\sigma(z) = \frac{1}{1 + e^{-z}}\]
-
-<ul>
-  <li>이 함수는 세상의 아~무리 큰 데이터 수치라도 무조건 <code class="language-plaintext highlighter-rouge">0</code>과 <code class="language-plaintext highlighter-rouge">1</code> 사이의 작은 실수 비율(확률 퍼센트)로 납작하게 만들어버립니다!</li>
-  <li>“스팸 확률이 85%($0.85$) 네요!” 라고 말할 수 있게 해주는 마법입니다.</li>
-</ul>
-
-<h2 id="12-다중-클래스로의-확장-소프트맥스softmax">12. 다중 클래스로의 확장: 소프트맥스(Softmax)</h2>
-<p>스팸/정상 2개(이진 분류)가 아니라 카테고리가 15개(정치/사회/경제/스포츠 등)면 로지스틱의 선 하나로는 부족합니다.</p>
-
-<p><img src="./img/sec01_logistic_vs_softmax.svg" alt="Logistic and Softmax Math Functions" /></p>
-
-<ul>
-  <li>마지막 출력단에 전체 카테고리 확률의 압착 총합이 무조건 <strong><code class="language-plaintext highlighter-rouge">1.0 (100%)</code></strong>이 되게끔 비중을 분산 펌핑하는 <strong>소프트맥스(Softmax)</strong> 확률분포 회귀 수식을 탑재시켜서 다중 분석 분류기로 맹활약하게 합니다.</li>
-</ul>
+<p>이 엑셀표를 손에 들고, 다음 장에서 통계학의 가장 위대한 주사위 굴리기 모델인 ‘나이브 베이즈 분류기’를 장착하여 첫 채점을 시도해 봅니다.</p>
 
 
             <!-- 구글 애드센스 출력 -->

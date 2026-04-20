@@ -5,26 +5,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>자연언어처리 기법 및 활용 사례</title>
-  <meta name="title" content="자연언어처리 기법 및 활용 사례" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="자연언어처리 기법 및 활용 사례"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
+  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>자연언어의 모호성과 데이터 특성</title>
+  <meta name="title" content="자연언어의 모호성과 데이터 특성" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="자연언어의 모호성과 데이터 특성"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="http://localhost:4001/basic/01/sec02/">
+  <meta property="og:url" content="https://text.ai.jiny.dev/basic/01/sec02/">
 
-  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="자연언어처리 기법 및 활용 사례"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="자연언어의 모호성과 데이터 특성"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="자연언어처리 기법 및 활용 사례" />
+<meta property="og:title" content="자연언어의 모호성과 데이터 특성" />
 <meta name="author" content="Hojin" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="http://localhost:4001/basic/01/sec02/" />
-<meta property="og:url" content="http://localhost:4001/basic/01/sec02/" />
+<link rel="canonical" href="https://text.ai.jiny.dev/basic/01/sec02/" />
+<meta property="og:url" content="https://text.ai.jiny.dev/basic/01/sec02/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="자연언어처리 기법 및 활용 사례" />
+<meta property="twitter:title" content="자연언어의 모호성과 데이터 특성" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"자연언어처리 기법 및 활용 사례","url":"http://localhost:4001/basic/01/sec02/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"자연언어의 모호성과 데이터 특성","url":"https://text.ai.jiny.dev/basic/01/sec02/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -374,7 +374,7 @@
         
         
         
-        <li class="breadcrumb-item active" aria-current="page">자연언어처리 기법 및 활용 사례</li>
+        <li class="breadcrumb-item active" aria-current="page">자연언어의 모호성과 데이터 특성</li>
         
         
         
@@ -382,284 +382,109 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="자연언어처리-기법의-발전과-활용-사례">자연언어처리 기법의 발전과 활용 사례</h1>
+            <h1 id="자연언어의-끔찍한-모호성과-텍스트-특성">자연언어의 끔찍한 모호성과 텍스트 특성</h1>
 
-<p>이 문서는 초보자를 위해 기초 자연어처리(NLP)의 최강 도구인 ‘트랜스포머’의 작동법과 다양한 실생활 활용 사례를 재미있는 비유와 시각 자료로 상세히 다룹니다.</p>
+<p>기계에게 인간의 언어를 가르치는 것은 왜 수학 난제를 푸는 것보다 더 잔혹한 과정일까요? 이번 챕터에서는 인공지능 엔지니어들을 절망에 빠뜨리는 인간 언어 고유의 모호성 문제와 텍스트 데이터만이 가지는 지독한 비정형 구조에 대해 학습합니다.</p>
 
 <hr />
 
-<h2 id="00-자연언어처리-기법-및-활용-사례">00. 자연언어처리 기법 및 활용 사례</h2>
-<p>본격적으로 텍스트 마이닝 내에서 자연어처리 기법이 어떻게 인간의 일을 돕는지 알아봅니다.</p>
+<h2 id="00-컴퓨터가-멘붕에-빠지는-세계-2가지-언어-대립">00. 컴퓨터가 멘붕에 빠지는 세계: 2가지 언어 대립</h2>
+<p>언어는 대상이 기계인지 인간인지에 따라 완전히 두 가지의 다른 생태계로 나뉩니다.</p>
 
-<p><img src="./img/sec02_00_human_ai.png" alt="Human and AI Collaboration" /></p>
+<h3 id="컴퓨터가-좋아하는-세계-인공언어-artificial-language">컴퓨터가 좋아하는 세계: 인공언어 (Artificial Language)</h3>
+<p>기계에게 가장 아름다운 언어는 파이썬(Python), C언어, 교통 신호등 체계 같은 <code class="language-plaintext highlighter-rouge">인공언어</code>입니다.</p>
+<ul>
+  <li><strong>완벽한 엄격성</strong>: 조금의 예외도 허용하지 않습니다. <code class="language-plaintext highlighter-rouge">1 + 1</code>은 언제나 <code class="language-plaintext highlighter-rouge">2</code>입니다.</li>
+  <li><strong>감정의 부재</strong>: 코드는 화를 내거나 비꼬지 않습니다. 세미콜론(<code class="language-plaintext highlighter-rouge">;</code>)이나 괄호 하나를 빼먹으면 곧바로 프로그램이 뻗어버리는 무자비하고 차가운 논리 체계입니다. 기계는 이런 100% 예측 가능한 흑백 논리 환경에서만 안도감을 느낍니다.</li>
+</ul>
 
-<blockquote>
-  <p>[!NOTE]<br />
-<strong>📖 초심자를 위한 쉬운 해설</strong><br />
-AI는 이제 단순 계산기가 아닙니다. 기획안 작성, 영어 번역, 기사 요약, 그림 그리기 등 지적인 사무 업무 전체를 당신 옆에서 함께 보조해 주는 “만능 인턴”으로 진화했습니다.</p>
-</blockquote>
+<h3 id="컴퓨터를-절망에-빠뜨리는-세계-자연언어-natural-language">컴퓨터를 절망에 빠뜨리는 세계: 자연언어 (Natural Language)</h3>
+<p>반대로 우리가 실생활에서 쓰는 한국어, 영어 같은 <code class="language-plaintext highlighter-rouge">자연어</code>는 수학적으로 이 세상에서 가장 예의 없고 제멋대로인 끔찍한 데이터 구조입니다.</p>
+<ul>
+  <li><strong>모호성(Ambiguity)</strong>: “차 좀 빼주세요” 할 때 ‘차’가 마시는 차(Tea)인지 타는 차(Car)인지, 글자만 봐서는 절대 모릅니다. 주변 문맥(Context)을 살피지 않으면 오답을 냅니다.</li>
+  <li><strong>엄청난 유연성</strong>: “밥 먹었어?”, “식사하셨습니까?”, “끼니는 때웠고?” 이 3문장은 글자 배열이 완전히 다르지만 사람 뇌에서는 뜻이 100% 똑같이 인식됩니다. 인공언어 체계에서는 상상도 할 수 없는 대혼란입니다.</li>
+</ul>
 
-<h2 id="01-nlp의-영역">01. NLP의 영역</h2>
-<p>자연언어처리는 주로 거대한 분석 프로젝트의 <strong>텍스트 전처리</strong>와 <strong>분석</strong> 과정에 전방위로 참여합니다.</p>
-
-<p><img src="./img/sec02_nlp_domains.svg" alt="NLP Domains" /></p>
-
-<blockquote>
-  <p>[!TIP]<br />
-<strong>📖 초심자를 위한 쉬운 해설</strong><br />
-<code class="language-plaintext highlighter-rouge">전처리</code>는 요리하기 전에 감자 껍질을 깎고 불순물을 제거하는 작업입니다.<br />
-<code class="language-plaintext highlighter-rouge">분석</code>은 깨끗해진 감자를 가지고 이 요리가 무슨 요리인지 카테고리를 분류하거나(문서 분류), 감자스프를 만드는(문서 생성) 등 진짜 요리가 이루어지는 멋진 과정입니다.</p>
-</blockquote>
-
-<h2 id="02-자연언어처리-기법의-패러다임-변화">02. 자연언어처리 기법의 패러다임 변화</h2>
-<p>최근 NLP 기술은 통계 카운트에서 거대한 LLM 빙하로 혁명적 전환을 맞았습니다.</p>
-
-<p><img src="./img/sec02_02_paradigm.svg" alt="Paradigm Shift" /></p>
+<p><img src="./img/mermaid_1.svg" alt="mermaid flowchart" /></p>
 
 <blockquote>
   <p>[!WARNING]<br />
-<strong>📖 초심자를 위한 쉬운 해설</strong><br />
-옛날 통계 기반 기법은 “이 문서에 ‘최고’라는 단어가 15번 나왔으니 긍정적인 글!”이라고 점수를 계산하는 계산기와 같았습니다. 빠르고 확실하죠.<br />
-하지만 현대의 LLM(트랜스포머)은 비꼬는 말장난, 농담, 숨겨진 슬픔 같은 맥락 전체를 아예 스스로 파악해 버리는 거의 사람 뇌 수준의 통찰력을 가지게 되었습니다.</p>
+<strong>📖 초심자를 위한 쉬운 해설: 소개팅에서의 대화 오류</strong><br />
+소개팅에서 기분 상한 상대방이 “저 오늘 별로 안 예쁜 것 같아요”라고 말했다고 칩시다.<br />
+인공언어(계산기 뇌)를 탑재한 로봇은 <code class="language-plaintext highlighter-rouge">안 예쁘다 == True</code> 로 즉시 연산하여 “네 팩트 맞아요, 좀 붓고 못생겨 보이네요”라고 대답했다가 물벼락을 맞게 됩니다.<br />
+자연언어를 처리한다는 것은 이처럼 복잡한 인간의 ‘돌려 말하기’와 ‘감정의 소용돌이’를 수학적 뇌로 해독해 내야 하는 과정입니다.</p>
 </blockquote>
 
-<h2 id="03-통계기반-접근-데이터-전처리">03. 통계기반 접근: 데이터 전처리</h2>
-<p>문자들을 기계가 취급할 수 있게 방해물(노이즈)을 덜어내는 단계입니다.</p>
+<h2 id="01-확장되는-자연언어의-세계-모든-기호--텍스트">01. 확장되는 자연언어의 세계 (모든 기호 = 텍스트)</h2>
+<p>과거의 고지식한 컴퓨터 학자들은 사람들의 ‘입 밖으로 나온 대화나 책 내용’만을 자연언어로 취급했습니다. 하지만 딥러닝이 눈부시게 발전하면서 텍스트의 인식 범위가 문과적 사고를 파괴하며 무섭게 확장되었습니다.</p>
 
-<p><img src="./img/sec02_03_preprocessing.svg" alt="Text Preprocessing Pipeline" /></p>
-
-<blockquote>
-  <p>[!NOTE]<br />
-<strong>📖 초심자를 위한 쉬운 해설</strong><br />
-인터넷 댓글 데이터는 욕설, 이모티콘, 오타, 띄어쓰기 오류가 난무하는 쓰레기 더미 수준입니다.<br />
-이 텍스트 덩어리를 씻어서 <code class="language-plaintext highlighter-rouge">["나", "는", "오늘", "밥", "을"]</code> 처럼 깨끗한 작은 조각(토큰) 단위로 예쁘게 자르는 것이 바로 전처리의 핵심입니다.</p>
-</blockquote>
-
-<h2 id="04-원-핫-인코딩-one-hot-encoding">04. 원-핫 인코딩 (One-hot encoding)</h2>
-<p>단어를 벡터 숫자로 바꾸는 가장 다루기 쉬운 고전 방법 중 하나입니다.</p>
-
-<p><img src="./img/sec02_onehot_vs_bow.svg" alt="One-Hot vs BoW" /></p>
-
-<blockquote>
-  <p>[!IMPORTANT]<br />
-<strong>📖 초심자를 위한 쉬운 해설</strong><br />
-100만 단어가 있는 국어사전 출석부를 상상해 보세요.<br />
-‘사과’라는 단어가 5번 학생이라면, 5번 칸에 손을 번쩍 들게(1을 넣음) 하고, 나머지 999,995개의 칸은 전부 결석(0) 자리에 둡니다.<br />
-직관적이지만 빈칸(0)이 너무나도 많아서 메모리 낭비가 끔찍하게 심한 방식(<code class="language-plaintext highlighter-rouge">희소성(Sparsity) 문제</code>)입니다.</p>
-</blockquote>
-
-<h2 id="05-bag-of-words-bow">05. Bag of Words (BoW)</h2>
-<p>출현 빈도를 고려한 텍스트 데이터의 수치화 표현 방법입니다.</p>
-
-<p><img src="./img/sec02_05_bow.svg" alt="Bag of Words Concept" /></p>
-
-<blockquote>
-  <p>[!TIP]<br />
-<strong>📖 초심자를 위한 쉬운 해설</strong><br />
-문장이 끝났는지, “너가 나를 때렸다”인지 “내가 너를 때렸다”인지 문법 어순은 싹 무시합니다.<br />
-텍스트 전체를 커다란 자루(Bag)에 쓸어 넣고 막대기로 저은 다음, “사랑이란 단어는 주머니에 3개, 이별은 1개가 들어있네?” 라고 주사위 빈도수만 계산하는 재밌지만 조금 무식한 텍스트 분석 기법입니다.</p>
-</blockquote>
-
-<h2 id="06-llm기반-접근-transformer">06. LLM기반 접근: Transformer</h2>
-<p>현대 무적의 딥러닝 기술인 <strong>LLM의 핵심 아키텍처</strong>입니다. 전 세계 AI계를 지배하고 있습니다.</p>
-
-<p><img src="./img/sec02_transformer_flow.svg" alt="Transformer Architecture Flow" /></p>
-
-<blockquote>
-  <p>[!NOTE]<br />
-<strong>📖 초심자를 위한 쉬운 해설</strong><br />
-챗GPT가 똑똑한 이유는 바로 이 트랜스포머의 <strong>‘자기 집중(Self-Attention)’</strong>이라는 기능 때문입니다.<br />
-“그녀가 은행에 가서 돈을 넣었다. 거기는 추웠다.” 라는 문장을 읽었다고 칩시다. 여기서 ‘거기는’이 도대체 어딜 나타내는 건지 컴퓨터는 기가 막히게 ‘은.행.’ 이라고 단어들의 시선을 집중시켜서 맥락을 찾아내는 마술을 부립니다.</p>
-</blockquote>
-
-<h2 id="07-활용사례-문서-분류">07. 활용사례: 문서 분류</h2>
-<p>텍스트를 입력으로 받아, 미리 정해놓은 서랍(카테고리) 중 어디에 속하는지 예측합니다.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">분류 사례</th>
-      <th style="text-align: left">목적</th>
-      <th style="text-align: left">비유적 설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><strong>스팸 필터링</strong></td>
-      <td style="text-align: left">이메일의 메일함 격리</td>
-      <td style="text-align: left">메일함 입구에 서 있는 “경비원 아저씨”</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>뉴스 카테고리화</strong></td>
-      <td style="text-align: left">(정치/경제/사회) 자동 분류</td>
-      <td style="text-align: left">신문사 1면에 기사를 척척 꽂아주는 “속독왕”</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="08-활용사례-문서-생성">08. 활용사례: 문서 생성</h2>
-<p>입력 자연어를 기반으로 하여 완전히 새로운 문장을 논리적으로 만들어냅니다.</p>
-
-<p><img src="./img/sec02_08_generation.png" alt="Document Generation Concept" /></p>
-
-<blockquote>
-  <p>[!TIP]<br />
-<strong>📖 초심자를 위한 쉬운 해설</strong><br />
-“신데렐라와 해리포터가 만나는 소설 10장 써줘”라는 프롬프트를 치면, AI가 마치 창작의 요정이 된 것처럼 무에서 유를 창조해 냅니다. 기계가 앵무새를 넘어 소설가 지위를 넘보게 된 영역입니다.</p>
-</blockquote>
-
-<h2 id="09-활용사례-문서-요약">09. 활용사례: 문서 요약</h2>
-<p>수많은 텍스트 문단에서 가장 극적인 중심 내용을 자동 추출하여 요약합니다.</p>
-
-<p><img src="./img/sec02_09_summarization.svg" alt="Document Summarization Press" /></p>
-
-<blockquote>
-  <p>[!NOTE]<br />
-<strong>📖 초심자를 위한 쉬운 해설</strong><br />
-직장인들의 꿈의 기술입니다!<br />
-아침에 읽어야 할 수십 장짜리 정부 정책안 텍스트를 강력한 프레스 기계에 넣고 쭈욱 짜내어, 핵심 과즙만 남은 딱 “3줄 요약”만 여러분의 모니터에 던져주는 시간을 지배하는 기술입니다.</p>
-</blockquote>
-
-<h2 id="10-활용사례-감성-분석">10. 활용사례: 감성 분석</h2>
-<p>텍스트에 나타난 사람들의 성향과 감정을 통계적으로 차갑게 꿰뚫어 봅니다.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">분석 데이터 자원</th>
-      <th style="text-align: left">도출 결과 예시</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><strong>배달의 민족, 영화 리뷰</strong></td>
-      <td style="text-align: left">“면이 다 불었네요(별 1개)” -&gt; <strong>강력한 부정 감지!</strong></td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>선거철 트위터 데이터</strong></td>
-      <td style="text-align: left">A후보 언급 데이터 분석 -&gt; <strong>우호적 민심 67% 판별!</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="11-활용사례-토픽-모델링">11. 활용사례: 토픽 모델링</h2>
-<p>문서더미 속 어딘가에 은닉되어 있는 추상적인 ‘주제(Topic) 섬’을 돋보기로 발견하는 과정입니다.</p>
-
-<p><img src="./img/sec02_11_topic_modeling.svg" alt="Topic Modeling Magnifying Glass" /></p>
-
-<blockquote>
-  <p>[!IMPORTANT]<br />
-<strong>📖 초심자를 위한 쉬운 해설</strong><br />
-문서들을 읽고 미리 정해진 서랍에 넣는 것(07. 분류)과는 달라도 완전히 다릅니다!<br />
-정해진 서랍조차 없는데 기계가 1년치 인터넷 게시글을 쭉 읽어보더니 “어? 유독 사람들이 ‘테슬라’, ‘자율주행차’ 라는 단어들을 막 같이 몰아서 쓰네요? 이거 하나의 ‘뜨는 주제’인 것 같은데요?!” 라며 <strong>아무것도 없는 빈 땅에서 스스로 유행하는 토픽을 그룹화</strong>해서 사장님에게 제시해 주는 마법 같은 통계 기법입니다.</p>
-</blockquote>
-
-<h2 id="12-활용사례-기계-번역">12. 활용사례: 기계 번역</h2>
-<p>한 나라의 언어를 인코더-디코더 구조로 문맥을 파악한 뒤 타 언어로 자연스럽게 통역합니다.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">종류</th>
-      <th style="text-align: left">특징 및 설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><strong>과거: 단어장 번역</strong></td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Apple=사과</code> 단어를 일대일 치환. 문맥을 전혀 몰라서 이상한 외계어가 탄생함.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>현재: 딥러닝 번역</strong></td>
-      <td style="text-align: left">문장 전체 느낌을 모조리 흡수(인코더)한 후, 스무스하게 뱉어냄(디코더) (예: 파파고, 딥플).</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="13-활용사례-멀티모달-모델-vqa">13. 활용사례: 멀티모달 모델 (VQA)</h2>
-<p>VQA (Visual Question Answering), 사진을 볼 수 있고 글도 쓸 줄 아는 눈과 입이 결합된 기술입니다.</p>
-
-<p><img src="./img/sec02_13_vqa.svg" alt="Visual Question Answering Concept" /></p>
-
-<blockquote>
-  <p>[!TIP]<br />
-<strong>📖 초심자를 위한 쉬운 해설</strong><br />
-시각장애인 분들에게 엄청난 혁명입니다. 강아지 사진을 딱 올려놓고 기계에게 문자로 “이 동물이 지금 자고 있니 달리고 있니?” 라고 물어보면, 눈(컴퓨터 비전)으로 상황을 인식하고 입(NLP)으로 “소파 위에서 자고 있습니다” 라고 텍스트로 대답해 주는 환상적인 콜라보입니다.</p>
-</blockquote>
-
-<h2 id="14-활용사례-멀티모달-모델-text-to-image">14. 활용사례: 멀티모달 모델 (Text-to-Image)</h2>
-<p>글로 묘사된 프롬프트 명령어를 완벽히 해석하여 그에 맞는 고화질 이미지를 즉시 창조합니다.</p>
-
-<p><img src="./img/sec02_14_multimodal.png" alt="Text to Image Generation" /></p>
-
-<blockquote>
-  <p>[!NOTE]<br />
-<strong>📖 초심자를 위한 쉬운 해설</strong><br />
-“분홍색 헬멧을 쓴 고양이가 우주에서 커피를 마시는 팝아트!” 라고 글로 적으면, 단 번에 컴퓨터가 상상력을 발휘해 진짜로 고퀄리티 그림을 토해냅니다 (Midjourney, DALL-E 등).</p>
-</blockquote>
-
-<h2 id="15-llm-기반-자연어처리의-한계점-1">15. LLM 기반 자연어처리의 한계점 (1)</h2>
-<p>만능으로 보이지만 치명적이고 무서운 부작용 4마리입니다.</p>
-
-<p><img src="./img/sec02_llm_limitations.svg" alt="LLM Limitations" /></p>
+<h3 id="수학적-확률과-패턴이-있는-모든-기호는-자연어다">수학적 확률과 패턴이 있는 모든 기호는 ‘자연어’다!</h3>
+<p>“문법적 규칙이나 일정한 확률 분포를 따르는 시퀀스(연속된 배열)라면, 그것이 한글 알파벳이든 악보 콩나물이든 DNA 염기서열이든 모조리 텍스트(자연어) 취급해서 번역기에 학습시킬 수 있다!” 라는 경이로운 발상의 전환이 일어났습니다.</p>
 
 <ul>
-  <li><strong>환각 (Hallucination)</strong>: 존재하지도 않는 위인전, 세종대왕의 아이폰 던짐 사건 같은 거짓말을 진짜인 것처럼 당당하게 소설로 적어냅니다.</li>
-  <li><strong>편향성 (Bias)</strong>: 학습한 인터넷 댓글에 있던 남녀노소 차별, 인종차별 데이터를 뱉어냅니다.</li>
-  <li><strong>블랙박스</strong>: 왜 이런 답변이 나왔는지 수천억 개 변수 속에서 아무도 그 인과관계를 증명할 수 없습니다.</li>
-  <li><strong>유용성의 반항</strong>: 가끔 시스템 프롬프트(이모지 쓰지 마)를 제멋대로 무시하고 자기 맘대로 답을 내놓습니다.</li>
+  <li><strong>문서 및 코드 체계</strong>: 매일 쏟아지는 뉴스, 소설, 그리고 사람들이 깃허브(Github)에 짜둔 수십억 줄의 컴퓨터 코드 소스 기록.</li>
+  <li><strong>악보 및 기호 체계</strong>: 도-레-미-파 옥타브 순서가 확률적으로 존재하는 음표 기호들.</li>
+  <li><strong>생물학 정보 구조</strong>: A, C, G, T 문자로 이어지는 복잡한 인간 유전자 배열 정보.</li>
 </ul>
 
-<h2 id="16-llm-기반-자연어처리의-한계점-2---보완-기법">16. LLM 기반 자연어처리의 한계점 (2) - 보완 기법</h2>
-<p>위의 미친 단점들을 억제하는 강력한 통제 방패 기술들입니다.</p>
+<p><img src="./img/mermaid_2.svg" alt="mermaid flowchart" /></p>
 
-<p><img src="./img/sec02_16_rag_shield.svg" alt="RAG and RLHF Shield" /></p>
+<p>인공지능 입장에서는 모차르트의 위대한 악보도 “일정하게 띄어쓰기가 된 규칙적인 외계어 텍스트”로 인식됩니다. 실제로 요즈음 챗GPT 뱃속의 트랜스포머 알고리즘에 악보를 통째로 쏟아부어 작곡을 시키거나, DNA 서열을 예측하게 만드는 마법이 구사되고 있습니다.</p>
 
-<blockquote>
-  <p>[!IMPORTANT]<br />
-<strong>📖 초심자를 위한 쉬운 해설</strong></p>
-  <ul>
-    <li><strong>환각 방어막 (RAG)</strong>: AI가 헛소리(환각)를 못 하도록, 밖에서 “회사 공식 매뉴얼”을 미리 억지로 건네주면서 “야 너 없는 소리 지어내지 말고, 이 PDF 책상 위에 올려둔 거에서만 읽어보고 답해!”라고 가두는 검색 기반 보조 기법(결합형)입니다.</li>
-    <li><strong>순응성 교육 (RLHF)</strong>: AI가 인종차별이나 욕설을 할 때마다 사람(평가자)이 “너 방금 마이너스 5점이야!”라고 혼을 내면서, 점점 착하고 말 잘 듣는 AI로 조련시키는 훈련법입니다.</li>
-  </ul>
-</blockquote>
-
-<h2 id="17-자연어처리-기법-선택의-기준">17. 자연어처리 기법 선택의 기준</h2>
-<p>모든 실무 과정에서 무조건 무겁고 비싼 최신 LLM만 도입하는 것은 어리석습니다.</p>
+<h2 id="02-자연어를-정복하기-위한-4대-기계-임무-tasks">02. 자연어를 정복하기 위한 4대 기계 임무 (Tasks)</h2>
+<p>기계가 눈앞에 주어진 아무 문장을 “완벽히 씹고 이해했다”라고 사람들에게 인정받으려면 다음의 4가지 질문에 답할 수 있어야 합니다. 각 질문은 실제 IT 시장에서 비싸게 팔리는 고부가가치 AI 서비스와 직결됩니다.</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">기준 요소</th>
-      <th style="text-align: left">통계 기반 기법 (TF-IDF 등)</th>
-      <th style="text-align: left">딥러닝 LLM (ChatGPT 등)</th>
+      <th style="text-align: left">기계에게 던지는 질문 (Goal)</th>
+      <th style="text-align: left">산업화된 AI의 임무 (NLP Task)</th>
+      <th style="text-align: left">일상 속의 예시 상황</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><strong>결과 설명(보고서)</strong></td>
-      <td style="text-align: left">100% 명확히 증명 및 설명 가능 엑셀화 가능</td>
-      <td style="text-align: left">❌ 불가능 (블랙박스)</td>
+      <td style="text-align: left"><strong>“네가 읽은 이 고객의 진짜 의도가 뭐니?”</strong></td>
+      <td style="text-align: left"><strong>의도 분석 및 카테고리 분류</strong></td>
+      <td style="text-align: left">“진짜 이따구로 장사할겁니까?” -&gt; <code class="language-plaintext highlighter-rouge">긴급 환불 불만 건</code> 폴더 배정</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>컴퓨팅 유지비용</strong></td>
-      <td style="text-align: left">일반 사무용 노트북 1대로 1초 만에 끝냄</td>
-      <td style="text-align: left">수억 원의 거대 GPU 서버 펑펑 돌아감</td>
+      <td style="text-align: left"><strong>“너무 긴데, 딱 3줄로 핵심만 요약해 봐”</strong></td>
+      <td style="text-align: left"><strong>문서 요약 (Summarization)</strong></td>
+      <td style="text-align: left">50페이지짜리 회의록 문서 -&gt; 3줄 요약 메일 초안 작성</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>고객 응대력(문맥)</strong></td>
-      <td style="text-align: left">눈치 없음, 단일 단어만 찾음</td>
-      <td style="text-align: left">세계관 최고의 눈치와 창작력</td>
+      <td style="text-align: left"><strong>“글에서는 칭찬하는데, 진짜 뉘앙스는 뭐지?”</strong></td>
+      <td style="text-align: left"><strong>감성 분석 (Sentiment)</strong></td>
+      <td style="text-align: left">“오 배송 참~ 빠르네요 한달만에 오고” -&gt; <code class="language-plaintext highlighter-rouge">극도로 빡침(부정)</code> 라벨링</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>“이 글이 저 사진의 상황과 무슨 연관이 있지?”</strong></td>
+      <td style="text-align: left"><strong>멀티모달 (Multi-modal)</strong></td>
+      <td style="text-align: left">강아지가 뛰는 영상 생성 (텍스트를 이미지와 병합 해석)</td>
     </tr>
   </tbody>
 </table>
 
-<blockquote>
-  <p>[!TIP]<br />
-<strong>📖 초심자를 위한 쉬운 해설</strong><br />
-스팸 이메일 하나 걸러내는데 수억짜리 챗봇 엔진을 돌리는 건 파리 잡는데 대포를 쏘는 격입니다!<br />
-상황, 자금, 보고해야 할 상사의 취향을 분석하여 가성비 좋은 <strong>통계반</strong>과 엄청난 <strong>LLM</strong> 중 최적의 무기를 고르는 똑똑한 엔지니어가 되어야 합니다.</p>
-</blockquote>
+<h2 id="03-사람을-미치게-하는-텍스트의-성질-비정형-데이터">03. 사람을 미치게 하는 텍스트의 성질 (비정형 데이터)</h2>
+<p>이러한 임무를 수행하기 위해 빅데이터 전문가들이 텍스트를 열어보면, 그 안에 숨겨진 지독한 성질 3가지에 부딪히게 됩니다. 가장 큰 문제는 텍스트가 <strong>비정형(Unstructured)</strong> 하다는 것입니다.</p>
+
+<ul>
+  <li><strong>엑셀과 정형 데이터(Structured Data)</strong>: 컴퓨터가 환장하게 좋아하는 밥입니다. 가로세로 줄이 군대처럼 딱딱 맞춰진 가격표와 시간표는, 통계를 돌리기 압도적으로 쉽습니다.</li>
+  <li><strong>텍스트 트래시(Unstructured Data)</strong>: 카톡 대화록을 다운받아 보십시오. 어떤 사용자는 <code class="language-plaintext highlighter-rouge">굿</code> 한 글자만 보냅니다. 어떤 화난 악플러는 띄어쓰기 한 번 없이 A4용지 3장 분량의 괴문서를 보냅니다. 길이도, 문법도, 감정도 제멋대로인 이 삐뚤어진 불순물 덩어리를 엑셀표처럼 ‘숫자’로 반듯하게 닦아(규격화) 넣지 못하면 AI는 뇌 정지에 빠져 영원히 단어 하나 읽지 못합니다.</li>
+</ul>
+
+<p><img src="./img/mermaid_3.svg" alt="mermaid flowchart" /></p>
+
+<h2 id="04-텍스트-마이닝의-원동력-정보의-대폭발">04. 텍스트 마이닝의 원동력: 정보의 대폭발</h2>
+<p>텍스트는 더럽고 모호하여 다루기 힘들지만, 2010년대 스마트폰 혁명 이후 트위터, 페이스북, 인스타그램 등 소셜 미디어가 탄생하면서 인류가 쏟아내는 글자 텍스트의 양은 우주 팽창 속도로 폭발해 버렸습니다.</p>
+
+<h3 id="데이터-쓰레기장이-만들어낸-괴물-ai">데이터 쓰레기장이 만들어낸 괴물 AI</h3>
+<p>과거 학자들은 저작권이 있는 정제된 책 기사 1만 개만 모아도 “와 데이터셋 대박이다!” 외쳤습니다. 
+그러나 지금은 나무위키, 디시인사이드, 레딧 등에서 필터 없이 쏟아지는 수경(1경 = 10,000조) 단위의 방대한 인터넷 잡담 텍스트 데이터들을 로봇이 통째로 진공청소기처럼 긁어모아 딥러닝 입맛에 먹여줍니다. 
+이처럼 전 세계 모든 인간들의 대화 조각들이 거대한 데이터 은하계를 팽창시켰고, 역설적이게도 이 무한한 잡동사니 쓰레기 텍스트 더미가 컴퓨터를 문법의 신, 대화의 신으로 각성시킨 압도적인 밑거름이 되었습니다.</p>
+
+<p><img src="./img/mermaid_1.svg" alt="mermaid flowchart" /></p>
 
 
             <!-- 구글 애드센스 출력 -->

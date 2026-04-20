@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;font-style=italic&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap');
+      text { font-family: 'Noto Sans KR', sans-serif; dominant-baseline: middle; text-anchor: middle;}
+      .bg { fill: #f8fafc; }
+      .box { fill: white; stroke: #94a3b8; stroke-width: 1; }
+      .title { font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .cell { font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: bold; fill: #334155; }
+      .header { font-size: 14px; font-weight: bold; fill: #1e3a8a; }
+      .h-row { fill: #eff6ff; stroke: #bfdbfe; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="100%" height="100%" rx="12" />
+
+  <text x="400" y="30" class="title">문서-단어 행렬 (DTM: Document-Term Matrix)</text>
+  <text x="400" y="55" font-size="14" fill="#64748b">다수의 문서에서 등장하는 단어들의 빈도를 하나의 거대한 행렬(Maxtrix)로 종합한 뷰</text>
+
+  <g transform="translate(100, 100)">
+    
+    <!-- Col Headers -->
+    <rect x="80" y="0" width="80" height="30" class="h-row" />
+    <rect x="160" y="0" width="80" height="30" class="h-row" />
+    <rect x="240" y="0" width="80" height="30" class="h-row" />
+    <rect x="320" y="0" width="80" height="30" class="h-row" />
+    <rect x="400" y="0" width="80" height="30" class="h-row" />
+    <rect x="480" y="0" width="80" height="30" class="h-row" />
+
+    <text x="120" y="15" class="header">길고</text>
+    <text x="200" y="15" class="header">노란</text>
+    <text x="280" y="15" class="header">먹고</text>
+    <text x="360" y="15" class="header">바나나</text>
+    <text x="440" y="15" class="header">사과</text>
+    <text x="520" y="15" class="header">싶은</text>
+
+    <!-- Row 1 -->
+    <rect x="0" y="30" width="80" height="40" class="h-row" />
+    <text x="40" y="50" class="header">문서 1</text>
+    <rect x="80" y="30" width="80" height="40" class="box" />
+    <rect x="160" y="30" width="80" height="40" class="box" />
+    <rect x="240" y="30" width="80" height="40" class="box" fill="#bbf7d0" />
+    <rect x="320" y="30" width="80" height="40" class="box" />
+    <rect x="400" y="30" width="80" height="40" class="box" fill="#bbf7d0" />
+    <rect x="480" y="30" width="80" height="40" class="box" fill="#bbf7d0" />
+    <text x="120" y="50" class="cell">0</text>
+    <text x="200" y="50" class="cell">0</text>
+    <text x="280" y="50" class="cell" fill="#166534">1</text>
+    <text x="360" y="50" class="cell">0</text>
+    <text x="440" y="50" class="cell" fill="#166534">1</text>
+    <text x="520" y="50" class="cell" fill="#166534">1</text>
+
+    <!-- Row 2 -->
+    <rect x="0" y="70" width="80" height="40" class="h-row" />
+    <text x="40" y="90" class="header">문서 2</text>
+    <rect x="80" y="70" width="80" height="40" class="box" />
+    <rect x="160" y="70" width="80" height="40" class="box" />
+    <rect x="240" y="70" width="80" height="40" class="box" fill="#bbf7d0" />
+    <rect x="320" y="70" width="80" height="40" class="box" fill="#fef08a" />
+    <rect x="400" y="70" width="80" height="40" class="box" />
+    <rect x="480" y="70" width="80" height="40" class="box" fill="#bbf7d0" />
+    <text x="120" y="90" class="cell">0</text>
+    <text x="200" y="90" class="cell">0</text>
+    <text x="280" y="90" class="cell" fill="#166534">1</text>
+    <text x="360" y="90" class="cell" fill="#854d0e">1</text>
+    <text x="440" y="90" class="cell">0</text>
+    <text x="520" y="90" class="cell" fill="#166534">1</text>
+
+    <!-- Row 3 -->
+    <rect x="0" y="110" width="80" height="40" class="h-row" />
+    <text x="40" y="130" class="header">문서 3</text>
+    <rect x="80" y="110" width="80" height="40" class="box" fill="#bbf7d0" />
+    <rect x="160" y="110" width="80" height="40" class="box" fill="#bbf7d0" />
+    <rect x="240" y="110" width="80" height="40" class="box" />
+    <rect x="320" y="110" width="80" height="40" class="box" fill="#fef08a" stroke="#ca8a04" stroke-width="2" />
+    <rect x="400" y="110" width="80" height="40" class="box" />
+    <rect x="480" y="110" width="80" height="40" class="box" />
+    <text x="120" y="130" class="cell" fill="#166534">1</text>
+    <text x="200" y="130" class="cell" fill="#166534">1</text>
+    <text x="280" y="130" class="cell">0</text>
+    <text x="360" y="130" class="cell" fill="#ca8a04">2</text>
+    <text x="440" y="130" class="cell">0</text>
+    <text x="520" y="130" class="cell">0</text>
+
+  </g>
+
+  <text x="600" y="270" font-size="14" fill="#0f172a" font-weight="bold">문서 3: 길고 노란 바나나 바나나</text>
+  <path d="M 600 250 L 460 220" stroke="#ca8a04" stroke-width="2" marker-end="url(#arrow)" />
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ca8a04" />
+  </marker>
+
+</svg>
