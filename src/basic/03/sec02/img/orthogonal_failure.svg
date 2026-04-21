@@ -1,0 +1,31 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">원-핫 벡터의 치명적 한계점: 의미적 관계성 붕괴 (직교)</text>
+
+  <g stroke="#475569" stroke-width="2">
+    <line x1="150" y1="250" x2="400" y2="250" marker-end="url(#arrow)"/>
+    <line x1="150" y1="250" x2="150" y2="50" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- Vector Dog -->
+  <path d="M 150 250 L 150 100" stroke="#3b82f6" stroke-width="5"/>
+  <polygon points="140,110 160,110 150,90" fill="#3b82f6"/>
+  <text x="100" y="100" fill="#60a5fa" font-family="sans-serif" font-size="20" font-weight="bold">강아지</text>
+  <text x="100" y="125" fill="#93c5fd" font-family="sans-serif" font-size="14">[0, 1, 0]</text>
+
+  <!-- Vector Puppy -->
+  <path d="M 150 250 L 350 250" stroke="#f43f5e" stroke-width="5"/>
+  <polygon points="340,240 340,260 360,250" fill="#f43f5e"/>
+  <text x="360" y="235" fill="#fb7185" font-family="sans-serif" font-size="20" font-weight="bold">개</text>
+  <text x="360" y="275" fill="#fda4af" font-family="sans-serif" font-size="14">[1, 0, 0]</text>
+
+  <!-- Angle arc 90 degrees -->
+  <rect x="150" y="220" width="30" height="30" fill="none" stroke="#f59e0b" stroke-width="3"/>
+  <text x="210" y="200" fill="#fbbf24" font-family="sans-serif" font-size="18" font-weight="bold">90도 (직교)</text>
+
+  <text x="600" y="120" fill="#cbd5e1" font-family="sans-serif" font-size="16" text-anchor="middle">사람에게 "강아지"와 "개"는</text>
+  <text x="600" y="150" fill="#cbd5e1" font-family="sans-serif" font-size="16" text-anchor="middle">100% 똑같은 동물이지만,</text>
+  <text x="600" y="180" fill="#ef4444" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">기계에게 두 1차원 벡터는 수학적으로</text>
+  <text x="600" y="210" fill="#ef4444" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">연관성 0% (완전 남남) 계산이 뜹니다.</text>
+</svg>

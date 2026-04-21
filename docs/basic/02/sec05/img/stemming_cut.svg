@@ -1,0 +1,37 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">어간 추출 (Stemming): 무자비한 기계식 꼬리 자르기</text>
+
+  <!-- Word 1 -->
+  <text x="250" y="110" fill="#cbd5e1" font-family="monospace" font-size="26" font-weight="bold" text-anchor="middle">f o r m a l <tspan fill="#ef4444">i z e</tspan></text>
+  
+  <path d="M 310 70 L 310 130" stroke="#f59e0b" stroke-width="4" stroke-dasharray="5,5"/>
+  <rect x="290" y="50" width="10" height="30" fill="#94a3b8" rx="2" transform="rotate(20 295 65)"/> <!-- Knife/Axe -->
+  <rect x="280" y="40" width="20" height="20" fill="#cbd5e1" transform="rotate(20 290 50)"/>
+  
+  <!-- Word 2 -->
+  <text x="250" y="190" fill="#cbd5e1" font-family="monospace" font-size="26" font-weight="bold" text-anchor="middle">a l l o w <tspan fill="#ef4444">a n c e</tspan></text>
+  
+  <path d="M 300 150 L 300 210" stroke="#f59e0b" stroke-width="4" stroke-dasharray="5,5"/>
+
+  <!-- Output Arrow -->
+  <path d="M 400 100 L 500 100" stroke="#3b82f6" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M 400 180 L 500 180" stroke="#3b82f6" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <!-- Output Stem -->
+  <rect x="520" y="80" width="150" height="40" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="595" y="107" fill="#6ee7b7" font-family="monospace" font-size="22" font-weight="bold" text-anchor="middle">formal</text>
+
+  <rect x="520" y="160" width="150" height="40" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="595" y="187" fill="#6ee7b7" font-family="monospace" font-size="22" font-weight="bold" text-anchor="middle">allow</text>
+
+  <rect x="680" y="120" width="100" height="30" fill="#7f1d1d" rx="3"/>
+  <text x="730" y="140" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">ize / ance 찌꺼기</text>
+  <path d="M 330 100 L 680 130" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"/>
+  <path d="M 330 180 L 680 140" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"/>
+
+
+  <text x="400" y="260" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">사전을 찾지 않습니다. 그저 "영어 단어 맨 뒤에 'ize'나 'ance'가 오면 부가 기능이니 썰어버려!" 라는</text>
+  <text x="400" y="280" fill="#f87171" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">단순무식한 꼬리표 알고리즘으로 극단적 속도를 챙깁니다. (단점: 잘려 나간 단어가 사전에 없는 외계어가 될 수도 있음)</text>
+</svg>

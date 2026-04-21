@@ -1,0 +1,37 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">정확도(Accuracy)의 역설: 오만한 깡통 스팸 AI의 99.9% 대국민 사기극</text>
+
+  <!-- Ground Truth Status -->
+  <text x="200" y="80" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">실제 현실의 데이터 (10,000통)</text>
+  <rect x="50" y="100" width="300" height="150" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
+  
+  <rect x="70" y="120" width="260" height="70" fill="#064e3b" rx="5"/>
+  <text x="200" y="150" fill="#a7f3d0" font-family="sans-serif" font-size="14" text-anchor="middle">천사 같은 선량한 정상 메일 묶음</text>
+  <text x="200" y="175" fill="#6ee7b7" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">9,999 통</text>
+
+  <rect x="70" y="200" width="260" height="35" fill="#450a0a" rx="5"/>
+  <text x="200" y="222" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">초강력 스팸 랜섬웨어 폭탄: 1 통</text>
+
+
+  <!-- Model Prediction -->
+  <path d="M 360 175 L 420 175" stroke="#fcd34d" stroke-width="4" stroke-dasharray="8,4" fill="none" marker-end="url(#arrow)"/>
+  <text x="390" y="160" fill="#fbbf24" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">학습 땡땡이친</text>
+  <text x="390" y="195" fill="#f59e0b" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">바보 AI 판별</text>
+
+  <!-- Dummy AI Brain -->
+  <text x="600" y="80" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">AI의 무지성 일괄 예측!</text>
+  <rect x="450" y="100" width="300" height="150" fill="#064e3b" stroke="#10b981" stroke-width="4" rx="5"/>
+  <text x="600" y="140" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">"귀찮아!! 다 검사 패스 통과시켜!!"</text>
+  <text x="600" y="170" fill="#ecfdf5" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">전부 '정상 메일' 로만 도장 쾅쾅쾅</text>
+
+  <text x="600" y="210" fill="#34d399" font-family="sans-serif" font-size="14" text-anchor="middle">9,999통 정답 (만점)</text>
+  <text x="600" y="235" fill="#ef4444" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">1통 틀림 (랜섬웨어 프리패스 뚫림!)</text>
+
+  <!-- Accuracy Score Board -->
+  <rect x="300" y="260" width="200" height="35" fill="#f59e0b" rx="5"/>
+  <text x="400" y="283" fill="#78350f" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">공식 정확도 (Accuracy) : 99.99%</text>
+
+
+</svg>

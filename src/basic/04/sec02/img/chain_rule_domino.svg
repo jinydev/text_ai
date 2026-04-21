@@ -1,0 +1,42 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">도미노 연쇄법칙 (Chain Rule): 앞선 모든 확률의 무게를 짊어지다</text>
+
+  <!-- P(W) Total -->
+  <rect x="50" y="80" width="120" height="150" fill="#1e3a8a" stroke="#3b82f6" stroke-width="3" rx="10"/>
+  <text x="110" y="140" fill="#93c5fd" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">P(문장결과)</text>
+  <text x="110" y="180" fill="#bfdbfe" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">"철수는 밥을 먹는다"</text>
+
+  <rect x="195" y="150" width="40" height="10" fill="#cbd5e1"/>
+  <rect x="195" y="140" width="40" height="10" fill="#cbd5e1"/>
+
+
+  <!-- Equal Sign -->
+  <text x="215" y="165" fill="#fcd34d" font-family="sans-serif" font-size="30" font-weight="bold" text-anchor="middle">=</text>
+
+
+  <!-- Domino 1 -->
+  <rect x="250" y="110" width="80" height="120" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="290" y="145" fill="#34d399" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">P(철수는)</text>
+  <text x="290" y="175" fill="#a7f3d0" font-family="sans-serif" font-size="12" text-anchor="middle">눈치 안보고</text>
+  <text x="290" y="195" fill="#a7f3d0" font-family="sans-serif" font-size="12" text-anchor="middle">혼자 출현</text>
+
+  <text x="350" y="175" fill="#ef4444" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">X</text>
+
+  <!-- Domino 2 -->
+  <rect x="370" y="110" width="120" height="120" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="430" y="145" fill="#34d399" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">P(밥을 | 철수는)</text>
+  <text x="430" y="175" fill="#a7f3d0" font-family="sans-serif" font-size="12" text-anchor="middle">'철수'가 앞에</text>
+  <text x="430" y="195" fill="#a7f3d0" font-family="sans-serif" font-size="12" text-anchor="middle">깔린 조건하에 출현</text>
+
+  <text x="510" y="175" fill="#ef4444" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">X</text>
+
+  <!-- Domino 3 -->
+  <rect x="530" y="110" width="220" height="120" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="640" y="145" fill="#34d399" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">P(먹는다 | 철수는, 밥을)</text>
+  <text x="640" y="175" fill="#fca5a5" font-family="sans-serif" font-size="12" text-anchor="middle">앞의 2단어를 모조리 암기하고</text>
+  <text x="640" y="195" fill="#fca5a5" font-family="sans-serif" font-size="12" text-anchor="middle">가장 무거운 확률 봇짐을 진 출현</text>
+
+  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">문장이 길어질수록 맨 끝에 있는 "먹는다"는 자기가 태어나기 위해 앞에 쓰인 수많은 과거 단어들의 눈치를 기하급수적으로 살펴야 합니다.</text>
+</svg>

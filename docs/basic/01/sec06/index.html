@@ -8,7 +8,7 @@
   <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>카운팅 기반 BoW</title>
   <meta name="title" content="카운팅 기반 BoW" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="카운팅 기반 BoW"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="https://text.ai.jiny.dev/basic/01/sec06/">
+  <meta property="og:url" content="http://localhost:4001/basic/01/sec06/">
 
   <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="카운팅 기반 BoW"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
@@ -17,14 +17,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="https://text.ai.jiny.dev/basic/01/sec06/" />
-<meta property="og:url" content="https://text.ai.jiny.dev/basic/01/sec06/" />
+<link rel="canonical" href="http://localhost:4001/basic/01/sec06/" />
+<meta property="og:url" content="http://localhost:4001/basic/01/sec06/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="카운팅 기반 BoW" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"카운팅 기반 BoW","url":"https://text.ai.jiny.dev/basic/01/sec06/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"카운팅 기반 BoW","url":"http://localhost:4001/basic/01/sec06/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -320,6 +320,8 @@
             <div class="offcanvas-body">
                 <!-- 네비게이션 -->
                 <nav class="bd-links w-100" id="bd-docs-nav" aria-label="Docs navigation">
+  
+  
   <ul class="bd-links-nav list-unstyled mb-0 pb-3 pb-md-2 pe-lg-2">
     <li class="bd-links-group py-2">
       <strong class="bd-links-heading d-flex w-100 align-items-center fw-semibold">
@@ -329,10 +331,456 @@
         
         <li>
           
-          <a href="/basic/"
-            class="bd-links-link d-inline-block rounded ">
-            TextAI 기초
-          </a>
+          
+          
+          <button
+            class="bd-links-link bd-links-btn btn d-inline-flex align-items-center rounded border-0  w-100"
+            data-bs-toggle="collapse" data-bs-target="#collapse-1"
+            aria-expanded="true">
+            1. 자연언어 처리 소개
+            <svg class="bi ms-auto" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </button>
+          <div class="collapse show" id="collapse-1">
+            <ul class="list-unstyled fw-normal pb-1 small ms-3">
+              
+              <li>
+                <a href="/basic/01/sec01/"
+                  class="bd-links-link d-inline-block rounded ">
+                  1.1 마이닝의 본질
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/01/sec02/"
+                  class="bd-links-link d-inline-block rounded ">
+                  1.2 모호성과 특성
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/01/sec03/"
+                  class="bd-links-link d-inline-block rounded ">
+                  1.3 고전 분석 한계
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/01/sec04/"
+                  class="bd-links-link d-inline-block rounded ">
+                  1.4 LLM의 환각 방어
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/01/sec05/"
+                  class="bd-links-link d-inline-block rounded ">
+                  1.5 벡터화 수치 계산
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/01/sec06/"
+                  class="bd-links-link d-inline-block rounded active">
+                  1.6 실무 산업 활용 사례
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <button
+            class="bd-links-link bd-links-btn btn d-inline-flex align-items-center rounded border-0 collapsed w-100"
+            data-bs-toggle="collapse" data-bs-target="#collapse-2"
+            aria-expanded="false">
+            2. 텍스트 전처리와 통계
+            <svg class="bi ms-auto" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </button>
+          <div class="collapse " id="collapse-2">
+            <ul class="list-unstyled fw-normal pb-1 small ms-3">
+              
+              <li>
+                <a href="/basic/02/sec01/"
+                  class="bd-links-link d-inline-block rounded ">
+                  2.1 언어학적 계층 구조
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/02/sec02/"
+                  class="bd-links-link d-inline-block rounded ">
+                  2.2 토큰화와 품사 태깅
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/02/sec03/"
+                  class="bd-links-link d-inline-block rounded ">
+                  2.3 N-gram과 청킹
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/02/sec04/"
+                  class="bd-links-link d-inline-block rounded ">
+                  2.4 전처리 파이프라인
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/02/sec05/"
+                  class="bd-links-link d-inline-block rounded ">
+                  2.5 다이어트와 정규표현식
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/02/sec06/"
+                  class="bd-links-link d-inline-block rounded ">
+                  2.6 BPE 서브워드 방어막
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <button
+            class="bd-links-link bd-links-btn btn d-inline-flex align-items-center rounded border-0 collapsed w-100"
+            data-bs-toggle="collapse" data-bs-target="#collapse-3"
+            aria-expanded="false">
+            3. 텍스트 표현과 벡터 공간
+            <svg class="bi ms-auto" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </button>
+          <div class="collapse " id="collapse-3">
+            <ul class="list-unstyled fw-normal pb-1 small ms-3">
+              
+              <li>
+                <a href="/basic/03/sec01/"
+                  class="bd-links-link d-inline-block rounded ">
+                  3.1 고전 벡터 공간
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/03/sec02/"
+                  class="bd-links-link d-inline-block rounded ">
+                  3.2 원-핫 인코딩의 저주
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/03/sec03/"
+                  class="bd-links-link d-inline-block rounded ">
+                  3.3 BoW와 DTM 행렬
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/03/sec04/"
+                  class="bd-links-link d-inline-block rounded ">
+                  3.4 지프(Zipf)의 법칙 한계
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/03/sec05/"
+                  class="bd-links-link d-inline-block rounded ">
+                  3.5 TF-IDF 보정 방정식
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/03/sec06/"
+                  class="bd-links-link d-inline-block rounded ">
+                  3.6 코사인 벡터 유사도
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <button
+            class="bd-links-link bd-links-btn btn d-inline-flex align-items-center rounded border-0 collapsed w-100"
+            data-bs-toggle="collapse" data-bs-target="#collapse-4"
+            aria-expanded="false">
+            4. 언어 모델 성능 평가
+            <svg class="bi ms-auto" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </button>
+          <div class="collapse " id="collapse-4">
+            <ul class="list-unstyled fw-normal pb-1 small ms-3">
+              
+              <li>
+                <a href="/basic/04/sec01/"
+                  class="bd-links-link d-inline-block rounded ">
+                  4.1 확률 맞추기 통계 도박
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/04/sec02/"
+                  class="bd-links-link d-inline-block rounded ">
+                  4.2 조건부 확률 연쇄 법칙
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/04/sec03/"
+                  class="bd-links-link d-inline-block rounded ">
+                  4.3 희소성 폭발 에러
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/04/sec04/"
+                  class="bd-links-link d-inline-block rounded ">
+                  4.4 마르코프 단절의 꼼수
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/04/sec05/"
+                  class="bd-links-link d-inline-block rounded ">
+                  4.5 Perplexity 분기 채점관
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/04/sec06/"
+                  class="bd-links-link d-inline-block rounded ">
+                  4.6 MMLU와 환각 판독기
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <button
+            class="bd-links-link bd-links-btn btn d-inline-flex align-items-center rounded border-0 collapsed w-100"
+            data-bs-toggle="collapse" data-bs-target="#collapse-5"
+            aria-expanded="false">
+            5. 워드 임베딩 제국
+            <svg class="bi ms-auto" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </button>
+          <div class="collapse " id="collapse-5">
+            <ul class="list-unstyled fw-normal pb-1 small ms-3">
+              
+              <li>
+                <a href="/basic/05/sec01/"
+                  class="bd-links-link d-inline-block rounded ">
+                  5.1 좌표 스코프 선형대수학
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/05/sec02/"
+                  class="bd-links-link d-inline-block rounded ">
+                  5.2 NNLM과 룩업 테이블
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/05/sec03/"
+                  class="bd-links-link d-inline-block rounded ">
+                  5.3 CBOW와 Skip-gram
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/05/sec04/"
+                  class="bd-links-link d-inline-block rounded ">
+                  5.4 SGNS 이진 게임 치팅
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/05/sec05/"
+                  class="bd-links-link d-inline-block rounded ">
+                  5.5 FastText 알파벳 분해
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/05/sec06/"
+                  class="bd-links-link d-inline-block rounded ">
+                  5.6 GloVe 교란식 오차 함수
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <button
+            class="bd-links-link bd-links-btn btn d-inline-flex align-items-center rounded border-0 collapsed w-100"
+            data-bs-toggle="collapse" data-bs-target="#collapse-6"
+            aria-expanded="false">
+            6. 분류 판독 확률 모터
+            <svg class="bi ms-auto" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </button>
+          <div class="collapse " id="collapse-6">
+            <ul class="list-unstyled fw-normal pb-1 small ms-3">
+              
+              <li>
+                <a href="/basic/06/sec01/"
+                  class="bd-links-link d-inline-block rounded ">
+                  6.1 기계학습 파이프라인 모터
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/06/sec02/"
+                  class="bd-links-link d-inline-block rounded ">
+                  6.2 나이브 베이즈 확률론
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/06/sec03/"
+                  class="bd-links-link d-inline-block rounded ">
+                  6.3 로지스틱과 소프트맥스
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/06/sec04/"
+                  class="bd-links-link d-inline-block rounded ">
+                  6.4 모의고사 K-Fold 로테이션
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/06/sec05/"
+                  class="bd-links-link d-inline-block rounded ">
+                  6.5 혼동 행렬의 진실 판독
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/06/sec06/"
+                  class="bd-links-link d-inline-block rounded ">
+                  6.6 정밀도, 재현율, ROC 지표
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <button
+            class="bd-links-link bd-links-btn btn d-inline-flex align-items-center rounded border-0 collapsed w-100"
+            data-bs-toggle="collapse" data-bs-target="#collapse-7"
+            aria-expanded="false">
+            7. 텍스트 분석 조물주 (토픽)
+            <svg class="bi ms-auto" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </button>
+          <div class="collapse " id="collapse-7">
+            <ul class="list-unstyled fw-normal pb-1 small ms-3">
+              
+              <li>
+                <a href="/basic/07/sec01/"
+                  class="bd-links-link d-inline-block rounded ">
+                  7.1 비지도 자율주행 한계망
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/07/sec02/"
+                  class="bd-links-link d-inline-block rounded ">
+                  7.2 LSA 매트릭스 특이값 분해
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/07/sec03/"
+                  class="bd-links-link d-inline-block rounded ">
+                  7.3 역방향 확률 생성 모델
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/07/sec04/"
+                  class="bd-links-link d-inline-block rounded ">
+                  7.4 LDA 디리클레 파라미터
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/07/sec05/"
+                  class="bd-links-link d-inline-block rounded ">
+                  7.5 확률 플레이트 기하학
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/07/sec06/"
+                  class="bd-links-link d-inline-block rounded ">
+                  7.6 MCMC 깁스 샘플링 커닝
+                </a>
+              </li>
+              
+            </ul>
+          </div>
           
         </li>
         
@@ -357,7 +805,7 @@
         
         
         
-        <li class="breadcrumb-item"><a href="/basic/">TextAI 기초</a></li>
+        <li class="breadcrumb-item"><a href="/basic/">1. 자연어 처리 기초 코스</a></li>
         
         
         
@@ -382,53 +830,104 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="구시대의-꼼수-합의-가방-속-단어들-bag-of-words-bow">구시대의 꼼수 합의: 가방 속 단어들 (Bag of Words, BoW)</h1>
+            <h1 id="16-구시대의-꼼수-합의-가방-속-단어들-bag-of-words-bow">1.6 구시대의 꼼수 합의: 가방 속 단어들 (Bag of Words, BoW)</h1>
 
-<p>원-핫(One-Hot) 배열로 100만 칸짜리 메모리가 터지는 지옥도를 본 학자들은 고민합니다. “단어 하나하나를 칸을 만들어주는 건 미친 짓이야. 그냥 문장 단위로 거대한 가방을 하나 만들어서 등장 횟수(카운트)만 찍어버리자!”
-그렇게 텍스트의 맥락(순서)을 완전히 파괴하는 대가로 연산력을 얻어낸 역사적인 BoW의 수학적 생성 원리를 배웁니다.</p>
+<p>원-핫(One-Hot) 파이프라인에서 직교 독립 벡터를 남발하다 단어 1개에 $100$만 차원짜리 RAM 메모리가 터져나가는 지옥도를 본 고전 학자들은 머리를 맞대고 대타협을 이뤄냅니다. 
+<em>“단어 하나하나를 다 칸으로 만들어주는 건 미친 짓이다. 그냥 문장(문서) 하나를 통째로 커다란 가방으로 취급해서, 전체 단어들의 <strong>출현 횟수(카운트)</strong> 만 요약해서 찍어버리자!”</em>
+그렇게 텍스트의 맥락(Sequence)과 어순을 완전히 파괴하는 대가로 압축 연산력을 얻어낸 역사적인 BoW의 눈물겨운 수학적 매트릭스 과정을 배웁니다.</p>
 
 <hr />
 
-<h2 id="00-bag-of-words-단어-주머니-모델-사상">00. Bag of Words (단어 주머니 모델) 사상</h2>
-<p>이름 그대로 <strong>“단어를 뒤죽박죽 섞어놓은 가방 주머니”</strong> 입니다. 가방 안에 단어 공들을 몽땅 집어넣고 흔들었기 때문에, <strong>누가 언제 첫 번째로 문장에서 등장했는지(문맥 순서)</strong> 는 완전히 파괴되고 소멸합니다. 
-기계는 이제 오직 가방 안에 손을 넣어 “이거 ‘바보’ 글자 공이 2개 더듬어지네! 바보란 단어가 2번 등장했군!” 오로지 <strong>출현 빈도수(Count) 결괏값만 매트릭스</strong>로 퉁쳐서 저장합니다.</p>
+<h2 id="161-bag-of-words-단어-주머니-모델의-파괴적-사상">1.6.1 Bag of Words (단어 주머니 모델)의 파괴적 사상</h2>
 
-<p><img src="./img/mermaid_1.svg" alt="mermaid flowchart" /></p>
+<p><img src="./img/bow_bag.svg" alt="BoW Bag" /></p>
 
-<h2 id="01-bow-빈도-카운팅의-수학적-행렬-치환-과정">01. BoW 빈도 카운팅의 수학적 행렬 치환 과정</h2>
-<p>주어진 2개의 짧은 로맨스 문서가 어떻게 수학 매트릭스 벡터가 되는지 볼까요?</p>
+<p>이름 그대로 구조는 <strong>“모든 단어를 뒤죽박죽 섞어놓은 가방(Bag)”</strong> 입니다. 
+가방 안에 단어 공들을 몽땅 집어넣고 무자비하게 흔들었기 때문에, <strong>누가 언제 첫 번째로 문장에서 등장했는지(문맥, 주어 순서, 시제)</strong> 는 완전히 박살 나고 허공으로 소멸합니다. 
+기계는 이제 가방 안에 손을 넣어 <em>“음, 이거 ‘사과’ 글자 구슬이 2개 더듬어지네! 사과란 단어가 2번 등장했군!”</em> 오로지 <strong>출현 빈도수(Count) 수치 결괏값만 매트릭스</strong>로 퉁쳐서 저장합니다.</p>
+
+<hr />
+
+<h2 id="162-bow-빈도-카운팅의-수학적-행렬-치환-과정-dtm">1.6.2 BoW 빈도 카운팅의 수학적 행렬 치환 과정 (DTM)</h2>
+
+<p><img src="./img/dtm_matrix.svg" alt="DTM Matrix" /></p>
+
+<p>현실에서 이것이 어떻게 엑셀 표 같은 수학 매트릭스(Matrix) 벡터로 치환되는지 2개의 짧은 로맨스 문서를 통해 추적해 봅시다.</p>
 
 <ul>
-  <li>문서 A: <code class="language-plaintext highlighter-rouge">"사랑해요 당신 정말 사랑해요"</code></li>
-  <li>문서 B: <code class="language-plaintext highlighter-rouge">"정말 미워요 영원히 미워요"</code></li>
+  <li><strong>문서 A (Doc_A)</strong>: <code class="language-plaintext highlighter-rouge">"사랑해요 당신 정말 사랑해요"</code></li>
+  <li><strong>문서 B (Doc_B)</strong>: <code class="language-plaintext highlighter-rouge">"정말 미워요 영원히 미워요"</code></li>
 </ul>
 
-<h3 id="step-1-전체-토큰구슬-백과사전-생성">STEP 1: 전체 토큰(구슬) 백과사전 생성</h3>
-<p>두 문서에 나온 모든 유니크한 단어들을 모아 단어 사전을 번호표와 함께 배열합니다.
-\(\text{Vocabulary Index} = \begin{bmatrix} 0:\text{사랑해요} &amp; 1:\text{당신} &amp; 2:\text{정말} &amp; 3:\text{미워요} &amp; 4:\text{영원히} \end{bmatrix}\)</p>
+<h3 id="1-step-1-전체-토큰구슬-백과사전-맵핑-생성">1. STEP 1: 전체 토큰(구슬) 백과사전 맵핑 생성</h3>
+<p>두 문서에서 튀어나온 모든 유니크한(고유한) 단어들을 중복 없이 모아 단어 사전을 구축하고 칼럼($Column$) 번호표 인덱스를 배열합니다.
+\(\text{Vocabulary Index} = \begin{bmatrix} 0 \text{:(사랑해요)} &amp; 1 \text{:(당신)} &amp; 2 \text{:(정말)} &amp; 3 \text{:(미워요)} &amp; 4 \text{:(영원히)} \end{bmatrix}\)</p>
 
-<h3 id="step-2-빈도수-변환-행렬-채우기-dtm-문서-단어-행렬">STEP 2: 빈도수 변환 행렬 채우기 (DTM: 문서-단어 행렬)</h3>
-<p>해당 문서에서 단어가 튀어나온 횟수만큼 숫자를 1, 2, 3 차곡차곡 쌓아 올려서 벡터를 이쁘게 반환합니다.</p>
+<h3 id="2-step-2-빈도수-변환-행렬-채우기-dtm-문서-단어-행렬">2. STEP 2: 빈도수 변환 행렬 채우기 (DTM: 문서-단어 행렬)</h3>
+<p>각 문서 가방을 뒤져서 단어가 튀어나온 횟수만큼 숫자를 $1, 2, 3$ 차곡차곡 쌓아 올려서 어마어마한 크기의 <strong>문서-단어 행렬(DTM, Document-Term Matrix)</strong> 을 이쁘게 반환합니다.</p>
 
-\[\text{Matrix}(V) = \begin{bmatrix} 
-\text{(Doc A)} &amp; 2 (\text{사랑}) &amp; 1 (\text{당신}) &amp; 1 (\text{정말}) &amp; 0 &amp; 0 \\
-\text{(Doc B)} &amp; 0 &amp; 0 &amp; 1 (\text{정말}) &amp; 2 (\text{미워}) &amp; 1 (\text{영원}) 
+\[\text{DTM Matrix} = \begin{bmatrix} 
+\text{(Doc A)} &amp; \mathbf{2} &amp; \mathbf{1} &amp; \mathbf{1} &amp; 0 &amp; 0 \\
+\text{(Doc B)} &amp; 0 &amp; 0 &amp; \mathbf{1} &amp; \mathbf{2} &amp; \mathbf{1} 
 \end{bmatrix}\]
 
-<h2 id="02-bow의-잔혹한-한계점-눈치-없음">02. BoW의 잔혹한 한계점 (눈치 없음)</h2>
-<p>매우 직관적이고 카운트 숫자를 세기가 편해서 초창기 기계학습 모델의 황금기로 쓰였으나, 순서(맥락)가 파괴되었다는 치명적인 맹점이 존재합니다.</p>
+<p>이렇게 거대한 문서 텍스트 덩어리들을 고작 5칸짜리 숫자로 이루어진 밀도 있는 압축 배열로 줄임으로써, 기계학습 모델에 1초 만에 들이부어 통계를 돌릴 수 있게 되었습니다!</p>
+
+<hr />
+
+<h2 id="163-bow의-잔혹한-한계점-눈치-없음의-극치">1.6.3 BoW의 잔혹한 한계점 (눈치 없음의 극치)</h2>
+
+<p><img src="./img/bow_blind.svg" alt="BoW Blind" /></p>
+
+<p>매우 메모리 공간 직관적이고 카운트 숫자를 세기가 편해서 이 모델은 초창기 기계학습(머신러닝) 모델의 황금기를 주름잡았으나, 가장 치명적인 <strong>문맥 파괴의 맹점</strong>이 시스템을 좀먹어 들어갔습니다.</p>
 
 <ul>
-  <li>문서 1: <code class="language-plaintext highlighter-rouge">"강아지가 나를 너무 안 좋아해서 나는 슬프다"</code></li>
-  <li>문서 2: <code class="language-plaintext highlighter-rouge">"내가 강아지를 너무 안 좋아해서 강아지가 슬프다"</code></li>
+  <li><strong>문서 1</strong>: <code class="language-plaintext highlighter-rouge">"강아지가 나를 너무 안 좋아해서 나는 슬프다"</code></li>
+  <li><strong>문서 2</strong>: <code class="language-plaintext highlighter-rouge">"내가 강아지를 너무 안 좋아해서 강아지가 슬프다"</code></li>
 </ul>
 
-<p>놀랍게도 2개 문장이 내뿜는 메시지와 결과의 비극은 완전히 주인공이 다르게 정반대입니다! 하지만 이를 BoW 주머니에 넣으면?</p>
+<p>놀랍게도 두 문장이 내뿜는 메시지와 결과의 비극은 완전히 주인공이 뒤바뀌어 정반대입니다. (문서 1에서는 강아지가 가해자이지만, 문서 2에서는 내가 가해자입니다). 하지만 이 두 문장을 BoW 주머니에 넣으면 충격적인 답변이 돌아옵니다.</p>
 <blockquote>
-  <p><strong>BoW의 결론: “문서 1과 문서 2는 쓰인 단어(강아지, 좋아, 슬프다)의 출현 빈도수 횟수가 완전히 100% 똑같은 숫자네!? 고로 저 두 문서는 동일한 뜻과 주제의 문서다 삐리비립!”</strong></p>
+  <p><strong>고전 BoW AI의 결론: “문서 1과 문서 2는 쓰인 단어(강아지, 좋아, 슬프다)의 출현 빈도수 횟수가 수학적으로 완벽히 100% 똑같은 숫자입니다. 고로 저 두 문서는 동일한 감정과 뜻을 가진 클론 문서입니다 삐리비립!”</strong></p>
 </blockquote>
 
-<p>이렇게 멍청한 카운팅의 한계를 넘기 위해 “그럼 흔한 단어(은, 는, 이, 가)는 숫자가 아무리 무식하게 많아도 카운트를 일부러 왕창 깎아내려(Penalty) 버리자!” 라고 진화한 가중치 조절 사상, ‘TF-IDF’ 모델로 세상은 진화하게 됩니다.</p>
+<p>이렇게 멍청한 산술 카운팅의 한계를 넘기 위해 다음 주차(02주차)에서는 고민에 빠지게 됩니다. 
+<em>“그럼 문장의 생사를 가르지도 못하는 흔한 조사 단어(은, 는, 이, 가)는 숫자가 아무리 무식하게 카운팅 되어도 점수를 일부러 왕창 깎아내려(Penalty) 버리자!”</em> 
+이러한 TF(빈도)와 IDF(역문서 페널티) 가중치 조절 사상, 바로 그 유명한 <strong>TF-IDF 모델</strong>로 세상은 한 단계 더 눈부시게 진화하게 됩니다.</p>
+
+
+            <!-- 이전/다음 페이징 출력 -->
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="d-flex justify-content-between align-items-center mt-5 mb-4 pt-4 border-top">
+  
+    <a href="/basic/01/sec05/" class="btn btn-light border text-start text-decoration-none shadow-sm" style="max-width: 48%;">
+      <div class="small text-muted mb-1 font-monospace">&laquo; 이전 모듈</div>
+      <div class="fw-bold text-dark text-truncate">1.5 벡터화 수치 계산</div>
+    </a>
+  
+
+  
+    <a href="/basic/02/" class="btn btn-light border text-end text-decoration-none shadow-sm" style="max-width: 48%;">
+      <div class="small text-muted mb-1 font-monospace">다음 모듈 &raquo;</div>
+      <div class="fw-bold text-primary text-truncate">2. 텍스트 전처리와 통계</div>
+    </a>
+  
+</div>
+
 
 
             <!-- 구글 애드센스 출력 -->

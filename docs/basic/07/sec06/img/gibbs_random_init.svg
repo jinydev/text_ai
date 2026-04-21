@@ -1,0 +1,60 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">깁스 샘플링 극초기 상태 (t=0) : 아무 데나 막 붙여버리는 난장판 스티커</text>
+
+  <!-- Title / Legend -->
+  <text x="400" y="70" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">기계는 처음엔 정답을 맞히려고 노력하지 않습니다. 그냥 미친 듯이 랜덤 토픽 스티커를 막 찍어 바릅니다.</text>
+
+  <!-- The Document Environment -->
+  <rect x="50" y="100" width="700" height="150" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
+  <rect x="50" y="100" width="700" height="30" fill="#475569" rx="5"/>
+  <text x="400" y="120" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">관측 데이터 문서 1번 (Document 01)</text>
+
+  <!-- Word 1 -->
+  <text x="120" y="180" fill="#cbd5e1" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">국회</text>
+  <rect x="100" y="195" width="40" height="20" fill="#ef4444" rx="3"/>
+  <text x="120" y="210" fill="#fef2f2" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">T-1</text>
+  <path d="M 120 195 L 120 185" stroke="#fca5a5" stroke-width="2" fill="none"/>
+
+  <!-- Word 2 -->
+  <text x="210" y="180" fill="#cbd5e1" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">의원</text>
+  <rect x="190" y="195" width="40" height="20" fill="#3b82f6" rx="3"/>
+  <text x="210" y="210" fill="#fef2f2" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">T-5</text>
+  <path d="M 210 195 L 210 185" stroke="#93c5fd" stroke-width="2" fill="none"/>
+
+  <!-- Word 3 -->
+  <text x="310" y="180" fill="#cbd5e1" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">펀드</text>
+  <rect x="290" y="195" width="40" height="20" fill="#10b981" rx="3"/>
+  <text x="310" y="210" fill="#fef2f2" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">T-2</text>
+  <path d="M 310 195 L 310 185" stroke="#6ee7b7" stroke-width="2" fill="none"/>
+
+  <!-- Word 4 -->
+  <text x="400" y="180" fill="#cbd5e1" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">선거</text>
+  <rect x="380" y="195" width="40" height="20" fill="#f59e0b" rx="3"/>
+  <text x="400" y="210" fill="#fef2f2" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">T-9</text>
+  <path d="M 400 195 L 400 185" stroke="#fcd34d" stroke-width="2" fill="none"/>
+
+  <!-- Word 5 -->
+  <text x="500" y="180" fill="#cbd5e1" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">주식</text>
+  <rect x="480" y="195" width="40" height="20" fill="#ef4444" rx="3"/>
+  <text x="500" y="210" fill="#fef2f2" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">T-1</text>
+  <path d="M 500 195 L 500 185" stroke="#fca5a5" stroke-width="2" fill="none"/>
+
+  <!-- Word 6 -->
+  <text x="600" y="180" fill="#cbd5e1" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">대통령</text>
+  <rect x="580" y="195" width="40" height="20" fill="#8b5cf6" rx="3"/>
+  <text x="600" y="210" fill="#fef2f2" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">T-3</text>
+  <path d="M 600 195 L 600 185" stroke="#c4b5fd" stroke-width="2" fill="none"/>
+
+  <!-- Word 7 -->
+  <text x="690" y="180" fill="#cbd5e1" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">금리</text>
+  <rect x="670" y="195" width="40" height="20" fill="#ec4899" rx="3"/>
+  <text x="690" y="210" fill="#fef2f2" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">T-7</text>
+  <path d="M 690 195 L 690 185" stroke="#f9a8d4" stroke-width="2" fill="none"/>
+
+  <!-- Big Fail Box -->
+  <rect x="150" y="260" width="500" height="30" fill="#450a0a" rx="5"/>
+  <text x="400" y="280" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">초기 상태는 논리가 완전히 붕괴된 100% 무작위 쓰레기 정답표 상태!</text>
+
+</svg>

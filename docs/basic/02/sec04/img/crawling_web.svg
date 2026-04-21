@@ -1,0 +1,26 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">1단계. 말뭉치 수집 (Corpus Collection): 인터넷을 통째로 긁어오기</text>
+
+  <!-- World -->
+  <circle cx="150" cy="150" r="60" fill="#0f172a" stroke="#3b82f6" stroke-width="4"/>
+  <path d="M 110 120 Q 150 160 190 120" stroke="#1e3a8a" stroke-width="3" fill="none"/>
+  <path d="M 110 180 Q 150 140 190 180" stroke="#1e3a8a" stroke-width="3" fill="none"/>
+  <text x="150" y="240" fill="#60a5fa" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">WWW 웹 환경</text>
+  <text x="150" y="260" fill="#93c5fd" font-family="sans-serif" font-size="12" text-anchor="middle">(기사, 트위터, 블로그)</text>
+
+  <!-- Net / Crawler -->
+  <path d="M 220 120 L 400 60 L 400 240 L 220 180 Z" fill="#334155" opacity="0.6" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="310" y="160" fill="#fbbf24" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">거대한 그물망</text>
+  <text x="310" y="180" fill="#fbbf24" font-family="sans-serif" font-size="14" text-anchor="middle">(웹 크롤링 Spider)</text>
+
+  <path d="M 420 150 L 520 150" stroke="#f59e0b" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <!-- Raw Corpus -->
+  <rect x="550" y="80" width="200" height="150" fill="#1e293b" stroke="#10b981" stroke-width="3" rx="10"/>
+  <text x="650" y="130" fill="#34d399" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">수조 개의 원시 텍스트</text>
+  <text x="650" y="160" fill="#6ee7b7" font-family="sans-serif" font-size="14" text-anchor="middle">(Raw Corpus 데이터셋)</text>
+  <text x="650" y="200" fill="#10b981" font-family="sans-serif" font-size="12" text-anchor="middle">아직 먼지가 하나도 안 닦인 상태</text>
+
+</svg>

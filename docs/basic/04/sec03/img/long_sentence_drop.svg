@@ -1,0 +1,39 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">문장이 길어질수록 멸망해가는 데이터 베이스 (Curse of Sparsity)</text>
+
+  <!-- Graph Axis -->
+  <line x1="100" y1="230" x2="700" y2="230" stroke="#475569" stroke-width="3"/>
+  <line x1="100" y1="230" x2="100" y2="70" stroke="#475569" stroke-width="3"/>
+
+  <!-- Y Axis Labels -->
+  <text x="90" y="80" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="end">검색 결과량 (100만 건)</text>
+  <text x="90" y="235" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="end">0 건 (절멸)</text>
+
+  <!-- X Axis Labels -->
+  <text x="720" y="235" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="start">단어 연결 길이 (Length)</text>
+
+  <!-- Curve (Exponential Drop) -->
+  <path d="M 150 90 Q 250 220 650 227" fill="none" stroke="#ef4444" stroke-width="4"/>
+
+  <!-- Points and Text -->
+  <circle cx="150" cy="90" r="6" fill="#fca5a5"/>
+  <text x="150" y="115" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="start">1단어: "소년이"</text>
+  
+  <circle cx="250" cy="180" r="6" fill="#fcd34d"/>
+  <text x="250" y="165" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="start">2단어: "착한 소년이"</text>
+
+  <circle cx="350" cy="215" r="6" fill="#34d399"/>
+  <text x="350" y="200" fill="#34d399" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="start">3단어: "어제 전학 온 착한 소년이"</text>
+
+  <circle cx="500" cy="227" r="6" fill="#a8a29e"/>
+  <text x="500" y="210" fill="#a8a29e" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="start">N단어: "지옥의 솜사탕 불을..."</text>
+
+  <!-- Highlight the Zero Sparsity state -->
+  <rect x="520" y="235" width="130" height="25" fill="#450a0a" rx="5"/>
+  <text x="585" y="253" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Sparsity (절대 희소 구역)</text>
+
+  <text x="400" y="285" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">붙어있는 단어가 3개만 넘어가더라도, 그 조합이 세상에 존재했을 확률은 로또 1등 확률 마냥 땅바닥(Zero)으로 내리꽂힙니다.</text>
+
+</svg>

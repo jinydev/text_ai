@@ -1,0 +1,27 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">토큰 단위의 크기 논쟁 (스테이크를 써는 3가지 방식)</text>
+
+  <rect x="100" y="80" width="600" height="40" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
+  <text x="400" y="105" fill="#f8fafc" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">A I a m a b o y . I c o d e .</text>
+
+  <!-- Character -->
+  <rect x="100" y="150" width="180" height="100" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="190" y="180" fill="#34d399" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">1. 문자 단위</text>
+  <text x="190" y="210" fill="#ecfdf5" font-family="sans-serif" font-size="16" text-anchor="middle">['A', 'I', ' ', 'a', 'm'..]</text>
+  <text x="190" y="235" fill="#6ee7b7" font-family="sans-serif" font-size="12" text-anchor="middle">미세입자 파괴, 너무 길다</text>
+
+  <!-- Word -->
+  <rect x="310" y="150" width="180" height="100" fill="#1e293b" stroke="#fbbf24" stroke-width="2" rx="5"/>
+  <text x="400" y="180" fill="#fbbf24" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">2. 단어 단위 (표준)</text>
+  <text x="400" y="210" fill="#fffbeb" font-family="sans-serif" font-size="16" text-anchor="middle">['AI', 'am', 'a', 'boy']</text>
+  <text x="400" y="235" fill="#fde68a" font-family="sans-serif" font-size="12" text-anchor="middle">황금 비율, 가장 대중적</text>
+
+  <!-- Sentence -->
+  <rect x="520" y="150" width="180" height="100" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
+  <text x="610" y="180" fill="#60a5fa" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">3. 문장 단위</text>
+  <text x="610" y="210" fill="#eff6ff" font-family="sans-serif" font-size="14" text-anchor="middle">['AI am a boy.', 'I code']</text>
+  <text x="610" y="235" fill="#93c5fd" font-family="sans-serif" font-size="12" text-anchor="middle">덩어리가 너무 커서 디테일 꽝</text>
+
+</svg>

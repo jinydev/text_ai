@@ -1,0 +1,36 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+
+  <!-- Axes -->
+  <g stroke="#475569" stroke-width="2">
+    <line x1="80" y1="350" x2="750" y2="350" /> <!-- X: 배트맨 빈도 -->
+    <line x1="80" y1="350" x2="80" y2="50" />  <!-- Y: 오토바이 빈도 -->
+  </g>
+  <text x="730" y="380" fill="#94a3b8" font-family="sans-serif" font-size="14">배트맨 빈도 수 (X축)</text>
+  <text x="80" y="40" fill="#94a3b8" font-family="sans-serif" font-size="14">오토바이 빈도 수 (Y축)</text>
+
+  <!-- Doc A -->
+  <circle cx="200" cy="300" r="8" fill="#3b82f6" />
+  <text x="220" y="305" fill="#60a5fa" font-family="sans-serif" font-size="16" font-weight="bold">문서 A (짧은 글)</text>
+
+  <!-- Doc C -->
+  <circle cx="160" cy="220" r="8" fill="#ef4444" />
+  <text x="10" y="225" fill="#f87171" font-family="sans-serif" font-size="16" font-weight="bold">문서 C (다른 주제)</text>
+  
+  <!-- Doc B -->
+  <circle cx="650" cy="112" r="10" fill="#eab308" />
+  <text x="610" y="90" fill="#fde047" font-family="sans-serif" font-size="16" font-weight="bold">문서 B (A를 100번 복사)</text>
+
+  <path d="M 80 350 L 200 300" stroke="#3b82f6" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+  <path d="M 80 350 L 650 112" stroke="#eab308" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+  <path d="M 80 350 L 160 220" stroke="#ef4444" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+
+  <!-- Problem lines Euclidean -->
+  <path d="M 200 300 L 160 220" stroke="#ef4444" stroke-width="4" opacity="0.8"/>
+  <text x="140" y="270" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold">거리: 매우 가깝다! (오류 발생)</text>
+
+  <path d="M 200 300 L 650 112" stroke="#fbbf24" stroke-width="4" stroke-dasharray="8,8" opacity="0.8"/>
+  <text x="400" y="200" fill="#fde047" font-family="sans-serif" font-size="14" font-weight="bold">거리: 미친듯이 멀다! (실제론 쌍둥이 문서임)</text>
+  
+  <text x="400" y="380" fill="#94a3b8" font-family="sans-serif" font-size="16" text-anchor="middle">물리적인 자인 유클리디안(Euclidean)은 문서의 절대적인 빈도수(길이) 스탯 커지면 붕괴합니다.</text>
+</svg>

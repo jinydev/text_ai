@@ -1,0 +1,33 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">기계의 인간화: 텍스트 껍데기를 넘어 숨은 '의도' 해독하기</text>
+
+  <!-- Human Input -->
+  <rect x="50" y="100" width="220" height="80" fill="#1e293b" stroke="#f59e0b" stroke-width="2" rx="5"/>
+  <text x="160" y="135" fill="#fcd34d" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">"아침 시간 여유 있냐?"</text>
+  <text x="160" y="160" fill="#fcd34d" font-family="sans-serif" font-size="14" text-anchor="middle">(표면: 시간의 잔여량 질문)</text>
+
+  <!-- Machine Processing -->
+  <path d="M 270 140 L 330 140" stroke="#fbbf24" stroke-width="4" marker-end="url(#arrow)"/>
+  
+  <circle cx="400" cy="140" r="60" fill="#334155" stroke="#94a3b8" stroke-width="3"/>
+  <text x="400" y="135" fill="#e2e8f0" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">NLP 뇌</text>
+  <text x="400" y="155" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">의도 추론기</text>
+
+  <!-- 2 Outcomes -->
+  <path d="M 460 120 L 520 90" stroke="#f43f5e" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 460 160 L 520 190" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Outcome 1 (Literal) -->
+  <rect x="530" y="60" width="220" height="60" fill="#450a0a" stroke="#ef4444" stroke-width="2" rx="5"/>
+  <text x="640" y="85" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">직역 (옛날 로봇)</text>
+  <text x="640" y="105" fill="#ef4444" font-family="sans-serif" font-size="14" text-anchor="middle">"네, 제 배터리 시간 많습니다."</text>
+
+  <!-- Outcome 2 (Intent) -->
+  <rect x="530" y="160" width="220" height="60" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="640" y="185" fill="#a7f3d0" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">의도 파악 (현대 AI)</text>
+  <text x="640" y="205" fill="#10b981" font-family="sans-serif" font-size="14" text-anchor="middle">"도움이 필요하신가요? 일정 확인해 드릴까요?"</text>
+
+  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">NLP의 궁극적인 임무는 인간의 돌려 말하기(의도)나 감정까지 통계적으로 눈치채서 완벽하게 응답하는 것입니다.</text>
+</svg>

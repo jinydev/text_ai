@@ -1,0 +1,52 @@
+<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="350" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">가정 1: 문서별 토픽 혼합 룰렛 지분표 (Theta, θ)</text>
+
+  <!-- Title / Legend -->
+  <text x="400" y="70" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">K-means 의 몰빵 (100% 종속) 과 대비되는 LDA 의 '비율 파이 혼합' 철학</text>
+
+
+  <!-- Document 01 Box (100% Fruit) -->
+  <rect x="50" y="100" width="200" height="150" fill="#1e293b" stroke="#fcd34d" stroke-width="2" rx="5"/>
+  <rect x="50" y="100" width="200" height="30" fill="#f59e0b" rx="5"/>
+  <text x="150" y="120" fill="#78350f" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">문서 01</text>
+  <text x="150" y="160" fill="#fef2f2" font-family="sans-serif" font-size="14" text-anchor="middle">"사과랑 바나나 달콤해"</text>
+  
+  <!-- Topic Pie -->
+  <path d="M 150 215 L 150 185 A 30 30 0 1 1 149.9 185 Z" fill="#b91c1c"/> <!-- 100% red circle -->
+  <text x="150" y="270" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">과일 토픽 100%</text>
+
+
+  <!-- Document 02 Box (100% Animal) -->
+  <rect x="300" y="100" width="200" height="150" fill="#1e293b" stroke="#fcd34d" stroke-width="2" rx="5"/>
+  <rect x="300" y="100" width="200" height="30" fill="#f59e0b" rx="5"/>
+  <text x="400" y="120" fill="#78350f" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">문서 02</text>
+  <text x="400" y="160" fill="#fef2f2" font-family="sans-serif" font-size="14" text-anchor="middle">"강아지가 꼬리를 쳐요"</text>
+  
+  <!-- Topic Pie -->
+  <path d="M 400 215 L 400 185 A 30 30 0 1 1 399.9 185 Z" fill="#1d4ed8"/> <!-- 100% blue circle -->
+  <text x="400" y="270" fill="#93c5fd" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">동물 토픽 100%</text>
+
+
+  <!-- Document 03 Box (Hybrid Mixed) -->
+  <rect x="550" y="100" width="200" height="180" fill="#022c22" stroke="#10b981" stroke-width="4" rx="5"/>
+  <rect x="550" y="100" width="200" height="30" fill="#059669" rx="5"/>
+  <text x="650" y="120" fill="#ecfdf5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">🚨 문제의 문서 03</text>
+  <text x="650" y="150" fill="#fef2f2" font-family="sans-serif" font-size="12" text-anchor="middle">"사육사가 강아지한테</text>
+  <text x="650" y="165" fill="#fef2f2" font-family="sans-serif" font-size="12" text-anchor="middle">맛있는 바나나를 줘요"</text>
+
+  <!-- Mixed Topic Pie -->
+  <path d="M 650 215 L 650 185 A 30 30 0 0 1 678.5 225 L 650 215 Z" fill="#b91c1c"/> <!-- Red pie for fruit ~45% -->
+  <path d="M 650 215 L 678.5 225 A 30 30 0 1 1 650 185 L 650 215 Z" fill="#1d4ed8"/> <!-- Blue pie for animal ~55% -->
+
+  <text x="610" y="260" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">과일 45%</text>
+  <text x="690" y="260" fill="#93c5fd" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">동물 55%</text>
+
+
+  <!-- Conclusion Text -->
+  <rect x="150" y="300" width="500" height="30" fill="#450a0a" rx="5"/>
+  <text x="400" y="320" fill="#f87171" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">LDA: "이 문서는 동물 폴더에 쳐박아! (X) -> 이 문서는 반반 짬뽕된 룰렛 (O)!"</text>
+
+
+</svg>

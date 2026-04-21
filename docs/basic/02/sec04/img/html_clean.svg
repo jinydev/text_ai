@@ -1,0 +1,22 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">2단계. 정제 (Cleaning) 쓰레기 소각장: HTML 태그와 오물 제거</text>
+
+  <!-- Dirty Data -->
+  <rect x="50" y="100" width="300" height="100" fill="#450a0a" stroke="#ef4444" stroke-width="2" rx="5"/>
+  <text x="200" y="130" fill="#fca5a5" font-family="monospace" font-size="16" text-anchor="middle">&lt;html&gt;&lt;body&gt;안녕하세요!&lt;/div&gt;</text>
+  <text x="200" y="160" fill="#fca5a5" font-family="monospace" font-size="16" text-anchor="middle">- ㅅ -;;;; ㅋㅋㅋㅋ @!#$</text>
+  <text x="200" y="230" fill="#ef4444" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">스크래핑 직후의 처참한 쓰레기 문자열</text>
+
+  <!-- Laser / Regular Expression -->
+  <path d="M 360 150 L 460 150" stroke="#f59e0b" stroke-width="6" stroke-dasharray="8,4" marker-end="url(#arrow)"/>
+  <rect x="360" y="120" width="100" height="20" fill="#fcd34d" rx="2"/>
+  <text x="410" y="135" fill="#854d0e" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">정규식 레이저빔</text>
+
+  <!-- Cleaned Data -->
+  <rect x="490" y="100" width="260" height="100" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="620" y="145" fill="#6ee7b7" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">안녕하세요 ㅋㅋㅋㅋ</text>
+  <text x="620" y="230" fill="#10b981" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">AI가 이해할 수 있는 알맹이 글자만 남음</text>
+
+</svg>

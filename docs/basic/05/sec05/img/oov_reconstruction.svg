@@ -1,0 +1,45 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">마법의 벡터 복원: 희소 오타(OOV) "apples"를 마주했을 때</text>
+
+  <!-- Unknown Typo Input -->
+  <rect x="40" y="80" width="160" height="150" fill="#450a0a" stroke="#ef4444" stroke-width="3" rx="10"/>
+  <text x="120" y="120" fill="#fca5a5" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">&#60;apples&#62;</text>
+  <text x="120" y="150" fill="#f87171" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">미지 단어 (OOV)</text>
+  <text x="120" y="170" fill="#ef4444" font-family="sans-serif" font-size="12" text-anchor="middle">사전 검색 결과: 0개</text>
+  
+  <path d="M 120 185 L 120 215" stroke="#ef4444" stroke-width="4" stroke-dasharray="5,5"/>
+  <text x="120" y="235" fill="#fef2f2" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Word2Vec은 에러 폭발!</text>
+
+
+  <!-- FastText Chopping Defense -->
+  <path d="M 210 150 L 260 150" stroke="#fcd34d" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  
+  <rect x="280" y="80" width="280" height="150" fill="#064e3b" stroke="#10b981" stroke-width="3" rx="10"/>
+  <text x="420" y="110" fill="#6ee7b7" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">1. 일단 내장 가위로 분해해!</text>
+  
+  <rect x="300" y="130" width="240" height="80" fill="#047857" rx="5"/>
+  <text x="420" y="150" fill="#a7f3d0" font-family="monospace" font-size="12" text-anchor="middle">&#60;ap + app + ppl ...</text>
+  <text x="420" y="170" fill="#a7f3d0" font-family="monospace" font-size="12" text-anchor="middle">+ ple + les + es&#62;</text>
+
+  <path d="M 420 180 L 420 210" stroke="#fcd34d" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="420" y="240" fill="#ecfdf5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">"헐? 저 찌꺼기 Vector 지식은 안다!"</text>
+
+
+  <!-- Vector Reconstruction -->
+  <path d="M 570 150 L 620 150" stroke="#10b981" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="640" y="80" width="130" height="150" fill="#1e3a8a" stroke="#3b82f6" stroke-width="3" rx="10"/>
+  <text x="705" y="110" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">2. 평균 혼합 복원</text>
+
+  <path d="M 670 180 L 705 130 L 740 180 Z" fill="#60a5fa" opacity="0.8"/>
+  <text x="705" y="170" fill="#eff6ff" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">유사 좌표</text>
+
+  <text x="705" y="210" fill="#bfdbfe" font-family="sans-serif" font-size="12" text-anchor="middle">Apple 옆공간에</text>
+  <text x="705" y="230" fill="#bfdbfe" font-family="sans-serif" font-size="12" text-anchor="middle">강제 위치 배정!</text>
+  
+  <!-- Conclusion -->
+  <text x="400" y="280" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">처음 보는 외계어 단어도 알파벳 파편들의 부분 통계를 합쳐서 극적으로 유사 공간 벡터 행성으로 유추 복원해 내는 기적!</text>
+
+</svg>

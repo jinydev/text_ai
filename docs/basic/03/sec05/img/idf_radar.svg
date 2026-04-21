@@ -1,0 +1,32 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+
+  <g stroke="#334155" stroke-width="1">
+    <circle cx="400" cy="220" r="150" fill="none"/>
+    <circle cx="400" cy="220" r="100" fill="none"/>
+    <circle cx="400" cy="220" r="50" fill="none"/>
+  </g>
+  <path d="M 400 220 L 520 100" stroke="#10b981" stroke-width="2" />
+  <circle cx="400" cy="220" r="5" fill="#10b981"/>
+
+  <!-- Unimportant words -->
+  <text x="280" y="170" fill="#64748b" font-family="sans-serif" font-size="16">이것</text>
+  <text x="320" y="300" fill="#64748b" font-family="sans-serif" font-size="16">그</text>
+  <text x="450" y="140" fill="#64748b" font-family="sans-serif" font-size="16">저것</text>
+  <text x="500" y="270" fill="#64748b" font-family="sans-serif" font-size="16">이다</text>
+
+  <text x="150" y="170" fill="#475569" font-family="sans-serif" font-size="14">DF: 99만 문서</text>
+  <path d="M 180 180 Q 250 200 270 170" fill="none" stroke="#ef4444" stroke-width="2"/>
+  <text x="180" y="200" fill="#ef4444" font-family="sans-serif" font-size="14" font-weight="bold">흔한 스팸 단어 (가중치 탈락)</text>
+
+  <!-- Important word -->
+  <circle cx="480" cy="200" r="25" fill="#a855f7" opacity="0.3"/>
+  <text x="480" y="205" fill="#c084fc" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">트랜스포머</text>
+
+  <text x="650" y="170" fill="#818cf8" font-family="sans-serif" font-size="14">DF: 1 문서</text>
+  <path d="M 620 180 Q 550 200 500 200" fill="none" stroke="#10b981" stroke-width="2"/>
+  <text x="650" y="200" fill="#10b981" font-family="sans-serif" font-size="14" font-weight="bold">초희귀 키워드!</text>
+  <text x="650" y="220" fill="#10b981" font-family="sans-serif" font-size="14" font-weight="bold">(+ 엄청난 보상 스코어)</text>
+
+  <text x="400" y="50" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">전체 문서 100만 건 스캔 레이더 (IDF)</text>
+</svg>

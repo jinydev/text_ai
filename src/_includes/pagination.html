@@ -1,0 +1,70 @@
+{% assign prev_item = nil %}
+{% assign next_item = nil %}
+{% assign found_current = false %}
+{% assign target_url = page.url | remove: "index.html" %}
+
+{% assign nav_source = site.data.navigation.main %}
+{% assign is_valid_nav = false %}
+
+{% if target_url contains '/basic/' and site.data.basic.main %}
+  {% assign nav_source = site.data.basic.main %}
+  {% assign is_valid_nav = true %}
+{% endif %}
+
+{% if is_valid_nav == false and site.data.navigation.main %}
+  {% assign nav_source = site.data.navigation.main %}
+{% endif %}
+
+{% if nav_source %}
+  {% for item in nav_source %}
+    {% if found_current and next_item == nil %}
+      {% assign next_item = item %}
+    {% endif %}
+    
+    {% if item.url == target_url %}
+      {% assign found_current = true %}
+    {% endif %}
+    
+    {% if found_current == false %}
+      {% assign prev_item = item %}
+    {% endif %}
+    
+    {% if item.subitems %}
+      {% for subitem in item.subitems %}
+        {% if found_current and next_item == nil %}
+          {% assign next_item = subitem %}
+        {% endif %}
+        
+        {% if subitem.url == target_url %}
+          {% assign found_current = true %}
+        {% endif %}
+        
+        {% if found_current == false %}
+          {% assign prev_item = subitem %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if prev_item or next_item %}
+<div class="d-flex justify-content-between align-items-center mt-5 mb-4 pt-4 border-top">
+  {% if prev_item %}
+    <a href="{{ site.baseurl }}{{ prev_item.url }}" class="btn btn-light border text-start text-decoration-none shadow-sm" style="max-width: 48%;">
+      <div class="small text-muted mb-1 font-monospace">&laquo; 이전 모듈</div>
+      <div class="fw-bold text-dark text-truncate">{{ prev_item.title }}</div>
+    </a>
+  {% else %}
+    <div></div>
+  {% endif %}
+
+  {% if next_item %}
+    <a href="{{ site.baseurl }}{{ next_item.url }}" class="btn btn-light border text-end text-decoration-none shadow-sm" style="max-width: 48%;">
+      <div class="small text-muted mb-1 font-monospace">다음 모듈 &raquo;</div>
+      <div class="fw-bold text-primary text-truncate">{{ next_item.title }}</div>
+    </a>
+  {% else %}
+    <div></div>
+  {% endif %}
+</div>
+{% endif %}

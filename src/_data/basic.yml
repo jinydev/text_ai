@@ -1,0 +1,112 @@
+main:
+  - title: "1. 자연언어 처리 소개"
+    url: /basic/01/
+    subitems:
+      - title: "1.1 마이닝의 본질"
+        url: /basic/01/sec01/
+      - title: "1.2 모호성과 특성"
+        url: /basic/01/sec02/
+      - title: "1.3 고전 분석 한계"
+        url: /basic/01/sec03/
+      - title: "1.4 LLM의 환각 방어"
+        url: /basic/01/sec04/
+      - title: "1.5 벡터화 수치 계산"
+        url: /basic/01/sec05/
+      - title: "1.6 실무 산업 활용 사례"
+        url: /basic/01/sec06/
+
+  - title: "2. 텍스트 전처리와 통계"
+    url: /basic/02/
+    subitems:
+      - title: "2.1 언어학적 계층 구조"
+        url: /basic/02/sec01/
+      - title: "2.2 토큰화와 품사 태깅"
+        url: /basic/02/sec02/
+      - title: "2.3 N-gram과 청킹"
+        url: /basic/02/sec03/
+      - title: "2.4 전처리 파이프라인"
+        url: /basic/02/sec04/
+      - title: "2.5 다이어트와 정규표현식"
+        url: /basic/02/sec05/
+      - title: "2.6 BPE 서브워드 방어막"
+        url: /basic/02/sec06/
+
+  - title: "3. 텍스트 표현과 벡터 공간"
+    url: /basic/03/
+    subitems:
+      - title: "3.1 고전 벡터 공간"
+        url: /basic/03/sec01/
+      - title: "3.2 원-핫 인코딩의 저주"
+        url: /basic/03/sec02/
+      - title: "3.3 BoW와 DTM 행렬"
+        url: /basic/03/sec03/
+      - title: "3.4 지프(Zipf)의 법칙 한계"
+        url: /basic/03/sec04/
+      - title: "3.5 TF-IDF 보정 방정식"
+        url: /basic/03/sec05/
+      - title: "3.6 코사인 벡터 유사도"
+        url: /basic/03/sec06/
+
+  - title: "4. 언어 모델 성능 평가"
+    url: /basic/04/
+    subitems:
+      - title: "4.1 확률 맞추기 통계 도박"
+        url: /basic/04/sec01/
+      - title: "4.2 조건부 확률 연쇄 법칙"
+        url: /basic/04/sec02/
+      - title: "4.3 희소성 폭발 에러"
+        url: /basic/04/sec03/
+      - title: "4.4 마르코프 단절의 꼼수"
+        url: /basic/04/sec04/
+      - title: "4.5 Perplexity 분기 채점관"
+        url: /basic/04/sec05/
+      - title: "4.6 MMLU와 환각 판독기"
+        url: /basic/04/sec06/
+
+  - title: "5. 워드 임베딩 제국"
+    url: /basic/05/
+    subitems:
+      - title: "5.1 좌표 스코프 선형대수학"
+        url: /basic/05/sec01/
+      - title: "5.2 NNLM과 룩업 테이블"
+        url: /basic/05/sec02/
+      - title: "5.3 CBOW와 Skip-gram"
+        url: /basic/05/sec03/
+      - title: "5.4 SGNS 이진 게임 치팅"
+        url: /basic/05/sec04/
+      - title: "5.5 FastText 알파벳 분해"
+        url: /basic/05/sec05/
+      - title: "5.6 GloVe 교란식 오차 함수"
+        url: /basic/05/sec06/
+
+  - title: "6. 분류 판독 확률 모터"
+    url: /basic/06/
+    subitems:
+      - title: "6.1 기계학습 파이프라인 모터"
+        url: /basic/06/sec01/
+      - title: "6.2 나이브 베이즈 확률론"
+        url: /basic/06/sec02/
+      - title: "6.3 로지스틱과 소프트맥스"
+        url: /basic/06/sec03/
+      - title: "6.4 모의고사 K-Fold 로테이션"
+        url: /basic/06/sec04/
+      - title: "6.5 혼동 행렬의 진실 판독"
+        url: /basic/06/sec05/
+      - title: "6.6 정밀도, 재현율, ROC 지표"
+        url: /basic/06/sec06/
+
+  - title: "7. 텍스트 분석 조물주 (토픽)"
+    url: /basic/07/
+    subitems:
+      - title: "7.1 비지도 자율주행 한계망"
+        url: /basic/07/sec01/
+      - title: "7.2 LSA 매트릭스 특이값 분해"
+        url: /basic/07/sec02/
+      - title: "7.3 역방향 확률 생성 모델"
+        url: /basic/07/sec03/
+      - title: "7.4 LDA 디리클레 파라미터"
+        url: /basic/07/sec04/
+      - title: "7.5 확률 플레이트 기하학"
+        url: /basic/07/sec05/
+      - title: "7.6 MCMC 깁스 샘플링 커닝"
+        url: /basic/07/sec06/

@@ -1,0 +1,29 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">언어생성의 본질: 창조적 예술이 아닌 1초에 수천 번 던지는 확률 주사위</text>
+
+  <!-- Left: The Myth -->
+  <rect x="50" y="80" width="300" height="150" fill="#1e293b" stroke="#ef4444" stroke-width="3" stroke-dasharray="5,5" rx="10"/>
+  <text x="200" y="115" fill="#fca5a5" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">인간의 착각 (Myth)</text>
+  
+  <text x="200" y="160" fill="#fecaca" font-family="sans-serif" font-size="14" text-anchor="middle">"AI도 나처럼 전체 문맥과 상황을</text>
+  <text x="200" y="180" fill="#fecaca" font-family="sans-serif" font-size="14" text-anchor="middle">상상하고 기승전결(플롯)을 그려서</text>
+  <text x="200" y="200" fill="#fecaca" font-family="sans-serif" font-size="14" text-anchor="middle">글을 예술적으로 창조하는구나!"</text>
+  <text x="200" y="140" fill="#ef4444" font-family="sans-serif" font-size="20" text-anchor="middle">❌</text>
+
+  <!-- Right: The Reality -->
+  <rect x="450" y="80" width="300" height="150" fill="#064e3b" stroke="#10b981" stroke-width="3" rx="10"/>
+  <text x="600" y="115" fill="#6ee7b7" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">수학적 진실 (Fact)</text>
+
+  <rect x="490" y="130" width="220" height="80" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
+  <text x="600" y="150" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">"나는 밥을..."</text>
+  <text x="560" y="175" fill="#fcd34d" font-family="sans-serif" font-size="14" text-anchor="middle">🎲 먹는다 (85%)</text>
+  <text x="560" y="195" fill="#fcd34d" font-family="sans-serif" font-size="14" text-anchor="middle">🎲 남겼다 (10%)</text>
+  
+  <path d="M 640 170 L 680 170" stroke="#fca5a5" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="660" y="165" fill="#ef4444" font-family="sans-serif" font-size="10" text-anchor="middle">차버렸다 (0%)</text>
+
+  <text x="400" y="265" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">인공지능은 그저 과거의 수백억 장 텍스트 통계에 의존하여, "방금 친 글자 바로 다음에 올 가장 확률 높은 한 자릿수"를 맞추는 도박사입니다.</text>
+
+</svg>

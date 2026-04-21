@@ -1,0 +1,31 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">엘리트 통역사(NLP) vs. 엑셀 데이터 분석가(Text Mining)</text>
+
+  <!-- NLP Side -->
+  <rect x="50" y="80" width="300" height="150" fill="#1e293b" stroke="#3b82f6" stroke-width="3" rx="10"/>
+  <text x="200" y="115" fill="#60a5fa" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">자연언어처리 (NLP)</text>
+  <text x="200" y="145" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">"인간처럼 말하고 듣기"</text>
+
+  <rect x="110" y="165" width="180" height="40" fill="#1e3a8a" rx="5"/>
+  <text x="200" y="190" fill="#bfdbfe" font-family="sans-serif" font-size="14" text-anchor="middle">챗봇, 번역기, 아이폰 Siri</text>
+
+  <path d="M 200 230 L 200 250" stroke="#3b82f6" stroke-width="2"/>
+  <text x="200" y="270" fill="#60a5fa" font-family="sans-serif" font-size="14" text-anchor="middle">언어학적 교감 (Communication)</text>
+
+  <!-- Text Mining Side -->
+  <rect x="450" y="80" width="300" height="150" fill="#1e293b" stroke="#10b981" stroke-width="3" rx="10"/>
+  <text x="600" y="115" fill="#34d399" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">텍스트 마이닝 (Text Mining)</text>
+  <text x="600" y="145" fill="#6ee7b7" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">"글에서 황금 통계 논리 캐내기"</text>
+
+  <rect x="510" y="165" width="180" height="40" fill="#064e3b" rx="5"/>
+  <text x="600" y="190" fill="#a7f3d0" font-family="sans-serif" font-size="14" text-anchor="middle">리뷰 감성 통계, 트렌드 분석</text>
+
+  <path d="M 600 230 L 600 250" stroke="#10b981" stroke-width="2"/>
+  <text x="600" y="270" fill="#34d399" font-family="sans-serif" font-size="14" text-anchor="middle">비즈니스 수익 창출 (Insight)</text>
+
+  <!-- Divider -->
+  <line x1="400" y1="80" x2="400" y2="230" stroke="#64748b" stroke-width="2" stroke-dasharray="5,5"/>
+
+</svg>

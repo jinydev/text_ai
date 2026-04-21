@@ -1,0 +1,28 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Garbage In, Garbage Out (GIGO): 절대 변하지 않는 진리</text>
+
+  <!-- Garbage In -->
+  <rect x="100" y="80" width="150" height="150" fill="#7f1d1d" stroke="#ef4444" stroke-width="3" rx="10"/>
+  <text x="175" y="140" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">&lt;html&gt; @!# </text>
+  <text x="175" y="170" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">오타 투성이 오물</text>
+  <text x="175" y="210" fill="#ef4444" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">Garbage (쓰레기)</text>
+
+  <path d="M 270 150 L 370 150" stroke="#f59e0b" stroke-width="6" stroke-dasharray="10,5" marker-end="url(#arrow)"/>
+
+  <!-- AI Brain -->
+  <circle cx="400" cy="150" r="50" fill="#020617" stroke="#3b82f6" stroke-width="4"/>
+  <text x="400" y="145" fill="#60a5fa" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">수백억</text>
+  <text x="400" y="165" fill="#60a5fa" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">최첨단 AI</text>
+
+  <path d="M 430 150 L 530 150" stroke="#f59e0b" stroke-width="6" stroke-dasharray="10,5" marker-end="url(#arrow)"/>
+
+  <!-- Garbage Out -->
+  <rect x="550" y="80" width="150" height="150" fill="#7f1d1d" stroke="#ef4444" stroke-width="3" rx="10"/>
+  <text x="625" y="155" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">엉터리 환각 답변</text>
+  <text x="625" y="210" fill="#ef4444" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">Garbage (쓰레기)</text>
+
+  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">아무리 뛰어난 ChatGPT급 신경망 뇌를 가졌더라도, 오물이 묻은 데이터를 입력하면 그 시스템은 평생 오물만 뱉어냅니다.</text>
+
+</svg>

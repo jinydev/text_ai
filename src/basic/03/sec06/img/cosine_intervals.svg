@@ -1,0 +1,43 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">코사인 측정기의 3대 마법 구간 판별</text>
+
+  <!-- 1st condition -->
+  <g transform="translate(130, 250)">
+    <line x1="0" y1="0" x2="100" y2="0" stroke="#475569" stroke-width="2"/>
+    <line x1="0" y1="0" x2="0" y2="-100" stroke="#475569" stroke-width="2"/>
+    <!-- Vectors overlapping -->
+    <path d="M 0 0 L 80 -80" stroke="#10b981" stroke-width="8"/>
+    <path d="M 0 0 L 120 -120" stroke="#3b82f6" stroke-width="4"/>
+    <text x="60" y="50" fill="#10b981" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">세타(θ) = 0°</text>
+    <text x="60" y="80" fill="#cbd5e1" font-family="sans-serif" font-size="16" text-anchor="middle">Cosine = 1.0</text>
+    <text x="60" y="110" fill="#6ee7b7" font-family="sans-serif" font-size="14" text-anchor="middle">완벽한 쌍둥이 내용</text>
+  </g>
+
+  <!-- 2nd condition -->
+  <g transform="translate(400, 250)">
+    <line x1="0" y1="0" x2="100" y2="0" stroke="#475569" stroke-width="2"/>
+    <line x1="0" y1="0" x2="0" y2="-100" stroke="#475569" stroke-width="2"/>
+    <path d="M 0 0 L 100 -40" stroke="#10b981" stroke-width="4"/>
+    <path d="M 0 0 L 40 -100" stroke="#3b82f6" stroke-width="4"/>
+    <path d="M 35 -15 A 40 40 0 0 0 15 -35" stroke="#f59e0b" fill="none" stroke-width="3"/>
+    <text x="50" y="50" fill="#f59e0b" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">세타(θ) = 45° 부근</text>
+    <text x="50" y="80" fill="#cbd5e1" font-family="sans-serif" font-size="16" text-anchor="middle">Cosine = 0.7 내외</text>
+    <text x="50" y="110" fill="#fbbf24" font-family="sans-serif" font-size="14" text-anchor="middle">느슨하게 겹치는 논조</text>
+  </g>
+
+  <!-- 3rd condition -->
+  <g transform="translate(670, 250)">
+    <line x1="0" y1="0" x2="100" y2="0" stroke="#475569" stroke-width="2"/>
+    <line x1="0" y1="0" x2="0" y2="-100" stroke="#475569" stroke-width="2"/>
+    <path d="M 0 0 L 120 0" stroke="#10b981" stroke-width="5"/>
+    <path d="M 0 0 L 0 -120" stroke="#3b82f6" stroke-width="5"/>
+    <rect x="0" y="-20" width="20" height="20" fill="none" stroke="#ef4444" stroke-width="2"/>
+    <text x="50" y="50" fill="#ef4444" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">세타(θ) = 90° (직교)</text>
+    <text x="50" y="80" fill="#cbd5e1" font-family="sans-serif" font-size="16" text-anchor="middle">Cosine = 0</text>
+    <text x="50" y="110" fill="#fca5a5" font-family="sans-serif" font-size="14" text-anchor="middle">단어가 하나도 공유 안 됨</text>
+  </g>
+
+  <text x="400" y="380" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">자연어 빈도는 마이너스가 존재하지 않으므로 우상향 제1사분면 좌표 공간 위에서만 매핑됩니다.</text>
+</svg>

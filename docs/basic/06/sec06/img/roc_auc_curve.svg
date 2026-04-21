@@ -1,0 +1,53 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">권위의 마침표 ROC 곡선: 모델의 알몸 기초체력 측정 (AUC)</text>
+
+  <!-- Graph Framework -->
+  <line x1="150" y1="320" x2="650" y2="320" stroke="#64748b" stroke-width="3"/> <!-- X-axis -->
+  <line x1="150" y1="80" x2="150" y2="320" stroke="#64748b" stroke-width="3"/> <!-- Y-axis -->
+  
+  <text x="400" y="355" fill="#94a3b8" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">억울한 생사람을 잡는 비율 (False Positive Rate, FPR)</text>
+  
+  <text x="50" y="200" fill="#94a3b8" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" transform="rotate(-90 50,200)">진짜 범인을 맞춘 비율 (True Positive Rate = Recall)</text>
+
+  <!-- Ticks -->
+  <text x="135" y="85" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="end">1.0</text>
+  <text x="135" y="325" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="end">0.0</text>
+  
+  <text x="650" y="340" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="middle">1.0</text>
+
+
+  <!-- Diagonal Base Line (Random Guessing) -->
+  <line x1="150" y1="320" x2="650" y2="80" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="560" y="200" fill="#fca5a5" font-family="sans-serif" font-size="12" text-anchor="start">AUC = 0.5</text>
+  <text x="560" y="215" fill="#f87171" font-family="sans-serif" font-size="12" text-anchor="start">동전던지기 원숭이수준</text>
+
+
+  <!-- High Performance Curve (Good Model) -->
+  <!-- We fill the area first -->
+  <path d="M 150 320 C 150 150 250 100 650 80 L 650 320 Z" fill="#1e3a8a" opacity="0.4"/>
+  <path d="M 150 320 C 150 150 250 100 650 80" stroke="#3b82f6" stroke-width="4" fill="none"/>
+  
+  
+  <!-- Perfection point -->
+  <circle cx="150" cy="80" r="6" fill="#fcd34d"/>
+  <text x="150" y="60" fill="#fbbf24" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="start">신의 경지 (이상적 도달점)</text>
+  <text x="150" y="75" fill="#fcd34d" font-family="sans-serif" font-size="10" text-anchor="start">억울한사람 0명인데 범인은 100% 생포</text>
+
+  <!-- AUC Label -->
+  <text x="350" y="200" fill="#93c5fd" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle">AUC = 0.94</text>
+  <text x="350" y="225" fill="#60a5fa" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">면적 (Area Under Curve)</text>
+
+
+  <!-- Rolling Threshold Marker -->
+  <circle cx="280" cy="115" r="5" fill="#10b981"/>
+  <path d="M 280 115 L 340 50" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <rect x="350" y="30" width="160" height="30" fill="#064e3b" rx="3"/>
+  <text x="430" y="50" fill="#a7f3d0" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Threshold 가 롤링하며 그려진 궤적</text>
+
+
+  <!-- Footer text -->
+  <text x="400" y="380" fill="#64748b" font-family="sans-serif" font-size="12" text-anchor="middle">경찰청 지시(Threshold 임계치 조작)가 미친듯이 관대해지거나 빡빡해질 때마다 요동치는 점들의 끝없는 곡선 포텐셜 점막.</text>
+
+</svg>

@@ -1,0 +1,14 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">파이썬 딕셔너리로 이해하는 Feature 속성 추출의 실체</text>
+
+  <text x="400" y="90" fill="#fbbf24" font-family="sans-serif" font-size="18" text-anchor="middle">"text mining is the process of deriving high quality information from text"</text>
+
+  <rect x="150" y="120" width="500" height="150" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
+  <text x="400" y="160" fill="#60a5fa" font-family="monospace" font-size="18" text-anchor="middle">feature_vector = {</text>
+  <text x="400" y="190" fill="#93c5fd" font-family="monospace" font-size="16" text-anchor="middle" font-weight="bold">'text': 2, 'mining': 1, 'is': 1, 'the': 1,</text>
+  <text x="400" y="220" fill="#93c5fd" font-family="monospace" font-size="16" text-anchor="middle" font-weight="bold">'process': 1, 'of': 1, 'deriving': 1, ...</text>
+  <text x="400" y="250" fill="#60a5fa" font-family="monospace" font-size="18" text-anchor="middle">}</text>
+
+</svg>

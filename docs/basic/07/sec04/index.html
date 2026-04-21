@@ -8,7 +8,7 @@
   <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>잠재 디리클레 할당 (LDA)</title>
   <meta name="title" content="잠재 디리클레 할당 (LDA)" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="잠재 디리클레 할당 (LDA)"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="https://text.ai.jiny.dev/basic/07/sec04/">
+  <meta property="og:url" content="http://localhost:4001/basic/07/sec04/">
 
   <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="잠재 디리클레 할당 (LDA)"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
@@ -17,14 +17,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="https://text.ai.jiny.dev/basic/07/sec04/" />
-<meta property="og:url" content="https://text.ai.jiny.dev/basic/07/sec04/" />
+<link rel="canonical" href="http://localhost:4001/basic/07/sec04/" />
+<meta property="og:url" content="http://localhost:4001/basic/07/sec04/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="잠재 디리클레 할당 (LDA)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"잠재 디리클레 할당 (LDA)","url":"https://text.ai.jiny.dev/basic/07/sec04/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"잠재 디리클레 할당 (LDA)","url":"http://localhost:4001/basic/07/sec04/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -320,6 +320,8 @@
             <div class="offcanvas-body">
                 <!-- 네비게이션 -->
                 <nav class="bd-links w-100" id="bd-docs-nav" aria-label="Docs navigation">
+  
+  
   <ul class="bd-links-nav list-unstyled mb-0 pb-3 pb-md-2 pe-lg-2">
     <li class="bd-links-group py-2">
       <strong class="bd-links-heading d-flex w-100 align-items-center fw-semibold">
@@ -329,10 +331,456 @@
         
         <li>
           
-          <a href="/basic/"
-            class="bd-links-link d-inline-block rounded ">
-            TextAI 기초
-          </a>
+          
+          
+          <button
+            class="bd-links-link bd-links-btn btn d-inline-flex align-items-center rounded border-0 collapsed w-100"
+            data-bs-toggle="collapse" data-bs-target="#collapse-1"
+            aria-expanded="false">
+            1. 자연언어 처리 소개
+            <svg class="bi ms-auto" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </button>
+          <div class="collapse " id="collapse-1">
+            <ul class="list-unstyled fw-normal pb-1 small ms-3">
+              
+              <li>
+                <a href="/basic/01/sec01/"
+                  class="bd-links-link d-inline-block rounded ">
+                  1.1 마이닝의 본질
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/01/sec02/"
+                  class="bd-links-link d-inline-block rounded ">
+                  1.2 모호성과 특성
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/01/sec03/"
+                  class="bd-links-link d-inline-block rounded ">
+                  1.3 고전 분석 한계
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/01/sec04/"
+                  class="bd-links-link d-inline-block rounded ">
+                  1.4 LLM의 환각 방어
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/01/sec05/"
+                  class="bd-links-link d-inline-block rounded ">
+                  1.5 벡터화 수치 계산
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/01/sec06/"
+                  class="bd-links-link d-inline-block rounded ">
+                  1.6 실무 산업 활용 사례
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <button
+            class="bd-links-link bd-links-btn btn d-inline-flex align-items-center rounded border-0 collapsed w-100"
+            data-bs-toggle="collapse" data-bs-target="#collapse-2"
+            aria-expanded="false">
+            2. 텍스트 전처리와 통계
+            <svg class="bi ms-auto" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </button>
+          <div class="collapse " id="collapse-2">
+            <ul class="list-unstyled fw-normal pb-1 small ms-3">
+              
+              <li>
+                <a href="/basic/02/sec01/"
+                  class="bd-links-link d-inline-block rounded ">
+                  2.1 언어학적 계층 구조
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/02/sec02/"
+                  class="bd-links-link d-inline-block rounded ">
+                  2.2 토큰화와 품사 태깅
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/02/sec03/"
+                  class="bd-links-link d-inline-block rounded ">
+                  2.3 N-gram과 청킹
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/02/sec04/"
+                  class="bd-links-link d-inline-block rounded ">
+                  2.4 전처리 파이프라인
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/02/sec05/"
+                  class="bd-links-link d-inline-block rounded ">
+                  2.5 다이어트와 정규표현식
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/02/sec06/"
+                  class="bd-links-link d-inline-block rounded ">
+                  2.6 BPE 서브워드 방어막
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <button
+            class="bd-links-link bd-links-btn btn d-inline-flex align-items-center rounded border-0 collapsed w-100"
+            data-bs-toggle="collapse" data-bs-target="#collapse-3"
+            aria-expanded="false">
+            3. 텍스트 표현과 벡터 공간
+            <svg class="bi ms-auto" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </button>
+          <div class="collapse " id="collapse-3">
+            <ul class="list-unstyled fw-normal pb-1 small ms-3">
+              
+              <li>
+                <a href="/basic/03/sec01/"
+                  class="bd-links-link d-inline-block rounded ">
+                  3.1 고전 벡터 공간
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/03/sec02/"
+                  class="bd-links-link d-inline-block rounded ">
+                  3.2 원-핫 인코딩의 저주
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/03/sec03/"
+                  class="bd-links-link d-inline-block rounded ">
+                  3.3 BoW와 DTM 행렬
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/03/sec04/"
+                  class="bd-links-link d-inline-block rounded ">
+                  3.4 지프(Zipf)의 법칙 한계
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/03/sec05/"
+                  class="bd-links-link d-inline-block rounded ">
+                  3.5 TF-IDF 보정 방정식
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/03/sec06/"
+                  class="bd-links-link d-inline-block rounded ">
+                  3.6 코사인 벡터 유사도
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <button
+            class="bd-links-link bd-links-btn btn d-inline-flex align-items-center rounded border-0 collapsed w-100"
+            data-bs-toggle="collapse" data-bs-target="#collapse-4"
+            aria-expanded="false">
+            4. 언어 모델 성능 평가
+            <svg class="bi ms-auto" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </button>
+          <div class="collapse " id="collapse-4">
+            <ul class="list-unstyled fw-normal pb-1 small ms-3">
+              
+              <li>
+                <a href="/basic/04/sec01/"
+                  class="bd-links-link d-inline-block rounded ">
+                  4.1 확률 맞추기 통계 도박
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/04/sec02/"
+                  class="bd-links-link d-inline-block rounded ">
+                  4.2 조건부 확률 연쇄 법칙
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/04/sec03/"
+                  class="bd-links-link d-inline-block rounded ">
+                  4.3 희소성 폭발 에러
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/04/sec04/"
+                  class="bd-links-link d-inline-block rounded ">
+                  4.4 마르코프 단절의 꼼수
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/04/sec05/"
+                  class="bd-links-link d-inline-block rounded ">
+                  4.5 Perplexity 분기 채점관
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/04/sec06/"
+                  class="bd-links-link d-inline-block rounded ">
+                  4.6 MMLU와 환각 판독기
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <button
+            class="bd-links-link bd-links-btn btn d-inline-flex align-items-center rounded border-0 collapsed w-100"
+            data-bs-toggle="collapse" data-bs-target="#collapse-5"
+            aria-expanded="false">
+            5. 워드 임베딩 제국
+            <svg class="bi ms-auto" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </button>
+          <div class="collapse " id="collapse-5">
+            <ul class="list-unstyled fw-normal pb-1 small ms-3">
+              
+              <li>
+                <a href="/basic/05/sec01/"
+                  class="bd-links-link d-inline-block rounded ">
+                  5.1 좌표 스코프 선형대수학
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/05/sec02/"
+                  class="bd-links-link d-inline-block rounded ">
+                  5.2 NNLM과 룩업 테이블
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/05/sec03/"
+                  class="bd-links-link d-inline-block rounded ">
+                  5.3 CBOW와 Skip-gram
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/05/sec04/"
+                  class="bd-links-link d-inline-block rounded ">
+                  5.4 SGNS 이진 게임 치팅
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/05/sec05/"
+                  class="bd-links-link d-inline-block rounded ">
+                  5.5 FastText 알파벳 분해
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/05/sec06/"
+                  class="bd-links-link d-inline-block rounded ">
+                  5.6 GloVe 교란식 오차 함수
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <button
+            class="bd-links-link bd-links-btn btn d-inline-flex align-items-center rounded border-0 collapsed w-100"
+            data-bs-toggle="collapse" data-bs-target="#collapse-6"
+            aria-expanded="false">
+            6. 분류 판독 확률 모터
+            <svg class="bi ms-auto" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </button>
+          <div class="collapse " id="collapse-6">
+            <ul class="list-unstyled fw-normal pb-1 small ms-3">
+              
+              <li>
+                <a href="/basic/06/sec01/"
+                  class="bd-links-link d-inline-block rounded ">
+                  6.1 기계학습 파이프라인 모터
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/06/sec02/"
+                  class="bd-links-link d-inline-block rounded ">
+                  6.2 나이브 베이즈 확률론
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/06/sec03/"
+                  class="bd-links-link d-inline-block rounded ">
+                  6.3 로지스틱과 소프트맥스
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/06/sec04/"
+                  class="bd-links-link d-inline-block rounded ">
+                  6.4 모의고사 K-Fold 로테이션
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/06/sec05/"
+                  class="bd-links-link d-inline-block rounded ">
+                  6.5 혼동 행렬의 진실 판독
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/06/sec06/"
+                  class="bd-links-link d-inline-block rounded ">
+                  6.6 정밀도, 재현율, ROC 지표
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <button
+            class="bd-links-link bd-links-btn btn d-inline-flex align-items-center rounded border-0  w-100"
+            data-bs-toggle="collapse" data-bs-target="#collapse-7"
+            aria-expanded="true">
+            7. 텍스트 분석 조물주 (토픽)
+            <svg class="bi ms-auto" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </button>
+          <div class="collapse show" id="collapse-7">
+            <ul class="list-unstyled fw-normal pb-1 small ms-3">
+              
+              <li>
+                <a href="/basic/07/sec01/"
+                  class="bd-links-link d-inline-block rounded ">
+                  7.1 비지도 자율주행 한계망
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/07/sec02/"
+                  class="bd-links-link d-inline-block rounded ">
+                  7.2 LSA 매트릭스 특이값 분해
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/07/sec03/"
+                  class="bd-links-link d-inline-block rounded ">
+                  7.3 역방향 확률 생성 모델
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/07/sec04/"
+                  class="bd-links-link d-inline-block rounded active">
+                  7.4 LDA 디리클레 파라미터
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/07/sec05/"
+                  class="bd-links-link d-inline-block rounded ">
+                  7.5 확률 플레이트 기하학
+                </a>
+              </li>
+              
+              <li>
+                <a href="/basic/07/sec06/"
+                  class="bd-links-link d-inline-block rounded ">
+                  7.6 MCMC 깁스 샘플링 커닝
+                </a>
+              </li>
+              
+            </ul>
+          </div>
           
         </li>
         
@@ -357,7 +805,7 @@
         
         
         
-        <li class="breadcrumb-item"><a href="/basic/">TextAI 기초</a></li>
+        <li class="breadcrumb-item"><a href="/basic/">1. 자연어 처리 기초 코스</a></li>
         
         
         
@@ -382,71 +830,116 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="대관식-잠재-디리클레-할당lda-의-통계-철학">대관식: 잠재 디리클레 할당(LDA) 의 통계 철학</h1>
+            <h1 id="74-확률-역추적의-성배-잠재-디리클레-할당lda-의-통계-철학">7.4 확률 역추적의 성배: 잠재 디리클레 할당(LDA) 의 통계 철학</h1>
 
-<p>이전 챕터에서 배웠던 ‘신의 주사위 역추론’ 패러다임을 실제로 코딩으로 구현하여 2003년 전 세계 머신러닝의 텍스트 군집화 일통을 이루어낸 알고리즘, 바로 그 유명한 <strong>LDA (Latent Dirichlet Allocation, 잠재 디리클레 할당)</strong>의 위대한 수학적 톱니바퀴 2개를 뜯어봅니다.</p>
+<p>이전 챕터에서 배웠던 ‘신의 주사위 역추론 통계 스캐너’ 패러다임을 실제로 파이썬 코딩으로 완벽하게 구현하여 2003년 전 세계 머신러닝의 텍스트 군집화 영토 일통을 이루어낸 전설의 알고리즘, 바로 <strong>LDA (Latent Dirichlet Allocation, 잠재 디리클레 할당)</strong>의 위대한 수학적 톱니바퀴 2개를 뜯어봅니다.</p>
 
 <hr />
 
-<h2 id="00-보이지-않는latent-것을-역으로-맞혀낸다">00. 보이지 않는(Latent) 것을 역으로 맞혀낸다!</h2>
-<p>“결과물 데이터 쪼가리들을 보고 $\to$ 이 문서를 하늘에서 떨어뜨린 주사위 비율을 족집게처럼 유추해 내는 모델” 입니다. 
-현재 토픽 분석 실무에서도 K-means 대신 압도적인 디폴트로 사용되는 텍스트 분석 알고리즘의 성배입니다.</p>
+<h2 id="741-왜-잠재-latent-와-할당-allocation-인가">7.4.1 왜 “잠재 (Latent)” 와 “할당 (Allocation)” 인가?</h2>
 
-<h2 id="01-lda-의-근본적인-2가지-분리-통계-가정">01. LDA 의 근본적인 2가지 분리 통계 가정</h2>
-<p>우리가 인간의 맨눈으로 모니터에서 관찰(Observe) 할 수 있는 팩트 현상은 오직 스크린에 찍힌 <code class="language-plaintext highlighter-rouge">문서(D)</code>와 그 안에 적힌 스펠링 <code class="language-plaintext highlighter-rouge">단어(W)</code> 뿐입니다. 
-저 너머의 보이지 않는 확률의 장막(Latent)을 수학으로 뚫고 들어가기 위해, LDA는 모델 안에 가상의 스탯 변수 2개($\theta, \phi$)를 창조하고 이중 분리 엔진 가정을 냅니다.</p>
+<p>이 복잡한 이름의 뉘앙스부터 파괴해야 합니다.</p>
+<ol>
+  <li><strong>Latent (잠재적)</strong>: 우리 인간의 눈 모니터에 보이는 건 오직 텍스트 스펠링($W$)뿐. 그 뒤에 은밀하게 숨겨져서 단어를 조종했던 ‘조물주의 주사위 배합 지표($\theta, \phi$)’ 들은 눈에 보이지 않는 잠재적 수치입니다.</li>
+  <li><strong>Allocation (할당)</strong>: 문서 안의 수백 개 “개별 단어들 하나하나마다” 너는 정치 토픽 출신이고, 너는 경제 토픽 출신이라며 이름표(스티커)를 강제로 할당해서 배분해 주는 것이 궁극의 임무입니다.</li>
+</ol>
 
-<blockquote>
-  <ol>
-    <li><strong>가정 1 (문서 중심 룰렛 $\theta$)</strong>: 하나의 무작위 문서는 룰렛처럼 미리 정해진 <code class="language-plaintext highlighter-rouge">K</code>개의 짬뽕된 극비의 토픽(주제)들로 버무려져 섞여 구성되어 있다.</li>
-    <li><strong>가정 2 (토픽 중심 주머니 $\phi$)</strong>: 각 토픽 방은 또다시 자기만의 특색(빈도수)을 가진 고유한 <code class="language-plaintext highlighter-rouge">단어의 등장 확률 쪽지 비율표</code>를 무조건 별도로 가지고 보관하고 있다!</li>
-  </ol>
-</blockquote>
+<p>현재까지도 토픽 분석 실무에서 K-means 물리적 조 짜기 따위를 버리고 압도적인 디폴트 베이스로 수렴해 사용하는 텍스트 분석 알고리즘의 성배입니다.</p>
 
-<h2 id="02-가정-1-토픽-역-혼합의-비율표---theta-세타-관점">02. 가정 1: 토픽 역 혼합의 비율표 - $\theta$ (세타) 관점</h2>
-<p>한 문서가 가진 다중 인격 비율 모델링($\theta$)을 확인합니다.
-세상에 총 $K=2$ (과일 방, 동물 방) 2가지 토픽 주머니뿐이라고 가정해 봅시다. LDA를 돌린 결과 다음과 같이 뱉어냅니다!</p>
+<hr />
+
+<h2 id="742-lda-의-근본적인-2가지-이중-룰렛-통계-가정">7.4.2 LDA 의 근본적인 2가지 이중 룰렛 통계 가정</h2>
+
+<p>LDA 엔진은 이 세상 구동 원리를 2개의 돌아가는 거대한 기어 톱니바퀴 모형 확률값으로 정의했습니다. 그것이 바로 조물주의 설정값 $\theta$(세타)와 $\phi$(파이) 입니다.</p>
+
+<ol>
+  <li><strong>가정 1 (문서 중심 룰렛 $\theta$)</strong>: 하나의 문서는 그냥 무식하게 100% 한 우물만 파지 않는다. 룰렛처럼 미리 정해진 <code class="language-plaintext highlighter-rouge">K</code>개의 여러 토픽(주제)들이 각자의 지분율(%)로 짬뽕되어 섞여 구성되어 있다.</li>
+  <li><strong>가정 2 (토픽 중심 주머니 $\phi$)</strong>: 각 토픽 방은 무색무취가 아니다. 자기만의 특색을 가진 고유한 <code class="language-plaintext highlighter-rouge">단어 스펠링의 등장 확률 쪽지 비율표</code>를 무조건 독립적으로 별도 보관하고 있다!</li>
+</ol>
+
+<hr />
+
+<h2 id="743-가정-1-토픽-혼합-룰렛-지분표---theta-세타-관점">7.4.3 가정 1: 토픽 혼합 룰렛 지분표 - $\theta$ (세타) 관점</h2>
+
+<p>가장 먼저 한 문서가 한 폴더에만 갇히지 않는 “다중 인격 비율 모델링($\theta$)”을 확인합니다. 세상에 정치랑 경제 같은 토픽 대신, 총 $K=2$ (과일 방, 동물 방) 2가지 토픽 룰렛 주머니뿐이라고 가정해 봅시다.</p>
+
+<p><img src="./img/theta_document_mixture.svg" alt="Document to Topic Mixture Representation Theta" /></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">관찰된 데이터 문서 파일 ($D$)</th>
-      <th style="text-align: left">포함 문장 문맥 분석 결과</th>
-      <th style="text-align: left">유추 성공한 토픽의 혼합 퍼센티지 ($\theta$) 파라미터</th>
+      <th style="text-align: left">관찰된 실제 데이터 문서 텍스트 스펠링 ($D$)</th>
+      <th style="text-align: left">LDA 스캐너 역추론 성공: 문서 룰렛의 혼합 퍼센티지 ($\theta$) 예측값</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">Doc 01</code></strong></td>
-      <td style="text-align: left">“사과랑 바나나 달콤하게 먹어요”</td>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">Doc 01</code></strong>: “사과랑 바나나 달콤하게 먹어요”</td>
       <td style="text-align: left">과일 토픽 100%</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">Doc 02</code></strong></td>
-      <td style="text-align: left">“귀여운 강아지가 꼬리를 쳐요”</td>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">Doc 02</code></strong>: “귀여운 강아지가 꼬리를 쳐요”</td>
       <td style="text-align: left">동물 토픽 100%</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>🚨 <code class="language-plaintext highlighter-rouge">Doc 03</code></strong></td>
-      <td style="text-align: left">“사육사가 강아지한테 바나나를 먹여요”</td>
-      <td style="text-align: left"><strong>[과일 45% + 동물 55%]</strong> 로 요상하게 <strong>짬뽕 혼합(Mixed)</strong> 된 문서!!</td>
+      <td style="text-align: left">🚨 <strong><code class="language-plaintext highlighter-rouge">Doc 03</code></strong>: “사육사가 강아지한테 맛있는 바나나를 먹여요”</td>
+      <td style="text-align: left"><strong>[과일 토픽 45% + 동물 토픽 55%]</strong> 로 요상하게 <strong>짬뽕 혼합(Mixed)</strong> 된 황금비율 문서!!</td>
     </tr>
   </tbody>
 </table>
 
-<p>위에서 보듯, LDA는 K-means 같은 무식한 조짜기 녀석들처럼 문서 3번을 억지로 100% 동물 폴더로 쳐박지 않고 유연하게 “얘는 반반 치킨 비율로 섞인 문서야!” 라고 확률을 인정해 줍니다.</p>
+<p>위에서 보듯, LDA 수학의 위대함은 K-means 같은 멍청한 강제 조 짜기 녀석들처럼 문서 3번을 억지로 100% 동물 폴더로 쳐박아 가두지 않는 점입니다. LDA는 <strong>유연하게 “얘는 반반 치킨 비율로 섞인 애매한 혼합 문서야!” 라고 파이 확률 자체를 인정해 줍니다.</strong></p>
 
-<h2 id="03-가정-2-토픽-속의-단어-쪽지-분포-지분---phi-파이-관점">03. 가정 2: 토픽 속의 단어 쪽지 분포 지분 - $\phi$ (파이) 관점</h2>
-<p>이번엔 그 토픽 방 안을 뒤져 속성을 까봅니다. 동물 주머니 방벌과 과일 주머니 안을 까보면 단어가 뽑혀 나올 스펠링 수학 확률($\phi$)이 완전히 편파적으로 다릅니다.</p>
+<hr />
+
+<h2 id="744-가정-2-토픽-속의-단어-쪽지-분포-지분---phi-파이-관점">7.4.4 가정 2: 토픽 속의 단어 쪽지 분포 지분 - $\phi$ (파이) 관점</h2>
+
+<p>이번엔 그 토픽 방 안의 단어 씀씀이(어휘장)를 뒤져 속성을 까봅니다. 동물 주머니 방벌과 과일 주머니 안을 까보면 그들이 사랑하는 단어가 뽑혀 나올 스펠링 수학 확률($\phi$) 표찰이 완전히 편파적으로 다릅니다.</p>
+
+<p><img src="./img/phi_topic_word_drawer.svg" alt="Topic to Word Strict Bag Drawers Phi" /></p>
 
 <ul>
-  <li><strong>[과일 토픽 주머니 $\phi_1$]</strong>: <code class="language-plaintext highlighter-rouge">사과(20%)</code>, <code class="language-plaintext highlighter-rouge">바나나(40%)</code>, <em><code class="language-plaintext highlighter-rouge">강아지(0%)</code></em>, <code class="language-plaintext highlighter-rouge">달콤(10%)</code></li>
-  <li><strong>[동물 토픽 주머니 $\phi_2$]</strong>: <em><code class="language-plaintext highlighter-rouge">사과(0%)</code></em>, <code class="language-plaintext highlighter-rouge">강아지(33%)</code>, <code class="language-plaintext highlighter-rouge">귀여운(33%)</code>, <code class="language-plaintext highlighter-rouge">사자(16%)</code></li>
+  <li><strong>[🔴 과일 토픽 주머니 $\phi_1$]</strong>: <code class="language-plaintext highlighter-rouge">바나나(40%)</code>, <code class="language-plaintext highlighter-rouge">사과(20%)</code>, <code class="language-plaintext highlighter-rouge">달콤(10%)</code> $\to$ <strong>🚨<code class="language-plaintext highlighter-rouge">강아지(0.01% - 절대 안나옴)</code></strong></li>
+  <li><strong>[🔵 동물 토픽 주머니 $\phi_2$]</strong>: <code class="language-plaintext highlighter-rouge">강아지(33%)</code>, <code class="language-plaintext highlighter-rouge">귀여운(33%)</code>, <code class="language-plaintext highlighter-rouge">사자(16%)</code> $\to$ <strong>🚨<code class="language-plaintext highlighter-rouge">사과(0.01% - 절대 안나옴)</code></strong></li>
 </ul>
 
-<p>이 거대한 두 확률 톱니바퀴 모형($\theta$ 와 $\phi$)이 맞물려 미친 듯이 빙글빙글 공장처럼 돌아가며 오늘 매일 아침 네이버 뉴스가 찍혀서 자동 생성된다는 몽상, 그것이 바로 LDA가 세상을 바라보는 수학적 관점의 정체입니다.</p>
+<p>이 거대한 두 확률 톱니바퀴 모형($\theta$ 의 문서 룰렛 혼합 확률)과 ($\phi$ 의 토픽별 단어 편식 확률)이 맞물려 미친 듯이 빙글빙글 공장처럼 돌아가며 조물주가 오늘 아침 뉴스를 뽑아냈다는 철학, 그것이 바로 LDA가 세상을 바라보는 수학적 관점의 정체입니다.</p>
 
-<p>그럼 이 톱니바퀴를 과연 초기값 무작위(Random)에서 무슨 수로 정교하게 갈고 닦아 정답으로 맞춰나가는 걸까요? 이 비밀의 매커니즘이 ‘디리클레 수식’과 ‘깁스 샘플링 추론’이라는 이름으로 다음 단원에서 이어집니다.</p>
+<p>그럼 이 톱니바퀴를 과연 어떻게 조물주가 세팅했던 걸까요? 이 비밀의 세팅 자판기가 바로 <strong>‘디리클레(Dirichlet) 다면체 분포 수식’</strong> 이라는 이름으로 다음 단원에서 아키텍처 도면으로 그려집니다.</p>
+
+
+            <!-- 이전/다음 페이징 출력 -->
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="d-flex justify-content-between align-items-center mt-5 mb-4 pt-4 border-top">
+  
+    <a href="/basic/07/sec03/" class="btn btn-light border text-start text-decoration-none shadow-sm" style="max-width: 48%;">
+      <div class="small text-muted mb-1 font-monospace">&laquo; 이전 모듈</div>
+      <div class="fw-bold text-dark text-truncate">7.3 역방향 확률 생성 모델</div>
+    </a>
+  
+
+  
+    <a href="/basic/07/sec05/" class="btn btn-light border text-end text-decoration-none shadow-sm" style="max-width: 48%;">
+      <div class="small text-muted mb-1 font-monospace">다음 모듈 &raquo;</div>
+      <div class="fw-bold text-primary text-truncate">7.5 확률 플레이트 기하학</div>
+    </a>
+  
+</div>
+
 
 
             <!-- 구글 애드센스 출력 -->

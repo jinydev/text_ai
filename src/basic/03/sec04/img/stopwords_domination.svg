@@ -1,0 +1,22 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <rect x="150" y="100" width="120" height="150" fill="#1e293b" stroke="#3b82f6" stroke-width="3" rx="10"/>
+  <text x="210" y="150" fill="#3b82f6" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">해리포터</text>
+  <text x="210" y="180" fill="#60a5fa" font-family="sans-serif" font-size="14" text-anchor="middle">마법사의 돌</text>
+  
+  <!-- Robot -->
+  <circle cx="600" cy="150" r="50" fill="#475569" />
+  <rect x="550" y="130" width="100" height="30" fill="#cbd5e1" rx="5"/>
+  <circle cx="580" cy="145" r="5" fill="#ef4444" />
+  <circle cx="620" cy="145" r="5" fill="#ef4444" />
+  <path d="M 280 150 L 530 150" stroke="#fbbf24" stroke-width="4" stroke-dasharray="10,5"/>
+  
+  <!-- Thinking bubble -->
+  <path d="M 640 100 Q 700 30 760 100 Q 770 170 700 200 Z" fill="#334155" opacity="0.8"/>
+  <text x="700" y="130" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">이 책의 주제는</text>
+  <text x="700" y="160" fill="#ef4444" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">"THE"</text>
+  <text x="700" y="180" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">입니다 삐리릿.</text>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">문맥을 못 읽는 바보 같은 컴퓨터의 앵무새 결론</text>
+</svg>

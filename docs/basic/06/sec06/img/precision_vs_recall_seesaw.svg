@@ -1,0 +1,55 @@
+<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="350" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">정밀도 (Precision) vs 재현율 (Recall): 잔혹한 시소 게임의 딜레마</text>
+
+  <!-- Balance Scale Stand -->
+  <path d="M 400 130 L 400 280" stroke="#94a3b8" stroke-width="4"/>
+  <path d="M 350 280 L 450 280 L 400 240 Z" fill="#64748b"/>
+  <circle cx="400" cy="130" r="6" fill="#fcd34d"/>
+
+  <!-- Scale Beam (Tilted heavily to the right) -->
+  <line x1="200" y1="90" x2="600" y2="170" stroke="#fbbf24" stroke-width="6"/>
+
+  <!-- Left Side Pan: Precision -->
+  <line x1="200" y1="90" x2="200" y2="150" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="160" y1="150" x2="240" y2="150" stroke="#cbd5e1" stroke-width="3"/>
+  <path d="M 160 150 Q 200 180 240 150" fill="#1e293b"/>
+
+  <rect x="130" y="180" width="140" height="40" fill="#1e3a8a" rx="5"/>
+  <text x="200" y="205" fill="#93c5fd" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">정밀도</text>
+
+  <!-- Right Side Pan: Recall (Heavier) -->
+  <line x1="600" y1="170" x2="600" y2="230" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="560" y1="230" x2="640" y2="230" stroke="#cbd5e1" stroke-width="3"/>
+  <path d="M 560 230 Q 600 260 640 230" fill="#1e293b"/>
+
+  <!-- Big weight pushing Recall down -->
+  <rect x="580" y="190" width="40" height="40" fill="#ef4444" rx="5"/>
+  <text x="600" y="215" fill="#fef2f2" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">추 추</text>
+
+  <rect x="530" y="270" width="140" height="40" fill="#450a0a" rx="5"/>
+  <text x="600" y="295" fill="#fca5a5" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">재현율 100%</text>
+
+
+  <!-- Labels & explanations -->
+  <text x="200" y="75" fill="#60a5fa" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">아주 신중한 저격수</text>
+  <rect x="150" y="235" width="100" height="40" fill="#0f172a" stroke="#475569" stroke-width="1" rx="5"/>
+  <text x="200" y="250" fill="#94a3b8" font-family="sans-serif" font-size="10" text-anchor="middle">"수갑채운 놈은 알짜인데,</text>
+  <text x="200" y="265" fill="#94a3b8" font-family="sans-serif" font-size="10" text-anchor="middle">뒤로 다 놓쳐버림"</text>
+
+  <text x="600" y="150" fill="#f87171" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">광기의 투망 그물 사냥</text>
+  <!-- <rect x="550" y="325" width="100" height="40" fill="#0f172a" stroke="#475569" stroke-width="1" rx="5"/> -->
+  <text x="600" y="335" fill="#f87171" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">"일단 100만명 다 감옥에 가둬!"</text>
+  <text x="600" y="350" fill="#94a3b8" font-family="sans-serif" font-size="10" text-anchor="middle">(재현율 1.0 달성. 근데 정밀도 0.0파괴)</text>
+
+  <!-- Equation F1 harmonic mean -->
+  <rect x="330" y="70" width="140" height="40" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="400" y="95" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">F1 조화평균 방어막</text>
+  
+
+  <!-- Tradeoff Line -->
+  <path d="M 330 180 L 470 180" stroke="#fcd34d" stroke-width="2" stroke-dasharray="2,2"/>
+  <text x="290" y="185" fill="#fbbf24" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="end">Trade-Off 비율 타협선</text>
+
+</svg>

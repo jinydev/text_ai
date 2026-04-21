@@ -1,0 +1,36 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+
+  <g stroke="#475569" stroke-width="2">
+    <line x1="80" y1="350" x2="750" y2="350" />
+    <line x1="80" y1="350" x2="80" y2="50" />
+  </g>
+
+  <!-- Vector Rays -->
+  <!-- A & B line (Same angle!) -->
+  <path d="M 80 350 L 650 112" stroke="#10b981" stroke-width="5" stroke-linecap="round"/>
+  
+  <!-- C line -->
+  <path d="M 80 350 L 250 50" stroke="#ef4444" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Angle arc for A/B vs X-axis -->
+  <path d="M 400 350 A 320 320 0 0 0 350 237" stroke="#34d399" fill="none" stroke-width="4" stroke-dasharray="5,5"/>
+  <text x="420" y="330" fill="#10b981" font-family="sans-serif" font-size="20" font-weight="bold">θ = 23° (문서 A와 B)</text>
+  <text x="420" y="300" fill="#6ee7b7" font-family="sans-serif" font-size="14">각도가 완전히 동일하므로 Cosine = 1.0 (쌍둥이!)</text>
+
+  <!-- Angle arc for C vs X-axis -->
+  <path d="M 180 350 A 100 100 0 0 0 130 260" stroke="#ef4444" fill="none" stroke-width="4" stroke-dasharray="5,5"/>
+  <text x="10" y="270" fill="#ef4444" font-family="sans-serif" font-size="16" font-weight="bold">θ = 60° (문서 C)</text>
+
+  <!-- points -->
+  <circle cx="200" cy="300" r="9" fill="#3b82f6" />
+  <text x="215" y="295" fill="#60a5fa" font-family="sans-serif" font-size="18" font-weight="bold">문서 A</text>
+
+  <circle cx="650" cy="112" r="11" fill="#eab308" />
+  <text x="610" y="90" fill="#fde047" font-family="sans-serif" font-size="18" font-weight="bold">문서 B (길이 스탯 무시됨)</text>
+
+  <circle cx="165" cy="200" r="8" fill="#f87171" />
+  <text x="180" y="205" fill="#f87171" font-family="sans-serif" font-size="18" font-weight="bold">문서 C</text>
+
+  <text x="400" y="380" fill="#cbd5e1" font-family="sans-serif" font-size="16" text-anchor="middle">코사인은 절대적 스탯(길이)을 무시하고 오직 우주 공간으로 방출되는 '레이저의 방향(각도)' 만을 측정합니다.</text>
+</svg>

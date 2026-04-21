@@ -1,0 +1,42 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">LLM의 정체성: 지능이 아닌 확률 추첨기 (Stochastic Parrot)</text>
+
+  <!-- Input Sequence -->
+  <rect x="50" y="100" width="220" height="60" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
+  <text x="160" y="135" fill="#93c5fd" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">"사과는 맛있는 [ ? ]"</text>
+  <text x="160" y="180" fill="#60a5fa" font-family="sans-serif" font-size="14" text-anchor="middle">유저 입력 시퀀스</text>
+
+  <path d="M 280 130 L 330 130" stroke="#f59e0b" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="305" y="120" fill="#fcd34d" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">연산</text>
+
+
+  <!-- Prob Distribution Box -->
+  <rect x="350" y="80" width="250" height="150" fill="#064e3b" stroke="#10b981" stroke-width="3" rx="10"/>
+  <text x="475" y="110" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Next Word 확률 분포표</text>
+  <line x1="370" y1="120" x2="580" y2="120" stroke="#10b981" stroke-width="2"/>
+
+  <!-- Bars -->
+  <rect x="400" y="135" width="150" height="15" fill="#3b82f6" rx="2"/>
+  <text x="380" y="148" fill="#e2e8f0" font-size="14" font-weight="bold" text-anchor="end">과일이다</text>
+  <text x="560" y="148" fill="#93c5fd" font-size="14" text-anchor="start">91.2%</text>
+
+  <rect x="400" y="165" width="40" height="15" fill="#f59e0b" rx="2"/>
+  <text x="380" y="178" fill="#e2e8f0" font-size="14" font-weight="bold" text-anchor="end">음식이다</text>
+  <text x="450" y="178" fill="#fcd34d" font-size="14" text-anchor="start">8.1%</text>
+
+  <rect x="400" y="195" width="5" height="15" fill="#ef4444" rx="2"/>
+  <text x="380" y="208" fill="#e2e8f0" font-size="14" font-weight="bold" text-anchor="end">자동차다</text>
+  <text x="415" y="208" fill="#fca5a5" font-size="14" text-anchor="start">0.7%</text>
+
+  <!-- Output Generation -->
+  <path d="M 610 130 L 660 130" stroke="#10b981" stroke-width="4" marker-end="url(#arrow)"/>
+  
+  <rect x="680" y="90" width="80" height="80" fill="#1e3a8a" stroke="#60a5fa" stroke-width="2" rx="40"/>
+  <text x="720" y="125" fill="#ecfeff" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">과일이다</text>
+  <text x="720" y="145" fill="#93c5fd" font-family="sans-serif" font-size="12" text-anchor="middle">출력!</text>
+
+  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">LLM은 생각이나 팩트의 진위 여부를 고민하지 않습니다. 그저 수백억 개의 코퍼스 통계를 기반으로 '가장 그럴싸한 다음 숫자'를 뱉는 앵무새입니다.</text>
+
+</svg>

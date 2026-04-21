@@ -1,0 +1,37 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">서브워드 토큰화 (Subword Tokenization): 뜻이 있는 레고 블록 어원 쪼개기</text>
+
+  <!-- Unknown Word -->
+  <rect x="50" y="120" width="180" height="60" fill="#1e293b" stroke="#f43f5e" stroke-width="2" rx="5"/>
+  <text x="140" y="160" fill="#fb7185" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">Birthplace</text>
+
+  <text x="140" y="105" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">"사전에 없는 미지 단어!"</text>
+  <path d="M 230 150 L 320 150" stroke="#f59e0b" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="275" y="140" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">분해!</text>
+
+  <!-- Subword Lego Blocks -->
+  <rect x="350" y="110" width="120" height="80" fill="#1e3a8a" stroke="#3b82f6" stroke-width="3" rx="5"/>
+  <rect x="370" y="95" width="30" height="15" fill="#1e3a8a" stroke="#3b82f6" stroke-width="3" rx="2"/>
+  <rect x="420" y="95" width="30" height="15" fill="#1e3a8a" stroke="#3b82f6" stroke-width="3" rx="2"/>
+  <text x="410" y="150" fill="#bfdbfe" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Birth</text>
+  <text x="410" y="175" fill="#93c5fd" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">(탄생)</text>
+
+  <text x="500" y="160" fill="#fde047" font-family="sans-serif" font-size="30" font-weight="bold" text-anchor="middle">+</text>
+
+  <rect x="530" y="110" width="120" height="80" fill="#064e3b" stroke="#10b981" stroke-width="3" rx="5"/>
+  <rect x="550" y="95" width="30" height="15" fill="#064e3b" stroke="#10b981" stroke-width="3" rx="2"/>
+  <rect x="600" y="95" width="30" height="15" fill="#064e3b" stroke="#10b981" stroke-width="3" rx="2"/>
+  <text x="590" y="150" fill="#a7f3d0" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">place</text>
+  <text x="590" y="175" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">(장소)</text>
+
+  <path d="M 670 150 L 710 150" stroke="#fcd34d" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <text x="750" y="145" fill="#fde047" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">고향</text>
+  <text x="750" y="170" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">의미 유추 성공!</text>
+
+  <!-- Explanation -->
+  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">처음 보는 신조어가 나와도 기절하지 않고, 자신이 알고 있는 서브워드 단위로 억지로 썰어내어 레고 조립하듯 뜻을 유추해 내는 최강 생존력!</text>
+
+</svg>

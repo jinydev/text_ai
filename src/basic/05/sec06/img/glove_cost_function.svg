@@ -1,0 +1,44 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">통계와 딥러닝 미분의 환상 교배: 이종교배 오차 손실 함수 (Cost Function)</text>
+
+  <!-- Complete Formulation -->
+  <rect x="60" y="90" width="680" height="120" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="10"/>
+  
+  <text x="140" y="155" fill="#60a5fa" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle">Cost J =</text>
+  
+  <text x="210" y="155" fill="#a7f3d0" font-family="sans-serif" font-size="40" font-weight="bold" text-anchor="middle">∑</text>
+
+  <!-- f(x) Box -->
+  <rect x="250" y="125" width="80" height="50" fill="#450a0a" stroke="#ef4444" stroke-width="2" rx="5"/>
+  <text x="290" y="155" fill="#fca5a5" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">f(X)</text>
+  
+  <path d="M 290 180 L 290 220" stroke="#fca5a5" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="290" y="240" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">The 같은 잡초 억압용 치트키</text>
+
+  <text x="350" y="160" fill="#64748b" font-family="sans-serif" font-size="30" font-weight="bold" text-anchor="middle">✖ (</text>
+
+  <!-- Neural Net Vector Dot Box -->
+  <rect x="380" y="120" width="130" height="60" fill="#1e3a8a" stroke="#60a5fa" stroke-width="2" rx="5"/>
+  <text x="445" y="158" fill="#bfdbfe" font-family="monospace" font-size="22" font-weight="bold" text-anchor="middle">W_i · W_j</text>
+  
+  <path d="M 445 110 L 445 70" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="445" y="55" fill="#93c5fd" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">딥러닝이 추측해 본 내적 거리</text>
+
+
+  <text x="535" y="155" fill="#fcd34d" font-family="sans-serif" font-size="30" font-weight="bold" text-anchor="middle">-</text>
+
+  <!-- Old Global count Math Box -->
+  <rect x="560" y="120" width="110" height="60" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="615" y="158" fill="#6ee7b7" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">log(X_ij)</text>
+
+  <path d="M 615 110 L 615 70" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="615" y="55" fill="#6ee7b7" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">인간이 직접 센 엑셀 통계 확률</text>
+
+  <text x="695" y="160" fill="#64748b" font-family="sans-serif" font-size="30" font-weight="bold" text-anchor="middle">)^2</text>
+
+  <!-- Explanation -->
+  <text x="400" y="280" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">"AI 기계가 방금 예측한 값(파란색)에서 원래 실제 글로벌 통계 정답(초록색)을 뺀 저 편차 오차값을 제로(0)로 죽여버려라!"</text>
+
+</svg>

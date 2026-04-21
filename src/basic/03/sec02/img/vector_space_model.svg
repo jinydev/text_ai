@@ -1,0 +1,26 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Vector Space Model: 텍스트를 기하학적 우주에 매핑</text>
+
+  <rect x="50" y="100" width="200" height="150" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
+  <text x="150" y="140" fill="#60a5fa" font-family="sans-serif" font-size="16" text-anchor="middle">"문서 데이터"</text>
+  <text x="150" y="170" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">수십만 장의 텍스트 파일</text>
+
+  <path d="M 270 180 Q 350 180 400 180" stroke="#f59e0b" stroke-width="4" stroke-dasharray="5,5" fill="none"/>
+  <polygon points="390,170 410,180 390,190" fill="#f59e0b"/>
+
+  <g stroke="#475569" stroke-width="2">
+    <line x1="500" y1="250" x2="700" y2="250" />
+    <line x1="500" y1="250" x2="500" y2="50" />
+    <line x1="500" y1="250" x2="600" y2="150" />
+  </g>
+
+  <circle cx="650" cy="180" r="6" fill="#10b981" />
+  <circle cx="550" cy="80" r="6" fill="#10b981" />
+  <circle cx="580" cy="120" r="6" fill="#10b981" />
+  <path d="M 500 250 L 650 180" stroke="#10b981" stroke-width="2"/>
+  <path d="M 500 250 L 550 80" stroke="#10b981" stroke-width="2"/>
+
+  <text x="600" y="280" fill="#cbd5e1" font-family="sans-serif" font-size="14" text-anchor="middle">추상적인 언어를 수학적 공식과 각도로 계산할 수 있는 물리적 화살표(Vector)로 변환합니다.</text>
+</svg>

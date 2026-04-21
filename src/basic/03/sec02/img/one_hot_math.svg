@@ -1,0 +1,10 @@
+<svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="200" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">수학적 대수 기호 변환: 정수 희소 벡터(Sparse Vector)의 탄생</text>
+
+  <rect x="150" y="70" width="500" height="80" fill="#1e293b" stroke="#10b981" stroke-width="3" rx="5"/>
+  <text x="400" y="120" fill="#10b981" font-family="monospace" font-size="30" font-weight="bold" text-anchor="middle">V("자연언어") = [0, 0, 1, 0, 0, 0]</text>
+
+  <text x="400" y="180" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">컴퓨터 코딩(파이썬 배열 데이터) 관점에서도 동일하게 저런 Array 메모리로 등재됩니다.</text>
+</svg>

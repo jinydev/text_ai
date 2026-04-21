@@ -1,0 +1,37 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">월스트리트 저널 데이터 채점: 시야(N-gram)가 PPL에 미치는 충격</text>
+
+  <rect x="100" y="80" width="600" height="160" fill="#1e293b" stroke="#3b82f6" stroke-width="3" rx="10"/>
+
+  <!-- Unigram -->
+  <rect x="150" y="110" width="120" height="100" fill="#450a0a" stroke="#ef4444" stroke-width="2" rx="5"/>
+  <text x="210" y="145" fill="#fca5a5" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Uni-gram</text>
+  <text x="210" y="165" fill="#ef4444" font-family="sans-serif" font-size="12" text-anchor="middle">눈 감고 찍기</text>
+  <rect x="170" y="175" width="80" height="25" fill="#7f1d1d" rx="3"/>
+  <text x="210" y="193" fill="#fef2f2" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">PPL 962</text>
+
+  <!-- Bigram -->
+  <path d="M 290 160 C 310 120 330 120 350 160" stroke="#fcd34d" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <text x="320" y="120" fill="#fbbf24" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">개진</text>
+
+  <rect x="360" y="110" width="120" height="100" fill="#1e3a8a" stroke="#3b82f6" stroke-width="2" rx="5"/>
+  <text x="420" y="145" fill="#93c5fd" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Bi-gram</text>
+  <text x="420" y="165" fill="#60a5fa" font-family="sans-serif" font-size="12" text-anchor="middle">1단어 참고</text>
+  <rect x="380" y="175" width="80" height="25" fill="#1e40af" rx="3"/>
+  <text x="420" y="193" fill="#eff6ff" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">PPL 170</text>
+
+  <!-- Trigram -->
+  <path d="M 500 160 C 520 120 540 120 560 160" stroke="#10b981" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <text x="530" y="120" fill="#34d399" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">확신</text>
+
+  <rect x="570" y="110" width="120" height="100" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="630" y="145" fill="#6ee7b7" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Tri-gram</text>
+  <text x="630" y="165" fill="#10b981" font-family="sans-serif" font-size="12" text-anchor="middle">2단어 참고</text>
+  <rect x="590" y="175" width="80" height="25" fill="#047857" rx="3"/>
+  <text x="630" y="193" fill="#ecfdf5" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">PPL 109</text>
+
+  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">앞선 역사를 조금이라도 더 기록하고 눈치 본 모델일수록, 방황하는 객관식 보기가 962개에서 109개로 극적으로 줄어듭니다!</text>
+
+</svg>

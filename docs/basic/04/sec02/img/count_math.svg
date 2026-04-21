@@ -1,0 +1,30 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">통계학의 1차원적 순진함: 그저 텍스트 카운트(Count) 나누기 산수</text>
+
+  <!-- Formula Representation -->
+  <rect x="30" y="100" width="370" height="100" fill="#020617" stroke="#3b82f6" stroke-width="2" rx="10"/>
+  <text x="215" y="155" fill="#93c5fd" font-family="sans-serif" font-size="22" font-weight="bold" text-anchor="middle">P( "is" | "An adorable little boy" )</text>
+
+  <text x="430" y="155" fill="#fcd34d" font-family="sans-serif" font-size="35" font-weight="bold" text-anchor="middle">=</text>
+
+  <!-- Fractional Formula -->
+  <rect x="460" y="70" width="320" height="60" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="620" y="105" fill="#6ee7b7" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">Count( An adorable little boy [is] )</text>
+
+  <line x1="460" y1="145" x2="780" y2="145" stroke="#94a3b8" stroke-width="4"/>
+
+  <rect x="460" y="160" width="320" height="60" fill="#1e293b" stroke="#f43f5e" stroke-width="2" rx="5"/>
+  <text x="620" y="195" fill="#fca5a5" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">Count( An adorable little boy )</text>
+
+  <!-- Explanation Pointers -->
+  <path d="M 700 70 L 680 40 600 40" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="500" y="45" fill="#10b981" font-family="sans-serif" font-size="12" text-anchor="middle">[분자] 전체 문장이 적힌 책의 횟수</text>
+
+  <path d="M 700 220 L 680 250 630 250" stroke="#f43f5e" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="520" y="255" fill="#f43f5e" font-family="sans-serif" font-size="12" text-anchor="middle">[분모] 배경 문맥만 적힌 책의 횟수</text>
+  
+  <text x="400" y="280" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">인공지능의 확률은 초능력이 나닙니다. 그저 구글 하드디스크를 박박 뒤져서 분모(조건문 빈도)와 분자(전체문 빈도)를 나눈 초등학생 분수에 불과합니다.</text>
+
+</svg>

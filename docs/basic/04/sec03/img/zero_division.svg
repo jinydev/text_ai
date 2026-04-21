@@ -1,0 +1,37 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">데이터 희소성(Sparsity)의 결말: 분모가 0이 되어 파멸하는 통계 AI 서버</text>
+
+  <!-- Formula Request -->
+  <text x="250" y="100" fill="#94a3b8" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">유저 입력 컨텍스트(Condition)</text>
+  <rect x="50" y="110" width="400" height="60" fill="#1e293b" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" rx="5"/>
+  <text x="250" y="145" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">"지옥의 유황불에서 춤추는 파란색 솜사탕이"</text>
+
+  <rect x="500" y="110" width="80" height="60" fill="#0f172a" stroke="#475569" stroke-width="2" rx="5"/>
+  <text x="540" y="145" fill="#64748b" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">"is"</text>
+  
+  <text x="470" y="145" fill="#60a5fa" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">+</text>
+
+  <!-- Formula Processing -->
+  <path d="M 600 140 L 630 140" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- Explosion -->
+  <path d="M 720 140 L 680 90 L 730 110 L 750 70 L 770 120 L 790 140 L 770 160 L 750 210 L 730 170 L 680 190 Z" fill="#450a0a" stroke="#ef4444" stroke-width="2"/>
+  
+  <rect x="650" y="100" width="120" height="80" fill="#7f1d1d" stroke="#fca5a5" stroke-width="3" rx="5"/>
+  
+  <text x="710" y="130" fill="#fecaca" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">분모</text>
+  <text x="710" y="160" fill="#fef2f2" font-family="monospace" font-size="28" font-weight="bold" text-anchor="middle">ZERO</text>
+
+  <text x="710" y="210" fill="#ef4444" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Division Error!</text>
+
+
+  <!-- Explanation Block -->
+  <rect x="150" y="200" width="500" height="40" fill="#020617" stroke="#fbbf24" stroke-width="2" rx="20"/>
+  <text x="400" y="225" fill="#fde68a" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">"아무리 구글 문서 DB를 100년간 다 뒤져봐도 저런 특이한 문장은 1건도 없습니다 삐빅!"</text>
+
+
+  <text x="400" y="275" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">서버에 저장된 데이터 베이스 카운트가 `0`이 되는 순간, 수학 분모가 0이 되어 연산이 영원히 터져버립니다.</text>
+
+</svg>

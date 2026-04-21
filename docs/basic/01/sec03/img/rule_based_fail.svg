@@ -1,0 +1,33 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">규칙 기반 (Rule-based) 고전 지능의 파업과 파멸</text>
+
+  <!-- Old Robot -->
+  <rect x="50" y="80" width="200" height="150" fill="#1e293b" stroke="#64748b" stroke-width="3" rx="10"/>
+  <text x="150" y="115" fill="#94a3b8" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">고전 규칙 봇 (if/else)</text>
+  
+  <rect x="90" y="130" width="120" height="40" fill="#475569" rx="5"/>
+  <text x="150" y="155" fill="#cbd5e1" font-family="sans-serif" font-size="14" text-anchor="middle">표준 국어대사전 탑재</text>
+  
+  <path d="M 260 150 L 350 150" stroke="#f43f5e" stroke-width="4" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
+  <text x="305" y="140" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">충돌 버그 발동!</text>
+
+  <!-- Toxic Input -->
+  <rect x="370" y="80" width="150" height="150" fill="#450a0a" stroke="#ef4444" stroke-width="3" rx="5"/>
+  <text x="445" y="115" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">SNS 외계어 침공</text>
+  
+  <text x="445" y="150" fill="#ef4444" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">"개이득 ㅋㅋㅋ"</text>
+  <text x="445" y="180" fill="#ef4444" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">"킹받네 ㄹㅇ"</text>
+  <text x="445" y="210" fill="#ef4444" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">"머선129"</text>
+
+  <!-- Crash Output -->
+  <path d="M 530 150 L 620 150" stroke="#ef4444" stroke-width="4" marker-end="url(#arrow)"/>
+  
+  <circle cx="700" cy="150" r="60" fill="#7f1d1d" stroke="#fca5a5" stroke-width="4"/>
+  <text x="700" y="145" fill="#fca5a5" font-family="monospace" font-size="24" font-weight="bold" text-anchor="middle">CRASH!</text>
+  <text x="700" y="170" fill="#fca5a5" font-family="monospace" font-size="14" text-anchor="middle">사전에 없음</text>
+
+  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">1990년대 선배 학자들이 컴퓨터 메모리에 사전을 통째로 외우게 시켰던 하드코딩 모델은, 인터넷 신조어 하나에 시스템이 셧다운 되었습니다.</text>
+
+</svg>

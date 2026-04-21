@@ -1,0 +1,46 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">데이터 마이닝 팩토리: 진흙 속에서 다이아몬드를 발굴하는 4단계 공정</text>
+
+  <!-- Step 1 -->
+  <rect x="50" y="80" width="120" height="150" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
+  <text x="110" y="115" fill="#60a5fa" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Step 1. 수집</text>
+  <text x="110" y="140" fill="#93c5fd" font-family="sans-serif" font-size="24" text-anchor="middle">🌐</text>
+  <text x="110" y="170" fill="#eff6ff" font-family="sans-serif" font-size="12" text-anchor="middle">크롤러 봇 출동</text>
+  <text x="110" y="190" fill="#eff6ff" font-family="sans-serif" font-size="12" text-anchor="middle">야생의 웹 데이터</text>
+  <text x="110" y="210" fill="#eff6ff" font-family="sans-serif" font-size="12" text-anchor="middle">박박 긁어모으기</text>
+
+  <path d="M 180 155 L 230 155" stroke="#f59e0b" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <!-- Step 2 -->
+  <rect x="240" y="80" width="120" height="150" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="300" y="115" fill="#34d399" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Step 2. 전처리</text>
+  <text x="300" y="140" fill="#6ee7b7" font-family="sans-serif" font-size="24" text-anchor="middle">⚙️</text>
+  <text x="300" y="170" fill="#ecfdf5" font-family="sans-serif" font-size="12" text-anchor="middle">피눈물 나는 노동</text>
+  <text x="300" y="190" fill="#ecfdf5" font-family="sans-serif" font-size="12" text-anchor="middle">정규식 청소</text>
+  <text x="300" y="210" fill="#ecfdf5" font-family="sans-serif" font-size="12" text-anchor="middle">문자열 $\to$ 특수숫자</text>
+
+  <path d="M 370 155 L 420 155" stroke="#f59e0b" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <!-- Step 3 -->
+  <rect x="430" y="80" width="120" height="150" fill="#1e293b" stroke="#f43f5e" stroke-width="2" rx="5"/>
+  <text x="490" y="115" fill="#fb7185" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Step 3. 모델링</text>
+  <text x="490" y="140" fill="#fda4af" font-family="sans-serif" font-size="24" text-anchor="middle">🧠</text>
+  <text x="490" y="170" fill="#fef2f2" font-family="sans-serif" font-size="12" text-anchor="middle">인공지능 망 투입</text>
+  <text x="490" y="190" fill="#fef2f2" font-family="sans-serif" font-size="12" text-anchor="middle">98% 긍정 확률!</text>
+  <text x="490" y="210" fill="#fef2f2" font-family="sans-serif" font-size="12" text-anchor="middle">통계 분산 연산</text>
+
+  <path d="M 560 155 L 610 155" stroke="#f59e0b" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <!-- Step 4 -->
+  <rect x="620" y="80" width="120" height="150" fill="#1e293b" stroke="#f59e0b" stroke-width="2" rx="5"/>
+  <text x="680" y="115" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Step 4. 시각화</text>
+  <text x="680" y="140" fill="#fde68a" font-family="sans-serif" font-size="24" text-anchor="middle">📊</text>
+  <text x="680" y="170" fill="#fffbeb" font-family="sans-serif" font-size="12" text-anchor="middle">결과물 대시보드</text>
+  <text x="680" y="190" fill="#fffbeb" font-family="sans-serif" font-size="12" text-anchor="middle">위험경보 발령</text>
+  <text x="680" y="210" fill="#fffbeb" font-family="sans-serif" font-size="12" text-anchor="middle">최종 비즈니스 결정</text>
+
+  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">비정형 텍스트 쓰레기를 긁어모아 팩토리(Factory)의 레일을 통과시켜 사장님 책상 위의 예쁜 엑셀/그래프 차트로 바꾸어내는 극한의 여정</text>
+
+</svg>

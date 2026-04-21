@@ -1,0 +1,37 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">RAG 시스템의 검색 증강용 PDF 청킹 (Chunking)</text>
+
+  <!-- Big PDF Document -->
+  <rect x="50" y="80" width="120" height="150" fill="#cbd5e1" stroke="#f8fafc" stroke-width="2" rx="5"/>
+  <text x="110" y="110" fill="#0f172a" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">회사 규정.pdf</text>
+  <line x1="60" y1="130" x2="160" y2="130" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="60" y1="150" x2="160" y2="150" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="60" y1="170" x2="160" y2="170" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="60" y1="190" x2="160" y2="190" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="60" y1="210" x2="140" y2="210" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- Funnel/Blade -->
+  <path d="M 200 155 L 280 155" stroke="#f59e0b" stroke-width="4" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
+  <text x="240" y="145" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">문단별 Chunking</text>
+
+  <!-- Chunks -->
+  <rect x="330" y="80" width="120" height="60" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="3"/>
+  <text x="390" y="105" fill="#93c5fd" font-family="sans-serif" font-size="14" text-anchor="middle">청크 1 (휴가 규정)</text>
+  <text x="390" y="125" fill="#60a5fa" font-family="sans-serif" font-size="12" text-anchor="middle">약 500 토큰 절단</text>
+
+  <rect x="330" y="160" width="120" height="60" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="3"/>
+  <text x="390" y="185" fill="#6ee7b7" font-family="sans-serif" font-size="14" text-anchor="middle">청크 2 (복지 포인트)</text>
+  <text x="390" y="205" fill="#34d399" font-family="sans-serif" font-size="12" text-anchor="middle">약 500 토큰 절단</text>
+
+  <path d="M 470 155 L 530 155" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <!-- AI Brain / Vector DB -->
+  <rect x="560" y="100" width="180" height="120" fill="#020617" stroke="#fbbf24" stroke-width="3" rx="10"/>
+  <text x="650" y="135" fill="#fde68a" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Vector DB</text>
+  <text x="650" y="165" fill="#fbbf24" font-family="sans-serif" font-size="12" text-anchor="middle">유저가 휴가 질문 시,</text>
+  <text x="650" y="185" fill="#fbbf24" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">청크 1 덩어리만 쏙 발췌!</text>
+
+  <text x="400" y="280" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">수백 장의 문서를 통째로 넣으면 AI 입천장이 찢어지므로, 의미가 깨지지 않는 최적의 구역 크기(Chunk)로 잘라 데이터 저장소에 넣습니다.</text>
+</svg>

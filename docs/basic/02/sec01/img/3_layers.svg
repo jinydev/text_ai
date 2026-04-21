@@ -1,0 +1,24 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">자연어 분석의 3대 계층 구조 (Layer)</text>
+
+  <!-- Level 1 -->
+  <rect x="250" y="200" width="300" height="50" fill="#1e293b" stroke="#fbbf24" stroke-width="3" rx="5"/>
+  <text x="400" y="232" fill="#fbbf24" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">1. 어휘 (Lexical)</text>
+  <text x="580" y="232" fill="#fde68a" font-family="sans-serif" font-size="14">표면적인 글자 생김새</text>
+
+  <!-- Level 2 -->
+  <rect x="250" y="140" width="300" height="50" fill="#1e293b" stroke="#3b82f6" stroke-width="3" rx="5"/>
+  <text x="400" y="172" fill="#3b82f6" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">2. 구문 (Syntactic)</text>
+  <text x="580" y="172" fill="#93c5fd" font-family="sans-serif" font-size="14">문법과 문장의 뼈대</text>
+
+  <!-- Level 3 -->
+  <rect x="250" y="80" width="300" height="50" fill="#1e293b" stroke="#10b981" stroke-width="3" rx="5"/>
+  <text x="400" y="112" fill="#10b981" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">3. 의미 (Semantic)</text>
+  <text x="580" y="112" fill="#6ee7b7" font-family="sans-serif" font-size="14">숨겨진 문맥과 감정 파악</text>
+
+  <!-- Arrow -->
+  <path d="M 200 230 L 200 100" stroke="#f43f5e" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="180" y="165" fill="#f43f5e" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="end">분석 난이도 극악 상승</text>
+</svg>

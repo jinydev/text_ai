@@ -24,6 +24,9 @@ layout: bootstrap
         <div class="bd-content ps-lg-4">
             {{content}}
 
+            <!-- 이전/다음 페이징 출력 -->
+            {% include pagination.html %}
+
             <!-- 구글 애드센스 출력 -->
             <div class="mt-5">
                 {% include adsense.html %}

@@ -1,0 +1,46 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">임베딩의 황홀한 방정식 증명: King - Man + Woman = Queen</text>
+
+  <!-- Formula -->
+  <text x="400" y="75" fill="#fcd34d" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">[0.8, -0.6] - [0.5, -0.6] + [0.5, 0.4] ≈ [0.8, 0.4]</text>
+
+  <!-- 3D Vector Space Graph -->
+  <line x1="100" y1="240" x2="700" y2="240" stroke="#475569" stroke-width="2"/>
+  <line x1="400" y1="280" x2="400" y2="100" stroke="#475569" stroke-width="2"/>
+  <text x="710" y="245" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="start">왕족 권위 (Royalty) 축</text>
+  <text x="390" y="100" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="end">여성성 (Femininity) 축</text>
+
+
+  <!-- Coordinates and Entities -->
+  <!-- Man -->
+  <circle cx="200" cy="210" r="8" fill="#3b82f6"/>
+  <text x="200" y="235" fill="#93c5fd" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Man (평범한 남자)</text>
+
+  <!-- King -->
+  <circle cx="600" cy="210" r="8" fill="#6366f1"/>
+  <text x="600" y="235" fill="#a5b4fc" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">King (위대한 왕)</text>
+  <path d="M 215 210 L 585 210" stroke="#a5b4fc" stroke-width="3" stroke-dasharray="5,5" fill="none" marker-end="url(#arrow)"/>
+  <text x="400" y="200" fill="#818cf8" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">권위(+Royalty) 획득 연산</text>
+
+
+  <!-- Woman -->
+  <circle cx="200" cy="120" r="8" fill="#ec4899"/>
+  <text x="200" y="110" fill="#f9a8d4" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Woman (평범한 여자)</text>
+  <path d="M 200 200 L 200 135" stroke="#f9a8d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="135" y="170" fill="#f472b6" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">여성성 추가</text>
+
+
+  <!-- Queen -->
+  <circle cx="600" cy="120" r="8" fill="#10b981"/>
+  <rect x="580" y="90" width="40" height="20" fill="#047857" rx="3"/>
+  <text x="600" y="105" fill="#6ee7b7" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Queen</text>
+  
+  <path d="M 600 200 L 600 135" stroke="#34d399" stroke-width="3" stroke-dasharray="5,5" fill="none" marker-end="url(#arrow)"/>
+  <text x="660" y="170" fill="#10b981" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">여성성 대입</text>
+
+  <!-- Magic Vector Path -->
+  <path d="M 215 120 L 585 120" stroke="#fcd34d" stroke-width="4" stroke-dasharray="8,4" fill="none" marker-end="url(#arrow)"/>
+
+</svg>

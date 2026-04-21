@@ -1,0 +1,37 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">품사 태깅 (POS Tagging): 단어 등짝에 포스트잇 이름표 붙이기</text>
+
+  <rect x="150" y="80" width="500" height="60" fill="#1e293b" rx="5"/>
+  <text x="200" y="120" fill="#cbd5e1" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">I</text>
+  <text x="300" y="120" fill="#cbd5e1" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">am</text>
+  <text x="400" y="120" fill="#cbd5e1" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">learning</text>
+  <text x="520" y="120" fill="#cbd5e1" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">AI</text>
+  <text x="600" y="120" fill="#cbd5e1" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">now</text>
+
+  <path d="M 200 150 L 200 180" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 300 150 L 300 180" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 400 150 L 400 180" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 520 150 L 520 180" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 600 150 L 600 180" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Postits -->
+  <rect x="160" y="190" width="80" height="40" fill="#fde047" rx="3" transform="rotate(-5 200 210)"/>
+  <text x="200" y="215" fill="#854d0e" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" transform="rotate(-5 200 210)">대명사</text>
+
+  <rect x="260" y="190" width="80" height="40" fill="#fde047" rx="3" transform="rotate(3 300 210)"/>
+  <text x="300" y="215" fill="#854d0e" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" transform="rotate(3 300 210)">be동사</text>
+
+  <rect x="360" y="190" width="80" height="40" fill="#fde047" rx="3" transform="rotate(-2 400 210)"/>
+  <text x="400" y="215" fill="#854d0e" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" transform="rotate(-2 400 210)">동사</text>
+
+  <rect x="480" y="190" width="80" height="40" fill="#fde047" rx="3" transform="rotate(6 520 210)"/>
+  <text x="520" y="215" fill="#854d0e" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" transform="rotate(6 520 210)">명사</text>
+
+  <rect x="560" y="190" width="80" height="40" fill="#fde047" rx="3" transform="rotate(-4 600 210)"/>
+  <text x="600" y="215" fill="#854d0e" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" transform="rotate(-4 600 210)">부사</text>
+
+  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">토큰 혼자서는 문맥을 알 수 없으므로, 수학적으로 분석하기 편하도록 컴퓨터가 문법 라벨(Tag)을 강제로 달아줍니다.</text>
+
+</svg>

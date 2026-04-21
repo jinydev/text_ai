@@ -1,0 +1,59 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">소프트맥스(Softmax) 압축기: 아무리 점수가 커도 무조건 총합 1.0 (100%) 피자로 나눌 것!</text>
+
+  <!-- Left: Raw Scores Multi-Class -->
+  <text x="150" y="80" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">5개 방 뉴스 분류 점수 도출 (개판)</text>
+  <rect x="50" y="100" width="200" height="160" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
+  
+  <rect x="70" y="120" width="160" height="20" fill="#450a0a" rx="3"/>
+  <text x="150" y="135" fill="#fca5a5" font-family="monospace" font-size="12" text-anchor="middle">정치 방 Z = 50.1</text>
+  
+  <rect x="70" y="150" width="160" height="20" fill="#450a0a" rx="3"/>
+  <text x="150" y="165" fill="#fca5a5" font-family="monospace" font-size="12" text-anchor="middle">사회 방 Z = 20.2</text>
+
+  <rect x="70" y="180" width="160" height="20" fill="#450a0a" rx="3"/>
+  <text x="150" y="195" fill="#fca5a5" font-family="monospace" font-size="12" text-anchor="middle">경제 방 Z = 10.0</text>
+
+  <rect x="70" y="210" width="160" height="20" fill="#450a0a" rx="3"/>
+  <text x="150" y="225" fill="#fca5a5" font-family="monospace" font-size="12" text-anchor="middle">스포츠 방 Z = -8.5</text>
+
+
+  <!-- Pipeline Arrow -->
+  <path d="M 270 180 L 330 180" stroke="#fcd34d" stroke-width="4" stroke-dasharray="5,2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Softmax Operation Machine -->
+  <rect x="350" y="140" width="100" height="80" fill="#422006" stroke="#f59e0b" stroke-width="3" rx="10"/>
+  <text x="400" y="175" fill="#fcd34d" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">e^z / ∑e^z</text>
+  <text x="400" y="200" fill="#fbbf24" font-family="sans-serif" font-size="12" text-anchor="middle">비율 강제 짜내기</text>
+
+  <path d="M 470 180 L 530 180" stroke="#10b981" stroke-width="4" stroke-dasharray="8,4" fill="none" marker-end="url(#arrow)"/>
+
+
+  <!-- Right Side: Softmax Percentage Output -->
+  <text x="650" y="80" fill="#6ee7b7" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">확률 파이 분배 (총합 무조건 100%)</text>
+  
+  <rect x="550" y="100" width="200" height="160" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="5"/>
+  
+  <!-- Pie / Bar approximations -->
+  <rect x="570" y="120" width="120" height="20" fill="#10b981" rx="2"/>
+  <text x="630" y="135" fill="#022c22" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">정치: 78% (독식)</text>
+
+  <rect x="570" y="150" width="30" height="20" fill="#34d399" rx="2"/>
+  <text x="585" y="165" fill="#022c22" font-family="sans-serif" font-size="12" text-anchor="middle">20%</text>
+  <text x="650" y="165" fill="#6ee7b7" font-family="sans-serif" font-size="10" text-anchor="middle">← 사회 쪼그라듦</text>
+
+  <rect x="570" y="180" width="10" height="20" fill="#6ee7b7" rx="2"/>
+  <text x="640" y="195" fill="#a7f3d0" font-family="sans-serif" font-size="10" text-anchor="middle">← 경제: 1.9% 찌꺼기</text>
+
+  <rect x="570" y="210" width="2" height="20" fill="#a7f3d0" rx="1"/>
+  <text x="640" y="225" fill="#a7f3d0" font-family="sans-serif" font-size="10" text-anchor="middle">← 스포츠: 0.1% 멸망</text>
+
+  <!-- Sum Rule Label -->
+  <text x="650" y="250" fill="#ecfdf5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">∑ 총합 = 100% (1.0)</text>
+
+  <!-- Explanation -->
+  <text x="400" y="280" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">1등 카테고리가 파이를 혼자 집어삼키고 78% 왕좌에 등극하면, 나머지 카테고리 후보 경쟁자들은 피눈물을 흘리며 22% 파이 껍데기를 나눠 먹으며 서열을 인정합니다.</text>
+
+</svg>

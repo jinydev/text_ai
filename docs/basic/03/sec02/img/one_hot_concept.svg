@@ -1,0 +1,28 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">원-핫 인코딩: 자기 자신에게만 전구 불(1)을 딱 켜는 방식</text>
+
+  <rect x="50" y="100" width="700" height="80" fill="#1e293b" stroke="#475569" stroke-width="2" rx="5"/>
+  
+  <text x="100" y="145" fill="#475569" font-family="monospace" font-size="24" font-weight="bold">0</text>
+  <text x="200" y="145" fill="#475569" font-family="monospace" font-size="24" font-weight="bold">0</text>
+  <text x="300" y="145" fill="#fbbf24" font-family="monospace" font-size="36" font-weight="bold">1</text>
+  <text x="400" y="145" fill="#475569" font-family="monospace" font-size="24" font-weight="bold">0</text>
+  <text x="500" y="145" fill="#475569" font-family="monospace" font-size="24" font-weight="bold">0</text>
+  <text x="600" y="145" fill="#475569" font-family="monospace" font-size="24" font-weight="bold">0</text>
+  <text x="700" y="145" fill="#475569" font-family="monospace" font-size="24" font-weight="bold">0</text>
+
+  <text x="100" y="220" fill="#94a3b8" font-family="sans-serif" font-size="16" text-anchor="middle">사과</text>
+  <text x="200" y="220" fill="#94a3b8" font-family="sans-serif" font-size="16" text-anchor="middle">바나나</text>
+  <text x="300" y="220" fill="#fde047" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">자연어</text>
+  <text x="400" y="220" fill="#94a3b8" font-family="sans-serif" font-size="16" text-anchor="middle">처리</text>
+  <text x="500" y="220" fill="#94a3b8" font-family="sans-serif" font-size="16" text-anchor="middle">배운다</text>
+  <text x="600" y="220" fill="#94a3b8" font-family="sans-serif" font-size="16" text-anchor="middle">사랑</text>
+  <text x="700" y="220" fill="#94a3b8" font-family="sans-serif" font-size="16" text-anchor="middle">우정</text>
+
+  <path d="M 300 240 L 300 260" stroke="#fbbf24" stroke-width="2"/>
+  <polygon points="295,260 305,260 300,270" fill="#fbbf24"/>
+  <text x="450" y="280" fill="#fde047" font-family="sans-serif" font-size="14" text-anchor="middle">사전 속 수만 개의 단어 중 자기 자리(인덱스 번호) 딱 한 칸만 1 레벨의 불이 들어옵니다.</text>
+
+</svg>

@@ -1,0 +1,31 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">5단계. 불용어 제거 (Stopword): 의미 없는 잉여 관사 쓰레기통 버리기</text>
+
+  <!-- Document Tokens -->
+  <rect x="50" y="100" width="350" height="60" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
+  <text x="90" y="135" fill="#f8fafc" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">사과</text>
+  <text x="140" y="135" fill="#ef4444" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">그리고</text> <!-- Stopword -->
+  <text x="210" y="135" fill="#f8fafc" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">바나나</text>
+  <text x="260" y="135" fill="#ef4444" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">가</text>     <!-- Stopword -->
+  <text x="320" y="135" fill="#f8fafc" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">맛있다</text>
+
+  <path d="M 140 150 L 140 190 L 500 190 L 500 210" stroke="#ef4444" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 260 150 L 260 190 L 500 190 L 500 210" stroke="#ef4444" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Trash can -->
+  <path d="M 460 220 L 540 220 L 530 290 L 470 290 Z" fill="#450a0a" stroke="#fca5a5" stroke-width="2"/>
+  <rect x="450" y="210" width="100" height="10" fill="#7f1d1d" rx="2"/>
+  <text x="500" y="260" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">100대 불용어</text>
+  <text x="500" y="280" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">블랙리스트</text>
+
+  <!-- Extracted -->
+  <path d="M 400 130 L 600 130" stroke="#10b981" stroke-width="4" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
+  
+  <rect x="620" y="100" width="150" height="60" fill="#064e3b" stroke="#34d399" stroke-width="2" rx="5"/>
+  <text x="695" y="135" fill="#a7f3d0" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">사과 바나나 맛있다!</text>
+
+  <text x="695" y="190" fill="#6ee7b7" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">노이즈 제거, 정제 완료</text>
+
+</svg>

@@ -1,0 +1,29 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">언어의 이분법: 컴퓨터의 평화(인공언어) vs 컴퓨터의 절망(자연언어)</text>
+
+  <!-- Artificial Language -->
+  <rect x="50" y="80" width="300" height="150" fill="#1e293b" stroke="#10b981" stroke-width="3" rx="5"/>
+  <text x="200" y="115" fill="#34d399" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">인공 언어 (Artificial Language)</text>
+
+  <rect x="80" y="130" width="240" height="60" fill="#064e3b" rx="5"/>
+  <text x="200" y="155" fill="#a7f3d0" font-family="monospace" font-size="16" text-anchor="middle">if (x == 1) { return true; }</text>
+  <text x="200" y="175" fill="#6ee7b7" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">1 + 1 = 2 (예외 0%)</text>
+
+  <text x="200" y="215" fill="#10b981" font-family="sans-serif" font-size="14" text-anchor="middle">규칙 엄수, 감정 없음, 모호성 확률 0</text>
+
+
+  <!-- Natural Language -->
+  <rect x="450" y="80" width="300" height="150" fill="#1e293b" stroke="#f43f5e" stroke-width="3" rx="5"/>
+  <text x="600" y="115" fill="#fb7185" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">자연 언어 (Natural Language)</text>
+
+  <rect x="480" y="130" width="240" height="60" fill="#450a0a" rx="5"/>
+  <text x="600" y="155" fill="#fca5a5" font-family="sans-serif" font-size="16" text-anchor="middle">"차 좀 빼주세요!"</text>
+  <text x="600" y="175" fill="#ef4444" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">(Tea? Car? Kick?)</text>
+
+  <text x="600" y="215" fill="#f43f5e" font-family="sans-serif" font-size="14" text-anchor="middle">무한한 예외, 돌려말하기, 다의어 지옥</text>
+
+  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">프로그래밍 코드는 점 하나만 틀려도 에러 붉은 줄을 뱉지만, 사람의 말은 오타가 섞여도 뇌에서 의미 지표를 보정하여 해석해냅니다.</text>
+
+</svg>

@@ -1,0 +1,58 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">스탠포드의 거대한 도발: 동시 등장 행렬 (Co-occurrence Matrix)</text>
+
+  <!-- Left: Window Scope Issue -->
+  <rect x="50" y="80" width="230" height="150" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
+  <text x="165" y="105" fill="#93c5fd" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">구글 Word2Vec 의 한계</text>
+  
+  <rect x="70" y="130" width="190" height="80" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+  <text x="165" y="150" fill="#64748b" font-family="monospace" font-size="10" text-anchor="middle">1000 페이지 짜리 서적 데이터...</text>
+  <rect x="115" y="160" width="100" height="30" fill="#2563eb" fill-opacity="0.3" stroke="#60a5fa" stroke-width="2"/>
+  <text x="165" y="178" fill="#bfdbfe" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">좁은 돋보기 창문</text>
+  
+  <text x="165" y="220" fill="#fca5a5" font-family="sans-serif" font-size="10" text-anchor="middle">"방금 지나간 주변 단어만 볼래!" (Local)</text>
+
+  <!-- VS arrow -->
+  <text x="310" y="165" fill="#fcd34d" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">VS</text>
+
+  <!-- Right: Co-occurrence Matrix (Global) -->
+  <rect x="350" y="80" width="400" height="150" fill="#064e3b" stroke="#10b981" stroke-width="3" rx="10"/>
+  <text x="550" y="105" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">스탠포드 GloVe (극단적 엑셀 표)</text>
+
+  <!-- Matrix Grid -->
+  <rect x="420" y="115" width="280" height="100" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+  
+  <line x1="420" y1="135" x2="700" y2="135" stroke="#10b981" stroke-width="1"/>
+  <line x1="420" y1="155" x2="700" y2="155" stroke="#10b981" stroke-width="1"/>
+  <line x1="420" y1="175" x2="700" y2="175" stroke="#10b981" stroke-width="1"/>
+  <line x1="420" y1="195" x2="700" y2="195" stroke="#10b981" stroke-width="1"/>
+
+  <line x1="480" y1="115" x2="480" y2="215" stroke="#10b981" stroke-width="1"/>
+  <line x1="550" y1="115" x2="550" y2="215" stroke="#10b981" stroke-width="1"/>
+  <line x1="620" y1="115" x2="620" y2="215" stroke="#10b981" stroke-width="1"/>
+
+  <text x="450" y="130" fill="#a7f3d0" font-family="monospace" font-size="12" text-anchor="middle">단어</text>
+  <text x="515" y="130" fill="#a7f3d0" font-family="monospace" font-size="12" text-anchor="middle">ice</text>
+  <text x="585" y="130" fill="#a7f3d0" font-family="monospace" font-size="12" text-anchor="middle">steam</text>
+  <text x="660" y="130" fill="#a7f3d0" font-family="monospace" font-size="12" text-anchor="middle">solid</text>
+
+  <text x="450" y="150" fill="#a7f3d0" font-family="monospace" font-size="12" text-anchor="middle">ice</text>
+  <text x="450" y="170" fill="#a7f3d0" font-family="monospace" font-size="12" text-anchor="middle">steam</text>
+  <text x="450" y="190" fill="#a7f3d0" font-family="monospace" font-size="12" text-anchor="middle">solid</text>
+
+  <!-- Important Data Value -->
+  <rect x="481" y="176" width="68" height="18" fill="#7f1d1d"/>
+  <text x="515" y="190" fill="#fca5a5" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">2,995</text>
+  <text x="585" y="190" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="middle">2</text>
+  
+  <!-- Highlight Explanation -->
+  <path d="M 640 230 L 515 200" stroke="#fca5a5" stroke-width="2" stroke-dasharray="5,3" fill="none" marker-end="url(#arrow)"/>
+  <text x="640" y="245" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">"책 전체(Global)에서 ice와 solid가 손잡고 2995번 나옴!"</text>
+
+
+  <!-- Conclusion -->
+  <text x="400" y="280" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">구글처럼 좁은 문맥 돋보기만 쓰지 말고, 책 한 권 전체(Global)의 무식한 동시 통계 카운트를 계산 과정에 무조건 녹여보자!</text>
+
+</svg>

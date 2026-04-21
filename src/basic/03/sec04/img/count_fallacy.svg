@@ -1,0 +1,16 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+  <rect x="100" y="50" width="100" height="200" fill="#ef4444" rx="5"/>
+  <text x="150" y="40" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">빈도 9,800회</text>
+  <text x="150" y="275" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">The</text>
+
+  <rect x="300" y="150" width="100" height="100" fill="#f59e0b" rx="5"/>
+  <text x="350" y="140" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">빈도 3,400회</text>
+  <text x="350" y="275" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">is</text>
+
+  <rect x="500" y="230" width="100" height="20" fill="#10b981" rx="5"/>
+  <text x="550" y="220" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">빈도 12회</text>
+  <text x="550" y="275" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">마법 (Magic)</text>
+
+  <text x="400" y="20" fill="#cbd5e1" font-family="sans-serif" font-size="18" text-anchor="middle">단순 빈도수(Count) 정렬의 치명적 참사</text>
+</svg>

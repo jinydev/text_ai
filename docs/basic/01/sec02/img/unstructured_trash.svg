@@ -1,0 +1,48 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">비정형 (Unstructured) 데이터의 현실: 엑셀표 vs 야생의 수다쟁이들</text>
+
+  <!-- Left: Structured Data -->
+  <rect x="50" y="80" width="300" height="150" fill="#1e293b" stroke="#3b82f6" stroke-width="3" rx="5"/>
+  <text x="200" y="110" fill="#60a5fa" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">정형 데이터 (Structured)</text>
+  
+  <rect x="80" y="125" width="240" height="90" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+  <line x1="80" y1="155" x2="320" y2="155" stroke="#475569" stroke-width="2"/>
+  <line x1="80" y1="185" x2="320" y2="185" stroke="#475569" stroke-width="2"/>
+  <line x1="160" y1="125" x2="160" y2="215" stroke="#475569" stroke-width="2"/>
+  <line x1="240" y1="125" x2="240" y2="215" stroke="#475569" stroke-width="2"/>
+
+  <!-- Excel Content -->
+  <text x="120" y="145" fill="#e2e8f0" font-size="12" text-anchor="middle">나이</text>
+  <text x="200" y="145" fill="#e2e8f0" font-size="12" text-anchor="middle">성별</text>
+  <text x="280" y="145" fill="#e2e8f0" font-size="12" text-anchor="middle">가격</text>
+
+  <text x="120" y="175" fill="#93c5fd" font-size="12" text-anchor="middle">24</text>
+  <text x="200" y="175" fill="#93c5fd" font-size="12" text-anchor="middle">M</text>
+  <text x="280" y="175" fill="#93c5fd" font-size="12" text-anchor="middle">$10</text>
+
+  <text x="120" y="205" fill="#93c5fd" font-size="12" text-anchor="middle">30</text>
+  <text x="200" y="205" fill="#93c5fd" font-size="12" text-anchor="middle">F</text>
+  <text x="280" y="205" fill="#93c5fd" font-size="12" text-anchor="middle">$15</text>
+  
+  <text x="200" y="250" fill="#60a5fa" font-family="sans-serif" font-size="14" text-anchor="middle" font-weight="bold">컴퓨터가 가장 좋아하는 군대식 정렬</text>
+
+
+  <!-- Right: Unstructured Data -->
+  <rect x="450" y="80" width="300" height="150" fill="#1e293b" stroke="#f59e0b" stroke-width="3" rx="5"/>
+  <text x="600" y="110" fill="#fbbf24" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">비정형 데이터 (Unstructured 텍스트)</text>
+
+  <path d="M 480 130 C 500 120 540 180 580 150 C 620 120 650 180 700 130" fill="none" stroke="#fcd34d" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="500" y="140" fill="#fef3c7" font-size="14">ㅋㅋㅋ 이거 ㄹㅇ임;</text>
+  <text x="550" y="170" fill="#fef3c7" font-size="14">아니 배송 왜 일케 늦어!!!!</text>
+  <text x="600" y="200" fill="#fef3c7" font-size="14">@!$%#</text>
+  <text x="480" y="210" fill="#fef3c7" font-size="14">제가 어제 구매를 했사온데...</text>
+
+  <text x="600" y="250" fill="#fbbf24" font-family="sans-serif" font-size="14" text-anchor="middle" font-weight="bold">길이도 제멋대로, 띄어쓰기 파괴, 은어 남발</text>
+
+  <!-- Divider -->
+  <line x1="400" y1="80" x2="400" y2="230" stroke="#64748b" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="400" y="280" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">현실 세계의 90% 이상은 비정형 데이터이며, 이를 억지로 가공해 좌측(엑셀)처럼 변환해 주는 것이 텍스트 전처리의 목표입니다.</text>
+
+</svg>

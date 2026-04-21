@@ -1,0 +1,43 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">데이터 도륙 Splitting (Hold-out) 구조와 운빨의 치명적 딜레마</text>
+
+  <!-- Total Data Block -->
+  <rect x="50" y="80" width="700" height="40" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
+  <text x="400" y="105" fill="#93c5fd" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">초기 배포된 총 데이터 (Total Data: 100만 건)</text>
+
+  <path d="M 400 130 L 400 150" stroke="#fcd34d" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+
+  <!-- Split Blocks -->
+  <!-- Train Block -->
+  <rect x="50" y="160" width="420" height="80" fill="#450a0a" stroke="#ef4444" stroke-width="3" rx="5"/>
+  <text x="260" y="195" fill="#fca5a5" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Train (훈련 교과서)</text>
+  <text x="260" y="220" fill="#f87171" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">전체 파이의 60%</text>
+
+
+  <!-- Validation Block -->
+  <rect x="490" y="160" width="120" height="80" fill="#064e3b" stroke="#10b981" stroke-width="3" rx="5"/>
+  <text x="550" y="195" fill="#6ee7b7" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Valid (모의고사)</text>
+  <text x="550" y="220" fill="#34d399" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">20%</text>
+  
+  <!-- Bad Luck Marker -->
+  <circle cx="550" cy="155" r="15" fill="#ef4444"/>
+  <text x="550" y="160" fill="#fef2f2" font-family="sans-serif" font-size="14" text-anchor="middle">💣</text>
+  <path d="M 550 140 C 650 100 700 80 610 50" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,2" fill="none"/>
+  <!-- <text x="550" y="260" fill="#fca5a5" font-family="sans-serif" font-size="12" text-anchor="middle">극악 오타지뢰 당첨</text> -->
+
+
+  <!-- Test Block -->
+  <rect x="630" y="160" width="120" height="80" fill="#1e3a8a" stroke="#60a5fa" stroke-width="3" rx="5"/>
+  <text x="690" y="195" fill="#bfdbfe" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Test (수능 실전)</text>
+  <text x="690" y="220" fill="#60a5fa" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">배포직전 1회 개봉 (20%)</text>
+
+
+  <!-- Explanation -->
+  <rect x="440" y="245" width="220" height="40" fill="#7f1d1d" rx="5"/>
+  <text x="550" y="260" fill="#fca5a5" font-family="sans-serif" font-size="12" text-anchor="middle">딜레마: 어쩌다 뜯어낸 Valid 문제지에</text>
+  <text x="550" y="275" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">특급 오답지 폭탄이 다 쏠렸다면 평가 파탄!</text>
+
+</svg>

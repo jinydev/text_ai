@@ -1,0 +1,37 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">현대 범용 AI (LLM) 시대를 지배하는 채점 평가 4대장</text>
+
+  <!-- BLEU -->
+  <rect x="40" y="90" width="160" height="130" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
+  <text x="120" y="125" fill="#60a5fa" font-family="sans-serif" font-size="22" font-weight="bold" text-anchor="middle">BLEU</text>
+  <text x="120" y="150" fill="#93c5fd" font-family="sans-serif" font-size="12" text-anchor="middle">기계 번역 일치도</text>
+  <text x="120" y="180" fill="#94a3b8" font-family="sans-serif" font-size="10" text-anchor="middle">단어 순서 N-gram 겹침</text>
+  <text x="120" y="195" fill="#94a3b8" font-family="sans-serif" font-size="10" text-anchor="middle">Precision(정밀도) 중심</text>
+
+  <!-- ROUGE -->
+  <rect x="230" y="90" width="160" height="130" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="310" y="125" fill="#34d399" font-family="sans-serif" font-size="22" font-weight="bold" text-anchor="middle">ROUGE</text>
+  <text x="310" y="150" fill="#6ee7b7" font-family="sans-serif" font-size="12" text-anchor="middle">문서 요약 일치율</text>
+  <text x="310" y="180" fill="#94a3b8" font-family="sans-serif" font-size="10" text-anchor="middle">핵심 키워드를 안 빼먹고</text>
+  <text x="310" y="195" fill="#94a3b8" font-family="sans-serif" font-size="10" text-anchor="middle">잘 주웠는가 (Recall)</text>
+
+  <!-- MMLU -->
+  <rect x="420" y="90" width="160" height="130" fill="#450a0a" stroke="#ef4444" stroke-width="3" rx="5"/>
+  <text x="500" y="125" fill="#fca5a5" font-family="sans-serif" font-size="22" font-weight="bold" text-anchor="middle">MMLU</text>
+  <text x="500" y="150" fill="#fecaca" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">의사 변호사 수능시험</text>
+  <text x="500" y="180" fill="#f87171" font-family="sans-serif" font-size="10" text-anchor="middle">57개 전공 과목 객관식</text>
+  <text x="500" y="195" fill="#f87171" font-family="sans-serif" font-size="10" text-anchor="middle">LLM 지식 경쟁의 핵심 척도</text>
+
+  <!-- LLM-as-a-Judge -->
+  <rect x="610" y="90" width="160" height="130" fill="#422006" stroke="#f59e0b" stroke-width="3" rx="5"/>
+  <text x="690" y="125" fill="#fcd34d" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">LLM-as-a-Judge</text>
+  <text x="690" y="150" fill="#fde68a" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">최신 메타 채점의 꼼수</text>
+  <text x="690" y="180" fill="#fbbf24" font-family="sans-serif" font-size="10" text-anchor="middle">GPT-4 (절대신) 에게</text>
+  <text x="690" y="195" fill="#fbbf24" font-family="sans-serif" font-size="10" text-anchor="middle">다른 AI의 글을 심사하게 시킴</text>
+
+
+  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">허구성을 걸러내지 못하는 PPL 지표를 폐기시키고, 진짜 이성적인 인간 수준(논리, 팩트)의 점수를 매기기 위한 전쟁터입니다.</text>
+
+</svg>

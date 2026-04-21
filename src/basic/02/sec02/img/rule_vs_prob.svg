@@ -1,0 +1,29 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">품사 태깅의 진화 사상: 무식한 거대사전 vs 현대 눈치통계</text>
+
+  <!-- Left: Rule-based -->
+  <rect x="50" y="80" width="300" height="150" fill="#1e293b" stroke="#f43f5e" stroke-width="3" rx="5"/>
+  <text x="200" y="115" fill="#fb7185" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">규칙 기반 (Rule-based) 기법</text>
+  
+  <rect x="150" y="130" width="100" height="50" fill="#881337" rx="3"/>
+  <text x="200" y="160" fill="#fda4af" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">국어대사전. DB</text>
+
+  <path d="M 270 155 L 320 155" stroke="#f43f5e" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="200" y="210" fill="#fecdd3" font-family="sans-serif" font-size="14" text-anchor="middle">"사전에 없네요. 에러 뿜고 다운!"</text>
+
+  <!-- Right: Probabilistic -->
+  <rect x="450" y="80" width="300" height="150" fill="#1e293b" stroke="#10b981" stroke-width="3" rx="5"/>
+  <text x="600" y="115" fill="#34d399" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">확률형 통계 (Probabilistic) 기법</text>
+
+  <text x="600" y="150" fill="#6ee7b7" font-family="sans-serif" font-size="16" text-anchor="middle">"[?]"</text>
+  <path d="M 540 180 Q 600 130 660 180" stroke="#10b981" stroke-width="3" stroke-dasharray="5,5" fill="none"/>
+  <text x="540" y="200" fill="#a7f3d0" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">형용사</text>
+  <text x="660" y="200" fill="#a7f3d0" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">조사</text>
+
+  <text x="600" y="215" fill="#a7f3d0" font-family="sans-serif" font-size="14" text-anchor="middle">"앞뒤 눈치껏 보아하니.. 너는 [명사]다!"</text>
+
+  <text x="400" y="265" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">과거엔 모든 단어의 문법을 무식하게 조건문(if-else)으로 외웠으나, 현대는 마르코프 체인 등 확률로 유추해 냅니다.</text>
+
+</svg>

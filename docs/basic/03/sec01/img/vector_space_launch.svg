@@ -1,0 +1,26 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">카운트 배열표 묶음을 기하학적 허공(Vector Space)으로 쏘아 올리기</text>
+
+  <!-- Array -->
+  <rect x="50" y="100" width="200" height="100" fill="#1e293b" stroke="#10b981" stroke-width="3" rx="5"/>
+  <text x="150" y="145" fill="#34d399" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">[ 2, 5 ]</text>
+  <text x="150" y="175" fill="#6ee7b7" font-family="sans-serif" font-size="14" text-anchor="middle">1차원 텍스트 빈도 배열</text>
+
+  <path d="M 270 150 L 370 150" stroke="#f59e0b" stroke-width="4" stroke-dasharray="5,5"/>
+  <polygon points="360,140 380,150 360,160" fill="#f59e0b"/>
+
+  <!-- Graph -->
+  <g stroke="#475569" stroke-width="2">
+    <line x1="450" y1="250" x2="700" y2="250" /> <!-- X -->
+    <line x1="450" y1="250" x2="450" y2="50" />  <!-- Y -->
+  </g>
+  <text x="710" y="255" fill="#94a3b8" font-family="sans-serif" font-size="14">축 X (단어A 출현횟수)</text>
+  <text x="450" y="30" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">축 Y (단어B 출현횟수)</text>
+
+  <!-- Dots on graph -->
+  <circle cx="550" cy="150" r="8" fill="#3b82f6" />
+  <path d="M 450 250 L 550 150" stroke="#3b82f6" stroke-width="3" stroke-dasharray="5,5"/>
+  <text x="570" y="145" fill="#60a5fa" font-family="sans-serif" font-size="16" font-weight="bold">문서 스탯의 좌표점화 (2, 5)</text>
+</svg>

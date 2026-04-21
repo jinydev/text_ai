@@ -1,0 +1,66 @@
+<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="350" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">가정 2: 토픽방 속의 단어 주머니 분포표 (Phi, Φ)</text>
+
+  <text x="400" y="70" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">각 토픽 방앗간 내부에는 '단어가 뽑혀나갈 전용 확률 쪽지표'가 벽에 고정되어 있다.</text>
+
+  <!-- Left Drawer: Fruit Topic -->
+  <rect x="100" y="100" width="250" height="200" fill="#1e293b" stroke="#ef4444" stroke-width="4" rx="10"/>
+  <rect x="100" y="100" width="250" height="40" fill="#7f1d1d" rx="5"/>
+  <text x="225" y="125" fill="#fef2f2" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">🔴 과일 토픽 주머니 (Φ_1)</text>
+
+  <!-- Probability bars inside Fruit -->
+  <!-- Bar 1 -->
+  <text x="130" y="170" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="end">바나나</text>
+  <rect x="140" y="157" width="160" height="15" fill="#ef4444" rx="3"/>
+  <text x="320" y="169" fill="#fca5a5" font-family="monospace" font-size="12" text-anchor="start">40%</text>
+
+  <!-- Bar 2 -->
+  <text x="130" y="200" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="end">사과</text>
+  <rect x="140" y="187" width="80" height="15" fill="#dc2626" rx="3"/>
+  <text x="230" y="199" fill="#fca5a5" font-family="monospace" font-size="12" text-anchor="start">20%</text>
+
+  <!-- Bar 3 -->
+  <text x="130" y="230" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="end">달콤</text>
+  <rect x="140" y="217" width="40" height="15" fill="#b91c1c" rx="3"/>
+  <text x="190" y="229" fill="#fca5a5" font-family="monospace" font-size="12" text-anchor="start">10%</text>
+
+  <!-- Bar 4 (Cross-over zero likelihood) -->
+  <text x="130" y="260" fill="#94a3b8" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="end">강아지</text>
+  <rect x="140" y="247" width="2" height="15" fill="#475569" rx="1"/>
+  <text x="150" y="259" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="start">0.01% (희박)</text>
+
+
+  <!-- Right Drawer: Animal Topic -->
+  <rect x="450" y="100" width="250" height="200" fill="#1e293b" stroke="#3b82f6" stroke-width="4" rx="10"/>
+  <rect x="450" y="100" width="250" height="40" fill="#1e3a8a" rx="5"/>
+  <text x="575" y="125" fill="#fef2f2" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">🔵 동물 토픽 주머니 (Φ_2)</text>
+
+  <!-- Probability bars inside Animal -->
+  <!-- Bar 1 -->
+  <text x="480" y="170" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="end">강아지</text>
+  <rect x="490" y="157" width="132" height="15" fill="#3b82f6" rx="3"/>
+  <text x="630" y="169" fill="#93c5fd" font-family="monospace" font-size="12" text-anchor="start">33%</text>
+
+  <!-- Bar 2 -->
+  <text x="480" y="200" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="end">귀여운</text>
+  <rect x="490" y="187" width="132" height="15" fill="#2563eb" rx="3"/>
+  <text x="630" y="199" fill="#93c5fd" font-family="monospace" font-size="12" text-anchor="start">33%</text>
+
+  <!-- Bar 3 -->
+  <text x="480" y="230" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="end">사자</text>
+  <rect x="490" y="217" width="64" height="15" fill="#1d4ed8" rx="3"/>
+  <text x="560" y="229" fill="#93c5fd" font-family="monospace" font-size="12" text-anchor="start">16%</text>
+
+  <!-- Bar 4 (Cross-over zero likelihood) -->
+  <text x="480" y="260" fill="#94a3b8" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="end">사과</text>
+  <rect x="490" y="247" width="2" height="15" fill="#475569" rx="1"/>
+  <text x="500" y="259" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="start">0.01% (희박)</text>
+
+
+  <!-- Center Box connecting them -->
+  <rect x="250" y="315" width="300" height="25" fill="#064e3b" rx="5"/>
+  <text x="400" y="332" fill="#a7f3d0" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">토픽마다 자주 쓰는 고유의 단어 편식이 다름!</text>
+
+</svg>

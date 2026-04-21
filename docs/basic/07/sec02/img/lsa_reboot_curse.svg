@@ -1,0 +1,40 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">LSA 모델의 저주: 데이터 업데이트 추가 불가능 (재부팅 대폭발)</text>
+
+  <!-- Giant Existing Matrix -->
+  <rect x="50" y="80" width="250" height="180" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
+  <text x="175" y="150" fill="#60a5fa" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">기존 학습완료 코퍼스</text>
+  <text x="175" y="180" fill="#3b82f6" font-family="monospace" font-size="24" font-weight="bold" text-anchor="middle">(100만 행렬 A)</text>
+
+  <!-- LSA Model Box -->
+  <rect x="350" y="100" width="120" height="80" fill="#0f172a" stroke="#10b981" stroke-width="4" rx="10"/>
+  <text x="410" y="135" fill="#34d399" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">LSA (SVD)</text>
+  <text x="410" y="160" fill="#a7f3d0" font-family="sans-serif" font-size="12" text-anchor="middle">기껏 1주일 연산끝남</text>
+
+  <path d="M 300 140 L 350 140" stroke="#10b981" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+
+  <!-- The New Data Dilemma -->
+  <rect x="50" y="260" width="250" height="30" fill="#ef4444" rx="2"/>
+  <text x="175" y="280" fill="#fef2f2" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">+ 🚨 신규 뉴스 단 1건 어제 추가됨!!</text>
+
+  <!-- Big Red Boom -->
+  <path d="M 300 275 L 400 275" stroke="#ef4444" stroke-width="4" stroke-dasharray="5,5" fill="none" marker-end="url(#arrow)"/>
+  
+  <path d="M 380 200 L 410 270 L 400 280 L 450 300 Z" fill="#ef4444" opacity="0.6"/> <!-- Explosion spike 1 -->
+  
+  <rect x="450" y="240" width="300" height="50" fill="#450a0a" stroke="#f87171" stroke-width="2" rx="5"/>
+  <text x="600" y="263" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">SVD 행렬 구조 대파괴 에러!</text>
+  <text x="600" y="280" fill="#f87171" font-family="sans-serif" font-size="12" text-anchor="middle">차원 행렬 규격이 안 맞아서 연산 불가!</text>
+
+  <!-- Explanation -->
+  <rect x="520" y="70" width="250" height="120" fill="#7f1d1d" rx="10"/>
+  <text x="645" y="105" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">실시간 서비스 도입 불가!</text>
+  <text x="645" y="130" fill="#fef2f2" font-family="sans-serif" font-size="12" text-anchor="middle">새로운 문서 단 1 장을 반영하려면</text>
+  <text x="645" y="150" fill="#fef2f2" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">전체 100만+1 행렬 매트릭스를 전부 다</text>
+  <text x="645" y="170" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">밑바닥부터 다시 SVD 연산 포맷해야함!</text>
+
+
+</svg>

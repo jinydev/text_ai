@@ -1,0 +1,38 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">고전 기계의 치명적 절망: OOV (Out-of-Vocabulary) 에러 폭발</text>
+
+  <!-- User Input -->
+  <rect x="50" y="90" width="180" height="80" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
+  <text x="140" y="125" fill="#f8fafc" font-family="sans-serif" font-size="16" text-anchor="middle">"오늘 킹받네 오픈런"</text>
+  <text x="140" y="150" fill="#93c5fd" font-family="sans-serif" font-size="14" text-anchor="middle">(신조어/오타 생성!)</text>
+
+  <path d="M 230 130 L 330 130" stroke="#f59e0b" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <!-- Old AI Robot -->
+  <rect x="350" y="80" width="180" height="150" fill="#450a0a" stroke="#ef4444" stroke-width="4" rx="10"/>
+  <circle cx="400" cy="120" r="15" fill="#fca5a5"/>
+  <circle cx="480" cy="120" r="15" fill="#fca5a5"/>
+  <line x1="390" y1="110" x2="410" y2="130" stroke="#7f1d1d" stroke-width="3"/>
+  <line x1="390" y1="130" x2="410" y2="110" stroke="#7f1d1d" stroke-width="3"/>
+  <line x1="470" y1="110" x2="490" y2="130" stroke="#7f1d1d" stroke-width="3"/>
+  <line x1="470" y1="130" x2="490" y2="110" stroke="#7f1d1d" stroke-width="3"/>
+
+  <rect x="420" y="160" width="40" height="10" fill="#fca5a5" rx="3"/>
+  
+  <text x="440" y="210" fill="#ef4444" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">&lt;UNK&gt;</text>
+
+  <!-- Dictionary -->
+  <path d="M 530 130 L 630 130" stroke="#475569" stroke-width="4" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
+  
+  <rect x="650" y="70" width="100" height="150" fill="#1e293b" stroke="#cbd5e1" stroke-width="2" rx="3"/>
+  <text x="700" y="100" fill="#cbd5e1" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">10만 사전DB</text>
+  <line x1="660" y1="120" x2="740" y2="120" stroke="#475569" stroke-width="2"/>
+  <line x1="660" y1="140" x2="740" y2="140" stroke="#475569" stroke-width="2"/>
+  <text x="700" y="180" fill="#f87171" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">사전에</text>
+  <text x="700" y="200" fill="#f87171" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">없습니다!</text>
+
+  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">자신이 외우고 있는 고정된 단어 사전에 신조어가 없으면 수학적으로 Unknown(미지) 처리해 버리는 치명적 에러입니다.</text>
+
+</svg>

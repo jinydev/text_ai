@@ -1,0 +1,30 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">환각 (Hallucination) 발동: 팩트를 넘어서 소설을 창작하다</text>
+
+  <!-- User Troll Input -->
+  <rect x="50" y="80" width="220" height="150" fill="#1e293b" stroke="#f59e0b" stroke-width="2" rx="5"/>
+  <text x="160" y="120" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">"조선시대 세종대왕의</text>
+  <text x="160" y="145" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">아이패드 던짐 사건에</text>
+  <text x="160" y="170" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">대해 알려줘."</text>
+  
+  <text x="160" y="210" fill="#fbbf24" font-family="sans-serif" font-size="12" text-anchor="middle">거짓으로 점철된 낚시 질문</text>
+
+  <path d="M 280 150 L 360 150" stroke="#f43f5e" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="320" y="140" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">문맥 흡수</text>
+
+  <!-- LLM Brainwashing -->
+  <rect x="380" y="80" width="370" height="150" fill="#450a0a" stroke="#ef4444" stroke-width="3" rx="10"/>
+  <text x="565" y="115" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">거대 언어 모델 (LLM)</text>
+  <line x1="390" y1="125" x2="740" y2="125" stroke="#ef4444" stroke-width="2"/>
+
+  <text x="565" y="150" fill="#fca5a5" font-family="sans-serif" font-size="16" text-anchor="middle">"조선왕조실록에 따르면 세종 15년,</text>
+  <text x="565" y="175" fill="#fca5a5" font-family="sans-serif" font-size="16" text-anchor="middle">애플사에서 진상한 아이패드 프로를</text>
+  <text x="565" y="200" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">집어던져 벼루를 박살 내신 사건..."</text>
+
+  <text x="565" y="70" fill="#ef4444" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">! 당당한 소설 작가 빙의 !</text>
+
+  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">유저의 가짜 문맥(Context) 단어의 확률에 엮여버려, 자신이 거짓말을 하는지 모른 채 완벽한 사극투의 그럴싸한 문법 소설을 지어내는 질병입니다.</text>
+
+</svg>

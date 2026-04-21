@@ -1,0 +1,50 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">자연어 분류 인공지능의 거대한 파이프라인 구조</text>
+
+  <!-- 1. Text Info -->
+  <rect x="30" y="90" width="120" height="90" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
+  <text x="90" y="120" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">1. 원시 텍스트</text>
+  <rect x="40" y="140" width="100" height="25" fill="#0f172a" rx="3"/>
+  <text x="90" y="157" fill="#64748b" font-family="monospace" font-size="10" text-anchor="middle">"이 영화 노잼 ㅋㅋㅋ!"</text>
+
+
+  <!-- Arrow -->
+  <path d="M 160 135 L 200 135" stroke="#fcd34d" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+
+  <!-- 2. Preprocessing -->
+  <rect x="210" y="90" width="120" height="90" fill="#450a0a" stroke="#ef4444" stroke-width="2" rx="5"/>
+  <text x="270" y="120" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">2. 전처리 (정제)</text>
+  <text x="270" y="145" fill="#f87171" font-family="monospace" font-size="10" text-anchor="middle">정규표현식 파괴</text>
+  <text x="270" y="165" fill="#fef2f2" font-family="monospace" font-size="10" text-anchor="middle">$\to$ 영화, 노잼</text>
+
+
+  <!-- Arrow -->
+  <path d="M 340 135 L 380 135" stroke="#fcd34d" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+
+  <!-- 3. Embedding (Feature Extraction) -->
+  <rect x="390" y="90" width="140" height="90" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="460" y="120" fill="#6ee7b7" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">3. 임베딩(Feature)</text>
+  <text x="460" y="145" fill="#34d399" font-family="monospace" font-size="10" text-anchor="middle">Word2Vec 행렬 변환</text>
+  <text x="460" y="165" fill="#a7f3d0" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">$[0.41, -0.22, ...]$</text>
+
+  <!-- Arrow -->
+  <path d="M 540 135 L 580 135" stroke="#fcd34d" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+
+  <!-- 4. Classification Brain -->
+  <rect x="590" y="80" width="180" height="110" fill="#1e3a8a" stroke="#60a5fa" stroke-width="3" rx="10"/>
+  <text x="680" y="115" fill="#bfdbfe" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">4. 모델 심사역</text>
+  
+  <rect x="610" y="130" width="140" height="40" fill="#2563eb" rx="5"/>
+  <text x="680" y="155" fill="#eff6ff" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">$\to$ '부정(Negative)'</text>
+
+
+  <!-- Subtext -->
+  <text x="400" y="250" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">기계는 문자를 절대 이해하지 못합니다. 전처리기로 쓰레기를 찢어버리고 통계 벡터 차원(임베딩)으로 압축하여</text>
+  <text x="400" y="275" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">숫자를 밥처럼 떠먹여 주어야만 비로소 마지막 뇌(분류기)에서 긍정/부정 판단을 때릴 수 있습니다.</text>
+
+</svg>

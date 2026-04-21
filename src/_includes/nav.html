@@ -1,11 +1,15 @@
 <nav class="bd-links w-100" id="bd-docs-nav" aria-label="Docs navigation">
+  {% assign nav_data = site.data.navigation.main %}
+  {% if page.url contains '/basic/' and site.data.basic.main %}
+    {% assign nav_data = site.data.basic.main %}
+  {% endif %}
   <ul class="bd-links-nav list-unstyled mb-0 pb-3 pb-md-2 pe-lg-2">
     <li class="bd-links-group py-2">
       <strong class="bd-links-heading d-flex w-100 align-items-center fw-semibold">
         강의 목차
       </strong>
       <ul class="list-unstyled fw-normal pb-2 small">
-        {% for item in site.data.navigation.main %}
+        {% for item in nav_data %}
         <li>
           {% if item.subitems %}
           {% assign is_active_group = false %}

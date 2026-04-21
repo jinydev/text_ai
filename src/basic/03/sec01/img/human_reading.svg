@@ -1,0 +1,22 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">인간의 선형적이고 서사적인 독해 방식</text>
+
+  <circle cx="150" cy="150" r="40" fill="#f43f5e" />
+  <text x="150" y="155" fill="#ffe4e6" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">사람 뇌</text>
+
+  <g stroke="#64748b" stroke-width="2">
+    <line x1="250" y1="180" x2="350" y2="180" />
+    <line x1="400" y1="180" x2="500" y2="180" />
+    <line x1="550" y1="180" x2="650" y2="180" />
+  </g>
+
+  <text x="300" y="160" fill="#cbd5e1" font-family="sans-serif" font-size="20" text-anchor="middle">나는</text>
+  <text x="450" y="160" fill="#cbd5e1" font-family="sans-serif" font-size="20" text-anchor="middle">공부가</text>
+  <text x="600" y="160" fill="#cbd5e1" font-family="sans-serif" font-size="20" text-anchor="middle">눈물나게 좋다</text>
+
+  <path d="M 210 120 Q 400 80 600 120" stroke="#f43f5e" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <text x="400" y="70" fill="#fb7185" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">시간의 흐름에 따라 뉘앙스와 감정을 유기적으로 조립</text>
+  
+</svg>

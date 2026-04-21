@@ -1,0 +1,50 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">서브워드의 제왕 BPE 알고리즘 (Byte Pair Encoding) 수학적 순환 합체</text>
+
+  <!-- Alpha -->
+  <rect x="50" y="120" width="40" height="40" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
+  <text x="70" y="147" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">l</text>
+  
+  <rect x="100" y="120" width="40" height="40" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
+  <text x="120" y="147" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">o</text>
+
+  <rect x="150" y="120" width="40" height="40" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
+  <text x="170" y="147" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">w</text>
+  
+  <rect x="230" y="120" width="40" height="40" fill="#1e293b" stroke="#f43f5e" stroke-width="3" rx="5"/>
+  <text x="250" y="147" fill="#fb7185" font-family="sans-serif" font-size="26" font-weight="bold" text-anchor="middle">e</text>
+
+  <text x="290" y="147" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">+</text>
+
+  <rect x="310" y="120" width="40" height="40" fill="#1e293b" stroke="#f43f5e" stroke-width="3" rx="5"/>
+  <text x="330" y="147" fill="#fb7185" font-family="sans-serif" font-size="26" font-weight="bold" text-anchor="middle">r</text>
+
+  <!-- Condition -->
+  <path d="M 270 90 C 270 70 310 70 310 90" stroke="#fca5a5" stroke-width="2" fill="none"/>
+  <text x="290" y="60" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">가장 빈도수 높음!</text>
+  <path d="M 290 90 L 290 100" stroke="#fca5a5" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Merge Flow -->
+  <path d="M 370 140 L 450 140" stroke="#f59e0b" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="410" y="130" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Merge 합체</text>
+
+
+  <!-- Merge Output -->
+  <rect x="490" y="120" width="40" height="40" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
+  <text x="510" y="147" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">l</text>
+  
+  <rect x="540" y="120" width="40" height="40" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
+  <text x="560" y="147" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">o</text>
+
+  <rect x="590" y="120" width="40" height="40" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
+  <text x="610" y="147" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">w</text>
+
+  <!-- The Merged Token -->
+  <rect x="660" y="115" width="80" height="50" fill="#1e3a8a" stroke="#60a5fa" stroke-width="3" rx="5"/>
+  <text x="700" y="148" fill="#ecfeff" font-family="sans-serif" font-size="26" font-weight="bold" text-anchor="middle">er</text>
+  <text x="700" y="195" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">신규 어원 생성!</text>
+
+  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">통계를 돌려 "가장 자주 붙어 다니는 철자 2개" 를 찾아서 하나로 묶는 과정을 무한 반복합니다!</text>
+</svg>
