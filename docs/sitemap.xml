@@ -4,6 +4,9 @@
 <loc>https://text.ai.jiny.dev/</loc>
 </url>
 <url>
+<loc>https://text.ai.jiny.dev/basic/03/sec02/</loc>
+</url>
+<url>
 <loc>https://text.ai.jiny.dev/basic/03/sec05/</loc>
 </url>
 <url>
@@ -151,6 +154,9 @@
 <loc>https://text.ai.jiny.dev/basic/</loc>
 </url>
 <url>
-<loc>https://text.ai.jiny.dev/basic/03/sec02/</loc>
+<loc>https://text.ai.jiny.dev/nlp/</loc>
+</url>
+<url>
+<loc>https://text.ai.jiny.dev/llm/</loc>
 </url>
 </urlset>
