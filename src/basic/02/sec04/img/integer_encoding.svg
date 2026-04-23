@@ -1,0 +1,36 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">6단계. 정수 인코딩 (Integer Encoding): 유니코드 String의 스칼라 정수 변환 파이프라인 마감</text>
+
+  <rect x="50" y="80" width="700" height="60" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="4"/>
+  <text x="400" y="115" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">최종 정제 토큰 시퀀스: ["사과", "신경망", "수학"]</text>
+
+  <path d="M 400 150 L 400 180" stroke="#cbd5e1" stroke-width="3"/>
+  <polygon points="395,175 400,185 405,175" fill="#cbd5e1"/>
+
+  <!-- Encoding Mapping -->
+  <rect x="150" y="190" width="500" height="150" fill="#0f172a" stroke="#cbd5e1" stroke-width="2" rx="6"/>
+  <text x="400" y="215" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">통합 딕셔너리 사전 할당 구조 (Backend Dictionary Indexing Mapping)</text>
+  
+  <rect x="250" y="235" width="300" height="30" fill="#1e3a8a" rx="4"/>
+  <text x="350" y="255" fill="#fff" font-family="monospace" font-size="14" text-anchor="end">"사과":</text>
+  <text x="450" y="255" fill="#60a5fa" font-family="monospace" font-size="16" font-weight="bold" text-anchor="start">10 (ID Number Index)</text>
+
+  <rect x="250" y="270" width="300" height="30" fill="#1e3a8a" rx="4"/>
+  <text x="350" y="290" fill="#fff" font-family="monospace" font-size="14" text-anchor="end">"신경망":</text>
+  <text x="450" y="290" fill="#60a5fa" font-family="monospace" font-size="16" font-weight="bold" text-anchor="start">24 (ID Number Index)</text>
+
+  <rect x="250" y="305" width="300" height="30" fill="#1e3a8a" rx="4"/>
+  <text x="350" y="325" fill="#fff" font-family="monospace" font-size="14" text-anchor="end">"수학":</text>
+  <text x="450" y="325" fill="#60a5fa" font-family="monospace" font-size="16" font-weight="bold" text-anchor="start">7 (ID Number Index)</text>
+
+  <path d="M 400 350 L 400 380" stroke="#fcd34d" stroke-width="3"/>
+  <polygon points="395,375 400,385 405,375" fill="#fcd34d"/>
+
+
+  <!-- Machine Output Array -->
+  <rect x="50" y="390" width="700" height="50" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="4"/>
+  <text x="400" y="420" fill="#a7f3d0" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">결과물 파이프라인 배출 스칼라 텐서: [ 10,  24,  7 ]</text>
+
+</svg>

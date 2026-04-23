@@ -5,26 +5,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>NNLM 신경망과 투사층</title>
-  <meta name="title" content="NNLM 신경망과 투사층" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="NNLM 신경망과 투사층"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
+  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>NNLM 인프라와 투사층 매핑</title>
+  <meta name="title" content="NNLM 인프라와 투사층 매핑" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="NNLM 인프라와 투사층 매핑"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="http://localhost:4001/basic/05/sec02/">
+  <meta property="og:url" content="https://text.ai.jiny.dev/basic/05/sec02/">
 
-  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="NNLM 신경망과 투사층"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="NNLM 인프라와 투사층 매핑"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="NNLM 신경망과 투사층" />
+<meta property="og:title" content="NNLM 인프라와 투사층 매핑" />
 <meta name="author" content="Hojin" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="http://localhost:4001/basic/05/sec02/" />
-<meta property="og:url" content="http://localhost:4001/basic/05/sec02/" />
+<link rel="canonical" href="https://text.ai.jiny.dev/basic/05/sec02/" />
+<meta property="og:url" content="https://text.ai.jiny.dev/basic/05/sec02/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="NNLM 신경망과 투사층" />
+<meta property="twitter:title" content="NNLM 인프라와 투사층 매핑" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"NNLM 신경망과 투사층","url":"http://localhost:4001/basic/05/sec02/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"NNLM 인프라와 투사층 매핑","url":"https://text.ai.jiny.dev/basic/05/sec02/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -822,7 +822,7 @@
         
         
         
-        <li class="breadcrumb-item active" aria-current="page">NNLM 신경망과 투사층</li>
+        <li class="breadcrumb-item active" aria-current="page">NNLM 인프라와 투사층 매핑</li>
         
         
         
@@ -830,82 +830,88 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="52-통계-카운트의-종말-투사층-룩업-테이블-트릭과-nnlm">5.2 통계 카운트의 종말: 투사층 룩업 테이블 트릭과 NNLM</h1>
+            <h1 id="52-통계-빈도-카운트-시대의-종말-투사층-룩업-테이블-트릭과-nnlm-아키텍처">5.2 통계 빈도 카운트 시대의 종말: 투사층 룩업 테이블 트릭과 NNLM 아키텍처</h1>
 
-<p>아무리 N-gram 마르코프 체인 타협안을 써도 문서 문맥이 조금만 길어지면 여전히 카운터 에러(분모 <code class="language-plaintext highlighter-rouge">0</code>)를 뿜으며 터지던 구시대 통계를 완전히 역사의 뒤안길로 날려버린 전설적인 구조 모델입니다. 단어 빈도수(Count) 부서의 해체를 선언하고, 인공의 뇌세포 신경망(Neural Network) 장부를 도입한 최초의 언어 모델 <strong>NNLM (피드포워드 신경망 언어 모델)</strong> 의 위대한 혁신과 병목 투사층 한계를 뜯어봅니다.</p>
+<p>아무리 훌륭한 N-gram 마르코프 체인 타협안을 도입한다 하더라도, 문서의 문맥 시퀀스가 조금만 길어지면 여전히 카운터 에러(분모 <code class="language-plaintext highlighter-rouge">0</code> 나눗셈)를 뿜어내며 시스템 셧다운을 유발하던 구시대 통계 계량 모델을 완전히 역사의 뒤안길로 몰아낸 전설적인 구조 모델이 탄생했습니다.</p>
 
-<hr />
-
-<h2 id="521-구시대-통계-모델의-영구적인-한계-oov-붕괴">5.2.1 구시대 통계 모델의 영구적인 한계 (OOV 붕괴)</h2>
-
-<p>우리는 바로 앞 4주 차에서 빈도수 카운트의 맹점을 뼈저리게 배웠습니다. 
-<strong>“저 소년은 참 ( )”</strong> 이라는 문맥 단어가 주어졌을 때 다음에 나올 단어를 알아내려면, 구글 데이터베이스를 다 뒤져서 일치하는 과거의 통계치 결괏값 $\text{Count}$ 로 분수 쪼개기 수식을 시전했습니다.</p>
-
-<p>하지만 기계가 평생 살아오며 단 한 번도 본 적이 없는 신조어 조합이나 희소한 지명 텍스트 코드가 입력으로 뚝 떨어지면 어떻게 될까요? 카운터가 여전히 0(Zero Division, Sparsity 에러)이 되면서 단어 확률 곡선을 뿜어내지 못하고 서버 랙이 걸리며 다운됩니다. <strong>이 희소성의 굴레에서 단순 통계 엑셀학은 결국 영원히 벗어나지 못했습니다.</strong></p>
+<p>자연어 처리 학계는 단어 출현 횟수(Frequency Count)에 집착하던 경험적 검색 통계 부서의 완전한 해체를 선언하고, 인공의 뇌세포인 <strong>딥러닝 신경망(Neural Network)</strong> 계층을 텍스트 추론에 도입한 최초의 언어 생성 지능망, <strong>피드포워드 신경망 언어 모델 (Feed-Forward Neural Net Language Model: NNLM)</strong> 의 위대한 구조적 혁신과 룩업 맵핑 최적화 과정을 상세히 뜯어봅니다.</p>
 
 <hr />
 
-<h2 id="522-최초의-혁명-신경망-nnlm-neural-net-language-model">5.2.2 최초의 혁명 신경망: NNLM (Neural Net Language Model)</h2>
+<h2 id="521-구시대-통계-모델의-영구적-태생-한계-oov-붕괴-현상">5.2.1 구시대 통계 모델의 영구적 태생 한계 (OOV 붕괴 현상)</h2>
 
-<p>이에 NNLM 시스템은 기존 기계 학습의 판도를 완전히 뒤집는 패러다임 선언을 단행합니다.
-<strong>“야!! 단어가 문서에서 몇 번 나왔는지 그깟 횟수 카운팅 하는 데이터 장부 기록 짓거리 당장 갖다 버려!! 우리는 이제 인공 신경망(Neural Net)이 딥러닝 가중치($W$, $b$) 미적분을 조절하면서 다음 단어를 인간처럼 감으로 추론하게 훈련시킬 거다!”</strong></p>
+<p>우리는 바로 앞 4주 차에서 횟수 카운팅을 기반으로 한 모델의 구조적 맹점을 뼈저리게 분석했습니다. 
+<strong>“저 소년은 참 ( )”</strong> 이라는 선행 문맥 시퀀스 텍스트 단서가 주어졌을 때 다음에 잇따를 단어 확률을 알아내려면, 구글이 가진 인터넷 데이터베이스를 모조리 스캐닝하여 일치하는 과거 텍스트의 결괏값 $\text{Count}$ 로 분수식을 나누는 쪼개기 수식을 병렬 시전해야만 했습니다.</p>
+
+<p>하지만 통계 연산 기계가 운영 중 평생 단 한 번도 관측해 본 적이 없는 신조어 모음이나 고유 명사 텍스트 벡터(Out-Of-Vocabulary, OOV)가 입력 배열로 툭 떨어지면 어떤 사태가 벌어질까요? 카운터가 여전히 0(Zero Division, Sparsity 에러)을 반환하면서 언어 확률 곡선을 단 하나도 뿜어내지 못하고 모델 추론 서버가 백지 상태로 뻗어버립니다. <strong>거대한 데이터 희소성의 굴레에서 선형 집계 중심의 단순 통계학은 결국 영원히 벗어나지 못했습니다.</strong></p>
+
+<hr />
+
+<h2 id="522-세계-최초의-신경망-자연어-추론-nnlm-neural-net-language-model">5.2.2 세계 최초의 신경망 자연어 추론: NNLM (Neural Net Language Model)</h2>
+
+<p>이에 NNLM 연구진은 기존 기계 학습의 카운터 판도를 완전히 뒤엎어 버리는 패러다임 선언을 단행합니다.
+<strong>“순수 통계 빈도학적 접근의 한계를 인정하고 단어 카운트 파이프라인의 전면 폐기를 명한다! 우리의 인공지능은 이제 인공 신경망(Neural Net)이 수만 개의 딥러닝 내부 가중치(Weights $W$, Bias $b$) 행렬을 역전파 미분으로 스스로 정밀 조절해 나가며, 인간의 유기적인 텍스트 직관처럼 [감각적으로 추론(Inference)] 하도록 가동 훈련될 것이다!”</strong></p>
 
 <p><img src="./img/nnlm_architecture.svg" alt="NNLM Architecture Overview" /></p>
 
-<p>NNLM은 복잡한 4개의 계층(Layer)으로 뇌 구조를 설계했습니다.</p>
+<p>설계된 NNLM 아키텍처는 아래와 같은 복잡한 4개의 다층 신경 계층(Layer)으로 뇌 구조망을 설계했습니다.</p>
 <ul>
-  <li><strong>1. 입력층 (Input Layer)</strong>: 과거 단어들의 엄청나게 긴 10만 차원(차원의 저주) 짜리 원-핫 뼈대 벡터들이 들어오는 대문.</li>
-  <li><strong>2. 투사층 (Projection Layer)</strong>: 활성 함수(시그모이드 등)가 존재하지 않는 텅 빈 껍데기 선형 결합 우주 공간.</li>
-  <li><strong>3. 은닉층 (Hidden Layer)</strong>: 엄청난 두께를 가진 가중치 미분 역전파 연산망 (GPU 파괴의 주범 공간).</li>
-  <li><strong>4. 출력층 (Output Softmax)</strong>: 다음 단어 1개를 고르기 위해 10만 개 단어의 확률 그래프를 토해내는 종착역.</li>
+  <li><strong>1. 입력층 (Input Layer)</strong>: 역사적 문맥 범위가 적용된 토큰 단어들의 거대한 10만 고차원(차원의 저주) 원-핫 뼈대 벡터들이 데이터 로더를 타고 쏟아져 들어오는 1번 대문.</li>
+  <li><strong>2. 투사층 (Projection Layer)</strong>: 비선형 활성 함수(시그모이드, Tanh 등)가 배제된 완전 선형 스칼라 결합 우주 공간 (차원 압축을 담당).</li>
+  <li><strong>3. 은닉층 (Hidden Layer)</strong>: 거대한 두께와 뉴런 뎁스를 가진 비선형 활성화 가중치 미분 연산망 (GPU 연산 병목 폭발의 주범).</li>
+  <li><strong>4. 출력층 (Output Softmax)</strong>: 다음 예측 단어 1개를 고르기 위해, 사전 크기(10만 개) 전체 토큰의 발생 확률 밀도 분산 치(Softmax)를 토해내는 최종 산출 종착역.</li>
 </ul>
 
-<p>방식은 N-gram 꼼수(마르코프 타협)처럼 최근 $N$개의 직전 단어 시야만 쳐다본다는 점에서는 옛날 모델과 똑같습니다. 하지만 <strong>수학적 내부 통계 수치 분수를 쓰는 게 아니라, 여러 단어 덩어리를 은닉망(Hidden)의 가중치 행렬로 뒤섞어서 스스로 정답을 찾아가도록 진화</strong>했다는 점이 위대한 발걸음입니다.</p>
+<p>추론 조건의 방식은 N-gram 근사화 기법(마르코프 타협)처럼, 문장 제일 앞에 위치한 옛날 시퀀스 스코프는 쳐다보지 않고 <strong>최근 $N$개의 직전 단어 시야만 단절해 지켜본다</strong>는 관점에서는 여전히 옛날 통계 모델과 동일한 프레임 워크를 공유합니다. 하지만 <strong>내부 수리 모형으로 수치 분수 나눗셈식을 쓰는 게 아니라, 여러 단어 텐서 블록들을 은닉망(Hidden Layer)의 가중치 행렬로 뒤섞고 오차를 미분해서 무의식적으로 정답에 도달하도록 진화시켰다</strong>는 점이 NLP 역사의 위대한 발걸음입니다.</p>
 
 <hr />
 
-<h2 id="523-뇌-구조의-핵심-투사층-projection-layer-의-고속도로-압축">5.2.3 뇌 구조의 핵심: 투사층 (Projection Layer) 의 고속도로 압축</h2>
+<h2 id="523-두뇌-인터페이스의-핵심-투사층-projection-layer-의-고속-도로-차원-압축">5.2.3 두뇌 인터페이스의 핵심: 투사층 (Projection Layer) 의 고속 도로 차원 압축</h2>
 
-<p>NNLM의 첫 번째 관문인 <strong>투사층 (Projection Layer)</strong> 은 딥러닝 역사상 가장 독특한 껍데기 공간입니다. 일반 신경망의 뇌세포 꼬임 활성화 스위치(비선형 함수) 계단이 전혀 존재하지 않는 텅 빈 선형 하이웨이(Highway) 고속도로입니다.</p>
+<p>NNLM 구조의 가장 극적인 첫 번째 관문인 <strong>투사층 (Projection Layer)</strong> 은 딥러닝 신경망 설계 역사상 가장 혁신적이고 독특한 선형 껍데기 공간입니다. 일반적인 은닉 신경망의 뇌세포 활성화 조절 스위치(비선형 함수) 계단이 이 층에는 전혀 설계되어 있지 않은 텅 빈 ‘선형 하이웨이(Linear Highway)’ 가중 맵핑 고속도로입니다.</p>
 
-<p>10만 칸짜리 거대하고 쓸모없는 <code class="language-plaintext highlighter-rouge">0</code> 전구만 잔뜩 켜진 원-핫 벡터 배열 무식쟁이들이 이 투사층 대문을 일단 통과하고 나면, 아주 거대한 가중치 행렬 세트 $W$와 마주치며 강제 곱셈 역결합을 당합니다. 
-놀랍게도 이 수학적 수술 고문을 거치면 10만 칸짜리의 쓰레기 행렬 벡터 공간 좌표가 $\to$ 아주 작고 콤팩트한 <strong>128차원 정도의 꽉 찬 실수 우주 좌표(Dense 임베딩 벡터)</strong> 공간으로 예쁘게 쪼그라들면서 기하학 매핑(Mapping)이라는 압도적인 다이어트에 성공합니다!</p>
+<p>10만 칸짜리 거대하고 쓸모없는 <code class="language-plaintext highlighter-rouge">0</code> 전구만 잔뜩 켜져있어 차원의 저주를 뿜어내는 ‘원-핫 벡터 배열 무식쟁이’ 들이 이 투사층 대문을 일단 통과하여 진입하고 나면, 대기하고 있던 아주 거대한 가중치 행렬 세트 매트릭스 $W$ 에 정면 충돌하며 강제 행렬 곱셈 처리를 당하게 됩니다. 
+놀랍게도 기계 내부의 이 거대한 선형대수 수술 매핑(Mapping) 연산을 거치고 나면, 10만 차원의 비효율적인 쓰레기 희소 행렬 공간 좌표가 $\to$ 아주 작고 데이터가 밀도 높게 콤팩트한 <strong>[128차원 정도의 꽉 찬 실수 우주 좌표(Dense 밀집 임베딩 벡터)]</strong> 공간 텐서로 완벽하게 다이어트가 되어 기하학적 형태 변화를 이루어 냅니다. 이를 정보 공학에선 차원 압축(Dimensionality Reduction) 매핑이라고 부릅니다.</p>
 
 <hr />
 
-<h2 id="524-천재-엔지니어들의-트릭-룩업-테이블-lookup-table-스킬">5.2.4 천재 엔지니어들의 트릭: 룩업 테이블 (Lookup Table) 스킬</h2>
+<h2 id="524-시스템-옵티마이저-천재들의-연산-트릭-룩업-테이블-lookup-table-바이패스">5.2.4 시스템 옵티마이저 천재들의 연산 트릭: 룩업 테이블 (Lookup Table) 바이패스</h2>
 
-<p>위의 이론 설명만 들으면, 컴퓨터 그래픽 카드가 미친 듯한 GPU의 피를 토할 것 같습니다. 
-<code class="language-plaintext highlighter-rouge">[100,000칸 배열]</code> 과 <code class="language-plaintext highlighter-rouge">[가중치 행렬 $W$ (100000 x 128 크기)]</code> 끼리 수백만 번의 반복적인 무식한 선형대수 행렬 곱셈을 해야 한다니, 상상만 해도 전기세가 폭발합니다. 하지만 구글/스탠포드 등의 엔지니어들은 이 대규모 곱셈을 굳이 하지 않는 치명적인 꼼수를 심어놨습니다.</p>
+<p>위의 투사층 수식 설명만 머릿속으로 듣고 있노라면, 여러분의 그래픽 카드가 미친 듯한 연산 부하로 VRAM 피를 토할 것처럼 절망적으로 느껴집니다. 
+<code class="language-plaintext highlighter-rouge">[100,000차원 선형 배열]</code> 과 <code class="language-plaintext highlighter-rouge">[가중치 행렬 $W$ (100,000 x 128 크기 매트릭스)]</code> 끼리의 무겁고 우악스러운 수학적 선형대수 행렬 교차 곱셈(Dot Product) 연산을, 텍스트가 들어올 때마다 수백만 번 반복해야 한다니! 상상만으로도 메모리 병목과 GPU 전기세가 과부하로 폭발할 지경입니다. 하지만 똑똑한 구글/스탠포드급 엔지니어들은 이 대규모 곱셈 트래픽을 아예 수행조차 하지 않아도 되는 치명적인 수학의 허점 최적화(Optimization) 스킬을 심어두었습니다.</p>
 
 <p><img src="./img/lookup_table_trick.svg" alt="Lookup Table Trick Mechanism" /></p>
 
 <blockquote>
-  <p>[!IMPORTANT]<br />
-<strong>📖 초심자를 위한 쉬운 해설: 룩업 테이블은 곧 “복사 붙여넣기(Copy &amp; Paste)” 다</strong><br />
-입력 벡터 데이터가 <code class="language-plaintext highlighter-rouge">[0, 0, 1, 0, 0]</code> 처럼 3번째 인덱스 자리에만 전구 <code class="language-plaintext highlighter-rouge">1</code> 이 딱 하나 켜져 있고, 그 앞뒤의 나머지 99,999칸은 싹 다 <code class="language-plaintext highlighter-rouge">0</code> 이 켜진 극단적인 원-핫 배열이라고 곰곰이 상상해 보십시오.</p>
+  <p>[!NOTE]<br />
+<strong>💡 핵심 공학 원리: 원-핫 항의 곱셈 사멸 원리를 활용한 룩업 테이블 “복사 붙여넣기(Copy &amp; Paste)”</strong></p>
 
-  <p>이 거대한 배열과 $W$ 행렬을 아무리 각 잡고 미친 듯이 일일이 다 수식 곱하기 연산을 돌려봤자, 결국 어차피 <code class="language-plaintext highlighter-rouge">0</code>이 곱해진 애들은 싸그리 쓰레기로 사멸해 날아가 버립니다! 최종적으로 딱 떨어지는 답안지 결괏값은 수학적으로 무조건 <strong>“거대 가중치 행렬 $W$ 테이블에서 3번째 줄(Row)의 실수 리스트를 싹 다 긁어 복사해온 것”</strong>과 두 값이 소름 돋게 100% 똑같이 일치하게 됩니다!</p>
+  <p>입력 원-핫 벡터 데이터가 <code class="language-plaintext highlighter-rouge">[0, 0, 1, 0, 0 ... 0]</code> 처럼 오직 Index 3번 자리에만 유효 비트 <code class="language-plaintext highlighter-rouge">1</code> 이 딱 하나 켜져 있고, 그 앞뒤의 나머지 99,999칸 지표는 싹 다 쓰레기 노드 <code class="language-plaintext highlighter-rouge">0</code> 이 켜진 극단적인 희소 빈 배열이라고 수학적으로 곰곰이 상상해 보십시오.</p>
+
+  <p>컴퓨터가 이 거대한 입력 배열과 $W$ 행렬을 아무리 각 잡고 규칙대로 미친 듯이 일일이 다 이중 곱하기 포문(<code class="language-plaintext highlighter-rouge">For loop</code>) 수식을 돌려봤자, 결국 어차피 <code class="language-plaintext highlighter-rouge">0</code> 과 매칭되어 곱해진 텐서 열들은 싸그리 값이 0이 되어 허무하게 사멸하고 날아가 버립니다! 그렇게 긴 시간 낭비로 도출된 행렬의 최종 덧셈 결괏값은 놀랍게도, 무조건 <strong>“타겟 가중치 행렬 $W$ 테이블에서 딱 3번째 줄(Row) 가로줄의 실수 리스트 배열 하나만 싹 다 긁어 복사 추출(Index Querying)해온 것”</strong> 과 소름 돋게 100% 동일한 수리적 일치 결과를 가지게 됩니다!</p>
 
   <ul>
-    <li><strong>엔지니어의 편법</strong>: “야! 어차피 $W$ 행렬 몇 번째 줄인지 짚어내기만 하면 정답이랑 똑같잖아? 값비싼 GPU 전력을 낭비하며 미친 곱하기 수식을 시전하지 마!! 그냥 책장에서 책 꺼내듯이 색인(Lookup)해서 <strong>‘어? 원-핫 3번에 전구 불 들어왔네? 그러면 계산 생략하고 걍 뒤도 보지 말고 $W$테이블 3번째 줄 데이터 꺼내서 복붙(Ctrl+C, Ctrl+V) 해와!’</strong>”</li>
+    <li><strong>시스템 엔지니어 차원의 편법 적용</strong>: “연산 구조를 다시 짜!! 어차피 비트 텐서가 1이 켜진 $W$ 행렬이 몇 번째 줄(Row Element)인지 짚어서 도출해 내기만 하면 내적 정답이랑 완전히 똑같잖아? 값비싼 GPU 코어 전력을 낭비해 가면서 의미 없는 미친 10만 단과 행렬 곱하기 수식을 무식하게 도출하지 말고, 검색 인덱스 쿼리 시스템을 적용해!”</li>
+    <li>“그냥 메모리 책장에서 원하는 책 한 권 탁! 꺼내듯이 다이렉트 색인(Location Lookup)해서 <strong>‘어? 원-핫 3번 열에 전구 불 들어왔네? 그러면 행렬 곱셈 모듈 작동시키지 말고 걍 생략해! 뒤도 보지 말고 $W$테이블 3번째 줄 캐시 데이터만 다이렉트로 메모리 포인터 접근(Lookup)해서 빼온 다음 다음 은닉층으로 복붙(Ctrl+C, Ctrl+V) 해 넘겨버려!’</strong>”</li>
   </ul>
 
-  <p>이 혁신적인 우회 도로(Lookup) 스킬 덕분에 연산 속도는 수천 시간 어치나 비약적으로 가속됩니다.</p>
+  <p>이 혁명적인 바이패스 행렬 우회 전송 프로세서인 색인 매핑(Lookup Table Mapping) 스킬을 컴파일 모듈 단에서 내장해 놓았기에, 원거리의 차원 행렬 압축 연산 속도가 기존 대비 수천 배 이상 비약적으로 초가속화되며 희소성 배열 처리의 재앙에서 벗어나게 됩니다.</p>
 </blockquote>
 
 <hr />
 
-<h2 id="525-nnlm의-최종-결론-한계-돌파-실패-사유">5.2.5 NNLM의 최종 결론: 한계 돌파 실패 사유</h2>
+<h2 id="525-nnlm-아키텍처의-혁신적-성과와-최종-병목의-한계-결론">5.2.5 NNLM 아키텍처의 혁신적 성과와 최종 병목의 한계 결론</h2>
 
-<p>통계학 공식을 박살 낸 딥러닝(Neural Net) 언어 모델의 위대한 첫걸음이었지만, 여전히 이 NNLM은 치명적인 연산 속도 결함을 안고 무너졌습니다.</p>
+<p>구시대 통계학 분수 공식을 완벽히 타파해 내고 선형대수 가중치 딥러닝(Neural Net) 언어 모델 지능망의 위대한 첫걸음을 정립한 역사적인 구조 모델이 됨은 부정할 수 없지만, 여전히 이 NNLM은 내부 레이어 노드의 치명적인 연산 속도 레이턴시 결함을 태생적으로 안고 구조적으로 무너지게 됩니다.</p>
 
 <ul>
-  <li><strong>🏆 카운트 에러(Sparsity) 방어의 승리</strong>: 카운트 횟수가 0이라 오류를 뱉던 과거 알고리즘과 달리, 내부에 가중치 행렬($W$)이라는 똑똑한 스탯 ‘조정자’를 품었습니다. 생판 모르는 특이한 단어 시퀀스가 입력되더라도 기계는 <em>“어차피 이거 아까 훈련했던 비슷한 단어들과 임베딩 3D 우주 좌표 위치가 구역이 거의 겹치네(가깝네)? 그럼 얘도 대충 문맥 확률이 똑같다고 치자!”</em> 라며 눈치껏 유사도를 유연하게 넘겨버리는 대성공을 거두었습니다!</li>
-  <li><strong>💣 은닉층(Hidden Layer) 비대증 병목 해결 실패</strong>: 피드포워드 신경망 구조상, 뇌세포 집합인 <strong>은닉층의 거대한 가중치 활성화 함수(시그모이드, Tanh 등)를 거치는 미분 역전파 연산망</strong>을 여전히 너무 무겁게 들고 있었습니다. 그래서 딥러닝 텍스트망 훈련이 시작되면 연산 병렬 처리가 체했다시피 걸려서 속도가 거북이처럼 질질 끌리는 재앙을 겪습니다.</li>
+  <li><strong>🏆 카운트 희소성 에러(Sparsity) 차원의 완전한 극복 성공</strong>: 단순 카운트 탐색 횟수가 0건이라 무조건 치명적인 오류를 내뿜고 블루스크린 띄우던 과거 단순 통계 알고리즘과 질적으로 다릅니다! 모델 내부에 가중치 행렬($W$)이라는 통계 데이터 ‘실수 보정 조정자’를 품었습니다. 학습 시스템이 생판 모르는 OOV 특이 단어 연쇄 시퀀스를 입력받더라도 기계는 <em>“출현 빈도는 없지만, 계산해보니 어차피 얘는 아까 훈련 세트에 넣어 두었던 비슷한 단어들과 임베딩 3D 밀도 큐브상의 위치 거리가 기하학적으로 거의 구역이 맵핑되네(가깝네)? 그럼 얘도 대충 문맥 발생 확률을 과거 애랑 똑같게 보정 시켜주자!”</em> 라며 융통성(Generalization) 있게 끊김 없는 유사도 벡터 예측을 넘겨버리는 학술적 대성공을 거두었습니다!</li>
+  <li><strong>💣 은닉층(Hidden Layer) 연산 파이프라인의 비대증 병목 타개 실패</strong>: 하지만 전형적인 피드포워드 신경망 뎁스 구조 특착상, 뇌세포 집합 덩어리인 3번 구간 <strong>은닉층의 거대한 가중치 노드 활성화 비선형 함수(시그모이드, Tanh 스퀴즈 등)를 거치는 미분 역전파 복합 연산망</strong>을 구조 파이프라인 상에 여전히 너무나 무겁고 강압적으로 들고 있었습니다. (거대한 N-gram 컨텍스트 윈도우 스펙을 강제로 넓혀버리면, 메모리가 비례하여 지수 단위로 터져버리는 과거 병목의 굴레를 완벽히 털어버리지 못함). 결국 딥러닝 텍스트 훈련 컴파일 단이 본격적으로 구동되기 시작하면 거대 행렬의 연산 병렬 처리가 턱턱 체해버려, 전체 학습 가동 사이클 속도가 거북이 굼벵이처럼 터무니없이 질질 끌리는 컴퓨팅 자원의 비효율 재앙을 겪습니다.</li>
 </ul>
 
-<p>이 무거운 비만 은닉층 뇌세포의 끔찍한 병목 현상을 쳐다보다가 제대로 열이 뻗친 초거대 빅테크 <strong><code class="language-plaintext highlighter-rouge">구글(Google)</code></strong> 의 천재 악마 군단들이, 신경망 뇌 구조를 절반으로 쪼개서 수술해 버리는 폭력적인 칼잡이 다이어트를 단행하게 됩니다. 이것이 전 세계를 공포로 몰아넣은 자연어 임베딩 영원한 대장 <strong>[Word2Vec (구글 워드 임베딩)]</strong> 전설의 서막입니다.</p>
+<p>이 무겁고 미련스럽게 비대하기만 한 은닉층 뇌세포의 끔찍하고 처참한 연산 병목 레이턴시 계측 현상을 쳐다보다가 제대로 분노하고 자극받은 실리콘밸리의 초거대 빅테크 데이터 집단, <strong><code class="language-plaintext highlighter-rouge">구글(Google)</code> 브레인 연구팀</strong>의 천재 악마 엔지니어들이 움직이기 시작합니다. 그들은 신경 네트워크의 뇌 은닉 구조 자체를 절반으로 잔인하게 파쇄해 버리는 충격적이고 폭력적인 모델 다이어트 최적화(Optimization) 칼질 작업을 전격적으로 단행해 쾌속 모델 논문을 내놓게 됩니다.</p>
+
+<p>이것이 바로 구글이 전 세계를 공포로 과점해 몰아넣은 자연어 단어 임베딩 분야의 영원한 황제 대장 격 패러다임, <strong>[Word2Vec (워드 투 벡터)]</strong> 의 전설적 서막입니다.</p>
 
 
             <!-- 이전/다음 페이징 출력 -->
@@ -944,10 +950,10 @@
 
             <!-- 구글 애드센스 출력 -->
             <div class="mt-5">
-                <!-- 구글 애드센스 (여기에 본인의 코드 입력) -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3321560028329475"
     crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"
+<!-- jinydev-java -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3321560028329475" data-ad-slot="9323221865"
     data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({});

@@ -1,21 +1,50 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">가장 얕은 물: 어휘 표현 (Lexical) - 껍데기만 암기</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Lexical Layer 1D 파싱: 형태학적 파편 특징 스캔 (Morphological Features)</text>
 
-  <rect x="200" y="100" width="400" height="150" fill="#1e293b" stroke="#fbbf24" stroke-width="3" rx="5"/>
-  <text x="400" y="140" fill="#f59e0b" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">"Cats are running"</text>
-  
-  <path d="M 400 150 L 400 170" stroke="#fbbf24" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="50" y="80" width="700" height="60" fill="#1e293b" stroke="#475569" stroke-width="2" rx="4"/>
+  <text x="400" y="115" fill="#f8fafc" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">"Cats were watching the birds"</text>
 
-  <rect x="230" y="190" width="100" height="40" fill="#334155" rx="5"/>
-  <text x="280" y="215" fill="#cbd5e1" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Cat (명사)</text>
+  <path d="M 400 150 L 400 180" stroke="#cbd5e1" stroke-width="2"/>
+  <polygon points="395,175 400,185 405,175" fill="#cbd5e1"/>
 
-  <rect x="350" y="190" width="100" height="40" fill="#334155" rx="5"/>
-  <text x="400" y="215" fill="#cbd5e1" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">be (동사)</text>
+  <!-- Parsing Stage -->
+  <rect x="50" y="200" width="700" height="150" fill="#0f172a" stroke="#3b82f6" stroke-width="2" rx="6"/>
+  <text x="400" y="225" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">어휘 타겟 독립 벡터 매핑기 (Lexical Filters)</text>
 
-  <rect x="470" y="190" width="100" height="40" fill="#334155" rx="5"/>
-  <text x="520" y="215" fill="#cbd5e1" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">run (동사)</text>
+  <!-- Cats -->
+  <rect x="80" y="240" width="100" height="90" fill="#1e3a8a" stroke="#60a5fa" stroke-width="1" rx="4"/>
+  <text x="130" y="265" fill="#bfdbfe" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Cats</text>
+  <text x="130" y="290" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">POS: NN (명사)</text>
+  <text x="130" y="315" fill="#a7f3d0" font-family="sans-serif" font-size="12" text-anchor="middle">Stem: Cat</text>
 
-  <text x="400" y="275" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">문맥이나 순서는 관심 없이, 각 낱말 카드의 뿌리(Stem)와 품사 정보만 발라냅니다.</text>
+  <!-- were -->
+  <rect x="200" y="240" width="100" height="90" fill="#1e3a8a" stroke="#60a5fa" stroke-width="1" rx="4"/>
+  <text x="250" y="265" fill="#bfdbfe" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">were</text>
+  <text x="250" y="290" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">POS: VBD(동사과거)</text>
+  <text x="250" y="315" fill="#a7f3d0" font-family="sans-serif" font-size="12" text-anchor="middle">Stem: be</text>
+
+  <!-- watching -->
+  <rect x="320" y="240" width="120" height="90" fill="#1e3a8a" stroke="#60a5fa" stroke-width="1" rx="4"/>
+  <text x="380" y="265" fill="#bfdbfe" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">watching</text>
+  <text x="380" y="290" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">POS: VBG(동명사)</text>
+  <text x="380" y="315" fill="#a7f3d0" font-family="sans-serif" font-size="12" text-anchor="middle">Stem: watch</text>
+
+  <!-- the -->
+  <rect x="460" y="240" width="100" height="90" fill="#1e3a8a" stroke="#60a5fa" stroke-width="1" rx="4"/>
+  <text x="510" y="265" fill="#bfdbfe" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">the</text>
+  <text x="510" y="290" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">POS: DET (관사)</text>
+  <text x="510" y="315" fill="#a7f3d0" font-family="sans-serif" font-size="12" text-anchor="middle">Stem: -</text>
+
+  <!-- birds -->
+  <rect x="580" y="240" width="100" height="90" fill="#1e3a8a" stroke="#60a5fa" stroke-width="1" rx="4"/>
+  <text x="630" y="265" fill="#bfdbfe" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">birds</text>
+  <text x="630" y="290" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">POS: NN (명사)</text>
+  <text x="630" y="315" fill="#a7f3d0" font-family="sans-serif" font-size="12" text-anchor="middle">Stem: bird</text>
+
+  <!-- Bottom Conclusion Banner -->
+  <rect x="50" y="380" width="700" height="40" fill="#334155" stroke="#10b981" stroke-width="2" rx="6"/>
+  <text x="400" y="405" fill="#6ee7b7" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">문맥(Context) 단절: 문장의 깊은 뜻을 파악하는 지능 개입 없이 형태학적 고립 분리(Token, Stem, POS)만 기계적으로 단행</text>
+
 </svg>

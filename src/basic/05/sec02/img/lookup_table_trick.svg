@@ -1,42 +1,54 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="350" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">투사층 곱셈의 천재적인 속임수: 룩업 테이블 (Lookup Table)</text>
+  <text x="400" y="35" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">룩업 테이블(Lookup Table) 매핑 최적화 알고리즘: 연산량 혁신</text>
 
-  <!-- Dense Matrix W (Lookup Table) -->
-  <rect x="400" y="80" width="300" height="150" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="5"/>
-  <text x="550" y="105" fill="#34d399" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">가중치(W) 실수 행렬 (100,000 x 256)</text>
+  <!-- The Equation Model -->
+  <text x="400" y="80" fill="#94a3b8" font-family="sans-serif" font-size="16" font-style="italic" text-anchor="middle">전통 수학적 관점: 입력 원-핫 벡터 × 거대 가중치 행렬 $W$ 곱셈 연산 시뮬레이션</text>
   
-  <text x="440" y="130" fill="#64748b" font-family="monospace" font-size="14" text-anchor="middle">R1: [0.3, ... -1.1]</text>
-  <text x="440" y="150" fill="#64748b" font-family="monospace" font-size="14" text-anchor="middle">R2: [0.1, ... 2.8]</text>
+  <!-- One-hot Vector Display -->
+  <rect x="60" y="140" width="40" height="120" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <text x="80" y="160" fill="#64748b" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">0</text>
+  <text x="80" y="180" fill="#64748b" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">0</text>
+  <rect x="60" y="190" width="40" height="20" fill="#7f1d1d"/>
+  <text x="80" y="205" fill="#fca5a5" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">1</text>
+  <text x="80" y="225" fill="#64748b" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">0</text>
+  <text x="80" y="245" fill="#64748b" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">0</text>
+  <text x="80" y="275" fill="#fca5a5" font-family="sans-serif" font-size="14" text-anchor="middle">X (Index 2)</text>
+
+  <text x="135" y="205" fill="#f8fafc" font-family="sans-serif" font-size="22" font-weight="bold" text-anchor="middle">×</text>
+
+  <!-- Weight Matrix -->
+  <rect x="170" y="140" width="160" height="120" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <rect x="170" y="190" width="160" height="20" fill="#1e3a8a"/>
   
-  <!-- Highlighted Row -->
-  <rect x="410" y="160" width="280" height="25" fill="#064e3b" stroke="#34d399" stroke-width="2" rx="3"/>
-  <text x="440" y="178" fill="#a7f3d0" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">R3: [0.9, ... 0.5]</text>
+  <text x="210" y="160" fill="#64748b" font-family="monospace" font-size="14" text-anchor="middle">0.44</text>
+  <text x="270" y="160" fill="#64748b" font-family="monospace" font-size="14" text-anchor="middle">... 1.93</text>
+
+  <!-- Row 3 highlights -->
+  <text x="210" y="205" fill="#93c5fd" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">-1.2</text>
+  <text x="270" y="205" fill="#93c5fd" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">... 3.14</text>
   
-  <text x="440" y="205" fill="#64748b" font-family="monospace" font-size="14" text-anchor="middle">R4: [-1.4, ... 0.1]</text>
+  <text x="210" y="245" fill="#64748b" font-family="monospace" font-size="14" text-anchor="middle">5.02</text>
+  <text x="270" y="245" fill="#64748b" font-family="monospace" font-size="14" text-anchor="middle">... 0.11</text>
+  <text x="250" y="275" fill="#93c5fd" font-family="sans-serif" font-size="14" text-anchor="middle">가중치 매트릭스 W</text>
 
-  <!-- One-hot Input -->
-  <rect x="50" y="90" width="100" height="130" fill="#0f0f1a" stroke="#3b82f6" stroke-width="2" rx="5"/>
-  <text x="100" y="115" fill="#93c5fd" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">원-핫 변환식</text>
-  <text x="100" y="135" fill="#475569" font-family="monospace" font-size="14" text-anchor="middle">0</text>
-  <text x="100" y="155" fill="#475569" font-family="monospace" font-size="14" text-anchor="middle">0</text>
-  <rect x="70" y="162" width="60" height="20" fill="#3b82f6" rx="3"/>
-  <text x="100" y="177" fill="#eff6ff" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">1 (I=3)</text>
-  <text x="100" y="200" fill="#475569" font-family="monospace" font-size="14" text-anchor="middle">0</text>
+  <text x="365" y="205" fill="#f8fafc" font-family="sans-serif" font-size="22" font-weight="bold" text-anchor="middle">=</text>
 
-  <!-- Multiplication X sign crossed out -->
-  <text x="210" y="165" fill="#ef4444" font-family="sans-serif" font-size="30" font-weight="bold" text-anchor="middle">✖</text>
-  <path d="M 180 140 L 240 180" stroke="#ef4444" stroke-width="4"/>
-  <path d="M 240 140 L 180 180" stroke="#ef4444" stroke-width="4"/>
+  <!-- Result Output -->
+  <rect x="400" y="190" width="160" height="20" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+  <text x="440" y="205" fill="#6ee7b7" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">-1.2</text>
+  <text x="500" y="205" fill="#6ee7b7" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">... 3.14</text>
 
-  <!-- Lookup Arrow -->
-  <path d="M 140 172 C 260 172 260 172 380 172" stroke="#fcd34d" stroke-width="4" stroke-dasharray="10,5" fill="none" marker-end="url(#arrow)"/>
-  <text x="270" y="150" fill="#fbbf24" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">미친 GPU 곱하기 대신</text>
-  <rect x="200" y="180" width="140" height="25" fill="#422006" stroke="#f59e0b" stroke-width="1" rx="5"/>
-  <text x="270" y="197" fill="#fde68a" font-family="sans-serif" font-size="12" text-anchor="middle">단순 색인(Index) 복사 붙여넣기!</text>
-
-  <!-- Subtext -->
-  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">1이 켜진 10만 칸 행렬을 전부 다 진짜로 곱셈 계산하는 멍청한 짓은 안 합니다. 그저 테이블에서 3번째 행(Row) 숫자를 복사(Copy) 해올 뿐입니다!</text>
+  <!-- Direct Mapper Line -->
+  <path d="M 330 200 Q 360 170 400 200" stroke="#fcd34d" stroke-width="3" stroke-dasharray="4,4" fill="none"/>
+  <polygon points="395,200 405,200 400,205" fill="#fcd34d"/>
+  
+  <!-- Comment Board Down -->
+  <rect x="450" y="235" width="280" height="80" fill="#334155" stroke="#f59e0b" stroke-width="2" rx="6"/>
+  <text x="590" y="260" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">알고리즘 연산 최적화의 증명</text>
+  <text x="590" y="280" fill="#f8fafc" font-family="sans-serif" font-size="12" text-anchor="middle">0에 곱해지는 항은 연산 낭비 없이 스킵.</text>
+  <text x="590" y="295" fill="#f8fafc" font-family="sans-serif" font-size="12" text-anchor="middle">1이 점등된 W 행렬의 Row(색인 2번 줄)만</text>
+  <text x="590" y="310" fill="#fcd34d" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">단독 복사(Copy) 해오는 메모리 MAPPING 채택</text>
 
 </svg>

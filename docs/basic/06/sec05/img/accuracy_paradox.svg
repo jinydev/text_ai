@@ -1,37 +1,49 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="350" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">정확도(Accuracy)의 역설: 오만한 깡통 스팸 AI의 99.9% 대국민 사기극</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">클래스 극단 불균형 데이터 환경의 치명적 함정: 정확도 역설 (Accuracy Paradox)</text>
 
-  <!-- Ground Truth Status -->
-  <text x="200" y="80" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">실제 현실의 데이터 (10,000통)</text>
-  <rect x="50" y="100" width="300" height="150" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
-  
-  <rect x="70" y="120" width="260" height="70" fill="#064e3b" rx="5"/>
-  <text x="200" y="150" fill="#a7f3d0" font-family="sans-serif" font-size="14" text-anchor="middle">천사 같은 선량한 정상 메일 묶음</text>
-  <text x="200" y="175" fill="#6ee7b7" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">9,999 통</text>
+  <!-- Left: The Data Distribution -->
+  <rect x="50" y="80" width="220" height="220" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="8"/>
+  <text x="160" y="110" fill="#93c5fd" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">현실의 데이터 불균형군</text>
+  <text x="160" y="130" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">(총 10,000건 샘플)</text>
 
-  <rect x="70" y="200" width="260" height="35" fill="#450a0a" rx="5"/>
-  <text x="200" y="222" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">초강력 스팸 랜섬웨어 폭탄: 1 통</text>
+  <rect x="70" y="150" width="180" height="60" fill="#064e3b" rx="4"/>
+  <text x="160" y="175" fill="#6ee7b7" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">일반/정상 (Majority)</text>
+  <text x="160" y="195" fill="#a7f3d0" font-family="monospace" font-size="12" text-anchor="middle">9,999 건 (99.99%)</text>
 
+  <rect x="70" y="225" width="180" height="50" fill="#7f1d1d" rx="4"/>
+  <text x="160" y="245" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">타겟 악성 (Minority)</text>
+  <text x="160" y="265" fill="#fca5a5" font-family="monospace" font-size="12" text-anchor="middle">단 1 건 (0.01%)</text>
 
-  <!-- Model Prediction -->
-  <path d="M 360 175 L 420 175" stroke="#fcd34d" stroke-width="4" stroke-dasharray="8,4" fill="none" marker-end="url(#arrow)"/>
-  <text x="390" y="160" fill="#fbbf24" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">학습 땡땡이친</text>
-  <text x="390" y="195" fill="#f59e0b" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">바보 AI 판별</text>
+  <path d="M 280 190 L 320 190" stroke="#cbd5e1" stroke-width="3"/>
+  <polygon points="315,185 325,190 315,195" fill="#cbd5e1"/>
 
-  <!-- Dummy AI Brain -->
-  <text x="600" y="80" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">AI의 무지성 일괄 예측!</text>
-  <rect x="450" y="100" width="300" height="150" fill="#064e3b" stroke="#10b981" stroke-width="4" rx="5"/>
-  <text x="600" y="140" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">"귀찮아!! 다 검사 패스 통과시켜!!"</text>
-  <text x="600" y="170" fill="#ecfdf5" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">전부 '정상 메일' 로만 도장 쾅쾅쾅</text>
+  <!-- Center: The Dumb Model -->
+  <rect x="330" y="130" width="180" height="120" fill="#334155" stroke="#fcd34d" stroke-dasharray="8,4" stroke-width="3" rx="8"/>
+  <text x="420" y="160" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">편향 과적합 AI 모델</text>
+  <text x="420" y="190" fill="#f8fafc" font-family="sans-serif" font-size="13" text-anchor="middle">수식 계산 완전히 포기.</text>
+  <text x="420" y="210" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">"모든 입력 100% 정상</text>
+  <text x="420" y="230" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">예측 맵핑(All-Normal)"</text>
 
-  <text x="600" y="210" fill="#34d399" font-family="sans-serif" font-size="14" text-anchor="middle">9,999통 정답 (만점)</text>
-  <text x="600" y="235" fill="#ef4444" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">1통 틀림 (랜섬웨어 프리패스 뚫림!)</text>
+  <path d="M 520 190 L 560 190" stroke="#fcd34d" stroke-width="3"/>
+  <polygon points="555,185 565,190 555,195" fill="#fcd34d"/>
 
-  <!-- Accuracy Score Board -->
-  <rect x="300" y="260" width="200" height="35" fill="#f59e0b" rx="5"/>
-  <text x="400" y="283" fill="#78350f" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">공식 정확도 (Accuracy) : 99.99%</text>
+  <!-- Right: The Illusion Output -->
+  <rect x="570" y="80" width="200" height="220" fill="#1e293b" stroke="#ef4444" stroke-width="2" rx="8"/>
+  <text x="670" y="110" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">평가 지표의 기만적 사기</text>
 
+  <rect x="585" y="140" width="170" height="40" fill="#064e3b" rx="4"/>
+  <text x="670" y="165" fill="#6ee7b7" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">정상 9999건 -> 정답 맵핑</text>
+
+  <rect x="585" y="190" width="170" height="40" fill="#7f1d1d" rx="4"/>
+  <text x="670" y="215" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">악성 1건 -> 정상 오판(놓침)</text>
+
+  <rect x="585" y="240" width="170" height="45" fill="#b45309" stroke="#fcd34d" stroke-width="2" rx="4"/>
+  <text x="670" y="260" fill="#fcd34d" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Accuracy (단순 표면 정확도)</text>
+  <text x="670" y="278" fill="#fde68a" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">99.99 % !!</text>
+
+  <!-- Notice -->
+  <text x="400" y="335" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">실제 주요 핵심 타겟 예측률은 0% 임에도 통계 표면상 만점(99.99%) 모델로 대서특필되는 기만적 착시 현상 경계</text>
 
 </svg>

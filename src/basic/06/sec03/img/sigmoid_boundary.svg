@@ -1,56 +1,45 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">시그모이드 (Sigmoid) S-Curve 마법: 날뛰는 숫자를 확률(%)로 으스러뜨리다</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">로지스틱 회귀 이진 분류기: 활성화 함수 시그모이드 (Sigmoid S-Curve)</text>
 
-  <!-- Left Side: Infinite Raw Score Explosion -->
-  <text x="160" y="80" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">야생의 선형 회귀 원시 점수 Z</text>
-  <rect x="60" y="100" width="200" height="150" fill="#450a0a" stroke="#ef4444" stroke-width="2" rx="5"/>
-  <text x="160" y="130" fill="#ef4444" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">z = W_1x_1 + W_2x_2 + b</text>
-
-  <rect x="90" y="150" width="140" height="25" fill="#7f1d1d" rx="3"/>
-  <text x="160" y="167" fill="#fca5a5" font-family="monospace" font-size="12" text-anchor="middle">메일 A 정답 점수: +9,182,301</text>
+  <!-- Coordinate System -->
+  <line x1="100" y1="350" x2="700" y2="350" stroke="#475569" stroke-width="2"/> <!-- X axis -->
+  <line x1="400" y1="80" x2="400" y2="380" stroke="#475569" stroke-width="2"/> <!-- Y axis -->
   
-  <rect x="90" y="180" width="140" height="25" fill="#7f1d1d" rx="3"/>
-  <text x="160" y="197" fill="#fca5a5" font-family="monospace" font-size="12" text-anchor="middle">메일 B 정답 점수: +0.000041</text>
-
-  <rect x="90" y="210" width="140" height="25" fill="#7f1d1d" rx="3"/>
-  <text x="160" y="227" fill="#fca5a5" font-family="monospace" font-size="12" text-anchor="middle">메일 C 정답 점수: -418</text>
-
-  <text x="160" y="270" fill="#f87171" font-family="sans-serif" font-size="12" text-anchor="middle">컴퓨터: "이걸로 이게 스팸 80% 인지 어떻게 알어! 오류!"</text>
-
-
-  <!-- Pipeline Arrow -->
-  <path d="M 280 170 L 340 170" stroke="#fcd34d" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
-  <text x="310" y="160" fill="#fbbf24" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">강제 압축기</text>
-
-
-  <!-- Right Side: Sigmoid Curve -->
-  <text x="590" y="80" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">결정 경계선 압착: Sigmoid 비율 (%)</text>
+  <text x="710" y="355" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="start">가중합 Z (무한 선형공간)</text>
+  <text x="390" y="70" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="end">확률 p</text>
   
-  <rect x="400" y="100" width="370" height="150" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="380" y="375" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">0</text>
+  <text x="380" y="105" fill="#fca5a5" font-family="sans-serif" font-size="14" text-anchor="middle">1.0</text>
+  <line x1="395" y1="100" x2="405" y2="100" stroke="#475569" stroke-width="2"/>
+
+  <!-- Decision Threshold -->
+  <line x1="100" y1="225" x2="700" y2="225" stroke="#fcd34d" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="730" y="230" fill="#fcd34d" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Threshold = 0.5 (결정 경계)</text>
+  <text x="375" y="230" fill="#fde68a" font-family="sans-serif" font-size="14" text-anchor="middle">0.5</text>
+
+  <!-- Asymptote 1.0 limit visual -->
+  <line x1="100" y1="100" x2="700" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- S Curve -->
+  <!-- Sigmoid: starts low ~350, crosses at 400,225, ends high ~100 -->
+  <path d="M 100 348 Q 300 348 400 225 T 700 102" stroke="#3b82f6" stroke-width="4" fill="none"/>
   
-  <!-- Graph Plot Structure -->
-  <line x1="430" y1="220" x2="740" y2="220" stroke="#34d399" stroke-width="2"/> <!-- X-axis -->
-  <line x1="585" y1="120" x2="585" y2="230" stroke="#34d399" stroke-width="2"/> <!-- Y-axis -->
+  <!-- Areas highlighting binary domains -->
+  <rect x="400" y="100" width="300" height="125" fill="#10b981" fill-opacity="0.15" rx="4"/>
+  <text x="550" y="160" fill="#a7f3d0" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">분류 성공 구역 (Positive/Spam)</text>
+  <text x="550" y="180" fill="#6ee7b7" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">p ^ >= 0.5 타겟 판별</text>
+
+  <rect x="100" y="225" width="300" height="125" fill="#ef4444" fill-opacity="0.15" rx="4"/>
+  <text x="250" y="280" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">기각 분극 구역 (Negative/Normal)</text>
+  <text x="250" y="300" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">p ^ < 0.5 제외 처리</text>
+
+  <!-- Formula Panel -->
+  <rect x="120" y="80" width="180" height="60" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="4"/>
+  <text x="210" y="115" fill="#bfdbfe" font-family="serif" font-size="18" text-anchor="middle">σ(z) = 1 / (1 + e^-z)</text>
   
-  <line x1="420" y1="130" x2="760" y2="130" stroke="#a7f3d0" stroke-width="1" stroke-dasharray="5,5"/> <!-- Top boundary 1.0 -->
-  <text x="410" y="133" fill="#ecfdf5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">1.0</text>
-  <text x="410" y="223" fill="#ecfdf5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">0.0</text>
-
-  <!-- The S Curve -->
-  <path d="M 430 215 C 530 215 560 135 740 135" stroke="#10b981" stroke-width="4" fill="none"/>
-
-  <!-- Mapped Score Drops -->
-  <circle cx="700" cy="135" r="4" fill="#a7f3d0"/>
-  <text x="700" y="125" fill="#a7f3d0" font-family="monospace" font-size="10" text-anchor="middle">A: 0.99 (스팸 확정)</text>
-
-  <circle cx="590" cy="175" r="4" fill="#a7f3d0"/>
-  <text x="540" y="175" fill="#a7f3d0" font-family="monospace" font-size="10" text-anchor="middle">B: 0.52</text>
-
-  <circle cx="480" cy="213" r="4" fill="#a7f3d0"/>
-  <text x="480" y="200" fill="#a7f3d0" font-family="monospace" font-size="10" text-anchor="middle">C: 0.01 (정상 확정)</text>
-
-  <text x="590" y="270" fill="#34d399" font-family="sans-serif" font-size="12" text-anchor="middle">안드로메다 숫자를 0(=0%) 과 1(=100%) 비율 바운더리 박스 안에만 영원히 갇히게 찌그러뜨립니다!</text>
+  <!-- Footer text -->
+  <text x="400" y="420" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">가중 결합으로 생성된 무한대의 야생형 입력 수치 Z 를 단층(Binary) 확률 모수 공간 0.0 과 1.0 사이로 강제 근사 수렴 압축시키는 활성화 함수</text>
 
 </svg>

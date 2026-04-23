@@ -8,7 +8,7 @@
   <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>통계의 저울 (TF-IDF 지표)</title>
   <meta name="title" content="통계의 저울 (TF-IDF 지표)" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="통계의 저울 (TF-IDF 지표)"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="http://localhost:4001/basic/03/sec05/">
+  <meta property="og:url" content="https://text.ai.jiny.dev/basic/03/sec05/">
 
   <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="통계의 저울 (TF-IDF 지표)"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
@@ -17,14 +17,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="http://localhost:4001/basic/03/sec05/" />
-<meta property="og:url" content="http://localhost:4001/basic/03/sec05/" />
+<link rel="canonical" href="https://text.ai.jiny.dev/basic/03/sec05/" />
+<meta property="og:url" content="https://text.ai.jiny.dev/basic/03/sec05/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="통계의 저울 (TF-IDF 지표)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"통계의 저울 (TF-IDF 지표)","url":"http://localhost:4001/basic/03/sec05/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"통계의 저울 (TF-IDF 지표)","url":"https://text.ai.jiny.dev/basic/03/sec05/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -867,8 +867,33 @@
   <li><strong>컴퓨터의 논리:</strong> “당연히 책의 주인공 이름처럼 내 책에서 많이 불렸으면, 일단 그 문서의 핵심 주제일 확률이 상당히 높다!” $\to$ 빈도가 오를수록 스코어를 비례해서 높여줍니다.</li>
 </ul>
 
-<h3 id="다양한-tf-정규화-기법들">다양한 TF 정규화 기법들</h3>
-<p>단순 문서 길이가 너무 길면 모든 단어의 TF가 폭주하는 것을 막기 위해 실무에서는 단순 카운트 외에도 다양한 <code class="language-plaintext highlighter-rouge">Boolean 빈도(1 or 0)</code>, <code class="language-plaintext highlighter-rouge">로그 정규화(Log normalization)</code>, <code class="language-plaintext highlighter-rouge">문서 최대 빈도 대비 비율(Double normalization)</code> 등 파생 기법을 쓰기도 합니다.</p>
+<h3 id="다양한-tf-정규화normalization-기법들">다양한 TF 정규화(Normalization) 기법들</h3>
+
+<p>만약 어떤 문서의 길이가 10,000페이지에 달한다면, 특정 단어가 단순히 분량에 비례해 많이 등장하여 TF 값이 비정상적으로 폭등하는 문제(길이 편향, Length Bias)가 필연적으로 발생합니다. 이를 보정하기 위해 통계학에서는 단순 산술 카운트 외에도 다음과 같은 다양한 TF 정규화(Normalization) 기법을 도입하여 사용합니다.</p>
+
+<ol>
+  <li><strong>불리언 빈도 (Boolean Frequency)</strong>
+    <ul>
+      <li><strong>수식:</strong> $\text{tf}(t,d) = 1 \, \text{(단어가 존재할 경우)}, \; 0 \, \text{(존재하지 않을 경우)}$</li>
+      <li><strong>원리:</strong> 단어가 한 번 나오든 천 번 나오든 빈도수의 크기와 차이를 가차 없이 무시하고, 오직 “해당 서적에 단어가 출현하였는가?”의 유무만으로 TF 값을 <code class="language-plaintext highlighter-rouge">1</code>로 고정하는 극단적 압축 방식입니다.</li>
+      <li><strong>목적:</strong> 빈도수 자체보다는 문서 내에 특정 식별 키워드가 포함되었는지 여부만을 스캔하고 필터링하는 데 주력할 때 채택합니다.</li>
+    </ul>
+  </li>
+  <li><strong>로그 정규화 (Log Normalization)</strong>
+    <ul>
+      <li><strong>수식:</strong> $\text{tf}(t,d) = \log(1 + f_{t,d})$</li>
+      <li><strong>원리:</strong> 특정 단어가 10배 더 많이 출현했다고 해서 그 중요성 빈도가 영원히 정확하게 10배 더 높게 비례한다고 단정 지을 수는 없다는 경제학적 ‘한계 효용 체감의 법칙’을 도입한 모델입니다.</li>
+      <li><strong>목적:</strong> 출현 빈도가 수백, 수천 번 이상 치솟아 폭주하는 특정 스팸성 키워드나, 문서가 지나치게 길어서 발생하는 카운트(Count) 상승폭을 로그 곡선으로 부드럽게 꺾어버림으로써 TF 값의 스케일 폭발을 방지합니다.</li>
+    </ul>
+  </li>
+  <li><strong>이중 정규화 K (Double Normalization K)</strong>
+    <ul>
+      <li><strong>수식:</strong> $\text{tf}(t,d) = K + (1 - K) \frac{f_{t,d}}{\max({f_{t’,d} : t’ \in d})}$</li>
+      <li><strong>원리:</strong> 당장 분석 중인 해당 문서 내부에서 가장 빈도수가 높은(1등 랭크) 단어의 빈도를 분모(Max) 기둥으로 기준 잡고, 현재 타겟 단어의 카운트를 분자로 두어 비율(Percentage) 기반의 벡터로 계산합니다. 이때 $K$(보통 0.5)라는 스무딩(Smoothing) 상수를 더해 줍니다.</li>
+      <li><strong>목적:</strong> 문서의 전체 분량이 10페이지이든 1,000페이지이든 상관없이 문서 절대 길이에 따른 카운트 편향을 상쇄시키고, 오직 해당 문서 내에서의 ‘상대적 지분 비율’이라는 공정한 척도로 정규화해 내는 가장 진보한 TF 방식입니다.</li>
+    </ul>
+  </li>
+</ol>
 
 <hr />
 
@@ -894,8 +919,6 @@
 
 <h2 id="354-충격과-공포의-idf-세부-수학-공식-해부">3.5.4 충격과 공포의 IDF 세부 수학 공식 해부</h2>
 
-<p><img src="./img/idf_log_curve.svg" alt="IDF Log Curve" /></p>
-
 <p>이 똑똑한 역문서 패널티 기능을 온전하게 구현하기 위해 기계학습에서는 고등학교 시절의 <strong>수학 로그 기호 ($\log$)</strong> 를 소환해야만 합니다. 일반적인 IDF의 공식은 통계학 패키지마다 조금씩 차이가 있으나, 대체로 다음의 수식을 심장부에 품고 있습니다.</p>
 
 \[\text{TF-IDF}(w, d) = \text{TF}(w, d) \times \left( \log \left( \frac{n}{1 + \text{df}(w)} \right) + 1 \right)\]
@@ -909,12 +932,17 @@
 <h3 id="1-분수에-뜬금없이-들어간-로그log-함수의-마법">1. 분수에 뜬금없이 들어간 로그(<code class="language-plaintext highlighter-rouge">log</code>) 함수의 마법</h3>
 <p>왜 역수를 취할 때 단순히 $\frac{n}{\text{df}(w)}$를 쓰지 않고 로그($log$) 함수라는 곡선 변환기를 씌울까요?</p>
 
+<p><img src="./img/idf_log_curve.svg" alt="IDF Log Curve" /></p>
+
 <p>만약 세상에 문서가 1,000만 권이나 존재하는데 특정 전문 용어가 딱 1권에서만 우연히 등장했다면 어떻게 될까요? 단순 분수비라면 그 역수 배율은 자그마치 <strong>10,000,000배</strong>로 폭주하여 튀어나갑니다.
 가중치를 준답시고 이렇게 천문학적인 분수 뻥튀기가 일어나면, TF-IDF의 최종 행렬 스코어보드는 통째로 밸런스가 붕괴되어 모델이 마비됩니다.</p>
 
 <p><strong>로그(Logarithm) 함수</strong>는 아무리 $X$축 (분수 스케일) 숫자가 1억, 10억으로 커진다 하더라도, 그 성장 곡선의 기울기를 팍 꺾어버려서 $Y$값(결과치)을 보통 $[1 \sim \text{수십]}$ 사이의 통제 가능한 스케일 숫자로 얌전하게 압축해 버리는 수학계의 훌륭한 <strong>‘데이터 댐(댐)’</strong> 역할을 합니다.</p>
 
 <h3 id="2-분모가-무너지면-서버가-꺼진다-스무딩1-방어막">2. 분모가 무너지면 서버가 꺼진다: 스무딩(+1) 방어막</h3>
+
+<p><img src="./img/idf_smoothing.svg" alt="IDF Smoothing" /></p>
+
 <p>이 공식 구조는 파이썬 코딩 및 머신러닝 개발 현장에서는 엄청난 아킬레스건을 하나 가지고 있습니다.</p>
 
 <blockquote>
@@ -981,10 +1009,10 @@
 
             <!-- 구글 애드센스 출력 -->
             <div class="mt-5">
-                <!-- 구글 애드센스 (여기에 본인의 코드 입력) -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3321560028329475"
     crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"
+<!-- jinydev-java -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3321560028329475" data-ad-slot="9323221865"
     data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({});

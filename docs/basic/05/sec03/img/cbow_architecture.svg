@@ -1,0 +1,50 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">CBOW (Continuous Bag of Words) : 다차원 입력 평균화 투사 아키텍처</text>
+
+  <!-- Input Nodes -->
+  <rect x="50" y="80" width="120" height="40" fill="#334155" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="110" y="105" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">W (t-2)</text>
+
+  <rect x="50" y="160" width="120" height="40" fill="#334155" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="110" y="185" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">W (t-1)</text>
+
+  <rect x="50" y="270" width="120" height="40" fill="#334155" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="110" y="295" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">W (t+1)</text>
+
+  <rect x="50" y="350" width="120" height="40" fill="#334155" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="110" y="375" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">W (t+2)</text>
+
+  <text x="110" y="420" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">Context Words (주변 단어 입력)</text>
+
+  <!-- The Missing Target Placeholder -->
+  <rect x="50" y="215" width="120" height="40" fill="#7f1d1d" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4" rx="4"/>
+  <text x="110" y="240" fill="#fecaca" font-family="monospace" font-size="14" text-anchor="middle">W (t) Target</text>
+  <text x="190" y="240" fill="#fca5a5" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">?</text>
+
+  <!-- Projection Layer Box -->
+  <rect x="350" y="130" width="160" height="210" fill="#1e293b" stroke="#f59e0b" stroke-width="2" rx="8"/>
+  <text x="430" y="160" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">투사층 (Projection)</text>
+  <rect x="380" y="190" width="100" height="40" fill="#0f172a" stroke="#fcd34d" stroke-width="1" rx="4"/>
+  <text x="430" y="215" fill="#fcd34d" font-family="monospace" font-size="16" text-anchor="middle">Σ V / 4</text>
+  <text x="430" y="260" fill="#fde68a" font-family="sans-serif" font-size="14" text-anchor="middle">압축 병합</text>
+  <text x="430" y="280" fill="#fde68a" font-family="sans-serif" font-size="14" text-anchor="middle">(Mean Average)</text>
+
+  <!-- Arrows to Projection -->
+  <path d="M 170 100 Q 260 100 350 170" stroke="#475569" stroke-width="2" fill="none"/>
+  <path d="M 170 180 Q 260 180 350 200" stroke="#475569" stroke-width="2" fill="none"/>
+  <path d="M 170 290 Q 260 290 350 260" stroke="#475569" stroke-width="2" fill="none"/>
+  <path d="M 170 370 Q 260 370 350 300" stroke="#475569" stroke-width="2" fill="none"/>
+
+  <!-- Arrow to Output -->
+  <path d="M 510 235 L 620 235" stroke="#fcd34d" stroke-width="4"/>
+  <polygon points="610,225 630,235 610,245" fill="#fcd34d"/>
+
+  <!-- Output Node -->
+  <rect x="640" y="200" width="120" height="70" fill="#064e3b" stroke="#10b981" stroke-width="3" rx="4"/>
+  <text x="700" y="225" fill="#a7f3d0" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">W (t)</text>
+  <text x="700" y="250" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Center Word</text>
+  <text x="700" y="300" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">단일 출력 유추 정답</text>
+
+</svg>

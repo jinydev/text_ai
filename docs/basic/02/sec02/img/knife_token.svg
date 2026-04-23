@@ -1,40 +1,59 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
-  
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">토큰화의 칼질: 영어의 축복과 한국어의 절망</text>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <!-- English -->
-  <rect x="50" y="100" width="300" height="150" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
-  <text x="200" y="140" fill="#60a5fa" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">영어 (고립어)</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">토크나이징 해상도 분기: 단일 자연어 Sequence의 N-차원 파편화 스케일 한계 증명</text>
 
-  <rect x="80" y="170" width="60" height="40" fill="#2563eb" rx="5"/>
-  <text x="110" y="195" fill="#eff6ff" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">I</text>
+  <!-- Base String Input -->
+  <rect x="50" y="80" width="700" height="60" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="4"/>
+  <text x="400" y="115" fill="#93c5fd" font-family="monospace" font-size="22" font-weight="bold" text-anchor="middle">"안녕하세요자연어처리"</text>
 
-  <rect x="150" y="170" width="60" height="40" fill="#2563eb" rx="5"/>
-  <text x="180" y="195" fill="#eff6ff" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">am</text>
 
-  <rect x="220" y="170" width="60" height="40" fill="#2563eb" rx="5"/>
-  <text x="250" y="195" fill="#eff6ff" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">a</text>
+  <!-- Vector Arrows down -->
+  <path d="M 150 150 L 150 180" stroke="#cbd5e1" stroke-width="2"/>
+  <polygon points="145,175 150,185 155,175" fill="#cbd5e1"/>
 
-  <rect x="290" y="170" width="40" height="40" fill="#2563eb" rx="5"/>
-  <text x="310" y="195" fill="#eff6ff" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">boy</text>
+  <path d="M 400 150 L 400 180" stroke="#cbd5e1" stroke-width="2"/>
+  <polygon points="395,175 400,185 405,175" fill="#cbd5e1"/>
 
-  <text x="200" y="235" fill="#93c5fd" font-family="sans-serif" font-size="14" text-anchor="middle">공백으로 잘라도 토큰 독립 완벽!</text>
+  <path d="M 650 150 L 650 180" stroke="#cbd5e1" stroke-width="2"/>
+  <polygon points="645,175 650,185 655,175" fill="#cbd5e1"/>
 
-  <!-- Korean -->
-  <rect x="450" y="100" width="300" height="150" fill="#1e293b" stroke="#f43f5e" stroke-width="2" rx="5"/>
-  <text x="600" y="140" fill="#fb7185" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">한국어 (교착어)</text>
 
-  <rect x="520" y="170" width="80" height="40" fill="#e11d48" rx="5"/>
-  <text x="560" y="195" fill="#ffe4e6" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">나는</text>
-  
-  <rect x="610" y="170" width="100" height="40" fill="#e11d48" rx="5"/>
-  <text x="660" y="195" fill="#ffe4e6" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">소년이다</text>
+  <!-- 1. Char Level -->
+  <rect x="50" y="200" width="200" height="150" fill="#1e3a8a" stroke="#60a5fa" stroke-width="2" rx="6"/>
+  <text x="150" y="230" fill="#bfdbfe" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">1. Char Level (글자 아토믹)</text>
+  <rect x="65" y="250" width="170" height="40" fill="#0f172a" rx="4"/>
+  <text x="150" y="275" fill="#f8fafc" font-family="monospace" font-size="10" text-anchor="middle">['안','녕','하','세','요','자','연'...]</text>
 
-  <!-- Glue and scissors -->
-  <path d="M 560 170 C 560 150 540 150 540 170" stroke="#fcd34d" stroke-width="3" fill="none"/>
-  <text x="550" y="145" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">껌딱지 조사</text>
-  <text x="540" y="195" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold">나+는</text>
+  <rect x="70" y="300" width="160" height="40" fill="#7f1d1d" rx="2"/>
+  <text x="150" y="315" fill="#fca5a5" font-family="sans-serif" font-size="10" text-anchor="middle">장점: OOV 에러 0% 방어</text>
+  <text x="150" y="330" fill="#fecaca" font-family="sans-serif" font-size="10" text-anchor="middle">단점: 벡터 무한 팽창, 의미 소실</text>
 
-  <text x="600" y="235" fill="#fda4af" font-family="sans-serif" font-size="14" text-anchor="middle">명사와 조사가 엉켜 통계 카운트 붕괴!</text>
+
+  <!-- 2. Subword Level -->
+  <rect x="300" y="200" width="200" height="150" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="6"/>
+  <text x="400" y="230" fill="#6ee7b7" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">2. Subword Level (서브워드)</text>
+  <rect x="315" y="250" width="170" height="40" fill="#0f172a" rx="4"/>
+  <text x="400" y="275" fill="#a7f3d0" font-family="monospace" font-size="11" text-anchor="middle">['안녕', '하세요', '자연어', '처리']</text>
+
+  <rect x="320" y="300" width="160" height="40" fill="#064e3b" stroke="#34d399" stroke-width="1" rx="2"/>
+  <text x="400" y="315" fill="#a7f3d0" font-family="sans-serif" font-size="10" text-anchor="middle">현대 BPE 트랜스포머 표준 아키텍처</text>
+  <text x="400" y="330" fill="#a7f3d0" font-family="sans-serif" font-size="10" text-anchor="middle">의미 보존+OOV압축 스케일 성공</text>
+
+
+  <!-- 3. Word/Sentence Level -->
+  <rect x="550" y="200" width="200" height="150" fill="#4c1d95" stroke="#a855f7" stroke-width="2" rx="6"/>
+  <text x="650" y="230" fill="#e9d5ff" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">3. Word Level (어절 타겟)</text>
+  <rect x="565" y="250" width="170" height="40" fill="#0f172a" rx="4"/>
+  <text x="650" y="275" fill="#e9d5ff" font-family="monospace" font-size="12" text-anchor="middle">['안녕하세요', '자연어처리']</text>
+
+  <rect x="570" y="300" width="160" height="40" fill="#450a0a" rx="2"/>
+  <text x="650" y="315" fill="#fca5a5" font-family="sans-serif" font-size="10" text-anchor="middle">장점: 문맥 파편화 없이 통계 직관성</text>
+  <text x="650" y="330" fill="#fecaca" font-family="sans-serif" font-size="10" text-anchor="middle">단점: 신조어/은어 OOV 차원 폭발</text>
+
+
+  <!-- Bottom Conclusion Banner -->
+  <rect x="50" y="380" width="700" height="40" fill="#334155" stroke="#fcd34d" stroke-width="2" rx="6"/>
+  <text x="400" y="405" fill="#fde68a" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">토큰 파핑 해상도의 딜레마(Trade-off): 분절 스케일이 클수록 형태학적 OOV 확률 상승 vs 작을수록 시퀀스 텐서 폭주</text>
+
 </svg>

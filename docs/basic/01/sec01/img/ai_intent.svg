@@ -1,33 +1,48 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">기계의 인간화: 텍스트 껍데기를 넘어 숨은 '의도' 해독하기</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">구문 코딩 종속성 탈피 및 베이지안 의도 추론(Intent Inference) 파이프라인 진화</text>
 
-  <!-- Human Input -->
-  <rect x="50" y="100" width="220" height="80" fill="#1e293b" stroke="#f59e0b" stroke-width="2" rx="5"/>
-  <text x="160" y="135" fill="#fcd34d" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">"아침 시간 여유 있냐?"</text>
-  <text x="160" y="160" fill="#fcd34d" font-family="sans-serif" font-size="14" text-anchor="middle">(표면: 시간의 잔여량 질문)</text>
+  <!-- Left Model: Legacy Syntax System -->
+  <rect x="50" y="80" width="310" height="280" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="6"/>
+  <text x="205" y="115" fill="#94a3b8" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">과거 레거시 시스템 (Rule-based Hard Coding)</text>
 
-  <!-- Machine Processing -->
-  <path d="M 270 140 L 330 140" stroke="#fbbf24" stroke-width="4" marker-end="url(#arrow)"/>
-  
-  <circle cx="400" cy="140" r="60" fill="#334155" stroke="#94a3b8" stroke-width="3"/>
-  <text x="400" y="135" fill="#e2e8f0" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">NLP 뇌</text>
-  <text x="400" y="155" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">의도 추론기</text>
+  <rect x="80" y="140" width="250" height="50" fill="#0f172a" stroke="#fca5a5" stroke-width="1" rx="4"/>
+  <text x="205" y="170" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">if user_input == "일정 조회":</text>
 
-  <!-- 2 Outcomes -->
-  <path d="M 460 120 L 520 90" stroke="#f43f5e" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M 460 160 L 520 190" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 205 190 L 205 220" stroke="#64748b" stroke-width="2"/>
+  <polygon points="200,215 205,225 210,215" fill="#64748b"/>
 
-  <!-- Outcome 1 (Literal) -->
-  <rect x="530" y="60" width="220" height="60" fill="#450a0a" stroke="#ef4444" stroke-width="2" rx="5"/>
-  <text x="640" y="85" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">직역 (옛날 로봇)</text>
-  <text x="640" y="105" fill="#ef4444" font-family="sans-serif" font-size="14" text-anchor="middle">"네, 제 배터리 시간 많습니다."</text>
+  <rect x="80" y="220" width="250" height="50" fill="#0f172a" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="205" y="250" fill="#cbd5e1" font-family="monospace" font-size="14" text-anchor="middle">fetch_calendar_db()</text>
 
-  <!-- Outcome 2 (Intent) -->
-  <rect x="530" y="160" width="220" height="60" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="5"/>
-  <text x="640" y="185" fill="#a7f3d0" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">의도 파악 (현대 AI)</text>
-  <text x="640" y="205" fill="#10b981" font-family="sans-serif" font-size="14" text-anchor="middle">"도움이 필요하신가요? 일정 확인해 드릴까요?"</text>
+  <rect x="80" y="290" width="250" height="40" fill="#450a0a" stroke="#ef4444" stroke-width="1" rx="4"/>
+  <text x="205" y="315" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">"시간 좀 남냐?" -> (Syntax Error: 판독 불가 파괴)</text>
 
-  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">NLP의 궁극적인 임무는 인간의 돌려 말하기(의도)나 감정까지 통계적으로 눈치채서 완벽하게 응답하는 것입니다.</text>
+  <!-- Right Model: NLP Intent Model -->
+  <rect x="380" y="80" width="370" height="280" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="6"/>
+  <text x="565" y="115" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">현대 NLU 기반 의도 추론 (Intent Probabilistic Engine)</text>
+
+  <rect x="410" y="140" width="310" height="50" fill="#0f172a" stroke="#60a5fa" stroke-width="1" rx="4"/>
+  <text x="565" y="170" fill="#93c5fd" font-family="serif" font-size="16" font-weight="bold" text-anchor="middle">유저 비정형 입력: "나 아침에 시간 좀 남냐?"</text>
+
+  <!-- Internal Math Logic -->
+  <path d="M 565 190 L 565 220" stroke="#10b981" stroke-width="2"/>
+  <polygon points="560,215 565,225 570,215" fill="#10b981"/>
+
+  <rect x="410" y="220" width="310" height="70" fill="#064e3b" stroke="#34d399" stroke-width="1" rx="4" stroke-dasharray="2,2"/>
+  <text x="565" y="245" fill="#a7f3d0" font-family="monospace" font-size="12" text-anchor="middle">P(의도=일정확인 | "시간", "아침") = 0.982</text>
+  <text x="565" y="270" fill="#a7f3d0" font-family="monospace" font-size="12" text-anchor="middle">P(의도=시간잡담 | "남냐") = 0.015</text>
+
+  <path d="M 565 290 L 565 310" stroke="#10b981" stroke-width="2"/>
+  <polygon points="560,305 565,315 570,305" fill="#10b981"/>
+
+  <rect x="410" y="310" width="310" height="35" fill="#1e3a8a" stroke="#60a5fa" stroke-width="1" rx="4"/>
+  <text x="565" y="332" fill="#bfdbfe" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">맥락(Context) 기반 캘린더 DB API 자동 로딩 호출 성공</text>
+
+
+  <!-- Bottom Explanation Banner -->
+  <rect x="50" y="380" width="700" height="50" fill="#334155" stroke="#fcd34d" stroke-width="2" rx="6"/>
+  <text x="400" y="410" fill="#fde68a" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">완벽한 소통 파라미터 : 단순한 1:1 글자 번역을 초월하여 확률 스페이스 내에서 화자의 은닉된 의도(Intent) 확률을 유도</text>
+
 </svg>

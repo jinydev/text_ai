@@ -1,39 +1,42 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Softmax 분모 편미분의 저주: 10만 개의 오목 돋보기 채점의 병목</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">초기 Softmax 편미분 출력 계층의 다중 클래스(Multi-class) 연산 병목 에러 현상</text>
 
-  <!-- Output Layer Nodes -->
-  <rect x="50" y="80" width="100" height="150" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
-  <text x="100" y="110" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">은닉 상태</text>
-  <text x="100" y="150" fill="#93c5fd" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">(128 차원)</text>
-  <circle cx="100" cy="180" r="10" fill="#3b82f6"/>
-  <circle cx="100" cy="205" r="10" fill="#3b82f6"/>
+  <!-- Input -->
+  <rect x="50" y="200" width="100" height="40" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="4"/>
+  <text x="100" y="225" fill="#a7f3d0" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">Target W_t</text>
 
+  <path d="M 160 220 L 220 220" stroke="#10b981" stroke-width="3"/>
+  <polygon points="215,215 225,220 215,225" fill="#10b981"/>
 
-  <!-- Softmax Blast -->
-  <path d="M 170 150 L 370 150" stroke="#f59e0b" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <!-- Output Layer Container -->
+  <rect x="230" y="80" width="180" height="280" fill="#1e293b" stroke="#ef4444" stroke-width="2" rx="8"/>
+  <text x="320" y="110" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">기존 Softmax 연산망</text>
+
+  <!-- Node List -->
+  <rect x="250" y="130" width="140" height="30" fill="#334155" rx="2"/>
+  <text x="320" y="150" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="middle">Apple [Loss 갱신]</text>
   
-  <rect x="380" y="60" width="200" height="200" fill="#450a0a" stroke="#ef4444" stroke-width="3" rx="5"/>
-  <text x="480" y="90" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Softmax 정육점</text>
-  <text x="480" y="110" fill="#ef4444" font-family="sans-serif" font-size="24" text-anchor="middle">🔥</text>
+  <rect x="250" y="170" width="140" height="30" fill="#3b82f6" stroke="#93c5fd" stroke-width="2" rx="2"/>
+  <text x="320" y="190" fill="#eff6ff" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">Mat [정답 갱신]</text>
+
+  <rect x="250" y="210" width="140" height="30" fill="#334155" rx="2"/>
+  <text x="320" y="230" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="middle">Boy [Loss 갱신]</text>
+
+  <rect x="250" y="250" width="140" height="30" fill="#334155" rx="2"/>
+  <text x="320" y="270" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="middle">Zebra [Loss 갱신]</text>
+
+  <text x="320" y="310" fill="#ef4444" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">... X 전 세계 10만 단어</text>
   
-  <text x="480" y="140" fill="#f87171" font-family="sans-serif" font-size="12" text-anchor="middle">갱신할 타겟 O/X</text>
-  <text x="480" y="160" fill="#f87171" font-family="sans-serif" font-size="12" text-anchor="middle">1. Apple (0점) 갱신</text>
-  <text x="480" y="180" fill="#f87171" font-family="sans-serif" font-size="12" text-anchor="middle">2. Banana (0점) 갱신</text>
-  <text x="480" y="200" fill="#fef2f2" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">... 99,999번 반복 ...</text>
-  <text x="480" y="220" fill="#34d399" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">100,000. Mat (정답) 갱신!</text>
+  <!-- Fire / Explosion Area -->
+  <path d="M 440 200 Q 480 150 550 200 T 700 150" stroke="#ef4444" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+  <text x="560" y="180" fill="#fca5a5" font-family="sans-serif" font-size="24" text-anchor="middle">💣</text>
+  <text x="560" y="140" fill="#fca5a5" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">역전파 계산량 대폭발</text>
   
-  <text x="480" y="245" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">가중치 10만 개 All 편미분</text>
-
-
-  <!-- GPU Explodes -->
-  <path d="M 600 150 L 680 150" stroke="#ef4444" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
-  <circle cx="730" cy="150" r="40" fill="#7f1d1d" stroke="#fca5a5" stroke-width="2"/>
-  <text x="730" y="155" fill="#fef2f2" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">GPU 사망</text>
-  <text x="730" y="110" fill="#ef4444" font-family="sans-serif" font-size="24" text-anchor="middle">💥</text>
-
-
-  <text x="400" y="285" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">정답(Mat) 딱 1개를 띄우기 위해, 10만 개의 오답 단어 가중치 통계 지표를 전부 다 무식하게 갱신(Update 미분)하는 재앙입니다.</text>
-
+  <rect x="440" y="220" width="300" height="100" fill="#7f1d1d" stroke="#ef4444" stroke-width="2" rx="6"/>
+  <text x="590" y="250" fill="#fecaca" font-family="monospace" font-size="12" text-anchor="middle">Softmax 분모 = Σ exp(v' * v_c)</text>
+  <text x="590" y="275" fill="#f8fafc" font-family="sans-serif" font-size="14" text-anchor="middle">1문제를 풀기 위해 오답 노드 99,999 개의</text>
+  <text x="590" y="295" fill="#f8fafc" font-family="sans-serif" font-size="14" text-anchor="middle">모든 가중치 미분(∇W)을 강제로 전수조사 연산</text>
+  
 </svg>

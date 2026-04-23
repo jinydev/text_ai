@@ -8,7 +8,7 @@
   <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>텍스트 분류의 본질</title>
   <meta name="title" content="텍스트 분류의 본질" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="텍스트 분류의 본질"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="http://localhost:4001/basic/06/sec01/">
+  <meta property="og:url" content="https://text.ai.jiny.dev/basic/06/sec01/">
 
   <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="텍스트 분류의 본질"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
@@ -17,14 +17,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="http://localhost:4001/basic/06/sec01/" />
-<meta property="og:url" content="http://localhost:4001/basic/06/sec01/" />
+<link rel="canonical" href="https://text.ai.jiny.dev/basic/06/sec01/" />
+<meta property="og:url" content="https://text.ai.jiny.dev/basic/06/sec01/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="텍스트 분류의 본질" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"텍스트 분류의 본질","url":"http://localhost:4001/basic/06/sec01/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"텍스트 분류의 본질","url":"https://text.ai.jiny.dev/basic/06/sec01/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -830,85 +830,83 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="61-기계학습-텍스트-분류의-본질과-파이프라인">6.1 기계학습: 텍스트 분류의 본질과 파이프라인</h1>
+            <h1 id="61-기계학습-텍스트-분류-패턴의-본질과-시스템-파이프라인">6.1 기계학습: 텍스트 분류 패턴의 본질과 시스템 파이프라인</h1>
 
-<p>이전 5주 차 커리큘럼까지 우리는, 방대한 글자들을 인공지능이 계산할 수 있는 수학적 숫자 행렬과 기하학적 3D 좌표 스펙(Word Embedding 등 밀집 벡터)으로 수술하고 변환하는 ‘특성 추출(Feature Extraction)’ 기술을 배웠습니다.</p>
+<p>이전 5주 차 커리큘럼까지 우리는, 방대한 문자열(String) 비정형 데이터를 인공지능이 계산할 수 있는 수학적 숫자 행렬과 기하학적 3D 좌표 스펙(Word Embedding 밀집 공간 벡터)으로 수술하고 매핑 변환하는 <strong>‘특성 추출 선형 텐서화(Feature Extraction)’</strong> 기술 체계를 배웠습니다.</p>
 
-<p>이번 6주 차부터는 그렇게 1종 조립을 마친 “숫자가 박힌 엑셀 종이 고기”를 인공지능 기계가 아예 날것으로 씹어 삼켜서, 이것이 정상 메일인지, 스팸인지, 고객의 극대노 쌍욕 리뷰인지를 논리적으로 판별해 내고 색인 방(Room)으로 강제 분리 수거해 버리는 <strong>텍스트 분류(Text Classification)</strong> 머신러닝의 파괴적인 판결 엔진들에 대해 탐구합니다.</p>
+<p>이번 6주 차부터는 그렇게 1단계 정규 조립을 마친 “정형화된 다차원 텐서(Tensor) 숫자 데이터” 벡터를 인공지능 분류 기계 추론망이 온전히 입력받아 활성화 함수에 투과시키고, 현재 타겟 데이터가 정상 메일 집합인지, 스팸인지, 고객의 극성 부정 프레임 리뷰인지를 논리적으로 클래스 라벨 판별해 내고 해당 확률 공간 지표로 매핑 구속해 버리는 <strong>텍스트 분류(Text Classification)</strong> 머신러닝의 아키텍처 및 결정 엔진들에 대해 탐구합니다.</p>
 
 <hr />
 
-<h2 id="611-텍스트-분류-text-classification-란">6.1.1 텍스트 분류 (Text Classification) 란?</h2>
+<h2 id="611-텍스트-분류-text-classification-의-공학적-정의">6.1.1 텍스트 분류 (Text Classification) 의 공학적 정의</h2>
 
-<p>기업의 빅데이터 부서 현업에서 가장 천문학적인 돈을 쏟아붓고, B2B IT 솔루션의 영업 매출을 책임지는 자연어 처리(NLP) 스킬의 1위이자 핵심 심장입니다.</p>
+<p>이는 글로벌 기업과 빅데이터 부서 IT 현업에서 B2B 및 B2C 수익성 솔루션의 로직 운영 효율을 직접적으로 결정짓고 책임지는 자연어 처리(NLP) 스킬의 1위이자 머신러닝의 범용 엔진 심장입니다.</p>
 
 <blockquote>
-  <p><strong>본질</strong>: 주어진 무작위 문자열 문장 덩어리를 딥러닝 뇌세포가 읽어 들이고 씹어서, 개발자가 사전에 철저하게 세팅해 둔 여러 개의 <strong>‘목표 범주(Category/Class) 방’</strong> 중 가장 적합한 라벨 하나를 골라 100% 강제로 집어던져 수감시키는 우체부 색인 역할입니다.</p>
+  <p><strong>본질</strong>: 분류 카테고리 정의가 주어지지 않은 무작위 비정형 문자열 문장 덩어리를 딥러닝/머신러닝 신경망이 읽어 들이고 추론하여 분해한 후, 개발자가 사전에 철저하게 세팅해 둔 여러 개의 <strong>‘목표 타겟 범주(Category/Class 라벨 집합)’</strong> 중 확률적으로 가장 최적 적합한 라벨 하나를 골라 100% 매핑 지표로 수렴하게 이끄는 척도 분할 연산망 역할입니다.</p>
 </blockquote>
 
 <ul>
-  <li><strong>스팸 필터 모델 (2진 분류기)</strong>: $\to$ (스팸 쓰레기통 방, 정상 업무 메일 방) 2개로 분리</li>
-  <li><strong>감성 분석 모델 (다중 분류기)</strong>: $\to$ (매우 긍정, 긍정, 소소, 화남, 쌍욕 분노) 5개로 분리</li>
-  <li><strong>뉴스 카테고리 로터리 서버</strong>: $\to$ 네이버 뉴스가 올라오자마자 사람 개입 없이 1초 만에 텍스트 속성을 읽고 (정치, IT, 연예, 국제 사회) 각 부서 게시판으로 스플릿!</li>
+  <li><strong>스팸 필터 모델 (이진 분류기, Binary Classifier)</strong>: $\to$ (스팸 필터링 방, 정상 업무 메일 방) 2개 레이블로 확률론적 분리</li>
+  <li><strong>감성 분석 모델 (다중 분류기, Multi-class Classifier)</strong>: $\to$ (매우 긍정, 긍정, 중립, 부정, 극단 분노 부패) 5개 레이블로 타겟 스코어 분리</li>
+  <li><strong>뉴스 카테고리 로터리 구조 라우터 서버</strong>: $\to$ 네이버나 블룸버그 시스템에 실시간 뉴스가 올라오자마자 사람 개입 없이 0.1초 만에 텍스트 속성 컨텍스트를 읽고 결정 경계(Decision Boundary)를 산포하여, (정치, IT/과학, 연예, 국제 사회) 각 부서 DB 인덱스 게시판으로 백엔드 스플릿(Split) 분류!</li>
 </ul>
 
 <hr />
 
-<h2 id="612-텍스트를-재단하는-거대한-컨베이어-벨트-pipeline">6.1.2 텍스트를 재단하는 거대한 컨베이어 벨트 (Pipeline)</h2>
+<h2 id="612-텍스트를-재단하는-거대한-모델링-파이프라인-data-pipeline">6.1.2 텍스트를 재단하는 거대한 모델링 파이프라인 (Data Pipeline)</h2>
 
-<p>판별 AI(분류 모델)는 입력만 넣으면 자동으로 똑똑한 정답이 튀어나오는 마법의 요술 지팡이가 절대 아닙니다. 공장에서 철광석을 다듬듯이, 아주 엄격하고 냉혹한 데이터 처리 <strong>컨베이어 벨트 파이프라인</strong>을 전부 통과해야만 겨우 모델이 한 입 베어 물 수 있습니다.</p>
+<p>텍스트 판별 AI 모듈(분류 모델)은 원시 텍스트 입력만 바로 욱여넣으면 기계 모델망에서 일괄적으로 척척 똑똑한 정답이 곧바로 단숨에 튀어나오는 마법의 요술 상자가 절대 아닙니다. 화학 공장에서 원유를 증류탑으로 다듬듯이, 아주 엄격하고 냉혹한 데이터 처리 <strong>컨베이어 벨트 파이프라인 정규 공정 레이어</strong>를 각 스텝별로 모두 순차 통과해야만 겨우 모델 텐서 변환 모듈이 추론망의 한 입 예측을 시작할 수 있습니다.</p>
 
 <p><img src="./img/classification_pipeline.svg" alt="Text Classification Pipeline Mechanism" /></p>
 
 <ol>
-  <li><strong>원시 텍스트 수집 (Crawling)</strong>: 욕설, 오타, HTML 태그가 더럽게 묻은 웹 크롤링 덩어리.</li>
-  <li><strong>정제 및 전처리 자르기 (Preprocessing)</strong>: 정규표현식 메스를 통한 특수문자 파괴, 쓸데없는 관사 삭제, 어간 엑기스 추출(토큰화).</li>
-  <li><strong>특성 추출 통계 번역 (Feature Extraction)</strong>: 문자를 들이밀면 컴퓨터는 미적분 연산을 거부합니다. 따라서 지난주 배웠던 카운팅 엑셀표(TF-IDF)나 밀집 딥러닝 3D 공간 행렬(Word2Vec 벡터 $0.41, -2.13$)로 <strong>완벽하게 숫자로 통역 압축</strong>하는 공정.</li>
-  <li><strong>$\to$ 최후의 분류 심사역 (Classifier Brain)</strong>: 자, 드디어 우리가 6주 차에 도착한 마지막 종착 위치입니다! 전처리와 임베딩이 끝난 완벽한 숫자를 삼키고 수학적 가중치를 저울질하여 “이건 90% 스팸이다!” 라고 법정 판결을 내리는 진정한 AI 모터 계층.</li>
+  <li><strong>원시 데이터 수집 (Crawling/Data Gathering)</strong>: 치명적인 노이즈 트래픽 패턴과 이모티콘, HTML 특수 태그 찌꺼기가 혼재된 비정형 원시(Raw) 문서 크롤링 청크 배열군.</li>
+  <li><strong>정규화 정제 및 전처리 자르기 (Preprocessing/Tokenization)</strong>: 파이썬 정규표현식(Regex) 메스 구문을 통한 특수문자 및 노이즈 파괴 지우기, 쓸데없는 잡초 불용어(Stopwords) 삭제 필터링, 그리고 문법적 엑기스를 단어 수준 배열로 잘라내는 토큰화 및 어간(Stemming) 추출.</li>
+  <li><strong>특성 추출 수리 통계 번역 (Feature Extraction)</strong>: 이산적인 국어사전 문자를 기계 포트에 바로 들이밀면 컴퓨터는 선형 미적분 연산을 거부합니다. 따라서 지난주 배웠던 척도 시스템인 이산적 카운팅 엑셀표 행렬망(TF-IDF)이나 은닉 신경망 딥러닝 3D 실수 공간 행렬(Word2Vec 벡터 $[0.41, -2.13, 0.09]$)로 원시 데이터를 <strong>완벽히 통계학적 숫자 차원 좌표 다발로 통역 압축해 매핑 전송</strong>하는 데이터 변환 브릿지 공정 단계.</li>
+  <li><strong>$\to$ 최후의 분류 심사 및 활성 역전파 회귀망 (Classifier Brain 모듈)</strong>: 자, 드디어 우리가 이번 6주 차에 조우하게 된 머신러닝의 마지막 수학 모델 종착 아키텍처입니다! 1/2/3 전처리와 텐서 벡터 임베딩 압로딩이 전원 끝난 완벽한 숫자의 바다를 삼킨 뒤, 내부 모델의 수학적 선형대수 가중치 척결 스위치를 고주파 저울질 분배하여 “이 유입 벡터는 92.4% 임계치로 스팸 카테고리 레이블 좌표에 소속된다!” 라고 경계 판결선 결정 경계(Decision Boundary)를 긋고 내리는 진정한 AI 분류 모터 계층.</li>
 </ol>
 
 <hr />
 
-<h2 id="613-분류-ai-모델의-이중-심장-엔진-train--predict">6.1.3 분류 AI 모델의 이중 심장 엔진 (Train &amp; Predict)</h2>
+<h2 id="613-지도학습-분류-ai-모델-시스템의-이중-심장-엔진-모드-trainpredict-split">6.1.3 지도학습 분류 AI 모델 시스템의 이중 심장 엔진 모드 (Train/Predict Split)</h2>
 
-<p>지도학습(Supervised Learning) 기반 머신러닝 분류기 시스템은 프로그램이 켜질 때, 하나의 심장으로만 뛰지 않습니다. 무조건 과거와 미래를 담당하는 두 개의 분리된 모터 엔진 시스템으로 격리 작동합니다. 과거의 족보를 갉아먹는 <strong>학습(Train)</strong>과 새로운 미래를 예언하는 <strong>예측(Predict)</strong> 입니다.</p>
+<p>지도학습(Supervised Learning) 패러다임 기반 머신러닝 분류기 예측 시스템 아키텍처는 프로그램이 가동되어 런타임을 맞이할 때, 절대 평형한 하나의 심장 로직 1단계로만 뛰지 않습니다. 구조적으로 무조건 과거의 기억 체계를 구축하는 연산 서버와 미래를 예언하는 채점 서버, 두 개의 완벽히 시간적으로 분리된 모터 시스템 엔진 섀시로 격리 작동 밸브를 돌립니다. 냅다 오차 미적분 지옥을 겪는 <strong>초기 모델 훈련 피팅(Train Fit)</strong>과, 이를 저장하고 실전 투입되는 <strong>새로운 미래 객체 추론(Predict)</strong> 단계입니다.</p>
 
 <p><img src="./img/train_predict_engines.svg" alt="Train Prediction Motor Separation" /></p>
 
-<h3 id="1단계-심장-두뇌-활성화-고통의-학습-엔진-train">1단계 심장: 두뇌 활성화 고통의 학습 엔진 (Train)</h3>
-<p>입력되는 과거의 텍스트 덩어리 데이터 모음($X$)과, 알바생 수천 명이 노가다로 옆에다가 직접 정답(“오, 이건 스팸이네”)을 체크해 놓은 정답지 라벨 배열($Y$) 100만 건을 동시에 묶어서 AI의 입에 잔혹할 정도로 무한정 꾸역꾸역 들이붓습니다.</p>
+<h3 id="1단계-심장-모드-두뇌-활성화-오차-역전파-학습-엔진-구축-train-fit-mode">1단계 심장 모드: 두뇌 활성화 오차 역전파 학습 엔진 구축 (Train Fit Mode)</h3>
+<p>초기 데이터베이스에서 추출된 입력 과거의 방대한 통계 텍스트 덩어리 데이터 배열 객체($X$) 라지 셋과, 휴먼 레이블러(Human Labeler 인력) 도메인이 옆에다가 직접 정답 주석안 라벨(“오, 이 데이터는 검토해 보니 스팸 세트 집합이네”)을 체크해 매핑해 놓은 완벽한 정답 추구 라벨 타겟 객체($Y$) 100만 건 쌍을, 묶어서 AI 모델 시스템의 훈련망 입 포트에 무한한 턴 에폭(Epoch) 횟수로 루프(Loop)로 꾸역꾸역 반복 들이붓습니다.</p>
 
 <ul>
-  <li>기계는 데이터($X$)를 보고 자기 맘대로 정답을 찍었다가, 옆에 족보 통지표($Y$)와 비교해 보고 대참사 틀림을 경험합니다!</li>
-  <li>“어? 틀렸네?” 오류 충격을 먹고 자신의 뇌세포인 <strong>가추치($W$) 스위치들의 기울기 값</strong>을 통계 미적분(역전파)으로 서서히 조절(Update Tuning)해 나갑니다. 이 미적분 노가다 고통 과정을 기계 학습(Train)이라고 부릅니다.</li>
+  <li>훈련 중인 기계는 처음 임의 무작위 값으로 잡힌 수식으로 데이터($X$) 입력 모델을 투과시켜 자기 맘대로 어설픈 예측 확률 정답 스코어를 찍어 예측했다가, 곧장 다음 레이어에서 제출된 원본 정답지 족보 타겟($Y$)과 손실 함수(Loss Function) 계산망에서 비교를 당해보고 자신의 틀림(Error Bias) 치명도를 오차량 산출기로 경험합니다!</li>
+  <li>“어? 예측이 스팸이 아니라 정상이었네?” 기계의 손실 평가 모듈이 막대한 오류 비용(Cost Error) 측정망 충격을 먹고, 이 빗나간 차이만큼 자신의 내부 신경망 뇌세포인 <strong>의사 결정망 가중치($W$) 파라미터 스위치들의 기울기 값</strong>을 확률 미적분 공식 오차 역전파 체인 룰(Backpropagation Gradient Descent, 경사 하강법)을 통해 역방향으로 샅샅이 뒤지며 조금씩 서서히 수정 조절 정밀 분해(Update Tuning)해 나갑니다. 이 손실 함수가 0 최저점으로 수렴할 때까지 발버둥 치는 자가 고문/자가 수정 통계 미적분 최적화 등반 과정을 머신러닝의 기계 학습 모델 훈련 피팅(Train Fit)이라고 부릅니다.</li>
 </ul>
 
-<h3 id="2단계-심장-마스터-졸업생의-실전-예측-엔진-predict">2단계 심장: 마스터 졸업생의 실전 예측 엔진 (Predict)</h3>
-<p>딥러닝 훈련이 전부 완전히 끝난 채 서버에 올라가 배포된 상태입니다. 이제는 인간 알바생 정답지 족보($Y$)를 절대로 주지 않고 다 불태워 버립니다.</p>
+<h3 id="2단계-심장-모드-마스터-졸업생의-실전-추론-및-방사-예측-엔진-배포-predict-inference-mode">2단계 심장 모드: 마스터 졸업생의 실전 추론 및 방사 예측 엔진 배포 (Predict Inference Mode)</h3>
+<p>상기 모델의 미세 피팅 훈련이 통계적 목적 함수 손실 그래프 상 최저점을 찍으면서 전부 완전히 종료된 채 런타임 서버 메모리에 동결 저장(Frozen Save) 배포된 상태의 스텝입니다. 이제 2장 실전 예측 투입 구역부터는, 개발자가 인간 알바생 정답지 족보($Y$)를 절대로 타겟에 부여해 주지 않고 다 불태워버립니다. 모델은 이제 혼자입니다.</p>
 
 <ul>
-  <li>오로지 어제 갓 태어나서 모델은 자기 평생 한 번도 본 적이 없는, <strong>그 생초면의 뉴스 텍스트 구조($X’$)를 입력</strong>으로 뚝 떨어뜨려 던집니다.</li>
-  <li>과거 피가 터지는 1단계 훈련 모터에서 다듬어진 뇌세포 가중치 직감만을 바탕으로 삼아, 이 낯선 문서가 스팸방에 갈 확률인지 정치 뉴스방에 갈 확률인지를 스스로 뱉어냅니다(예측 라벨 $Y’$). 기계가 독립적인 판사로 홀로 우뚝 서는 영광의 순간입니다.</li>
+  <li>오로지 어제 갓 태어난 완성 AI 모델은, 자기 평생 한 번도 본 적이 없는 외부의 낯선 이방인 데이터인 <strong>그 생초면의 무작위 입력 스트림 발생 뉴스 텍스트 구조 배열망($X_\text{test}$)</strong> 을 전송 입력 큐로 뚝 떨어뜨려 단 하나만 던져줍니다.</li>
+  <li>과거 피가 터지는 1단계 미적분 훈련 모터 최적화망 지옥에서 다듬어져 완전히 결괏값을 고정한 수학 선형 대수 뇌세포 가중치 행렬 세트망($W$) 척도 직감만을 바탕 설계도로 삼아, 이제 모델은 스스로 이 생소하고 낯선 데이터 노드 문서($X_\text{test}$) 통계 파라미터가 스팸방 범주로 귀결될 기하학 속성 확률($91\%$)인지 정치 뉴스방 영역에 속할 코사인 확률 스탯($2.1\%$)인지를 확률 분포식 모델 방정식으로 뿜어 뱉어냅니다(이 최종 예측 방사 산출값을 딥러닝 기호로 예측 레이블 $\hat{Y}$ 라고 씁니다). 기계 모델이 더 이상 족보 정답지에 의지하지 않고 모델망 독립적 아키텍처 판사로 홀로 우뚝 서서 서비스를 수행하는 소프트웨어 엔지니어링 영광 구현의 순간입니다.</li>
 </ul>
 
 <hr />
 
-<h2 id="614-부활하는-과거-유산의-그림자-피처-추출기-복습">6.1.4 부활하는 과거 유산의 그림자 (피처 추출기 복습)</h2>
+<h2 id="614-분류기-무장에서-부활하는-지난달-과거-유산의-그림자-베이스-feature-추출기-복습-선언">6.1.4 분류기 무장에서 부활하는 지난달 과거 유산의 그림자 베이스 (Feature 추출기 복습 선언)</h2>
 
-<p>당장 다음 챕터에서 통계학의 최강 스팸 판독기인 <code class="language-plaintext highlighter-rouge">나이브 베이즈(Naive Bayes 모델)</code>를 배울 것인데, 여러분의 기억 저편에 묻어 두었던 카운트 피처 모듈 2개(BoW와 TF-IDF)를 무조건 가동시켜야 합니다. 잠시 뇌 창고를 리프레시합니다.</p>
+<p>당장 바로 다음 모델링 알고리즘 챕터 구역에서 통계학 집합 체계의 영원한 최강 고전 스팸 판독 모듈인 <code class="language-plaintext highlighter-rouge">나이브 베이즈 확률 분류기(Naive Bayes Classifier)</code>를 배우고 구현해 가동할 것인데, 그러려면 여러분의 두뇌 코퍼스 기억 저편에 묻어 두었던 지난주 머신러닝 모듈 엑셀표 카운트 기초 피처 세트 엔진 모듈 2개(BoW와 TF-IDF 변환기) 프레임워크를 무조건 선행 파이프라인으로 앞단에서 임베딩 전처리 구동시켜야 합니다. 잠시 뇌 창고를 리프레시 엽니다.</p>
 
 <blockquote>
   <p>[!NOTE] 
-📄 <strong>1. 가장 무식하고 충직한 집계원: BoW (Bag of Words)</strong><br />
-텍스트의 앞뒤 맥락 위치 구조를 다 개무시하고, 단지 각 단어가 “몇 번(Counts) 문서에 등장했는지”를 정수로 세어서 아주 더럽고 큰 텅 빈 엑셀 희소 행렬표로 찍어냅니다. (바보 같지만 속도가 어마어마하게 폭발적으로 빠릅니다.)</p>
+📄 <strong>1. 가장 이산적이고 충직한 집계 행렬원: BoW (Bag of Words 기반 CountVectorizer)</strong><br />
+입력 텍스트 문장의 앞뒤 맥락 은닉 구조 배열을 전부 구조적으로 삭제 및 무시해 버리고, 단지 각 단어가 국소 시스템 사전 내에서 독립적으로 “각 문서 배열에 몇 번의 빈도수(Counts Frequency) 기호로 발생 등장했는지”를 정수 숫자로 일일이 세어서 사이즈가 매우 비대하고 거대하며 값이 모두 빈 <code class="language-plaintext highlighter-rouge">0</code> 텐서로 꽉 찬 이산 엑셀 희소 행렬표(Sparse Matrix)로 강제 찍어내는 기본 벡터 인코딩 모듈입니다. (다소 메모리를 낭비하여 무식한 방법의 차원 저주 함정이지만, 선형 계산의 분류기 속도가 병렬로 어마어마하게 폭발적으로 빠르다는 극강 머신 인프라 장점을 보유합니다.)</p>
+
+  <p>📄 <strong>2. 고유 교란자 압살 전역 억제 엔진 스케일링 패널티 필터: TF-IDF</strong><br />
+영어권 기준 <code class="language-plaintext highlighter-rouge">the</code>, <code class="language-plaintext highlighter-rouge">is</code>, <code class="language-plaintext highlighter-rouge">a</code> 같은 우주구 급 무의미한 관사 잡초 녀석들이 글로벌 트래픽으로 조회수만 문서에서 단순하게 1억 번씩 찍어 BoW 엑셀 통계 시스템의 최상단 파워 1등을 교란하며 장악하는 정보 소실 한계를 막기 위해, 수리 통계에서 정보 엔트로피 로그 역변환식($\log$ IDF Inverse Parameter 스케일링)을 파이프라인 수치 보정식으로 걸어 <strong>자주 나오는 의미 없는 전역 쓰레기 불용어 단어는 스탯 가중치 파워를 0 레벨 가까이 바닥으로 응징 압사시키고, 전체 10만 개 중 특정 몇 개 문서 군집에만 은밀히 가끔 유독 튀어나오는 결정적 극단 키워드 특성 피처(‘경축 비아그라’, ‘대출 특가 무보증’)는 기계망이 강렬하게 감지하도록 역으로 막대한 파워 벡터 스코어 가중치 점수를 곱셈 연쇄로 뻥튀기 부스팅(Boosting) 시키는</strong> 마법의 정보 손실 보정 가중치 조절 통계 행렬 기법입니다. 이 필터 기술이 없으면 다중 문서 스팸 분류기들의 가장 거대한 타겟 분류 판별 결정 기준선이 무너지게 되므로 이 모듈 파츠의 작동은 극히 치명적이고 절대적입니다.</p>
 </blockquote>
 
-<blockquote>
-  <p>📄 <strong>2. 교활한 잡초 암살자 패널티 필터: TF-IDF</strong><br />
-<code class="language-plaintext highlighter-rouge">the</code>, <code class="language-plaintext highlighter-rouge">is</code> 같은 무의미한 관사 잡초 녀석들이 무식하게 조회수만 1억 번 찍어 BoW 엑셀 통계의 파워 1등을 교란하며 장악하는 것을 막기 위해, 로그($\log$) 스케일 역수 치기를 걸어 <strong>자주 나오는 쓰레기 단어는 스탯 파워를 압사시키고, 전체 10만 개 중 몇 개 문서에만 가끔 유독 튀어나오는 극단적 키워드(‘비아그라’, ‘대출 특가’)는 역으로 막대한 파워 점수를 뻥튀기 부스팅 시키는</strong> 마법의 가중치 조절 행렬입니다. 스팸 분류기들의 가장 거대한 멱살 견인차 파츠입니다.</p>
-</blockquote>
-
-<p>이 지독한 두 개의 엑셀 무기표를 장전하고, 바로 다음 장 무대인 ‘통계의 황제 모델, 조상님 베이즈 주사위’ 챕터로 진격합니다.</p>
+<p>이 지독하게 잘 짜여진 빈도 통계학 변환 행렬계의 두 개의 굳건한 엑셀 무기 스칼라 표를 베이스 전처리 앞단에 든든하게 장착 호출해 완성해 둔 후, 비로소 우리는 대망의 위대한 확률 통계적 추론 황제 메인 결정 머신 엔진 모델 아키텍처 스텝, 자연어 처리의 조상님 <strong>18세기 토머스 베이즈 목사의 주사위 베이즈 정리 기반 확률 조건부 분류 시스템</strong> 챕터 전장으로 알고리즘 코드북을 전개해 진격해 들어가게 될 것입니다.</p>
 
 
             <!-- 이전/다음 페이징 출력 -->
@@ -947,10 +945,10 @@
 
             <!-- 구글 애드센스 출력 -->
             <div class="mt-5">
-                <!-- 구글 애드센스 (여기에 본인의 코드 입력) -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3321560028329475"
     crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"
+<!-- jinydev-java -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3321560028329475" data-ad-slot="9323221865"
     data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({});

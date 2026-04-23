@@ -1,37 +1,37 @@
 <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
   <rect width="800" height="300" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">데이터 희소성(Sparsity)의 결말: 분모가 0이 되어 파멸하는 통계 AI 서버</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">차원의 저주: 분모 완전 소멸(Zero Division)에 의한 시스템 크래시</text>
 
-  <!-- Formula Request -->
-  <text x="250" y="100" fill="#94a3b8" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">유저 입력 컨텍스트(Condition)</text>
-  <rect x="50" y="110" width="400" height="60" fill="#1e293b" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" rx="5"/>
-  <text x="250" y="145" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">"지옥의 유황불에서 춤추는 파란색 솜사탕이"</text>
-
-  <rect x="500" y="110" width="80" height="60" fill="#0f172a" stroke="#475569" stroke-width="2" rx="5"/>
-  <text x="540" y="145" fill="#64748b" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">"is"</text>
+  <!-- Formula Area -->
+  <rect x="50" y="80" width="450" height="150" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="8"/>
   
-  <text x="470" y="145" fill="#60a5fa" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">+</text>
-
-  <!-- Formula Processing -->
-  <path d="M 600 140 L 630 140" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="140" y="150" fill="#cbd5e1" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">P ( is |</text>
+  <text x="210" y="150" fill="#fbbf24" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">희귀한 창작 주어</text>
+  <text x="280" y="150" fill="#cbd5e1" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">)</text>
   
-  <!-- Explosion -->
-  <path d="M 720 140 L 680 90 L 730 110 L 750 70 L 770 120 L 790 140 L 770 160 L 750 210 L 730 170 L 680 190 Z" fill="#450a0a" stroke="#ef4444" stroke-width="2"/>
+  <text x="320" y="150" fill="#f8fafc" font-family="monospace" font-size="24" text-anchor="middle">=</text>
+
+  <text x="410" y="125" fill="#f8fafc" font-family="monospace" font-size="18" text-anchor="middle">Count (교집합)</text>
+  <line x1="350" y1="140" x2="470" y2="140" stroke="#cbd5e1" stroke-width="2"/>
   
-  <rect x="650" y="100" width="120" height="80" fill="#7f1d1d" stroke="#fca5a5" stroke-width="3" rx="5"/>
-  
-  <text x="710" y="130" fill="#fecaca" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">분모</text>
-  <text x="710" y="160" fill="#fef2f2" font-family="monospace" font-size="28" font-weight="bold" text-anchor="middle">ZERO</text>
+  <!-- Denominator 0 Alert -->
+  <rect x="380" y="155" width="60" height="40" fill="#ef4444" fill-opacity="0.3" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="410" y="180" fill="#fca5a5" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">0</text>
+  <text x="410" y="210" fill="#ef4444" font-family="sans-serif" font-size="12" text-anchor="middle">Not Found in DB</text>
 
-  <text x="710" y="210" fill="#ef4444" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Division Error!</text>
+  <!-- Arrow -->
+  <path d="M 520 150 L 560 150" stroke="#ef4444" stroke-width="4" stroke-dasharray="6,6"/>
+  <polygon points="555,143 565,150 555,157" fill="#ef4444"/>
 
+  <!-- Error Terminal Result -->
+  <rect x="580" y="80" width="180" height="150" fill="#7f1d1d" rx="8"/>
+  <text x="670" y="115" fill="#fecaca" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">System Error</text>
+  <text x="670" y="155" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">ZeroDivisionError:</text>
+  <text x="670" y="175" fill="#fca5a5" font-family="monospace" font-size="14" text-anchor="middle">float division</text>
+  <text x="670" y="195" fill="#fca5a5" font-family="monospace" font-size="14" text-anchor="middle">by zero</text>
 
-  <!-- Explanation Block -->
-  <rect x="150" y="200" width="500" height="40" fill="#020617" stroke="#fbbf24" stroke-width="2" rx="20"/>
-  <text x="400" y="225" fill="#fde68a" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">"아무리 구글 문서 DB를 100년간 다 뒤져봐도 저런 특이한 문장은 1건도 없습니다 삐빅!"</text>
-
-
-  <text x="400" y="275" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">서버에 저장된 데이터 베이스 카운트가 `0`이 되는 순간, 수학 분모가 0이 되어 연산이 영원히 터져버립니다.</text>
+  <!-- Subtitle -->
+  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">세상에 단 한 번도 존재하지 않았던 문맥 발화 시, 확률 계산식 연쇄 곱셈의 심장이 영구 정지됨</text>
 
 </svg>

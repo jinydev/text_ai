@@ -1,24 +1,44 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">자연어 분석의 3대 계층 구조 (Layer)</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">자연어(Sequence Parameter) 파싱 알고리즘의 3대 레이어 토폴로지 (Topography)</text>
 
-  <!-- Level 1 -->
-  <rect x="250" y="200" width="300" height="50" fill="#1e293b" stroke="#fbbf24" stroke-width="3" rx="5"/>
-  <text x="400" y="232" fill="#fbbf24" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">1. 어휘 (Lexical)</text>
-  <text x="580" y="232" fill="#fde68a" font-family="sans-serif" font-size="14">표면적인 글자 생김새</text>
+  <!-- Layer 1: Lexical -->
+  <rect x="150" y="80" width="500" height="80" fill="#1e293b" stroke="#60a5fa" stroke-width="3" rx="6"/>
+  <text x="180" y="115" fill="#93c5fd" font-family="sans-serif" font-size="16" font-weight="bold">1. Lexical Layer (어휘 맵핑 표면층)</text>
+  <text x="180" y="140" fill="#cbd5e1" font-family="sans-serif" font-size="13">형태소 매핑, 토큰 절단, 품사(POS) 태깅 파라미터 : 단어 고립 단위의 1차원 필터링</text>
+  <path d="M 600 90 L 630 120 L 600 150" fill="none" stroke="#60a5fa" stroke-width="3"/>
 
-  <!-- Level 2 -->
-  <rect x="250" y="140" width="300" height="50" fill="#1e293b" stroke="#3b82f6" stroke-width="3" rx="5"/>
-  <text x="400" y="172" fill="#3b82f6" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">2. 구문 (Syntactic)</text>
-  <text x="580" y="172" fill="#93c5fd" font-family="sans-serif" font-size="14">문법과 문장의 뼈대</text>
+  <!-- Logic Depth Arrow -->
+  <path d="M 400 170 L 400 190" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4,4"/>
+  <polygon points="395,185 400,195 405,185" fill="#cbd5e1"/>
 
-  <!-- Level 3 -->
-  <rect x="250" y="80" width="300" height="50" fill="#1e293b" stroke="#10b981" stroke-width="3" rx="5"/>
-  <text x="400" y="112" fill="#10b981" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">3. 의미 (Semantic)</text>
-  <text x="580" y="112" fill="#6ee7b7" font-family="sans-serif" font-size="14">숨겨진 문맥과 감정 파악</text>
+  <!-- Layer 2: Syntactic -->
+  <rect x="150" y="200" width="500" height="80" fill="#1e293b" stroke="#fcd34d" stroke-width="3" rx="6"/>
+  <text x="180" y="235" fill="#fde68a" font-family="sans-serif" font-size="16" font-weight="bold">2. Syntactic Layer (구문 AST 중간층)</text>
+  <text x="180" y="260" fill="#cbd5e1" font-family="sans-serif" font-size="13">통계 문법 트리 파싱, 트리 구조 논리검사 파이프 : 토큰 노드 간의 트리 종속성 구조화</text>
+  <path d="M 600 210 L 630 240 L 600 270" fill="none" stroke="#fcd34d" stroke-width="3"/>
 
-  <!-- Arrow -->
-  <path d="M 200 230 L 200 100" stroke="#f43f5e" stroke-width="4" marker-end="url(#arrow)"/>
-  <text x="180" y="165" fill="#f43f5e" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="end">분석 난이도 극악 상승</text>
+
+  <!-- Logic Depth Arrow -->
+  <path d="M 400 290 L 400 310" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4,4"/>
+  <polygon points="395,305 400,315 405,305" fill="#cbd5e1"/>
+
+  <!-- Layer 3: Semantic -->
+  <rect x="150" y="320" width="500" height="80" fill="#4c1d95" stroke="#a855f7" stroke-width="3" rx="6"/>
+  <text x="180" y="355" fill="#e9d5ff" font-family="sans-serif" font-size="16" font-weight="bold">3. Semantic Layer (시맨틱 의미 심연층)</text>
+  <text x="180" y="380" fill="#cbd5e1" font-family="sans-serif" font-size="13">문맥 어텐션(Attention), 다의어 역산, 화자 의도 임베딩 : Transformer LLM 타겟 코어망</text>
+  <path d="M 600 330 L 630 360 L 600 390" fill="none" stroke="#a855f7" stroke-width="3"/>
+
+
+  <!-- Y Depth Scale on the left -->
+  <line x1="80" y1="80" x2="80" y2="400" stroke="#64748b" stroke-width="4"/>
+  <polygon points="75,390 85,390 80,405" fill="#64748b"/>
+  
+  <text x="50" y="125" fill="#64748b" font-family="sans-serif" font-size="14" font-weight="bold" transform="rotate(-90 40,125)">Surface</text>
+  
+  <text x="50" y="240" fill="#64748b" font-family="sans-serif" font-size="12" font-weight="bold" transform="rotate(-90 40,240)">Inference Depth</text>
+
+  <text x="50" y="360" fill="#a855f7" font-family="sans-serif" font-size="14" font-weight="bold" transform="rotate(-90 40,360)">Deep Target Core</text>
+
 </svg>

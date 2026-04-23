@@ -1,0 +1,41 @@
+<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="350" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">경험적 확률(Empirical Probability)의 빈도수 추정 분수식 도출</text>
+
+  <!-- Corpus Box -->
+  <rect x="50" y="80" width="160" height="200" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="8"/>
+  <rect x="70" y="100" width="120" height="15" fill="#334155" rx="3"/>
+  <rect x="70" y="130" width="100" height="15" fill="#334155" rx="3"/>
+  <rect x="70" y="160" width="120" height="15" fill="#334155" rx="3"/>
+  <rect x="70" y="190" width="90" height="15" fill="#334155" rx="3"/>
+  <rect x="70" y="220" width="110" height="15" fill="#334155" rx="3"/>
+  <rect x="70" y="250" width="80" height="15" fill="#334155" rx="3"/>
+  <text x="130" y="185" fill="#93c5fd" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">말뭉치 (Corpus)</text>
+  <text x="130" y="210" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="middle">수억 건의 문장 DB</text>
+
+  <!-- Query 1 (Denominator) -->
+  <path d="M 210 120 L 260 120" stroke="#3b82f6" stroke-width="3" stroke-dasharray="4,4"/>
+  <rect x="270" y="100" width="250" height="50" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
+  <text x="395" y="120" fill="#bfdbfe" font-family="monospace" font-size="14" text-anchor="middle">Count( An adorable little boy )</text>
+  <text x="395" y="140" fill="#60a5fa" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">탐색 결과 = 100 회 검색됨</text>
+
+  <!-- Query 2 (Numerator) -->
+  <path d="M 210 240 L 260 240" stroke="#10b981" stroke-width="3" stroke-dasharray="4,4"/>
+  <rect x="270" y="215" width="250" height="50" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="395" y="235" fill="#a7f3d0" font-family="monospace" font-size="14" text-anchor="middle">Count( An adorable little boy is )</text>
+  <text x="395" y="255" fill="#34d399" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">탐색 결과 = 30 회 검색됨</text>
+
+  <!-- Result Calculus -->
+  <path d="M 530 180 L 590 180" stroke="#cbd5e1" stroke-width="4"/>
+  <polygon points="585,173 595,180 585,187" fill="#cbd5e1"/>
+
+  <rect x="610" y="110" width="150" height="140" fill="#334155" rx="8"/>
+  <text x="685" y="140" fill="#cbd5e1" font-family="sans-serif" font-size="16" text-anchor="middle">확률 P (is | 조건)</text>
+  
+  <text x="685" y="175" fill="#10b981" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">30</text>
+  <line x1="640" y1="185" x2="730" y2="185" stroke="#f8fafc" stroke-width="2"/>
+  <text x="685" y="210" fill="#3b82f6" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">100</text>
+  
+  <text x="685" y="240" fill="#fbbf24" font-family="monospace" font-size="22" font-weight="bold" text-anchor="middle">= 0.3 (30%)</text>
+</svg>

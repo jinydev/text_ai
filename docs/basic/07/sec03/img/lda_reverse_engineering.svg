@@ -1,46 +1,38 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">역주행 타임머신 (Reverse Engineering): LDA 토픽모델링의 숭고한 미션</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">베이즈 확률의 역주행 (Reverse Engineering) : 표면 단어에서 깁스 샘플링을 통한 은닉 파라미터 복원</text>
 
-  <!-- The Real Reality Start (Left) -->
-  <rect x="50" y="80" width="200" height="150" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
-  <text x="150" y="110" fill="#cbd5e1" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">우리가 관측한 유일한 현실</text>
-  <rect x="70" y="130" width="160" height="80" fill="#0f172a" stroke="#cbd5e1" stroke-dasharray="2,2" rx="3"/>
-  <text x="150" y="150" fill="#fef2f2" font-family="sans-serif" font-size="12" text-anchor="middle">"국회 의원 비자금 달러 펀드"</text>
-  <text x="150" y="165" fill="#fef2f2" font-family="sans-serif" font-size="12" text-anchor="middle">"세금 예산 선거 유세..."</text>
-  <text x="150" y="195" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">10만개의 꼬리표 없는 단어 문서</text>
+  <!-- Top part: The observable reality -->
+  <rect x="50" y="90" width="700" height="80" fill="#1e3a8a" stroke="#3b82f6" stroke-width="2" rx="4"/>
+  <text x="90" y="115" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="start">STEP 1. 관측된 현실 결과 (입력 객체)</text>
+  <text x="90" y="145" fill="#f8fafc" font-family="serif" font-size="18" font-weight="bold" text-anchor="start">"국회에서 펀드 비자금을 세금과 이자로 막아..."</text>
+  <rect x="580" y="125" width="150" height="30" fill="#1e293b" rx="2"/>
+  <text x="655" y="145" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">표면 단어 배열 (Observed W)</text>
 
+  <!-- Arrow pointing down representing inference -->
+  <rect x="360" y="195" width="80" height="50" fill="#b45309" stroke="#f59e0b" stroke-width="2" rx="6"/>
+  <text x="400" y="225" fill="#fde68a" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">역연산</text>
+  
+  <line x1="400" y1="170" x2="400" y2="195" stroke="#fcd34d" stroke-width="3" stroke-dasharray="6,4"/>
+  <line x1="400" y1="245" x2="400" y2="280" stroke="#fcd34d" stroke-width="3" stroke-dasharray="6,4"/>
+  <polygon points="395,275 400,285 405,275" fill="#fcd34d"/>
 
-  <!-- Time Reversal Arrow Scanner -->
-  <path d="M 280 155 L 430 155" stroke="#ef4444" stroke-width="6" stroke-dasharray="8,4" fill="none" marker-start="url(#reverse-arrow)"/>
-  <rect x="290" y="125" width="130" height="60" fill="#7f1d1d" rx="10"/>
-  <text x="355" y="150" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">확률 통계 역 추적</text>
-  <text x="355" y="170" fill="#f87171" font-family="sans-serif" font-size="10" text-anchor="middle">(기계학습 백트래킹)</text>
-  <path d="M 270 155 L 290 145 L 290 165 Z" fill="#ef4444"/> <!-- Start Arrow Head Reverse -->
+  <path d="M 460 220 L 520 220" stroke="#475569" stroke-width="2"/>
+  <text x="590" y="215" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">베이즈 마르코프 체인 역추론 미분</text>
+  <text x="590" y="235" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">(Gibbs Sampling &amp; VI 엔진 가동)</text>
 
+  <!-- Bottom part: Extracted Hidden parameters -->
+  <rect x="50" y="290" width="700" height="100" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="4"/>
+  <text x="90" y="320" fill="#6ee7b7" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="start">STEP 2. 은닉 데이터 생성 파라미터 복구 모델링 (Hidden Latent Extraction)</text>
+  
+  <!-- Recovered results boxes -->
+  <rect x="90" y="340" width="300" height="40" fill="#1e293b" rx="4"/>
+  <text x="240" y="365" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">=> "이 문서는 [정치 60% : 경제 40%] 구나!"</text>
 
-  <!-- Output Hidden Parameters -->
-  <rect x="470" y="80" width="280" height="150" fill="#064e3b" stroke="#10b981" stroke-width="3" rx="5"/>
-  <text x="610" y="110" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">발가벗겨진 조물주의 비밀 룰렛 설정값</text>
+  <rect x="420" y="340" width="300" height="40" fill="#1e293b" rx="4"/>
+  <text x="570" y="365" fill="#a7f3d0" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">문서 잠재축 모수 파티션 비율(Θ) 정답 추출</text>
 
-  <!-- Parameter Box 1 -->
-  <rect x="490" y="130" width="110" height="50" fill="#022c22" stroke="#34d399" stroke-width="1" rx="3"/>
-  <text x="545" y="150" fill="#a7f3d0" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">θ (세타)</text>
-  <text x="545" y="165" fill="#6ee7b7" font-family="sans-serif" font-size="10" text-anchor="middle">문서별 혼합 비율표</text>
-
-  <!-- Parameter Box 2 -->
-  <rect x="620" y="130" width="110" height="50" fill="#022c22" stroke="#34d399" stroke-width="1" rx="3"/>
-  <text x="675" y="150" fill="#a7f3d0" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">Φ (파이)</text>
-  <text x="675" y="165" fill="#6ee7b7" font-family="sans-serif" font-size="10" text-anchor="middle">토픽방 단어장 분포</text>
-
-  <!-- Conclusion text -->
-  <text x="610" y="210" fill="#fbbf24" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">"아하! 과거에 이 문서는 60% 정치 주사위에</text>
-  <text x="610" y="225" fill="#fbbf24" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">40% 경제 주사위 셋팅값 타겟을 잡고 찍어낸 놈이구나!"</text>
-
-
-  <!-- Global Footer -->
-  <text x="400" y="275" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">우리는 조물주의 확률 테이블(세타/파이) 따윈 모릅니다. 우리 눈앞엔 오직 인쇄된 결과물 텍스트뿐입니다.</text>
-  <text x="400" y="295" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">결과 데이터를 넣고 시간을 거슬러 올라가 초기 주사위 환경변수(Parameters) 패턴을 잡아내는 것이 토픽 모델의 전력입니다.</text>
+  <text x="400" y="425" fill="#fca5a5" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">수학의 목적 함수: 눈에 보이는 결과를 통해 과거의 주사위 세팅 값을 수학적/통계적으로 모델링 역추적(Backtracking)하는 행위</text>
 
 </svg>

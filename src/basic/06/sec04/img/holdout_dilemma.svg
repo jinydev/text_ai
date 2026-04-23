@@ -1,43 +1,42 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">데이터 도륙 Splitting (Hold-out) 구조와 운빨의 치명적 딜레마</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">데이터의 기본 정적 3분할: 홀드아웃(Hold-out) 기법 구조도 및 한계 딜레마</text>
 
-  <!-- Total Data Block -->
-  <rect x="50" y="80" width="700" height="40" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
-  <text x="400" y="105" fill="#93c5fd" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">초기 배포된 총 데이터 (Total Data: 100만 건)</text>
-
-  <path d="M 400 130 L 400 150" stroke="#fcd34d" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
-
-
-  <!-- Split Blocks -->
-  <!-- Train Block -->
-  <rect x="50" y="160" width="420" height="80" fill="#450a0a" stroke="#ef4444" stroke-width="3" rx="5"/>
-  <text x="260" y="195" fill="#fca5a5" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Train (훈련 교과서)</text>
-  <text x="260" y="220" fill="#f87171" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">전체 파이의 60%</text>
-
-
-  <!-- Validation Block -->
-  <rect x="490" y="160" width="120" height="80" fill="#064e3b" stroke="#10b981" stroke-width="3" rx="5"/>
-  <text x="550" y="195" fill="#6ee7b7" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Valid (모의고사)</text>
-  <text x="550" y="220" fill="#34d399" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">20%</text>
+  <!-- Complete Dataset -->
+  <rect x="50" y="70" width="700" height="50" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="4"/>
+  <text x="400" y="100" fill="#93c5fd" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">전체 수집 코퍼스 데이터 (100%)</text>
   
-  <!-- Bad Luck Marker -->
-  <circle cx="550" cy="155" r="15" fill="#ef4444"/>
-  <text x="550" y="160" fill="#fef2f2" font-family="sans-serif" font-size="14" text-anchor="middle">💣</text>
-  <path d="M 550 140 C 650 100 700 80 610 50" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,2" fill="none"/>
-  <!-- <text x="550" y="260" fill="#fca5a5" font-family="sans-serif" font-size="12" text-anchor="middle">극악 오타지뢰 당첨</text> -->
+  <path d="M 400 120 L 400 150" stroke="#64748b" stroke-width="3"/>
+  <polygon points="395,145 400,155 405,145" fill="#64748b"/>
 
+  <!-- Splitting into 3 -->
+  
+  <!-- Train Data -->
+  <rect x="50" y="170" width="450" height="60" fill="#1e3a8a" stroke="#60a5fa" stroke-width="2" rx="4"/>
+  <text x="275" y="195" fill="#bfdbfe" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Train Set (훈련용 - 70%)</text>
+  <text x="275" y="215" fill="#93c5fd" font-family="sans-serif" font-size="12" text-anchor="middle">가중치(W) 오차 역전파 학습 전용 데이터셋</text>
 
-  <!-- Test Block -->
-  <rect x="630" y="160" width="120" height="80" fill="#1e3a8a" stroke="#60a5fa" stroke-width="3" rx="5"/>
-  <text x="690" y="195" fill="#bfdbfe" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Test (수능 실전)</text>
-  <text x="690" y="220" fill="#60a5fa" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">배포직전 1회 개봉 (20%)</text>
+  <!-- Validation Data -->
+  <rect x="520" y="170" width="100" height="60" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="4"/>
+  <text x="570" y="195" fill="#6ee7b7" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Validation</text>
+  <text x="570" y="215" fill="#a7f3d0" font-family="sans-serif" font-size="12" text-anchor="middle">검증 15%</text>
 
+  <!-- Test Data -->
+  <rect x="640" y="170" width="110" height="60" fill="#7f1d1d" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="695" y="195" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Test Set</text>
+  <text x="695" y="215" fill="#fecaca" font-family="sans-serif" font-size="12" text-anchor="middle">최종 시험 15%</text>
 
-  <!-- Explanation -->
-  <rect x="440" y="245" width="220" height="40" fill="#7f1d1d" rx="5"/>
-  <text x="550" y="260" fill="#fca5a5" font-family="sans-serif" font-size="12" text-anchor="middle">딜레마: 어쩌다 뜯어낸 Valid 문제지에</text>
-  <text x="550" y="275" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">특급 오답지 폭탄이 다 쏠렸다면 평가 파탄!</text>
+  <!-- Explanation Boxes -->
+  <!-- Holdout Dilemma Warning -->
+  <rect x="50" y="270" width="700" height="100" fill="#334155" stroke="#fcd34d" stroke-width="2" stroke-dasharray="8,4" rx="6"/>
+  <text x="400" y="300" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">⚠️ 정적 분할 홀드아웃(Hold-out) 딜레마 폭탄: 극단적 샘플링 편향 오류</text>
+  <text x="400" y="325" fill="#f8fafc" font-family="sans-serif" font-size="13" text-anchor="middle">1회성 무작위 단일 샘플링 특성상, 어쩌다 우연히 Validation 영역 블록에만</text>
+  <text x="400" y="345" fill="#f8fafc" font-family="sans-serif" font-size="13" text-anchor="middle">극악이거나 극도로 특정 클래스에 편향된 아웃라이어 정답 구역이 쏠려 배정될 경우,</text>
+  <text x="400" y="365" fill="#fca5a5" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">모델의 구조적 퍼포먼스가 처참하게 저평가/과대평가되는 분산(Variance) 우발적 붕괴가 발생함!</text>
 
+  <!-- Highlight arrow to Validation -->
+  <path d="M 570 265 L 570 235" stroke="#fcd34d" stroke-width="4" stroke-dasharray="4,4"/>
+  <polygon points="565,245 570,230 575,245" fill="#fcd34d"/>
+  
 </svg>

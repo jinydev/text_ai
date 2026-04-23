@@ -1,0 +1,24 @@
+<svg viewBox="0 0 800 250" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="250" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="35" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">빈도수(Count)와 정보 가치(Information Value)의 패러독스</text>
+
+  <!-- Left: High Count, Low Meaning -->
+  <rect x="100" y="70" width="250" height="130" fill="#1e293b" stroke="#ef4444" stroke-width="2" rx="8"/>
+  <text x="225" y="100" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">구조적 불용어 (Stopwords)</text>
+  <text x="225" y="135" fill="#f8fafc" font-family="monospace" font-size="24" font-weight="bold" text-anchor="middle">The, A, Is, To</text>
+  <text x="160" y="175" fill="#ef4444" font-family="sans-serif" font-size="14" text-anchor="middle">발화 빈도: 최상위</text>
+  <text x="290" y="175" fill="#ef4444" font-family="sans-serif" font-size="14" text-anchor="middle">정보 가치: 0</text>
+
+  <!-- VS -->
+  <text x="400" y="145" fill="#64748b" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">VS</text>
+
+  <!-- Right: Low Count, High Meaning -->
+  <rect x="450" y="70" width="250" height="130" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="8"/>
+  <text x="575" y="100" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">핵심 정보성 단어 (Keywords)</text>
+  <text x="575" y="135" fill="#f8fafc" font-family="monospace" font-size="22" font-weight="bold" text-anchor="middle">인공지능, 마법사</text>
+  <text x="510" y="175" fill="#10b981" font-family="sans-serif" font-size="14" text-anchor="middle">발화 빈도: 극소수</text>
+  <text x="640" y="175" fill="#10b981" font-family="sans-serif" font-size="14" text-anchor="middle">정보 가치: 최상</text>
+
+  <text x="400" y="230" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">결론: 카운트 순위 랭킹표는 문서의 진짜 핵심을 잡아내지 못하고 거꾸로 뒤집힙니다.</text>
+</svg>

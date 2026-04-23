@@ -1,30 +1,47 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">환각 (Hallucination) 발동: 팩트를 넘어서 소설을 창작하다</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">LLM 확률 편향 치명적 모델 오류: 할루시네이션(Hallucination 환각) 메커니즘</text>
 
-  <!-- User Troll Input -->
-  <rect x="50" y="80" width="220" height="150" fill="#1e293b" stroke="#f59e0b" stroke-width="2" rx="5"/>
-  <text x="160" y="120" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">"조선시대 세종대왕의</text>
-  <text x="160" y="145" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">아이패드 던짐 사건에</text>
-  <text x="160" y="170" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">대해 알려줘."</text>
-  
-  <text x="160" y="210" fill="#fbbf24" font-family="sans-serif" font-size="12" text-anchor="middle">거짓으로 점철된 낚시 질문</text>
+  <!-- Query Box -->
+  <rect x="180" y="80" width="440" height="50" fill="#1e3a8a" stroke="#60a5fa" stroke-width="2" rx="4"/>
+  <text x="400" y="110" fill="#f8fafc" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">User Query: "조선시대 세종대왕의 맥북 던짐 사건에 대해 알려줘"</text>
 
-  <path d="M 280 150 L 360 150" stroke="#f43f5e" stroke-width="4" marker-end="url(#arrow)"/>
-  <text x="320" y="140" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">문맥 흡수</text>
+  <path d="M 400 130 L 400 160" stroke="#cbd5e1" stroke-width="2"/>
+  <polygon points="395,155 400,165 405,155" fill="#cbd5e1"/>
 
-  <!-- LLM Brainwashing -->
-  <rect x="380" y="80" width="370" height="150" fill="#450a0a" stroke="#ef4444" stroke-width="3" rx="10"/>
-  <text x="565" y="115" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">거대 언어 모델 (LLM)</text>
-  <line x1="390" y1="125" x2="740" y2="125" stroke="#ef4444" stroke-width="2"/>
+  <!-- Model Brain Breakdown -->
+  <rect x="50" y="170" width="700" height="150" fill="#1e293b" stroke="#ef4444" stroke-width="2" rx="6"/>
+  <text x="400" y="200" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">LLM 확률망 내부 프로세스 (팩트 검증 기능 결여)</text>
 
-  <text x="565" y="150" fill="#fca5a5" font-family="sans-serif" font-size="16" text-anchor="middle">"조선왕조실록에 따르면 세종 15년,</text>
-  <text x="565" y="175" fill="#fca5a5" font-family="sans-serif" font-size="16" text-anchor="middle">애플사에서 진상한 아이패드 프로를</text>
-  <text x="565" y="200" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">집어던져 벼루를 박살 내신 사건..."</text>
+  <rect x="100" y="220" width="180" height="60" fill="#0f172a" stroke="#64748b" stroke-width="1" rx="4"/>
+  <text x="190" y="245" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">키워드 [세종대왕] 확률 보간</text>
+  <text x="190" y="265" fill="#cbd5e1" font-family="sans-serif" font-size="11" text-anchor="middle">-> 조선왕조실록, 훈민정음 톤 매핑</text>
 
-  <text x="565" y="70" fill="#ef4444" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">! 당당한 소설 작가 빙의 !</text>
+  <text x="310" y="255" fill="#ef4444" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">+</text>
 
-  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">유저의 가짜 문맥(Context) 단어의 확률에 엮여버려, 자신이 거짓말을 하는지 모른 채 완벽한 사극투의 그럴싸한 문법 소설을 지어내는 질병입니다.</text>
+  <rect x="340" y="220" width="180" height="60" fill="#0f172a" stroke="#64748b" stroke-width="1" rx="4"/>
+  <text x="430" y="245" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">키워드 [맥북 던짐] 확률 보간</text>
+  <text x="430" y="265" fill="#cbd5e1" font-family="sans-serif" font-size="11" text-anchor="middle">-> Apple, 화남, 파손, 박살 톤 매핑</text>
+
+  <text x="550" y="255" fill="#ef4444" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">→</text>
+
+  <rect x="580" y="220" width="140" height="60" fill="#7f1d1d" stroke="#fca5a5" stroke-width="2" rx="4"/>
+  <text x="650" y="245" fill="#fecaca" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">팩트 기반 단절 없이</text>
+  <text x="650" y="265" fill="#fecaca" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">두 가중치를 매끄럽게 융합</text>
+
+
+  <path d="M 400 320 L 400 350" stroke="#ef4444" stroke-width="2"/>
+  <polygon points="395,345 400,355 405,345" fill="#ef4444"/>
+
+  <!-- Output Error Box -->
+  <rect x="100" y="360" width="600" height="50" fill="#450a0a" stroke="#fca5a5" stroke-width="2" rx="4"/>
+  <text x="400" y="390" fill="#fca5a5" font-family="serif" font-size="15" font-weight="bold" text-anchor="middle">"네! 조선왕조실록에 따르면, 최만리의 상소에 노하신 세종대왕께서 애플 맥북을 집어던져..."</text>
+
+  <!-- Warning Badge -->
+  <circle cx="90" cy="360" r="20" fill="#ef4444"/>
+  <text x="90" y="365" fill="#fff" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">!</text>
+
+  <text x="400" y="430" fill="#ef4444" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">확률의 파단(Hallucination): 기계 모델은 '진위 여부 판별망(Ground Truth Check)' 기능 없이 단순히 가장 미분값이 부드러운 단어만 이어붙임</text>
 
 </svg>

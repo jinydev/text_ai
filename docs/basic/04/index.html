@@ -8,7 +8,7 @@
   <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>04주차</title>
   <meta name="title" content="04주차" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="04주차"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="http://localhost:4001/basic/04/">
+  <meta property="og:url" content="https://text.ai.jiny.dev/basic/04/">
 
   <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="04주차"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
@@ -17,14 +17,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="http://localhost:4001/basic/04/" />
-<meta property="og:url" content="http://localhost:4001/basic/04/" />
+<link rel="canonical" href="https://text.ai.jiny.dev/basic/04/" />
+<meta property="og:url" content="https://text.ai.jiny.dev/basic/04/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="04주차" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"04주차","url":"http://localhost:4001/basic/04/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"04주차","url":"https://text.ai.jiny.dev/basic/04/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -820,45 +820,49 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="4-언어-모델-language-model-성능-평가와-수학적-통계의-붕괴">4. 언어 모델 (Language Model) 성능 평가와 수학적 통계의 붕괴</h1>
+            <h1 id="4-언어-모델-language-model-확률-연산-프레임워크와-평가">4. 언어 모델 (Language Model) 확률 연산 프레임워크와 평가</h1>
 
-<p>자연어 생성 모델이 얼마나 인간다운 문맥을 구사하는지 추론하는 수학적 정량 평가 방법론과, 과거 통계 모델들이 마주했던 거대한 연산의 장벽(Sparsity 에러)을 고찰합니다. 문장을 만들어내는 행위가 창조성이 아닌 고차원적 통계 도박(Branching Factor)임을 증명하고, 이를 수식화하는 연쇄 법칙 및 현대 LLM 시대의 필수 채점 체계(MMLU, BLEU, PPL)를 심층 학습합니다.</p>
+<p>자연어 딥러닝 시대 이전, 통계적 언어 모델(Statistical Language Model)이 마주했던 수학적/컴퓨팅 연산의 장벽과 이를 타개하기 위한 차원 축소의 역사를 고찰합니다. 문장을 생성해 내는 과정이 인간의 예술적 창조성이 아닌, 조건부 확률(Conditional Probability) 교집합에 기댄 정보 단위 배팅임을 수리적으로 증명하고, 이러한 생성 모델의 성능을 정량적으로 계측해 내는 역학 지표인 퍼플렉서티(PPL) 및 최신 성능 벤치마크 평가 방법론들을 심층 학습합니다.</p>
+
+<p><img src="./img/ch04_overview.svg" alt="Chapter 04 Overview" /></p>
+
+<h2 id="단원-학습목차">단원 학습목차</h2>
 
 <ul>
-  <li>4.1 <a href="/basic/04/sec01/">언어 모델: 고차원적 확률 맞추기 통계 도박</a>
+  <li>4.1 <a href="/basic/04/sec01/">언어 모델: 고차원적 통계와 확률 배팅 연산</a>
     <ul>
-      <li>4.1.1 컴퓨터는 확률 앵무새다 (Stochastic Parrot)</li>
-      <li>4.1.2 번역기, 자동 교정, 음성인식의 수학적 통계 전술</li>
+      <li>4.1.1 컴퓨터는 통계적 확률 앵무새다 (Stochastic Parrot)</li>
+      <li>4.1.2 기계 번역과 오타 교정 이면의 확률 변수 판독 알고리즘</li>
     </ul>
   </li>
-  <li>4.2 <a href="/basic/04/sec02/">조건부 확률과 도미노 연쇄 법칙 (Chain Rule)</a>
+  <li>4.2 <a href="/basic/04/sec02/">조건부 확률과 거대한 도미노 연쇄 법칙 (Chain Rule)</a>
     <ul>
-      <li>4.2.1 과거 SLM의 수학적 목표: 결합 확률 증명하기</li>
-      <li>4.2.2 도미노처럼 뻗어나가는 무거운 연속 조건부 곱셈($\prod$)</li>
+      <li>4.2.1 초기 언어 모델(SLM)의 수학적 목표와 결합 확률 전개</li>
+      <li>4.2.2 도미노처럼 뻗어나가는 조건부 교집합 연산 부하 ($\prod$)</li>
     </ul>
   </li>
-  <li>4.3 <a href="/basic/04/sec03/">통계의 붕괴: 희소성의 치명적 폭발 (Sparsity)</a>
+  <li>4.3 <a href="/basic/04/sec03/">통계 알고리즘의 붕괴: 희소성의 폭발 (Sparsity)</a>
     <ul>
-      <li>4.3.1 내 문장이 구글 서버 DB에 단 한 줄도 없다면?</li>
-      <li>4.3.2 분모가 Zero가 되어 서버 전체가 먹통이 되는 최악의 에러</li>
+      <li>4.3.1 세상에 단 한 줄도 존재하지 않는 창작 문장을 스캔했을 때</li>
+      <li>4.3.2 분모 제로(Zero Division)에 의한 분할 에러 및 시스템 셧다운의 위협</li>
     </ul>
   </li>
-  <li>4.4 <a href="/basic/04/sec04/">근시안적 통계의 꼼수: N-gram과 마르코프 체인</a>
+  <li>4.4 <a href="/basic/04/sec04/">근원적 타협점: N-gram 구조와 확률적 마르코프 체인</a>
     <ul>
-      <li>4.4.1 전체 문맥을 쓰레기통에 버리고 딱 N개만 보는 마르코프 단절</li>
-      <li>4.4.2 롱테일 의존성(Long-Term Dependency) 상실 한계점 타파 고민</li>
+      <li>4.4.1 연산 폭발 방지를 위한 과거 문맥 데이터 절단 (Truncation)</li>
+      <li>4.4.2 롱-텀 디펜던시(Long-Term Dependency) 장기 의존성 상실의 본질적 한계</li>
     </ul>
   </li>
-  <li>4.5 <a href="/basic/04/sec05/">수학적 헷갈림 채점관: Perplexity (PPL) 와 분기 분석</a>
+  <li>4.5 <a href="/basic/04/sec05/">정량적 통계 평가 지표: 혼란도(PPL)와 분기 기하학</a>
     <ul>
-      <li>4.5.1 객관식(비전) vs 주관식(자연어) 평가 구조의 괴리감 방어</li>
-      <li>4.5.2 마르코프 역수 루트 분수식 철학: 기계가 쥔 다음 카드 방황 갯수 파악</li>
+      <li>4.5.1 객체 탐지와 자연어 모델 간의 성과 측정 패러다임 간극</li>
+      <li>4.5.2 정보 엔트로피 역전 공식: 분기 계수(Branching Factor)의 심리적 환산</li>
     </ul>
   </li>
-  <li>4.6 <a href="/basic/04/sec06/">거대 딥러닝 시대의 채점 4대장과 환각 (Hallucination)</a>
+  <li>4.6 <a href="/basic/04/sec06/">거대 언어 모델(LLM) 시대의 진일보된 평가 지표와 환각</a>
     <ul>
-      <li>4.6.1 단순 통계 PPL의 치명적 한계: 뻔뻔한 허언증(환각) 소설 생성</li>
-      <li>4.6.2 거대 지식 생태계의 인증 마크: BLEU, ROUGE, MMLU, LLM-as-a-Judge</li>
+      <li>4.6.1 빈도와 PPL 맹신이 낳은 돌연변이: 확률적 허언증 (환각, Hallucination)</li>
+      <li>4.6.2 최신 지식 생태계 벤치마크: BLEU, ROUGE, MMLU, 그리고 LLM-as-a-Judge</li>
     </ul>
   </li>
 </ul>
@@ -900,10 +904,10 @@
 
             <!-- 구글 애드센스 출력 -->
             <div class="mt-5">
-                <!-- 구글 애드센스 (여기에 본인의 코드 입력) -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3321560028329475"
     crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"
+<!-- jinydev-java -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3321560028329475" data-ad-slot="9323221865"
     data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({});

@@ -1,28 +1,46 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">정규표현식 (Regular Expression): 단 1줄의 우아한 마법 파괴 코드</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">정규표현식(Regular Expression) 메타 패턴 매핑 체계 통계 컴파일</text>
 
-  <!-- Chaos Input -->
-  <rect x="50" y="100" width="300" height="150" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
-  <text x="200" y="140" fill="#fca5a5" font-family="monospace" font-size="18" text-anchor="middle">"전화번호: 010-1234-5678!"</text>
-  <text x="200" y="170" fill="#fca5a5" font-family="monospace" font-size="18" text-anchor="middle">"Email은 admin@test.com"</text>
-  <text x="200" y="200" fill="#fca5a5" font-family="monospace" font-size="18" text-anchor="middle">"한글만 남기고 싶어 ㅋㅋㅋ"</text>
-  <text x="200" y="235" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">복잡하게 꼬인 원본 문자열</text>
+  <!-- Input Data Stream -->
+  <rect x="50" y="80" width="700" height="70" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="6"/>
+  <text x="400" y="110" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">비정형 Raw Input Database (카오스 노이즈 차원 배열)</text>
+  <text x="400" y="135" fill="#f8fafc" font-family="monospace" font-size="16" text-anchor="middle">@관리자: 전화번호는 010-1234-5678 이고 이메일은 admin@ai.com ㅋㅋㅋ👍🏼</text>
 
-  <!-- Regex Magician -->
-  <path d="M 370 160 L 450 160" stroke="#f59e0b" stroke-width="6" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
-  <rect x="360" y="100" width="100" height="40" fill="#b45309" rx="5"/>
-  <text x="410" y="125" fill="#fef3c7" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">[^가-힣]</text>
-  <text x="410" y="195" fill="#fcd34d" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">"한글 빼고 다</text>
-  <text x="410" y="210" fill="#fcd34d" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">지워버려!"</text>
 
-  <!-- Output -->
-  <rect x="470" y="100" width="280" height="150" fill="#064e3b" stroke="#10b981" stroke-width="3" rx="5"/>
-  <text x="610" y="160" fill="#6ee7b7" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">"전화번호</text>
-  <text x="610" y="190" fill="#6ee7b7" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">은</text>
-  <text x="610" y="220" fill="#6ee7b7" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">한글만 남기고 싶어"</text>
+  <!-- Regex Arrow -->
+  <path d="M 400 150 L 400 180" stroke="#fcd34d" stroke-width="3" stroke-dasharray="6,4"/>
+  <polygon points="395,175 400,185 405,175" fill="#fcd34d"/>
 
-  <text x="400" y="280" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">내가 원하는 문양(Pattern) 규칙만 코딩하여 아주 빠른 속도로 쓰레기 노이즈 문자를 도려내 발라냅니다.</text>
+
+  <!-- Multi Parser Blocks -->
+  <rect x="50" y="200" width="700" height="130" fill="#0f172a" stroke="#cbd5e1" stroke-width="2" rx="6"/>
+  <text x="400" y="225" fill="#e2e8f0" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Regex Substring Parser Engine (정규식 치환 엔진 매트릭스 필터)</text>
+
+  <rect x="80" y="240" width="180" height="70" fill="#450a0a" stroke="#ef4444" stroke-width="1" rx="4"/>
+  <text x="170" y="260" fill="#fca5a5" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">\d+</text>
+  <text x="170" y="280" fill="#fecaca" font-family="sans-serif" font-size="12" text-anchor="middle">0~9 스칼라 숫자 타겟</text>
+  <text x="170" y="300" fill="#f8fafc" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">"010-1234-5678" 추출</text>
+
+  <rect x="290" y="240" width="220" height="70" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1" rx="4"/>
+  <text x="400" y="260" fill="#bfdbfe" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">[a-zA-Z0-9]+@[a-z]+\.[a-z]+</text>
+  <text x="400" y="280" fill="#bfdbfe" font-family="sans-serif" font-size="12" text-anchor="middle">영문자 기반 이메일 해시 구조 패턴</text>
+  <text x="400" y="300" fill="#f8fafc" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">"admin@ai.com" 모델 추출</text>
+
+  <rect x="540" y="240" width="180" height="70" fill="#064e3b" stroke="#10b981" stroke-width="1" rx="4"/>
+  <text x="630" y="260" fill="#6ee7b7" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">[^가-힣\s]</text>
+  <text x="630" y="280" fill="#a7f3d0" font-family="sans-serif" font-size="12" text-anchor="middle">(^Not) 오직 순수 한글만 허용</text>
+  <text x="630" y="300" fill="#f8fafc" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">"전화번호는, 이고, 이메일은"</text>
+
+  <!-- Output Arrow -->
+  <path d="M 400 330 L 400 360" stroke="#fcd34d" stroke-width="3"/>
+  <polygon points="395,355 400,365 405,355" fill="#fcd34d"/>
+
+
+  <!-- Bottom Output Text -->
+  <rect x="50" y="370" width="700" height="60" fill="#334155" stroke="#fcd34d" stroke-width="2" rx="6"/>
+  <text x="400" y="395" fill="#fde68a" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Regex Pattern Matching Matrix: 복잡한 로직의 조건문 수만 줄 없이, 단 1줄의 정규 수학식으로</text>
+  <text x="400" y="415" fill="#fde68a" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">이메일, URL, 특정 패턴의 한글 노이즈를 기계적으로 완전 탐지하여 O(N) 서치 속도로 압착 추출/삭제함</text>
 
 </svg>

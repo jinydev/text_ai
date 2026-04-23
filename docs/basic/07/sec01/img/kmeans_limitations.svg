@@ -1,48 +1,50 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">물리적 군집화 K-means의 절망적 한계점</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">하드 클러스터링 기반 K-평균 (K-Means) 알고리즘의 맹점 2가지</text>
 
-  <!-- Left: The Plane -->
-  <rect x="50" y="80" width="400" height="200" fill="#1e293b" stroke="#475569" stroke-width="2" rx="5"/>
-  <text x="250" y="110" fill="#94a3b8" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">2차원 벡터 공간의 냉혹한 올가미 (독점의 저주)</text>
+  <!-- Visualization Box -->
+  <rect x="50" y="80" width="360" height="280" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="4"/>
+  <text x="230" y="110" fill="#94a3b8" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">유클리드 거리 기반 기하학적 2D 클러스터링</text>
 
-  <!-- Cluster 1 (Politics) -->
-  <circle cx="150" cy="180" r="60" fill="#7f1d1d" opacity="0.3" stroke="#ef4444" stroke-width="2"/>
-  <text x="150" y="150" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">정치 방</text>
-  <circle cx="130" cy="180" r="5" fill="#fca5a5"/>
-  <circle cx="160" cy="190" r="5" fill="#fca5a5"/>
-  <circle cx="140" cy="210" r="5" fill="#fca5a5"/>
+  <!-- Clusters -->
+  <circle cx="150" cy="200" r="60" fill="#1d4ed8" opacity="0.3" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="140" cy="180" r="5" fill="#60a5fa"/>
+  <circle cx="160" cy="210" r="5" fill="#60a5fa"/>
+  <text x="150" y="280" fill="#93c5fd" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">군집 K1</text>
 
-  <!-- Cluster 2 (Economics) -->
-  <circle cx="350" cy="180" r="60" fill="#064e3b" opacity="0.3" stroke="#10b981" stroke-width="2"/>
-  <text x="350" y="150" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">경제 방</text>
-  <circle cx="340" cy="180" r="5" fill="#6ee7b7"/>
-  <circle cx="370" cy="190" r="5" fill="#6ee7b7"/>
-  <circle cx="350" cy="210" r="5" fill="#6ee7b7"/>
+  <circle cx="310" cy="200" r="60" fill="#b45309" opacity="0.3" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="300" cy="190" r="5" fill="#fcd34d"/>
+  <circle cx="320" cy="220" r="5" fill="#fcd34d"/>
+  <text x="310" y="280" fill="#fde68a" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">군집 K2</text>
 
-  <!-- Dilemma Point: The Hybrid Document -->
-  <circle cx="250" cy="180" r="8" fill="#fcd34d" stroke="#f59e0b" stroke-width="3"/>
-  <path d="M 250 170 L 250 140" stroke="#fcd34d" stroke-width="2" stroke-dasharray="2,2" fill="none"/>
-  <path d="M 250 190 L 250 240" stroke="#fcd34d" stroke-width="2" stroke-dasharray="2,2" fill="none"/>
+  <!-- Hard Decision Boundary -->
+  <line x1="230" y1="120" x2="230" y2="340" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="6,4"/>
   
-  <text x="250" y="130" fill="#fbbf24" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">"안녕? 난 '국회 예산 기금' 뉴스야!"</text>
-  <text x="250" y="255" fill="#fbbf24" font-family="sans-serif" font-size="12" text-anchor="middle">(정치 50% + 경제 50%)</text>
+  <!-- Problem Nodes -->
+  <circle cx="225" cy="240" r="8" fill="#ef4444" stroke="#fef2f2" stroke-width="1"/> <!-- Node right on boundary but left -->
+  <text x="200" y="235" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold">문제의 노드 (X)</text>
+  <line x1="225" y1="240" x2="160" y2="210" stroke="#fca5a5" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="225" y1="240" x2="300" y2="190" stroke="#fcd34d" stroke-width="1" stroke-dasharray="2,2"/>
+
+  <!-- Right Side Explanations -->
+  <rect x="430" y="80" width="330" height="130" fill="#334155" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="595" y="110" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">1. 모델의 시맨틱(의미) 표현력 결여 한계</text>
+  <text x="450" y="140" fill="#f8fafc" font-family="sans-serif" font-size="12" text-anchor="start">기계는 단순히 문서의 좌표만 묶어 분리할 뿐,</text>
+  <text x="450" y="160" fill="#f8fafc" font-family="sans-serif" font-size="12" text-anchor="start">추출된 K1과 K2 군집이 "무엇인지(어떤 주제인지)"</text>
+  <text x="450" y="180" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="start">그 이름표 레이블을 스스로 방출 및 정의할 인지 능력이</text>
+  <text x="450" y="200" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="start">수식 설계상 원천적으로 불가능한 꿀 먹은 벙어리 상태다.</text>
 
 
-  <!-- The Conflict Arrow -->
-  <path d="M 460 180 L 520 180" stroke="#ef4444" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <rect x="430" y="230" width="330" height="130" fill="#334155" stroke="#f59e0b" stroke-width="2" rx="4"/>
+  <text x="595" y="260" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">2. 배타적 하드 할당(Hard Assignment)의 폐해</text>
+  <text x="450" y="290" fill="#f8fafc" font-family="sans-serif" font-size="12" text-anchor="start">문제 노드 X 는 사실 두 군집 K1과 K2 사이 거리에 걸친</text>
+  <text x="450" y="310" fill="#f8fafc" font-family="sans-serif" font-size="12" text-anchor="start">"비율적 융합 문서" 확률임에도, K-Means 결정선은</text>
+  <text x="450" y="330" fill="#fcd34d" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="start">아주 미세하게 K1에 가깝다는 이유로 K1에 100% 몰빵</text>
+  <text x="450" y="350" fill="#fcd34d" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="start">강제 편입시키고 K2 점유율을 0% 배타 절단 내버림.</text>
 
-
-  <!-- Explanation Box -->
-  <rect x="540" y="100" width="230" height="140" fill="#450a0a" stroke="#f87171" stroke-width="2" rx="5"/>
-  <text x="655" y="135" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">K-means 의 멍청한 판단</text>
-  
-  <rect x="550" y="150" width="210" height="80" fill="#7f1d1d" rx="3"/>
-  <text x="655" y="175" fill="#fef2f2" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">"반반 치킨 교집합은 허용 안해!</text>
-  <text x="655" y="195" fill="#fca5a5" font-family="sans-serif" font-size="12" text-anchor="middle">거리 자로 재보니까 왼쪽이 1mm 가깝네!</text>
-  <text x="655" y="215" fill="#f87171" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">넌 그냥 100% 왼쪽(정치)이야 억까!"</text>
-
-  <text x="655" y="260" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">물리적 군집은 비율 다중성을 인정하지 못합니다.</text>
+  <!-- Summary Bottom -->
+  <rect x="50" y="380" width="710" height="50" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="4"/>
+  <text x="405" y="410" fill="#a7f3d0" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">이 단단한 차원 분리 무식함을 넘어, 내부 잠재 확률 텐서를 연수로 부드럽게 복원할 LSA 기술의 도래 필수</text>
 
 </svg>

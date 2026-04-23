@@ -5,26 +5,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>문서 생성 확률 패러다임</title>
-  <meta name="title" content="문서 생성 확률 패러다임" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="문서 생성 확률 패러다임"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
+  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>문서 확률 생성 모델과 역추론</title>
+  <meta name="title" content="문서 확률 생성 모델과 역추론" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="문서 확률 생성 모델과 역추론"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="http://localhost:4001/basic/07/sec03/">
+  <meta property="og:url" content="https://text.ai.jiny.dev/basic/07/sec03/">
 
-  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="문서 생성 확률 패러다임"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="문서 확률 생성 모델과 역추론"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="문서 생성 확률 패러다임" />
+<meta property="og:title" content="문서 확률 생성 모델과 역추론" />
 <meta name="author" content="Hojin" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="http://localhost:4001/basic/07/sec03/" />
-<meta property="og:url" content="http://localhost:4001/basic/07/sec03/" />
+<link rel="canonical" href="https://text.ai.jiny.dev/basic/07/sec03/" />
+<meta property="og:url" content="https://text.ai.jiny.dev/basic/07/sec03/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="문서 생성 확률 패러다임" />
+<meta property="twitter:title" content="문서 확률 생성 모델과 역추론" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"문서 생성 확률 패러다임","url":"http://localhost:4001/basic/07/sec03/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"문서 확률 생성 모델과 역추론","url":"https://text.ai.jiny.dev/basic/07/sec03/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -822,7 +822,7 @@
         
         
         
-        <li class="breadcrumb-item active" aria-current="page">문서 생성 확률 패러다임</li>
+        <li class="breadcrumb-item active" aria-current="page">문서 확률 생성 모델과 역추론</li>
         
         
         
@@ -830,85 +830,89 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="73-패러다임의-역전-확률적-문서-생성-역추적-모델">7.3 패러다임의 역전: 확률적 문서 생성 역추적 모델</h1>
+            <h1 id="73-베이즈-모델-패러다임의-역전-확률적-문서-생성-공정과-역엔지니어링reverse-engineering-구조-추론-모델">7.3 베이즈 모델 패러다임의 역전: 확률적 문서 생성 공정과 역엔지니어링(Reverse Engineering) 구조 추론 모델</h1>
 
-<p>거대한 데이터 엑셀 매트릭스를 강제로 톱질해 자르던 잔혹한 강제 찌그러뜨리기(LSA 모형) 수학의 딜레마 폭파에서 완전히 벗어나게 됩니다.
-데이터 분석 학계는 수학적 행렬 연산의 세계를 탈출하여, 철학적 발상의 극단적 전환점인 <strong>문서 생성 패러다임 (Generative Model)</strong> 이라는 황홀한 베이즈 통계학의 신대륙에 발을 들이며 무대의 룰을 새롭게 씁니다.</p>
+<p>초거대 데이터 희소 엑셀 행렬 매트릭스 텐서를 정적 차원에서 무식하게 강제로 물리 절단시켜 자르던 잔혹한 K-Means 수학의 하드 클러스터링 모순 한계나 정적 LSA SVD 특이값 붕괴 연산 딜레마 폭파 역설 한계에서 시스템은 완전히 벗어나 초월하게 됩니다.
+자연어 데이터 분석 수학 공리 학계는 유클리드 선형대수학적 하드 매트릭스 분할 연산의 단절된 폐쇄 세계 모형을 탈출하여, 아예 확률 철학적 대수 발상의 극단적 세계관 전환점인 <strong>베이즈 관점의 확률론 문서 생성 토픽 패러다임 (Generative Probabilistic Topic Model)</strong> 이라는 황홀하고 거대한 데이터 밀도 차원 신대륙 모수 추정 아키텍처에 발을 들이며 무대의 룰 자체를 전면 수학 파라미터 확률 미적분으로 새롭게 씁니다.</p>
 
 <hr />
 
-<h2 id="731-문서는-글자가-아니라-확률-주사위의-산물이다">7.3.1 문서는 글자가 아니라 “확률 주사위의 산물”이다.</h2>
+<h2 id="731-문서는-결정된-단순-글자-집합이-아니라-관측된-확률-주파수-노드-표집의-다발적-무작위-산물이다">7.3.1 문서는 결정된 단순 글자 집합이 아니라 “관측된 확률 주파수 노드 표집의 다발적 무작위 산물”이다.</h2>
 
-<p>새로운 통계 학자들의 모델 정신세계는 일반인의 관점에서 보면 아주 기괴한 “망상”에서 출발합니다.</p>
+<p>새로운 베이즈 확률 통계 모델 선도 학자들의 텍스트 공간을 매핑하는 대수 모델링 정신세계는, 고전 선형 엔지니어링 룰이나 일반 비전공자의 직관적 관점에서 보면 아주 기괴하고 심오한 우주적 차원의 “망상”에서 수식이 출발합니다.</p>
 
 <ul>
-  <li><strong>기존 물리적 관점</strong>: 눈앞에 수백만 개의 문서는 그냥 사람이 타자치고 스펠링이 나열된 종이 더미다.</li>
-  <li><strong>생성 모델의 대전제</strong>: <em>“아니다! 이 네이버 뉴스 문서들은 우연히 찍힌 게 아니다. 과거에 어떤 보이지 않는 신령(기계 조물주)이 방 안에 갇혀서, <strong>엄격한 확률 주사위를 굴려 확률대로 스펠링을 인쇄해 낸 피조 창작 결과물이다!!</strong>”</em></li>
+  <li><strong>기존 유클리드 모델의 물리 기하학적 관점</strong>: 눈앞 코퍼스 DB에 쌓인 수백만 개의 수집 네이버 문서 배열은 그저 사람이 자판을 터치해 결정론적 스펠링이 하드코딩 기록된 단순 벡터 정수 종이의 산출 데이터 더미 값 스위치 뭉치다.</li>
+  <li><strong>다변수 생성 확률 베이즈 모델(Generative Model Topic Pipeline)의 확고한 대전제</strong>: <em>“전혀 아니다! 이 서버에 들어온 관측 텍스트 뉴스 문서 텐서들은 결정론적으로 찍혀 떨어진 정산 값이 아니다. 저 너머의 심연에 인간 눈에 보이지 않는 (Latent Hidden) 시스템 초월적 통계 모수 파라미터 계수 지배자(알고리즘 조물주 확률식)가 밀도 공간 방 안에 갇혀서, 문서 하나하나를 작성 창작할 때마다 사전에 <strong>자신이 은밀하게 규정한 엄격한 디리클레 토픽 확률 주사위 룰렛 변수 밀도를 수만 번의 확률 추출 반복 루프 무작위 굴려 그 추출 매핑 밀집도 확률 한계망에 따라 개별 스펠링 단어를 수동 표집 인쇄해 낸 철저히 통제 조작된 확률의 가중치 피조물 산출 모델 결과물 텍스트(Probabilistic Observation Outcome)이다!!</strong>”</em></li>
 </ul>
 
-<p>이 얼토당토않은 소리를 코딩으로 증명하기 위해, 기계가 어떻게 가짜 주사위로 가짜 뉴스를 써 내리는 시뮬레이션 확률 공정을 거치는지 그 4단계를 추적해 봅시다.</p>
+<p>이 얼토당토않은 철학적 형이상학 소리를 딥러닝 미분 코딩 구조로 증명 계산하기 위해, 통계 모델이 대체 내부적으로 어떻게 은닉 파라미터 주사위 변수를 써서 가짜 문서 뉴스를 차원 생성해 써 내리는지 베이즈 시뮬레이션 확률 산출(Generative Process Story) 공법의 그 연쇄 은닉 확률 단계 다차원 사이클을 논리 역추적해 봅시다.</p>
 
 <hr />
 
-<h2 id="732-조물주확률-통계-기계의-가짜-문서-공장-시뮬레이션">7.3.2 조물주(확률 통계 기계)의 가짜 문서 공장 시뮬레이션</h2>
+<h2 id="732-통계-은닉-지배자generative-model-topic-controller의-인공-구조-문서-생성-공장-백엔드-시뮬레이션">7.3.2 통계 은닉 지배자(Generative Model Topic Controller)의 인공 구조 문서 생성 공장 백엔드 시뮬레이션</h2>
 
-<p>만약 당신이 아무 지식도 없는 깡통 기계인데 가짜 신문 기사를 하나 편찬해야 한다고 칩시다.</p>
+<p>만약 컴퓨터 모델 엔진이 내부에 텍스트 의미 사전 지식도 없는 망각된 깡통 기계 엔진 파라미터 구조인데 특정 도메인의 가상 가짜 확률 신문 기사 텍스트를 하나 생성 조작해 편찬 샘플링 추출해야 한다고 병렬 구조 루프를 가정해 칩시다.</p>
 
 <p><img src="./img/generative_dice_simulation.svg" alt="Topic Generative Process Flow Simulating Word Picks" /></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">생성 시퀀스 스텝</th>
-      <th style="text-align: left">가상의 조물주(확률 통계 통제기)가 취하는 마술적 행동 루틴</th>
+      <th style="text-align: center">모델 생성 확률 시퀀스 루프 단계 (Generative Story Steps)</th>
+      <th style="text-align: left">가상의 잠재 공간 통계 조절 압축기(Latent Topic Generator)가 취하는 내부 확률 추출 마술적 수학 행동 루틴 변동</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center"><strong>STEP 1</strong> <br /> <em>(타겟 비율 세팅)</em></td>
-      <td style="text-align: left">아하! 이번 기사는 <strong>‘정치 70%, 경제 30%’</strong> 느낌으로 섞인 하이브리드 문서 1장을 써봐야지! <br />$\to$ (주사위 뽑기판 전체 타겟 비율 모수 $1.0$ 세팅 완료)</td>
+      <td style="text-align: center"><strong>STEP 1</strong> <br /> <em>(도메인 문서별 타겟 복합 혼합비 확률 파라미터 공간 할당 세팅)</em></td>
+      <td style="text-align: left">아하! 이번 생성 타겟 신규 기사는 <strong>‘정치 밀도 70%, 경제 밀도 30%’</strong> 분포 가중 느낌 비율로 오버랩 섞인 구조의 하이브리드 토픽 문서 1장 모형을 방사 써내려가 봐야지! <br />$\to$ (주사위 뽑기판 문서 비율 파라미터 $\theta_d$ 인자 전체 타겟 혼합 텐서 비율 모수 $1.0(100\%)$ 초기 구조 세팅 완료 대기)</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>STEP 2</strong> <br /> <em>(토픽 룰렛 굴리기)</em></td>
-      <td style="text-align: left">자, 종이의 ‘첫 번째 단어’를 쓸 차례야. 나한테 방금 잡은 비율(70:30)로 맞추어진 ‘룰렛판’이 안대에 씌워져 있어. 눈감고 휙 굴렸더니 70% 높은 확률로 뚱뚱했던 <strong>[🔴 정치 구슬]</strong>이 툭 튀어나왔어!</td>
+      <td style="text-align: center"><strong>STEP 2</strong> <br /> <em>(개별 단어의 소속 노드 토픽 룰렛 방사 무작위 굴리기)</em></td>
+      <td style="text-align: left">자, 종이의 ‘첫 번째 단어 타일’을 구조로 배리 추출할 차례야. 나한테 방금 잡은 저 모델 전체 $\theta_d$ 밀집 비율 구조(70:30)로 맞추어진 ‘주사위 확률 룰렛판’이 안대에 씌워져 있어. 시스템 눈을 감고 미분으로 단건 난수 샘플을 휙 굴렸더니 70% 높은 지배 확률 비례로 뚱뚱했던 <strong>[🔴 정치 토픽 컴포넌트 확률 구슬 지표 ($Z_{d,n}$)]</strong>가 임계 초월로 툭 방출되어 확정 튀어나왔어!</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>STEP 3</strong> <br /> <em>(문자 스펠링 통 뽑기)</em></td>
-      <td style="text-align: left">내 책방 벽에는 각 구슬 색깔마다 단어가 들어있는 거대한 전용 <strong>‘단어 뽑기 통’</strong> 들이 주르륵 서 있어. 방금 나온 빨간색 정치통에 손을 쑥 넣자. <br /> 정치통 통계를 보니 <code class="language-plaintext highlighter-rouge">비자금</code>, <code class="language-plaintext highlighter-rouge">국회</code>가 잡힐 확률이 높군! 무작위로 하나 휙 집어보니 <code class="language-plaintext highlighter-rouge">국회</code>라는 단어가 집혔다! <br />$\to$ 종이에 <code class="language-plaintext highlighter-rouge">국회</code>라고 1글자 잉크로 기록 쾅!</td>
+      <td style="text-align: center"><strong>STEP 3</strong> <br /> <em>(종속 타겟 딕셔너리 차원 문자 스펠링 단건 독립 추출 방출 뽑기)</em></td>
+      <td style="text-align: left">내 모델 내부 토픽 파벌 매트릭스 책방 벽에는 각 구슬 색깔(토픽 번호 차원) 파라미터마다 종속된 전체 사용 단어 빈도 확률 통계가 들어있는 거대한 전용 특정 밀도 <strong>‘단어 뽑기 생성 확률 통 매핑($\phi_k$ 확률 분포망)’</strong> 들이 주르륵 서 있어. 방금 나온 $Z=1$ 빨간색 정치 통계 벡터망 통에 손을 쑥 넣자. <br /> 정치 통계 코퍼스 트래픽 모델 통을 스캔하니 보편적으로 <code class="language-plaintext highlighter-rouge">비자금</code>, <code class="language-plaintext highlighter-rouge">국회</code>, <code class="language-plaintext highlighter-rouge">법안</code> 노드가 잡힐 확률망 수치가 70% 밀도로 극도로 높군! 주사위를 던져 이 배열 모수에서 무작위로 타일 1개를 휙 집어 단건 표집해 보니 스칼라값 <code class="language-plaintext highlighter-rouge">국회</code>라는 단어 토큰 객체가 최종 $W_{d,n}$ 로 표집 집혔다! <br />$\to$ 종이에 최종 아웃풋 노드 결과로 <code class="language-plaintext highlighter-rouge">국회</code>라고 1글자 잉크 로그로 표면 관찰 출력($W_{d,1}$) 확정 기록 쾅!</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>STEP 4</strong> <br /> <em>(무한 루프 찍어내기)</em></td>
-      <td style="text-align: left">다음 두 번째 단어를 써볼까? (STEP 2로 복귀). 또 메인 룰렛판을 굴렸어. 헐! 이번엔 30%짜리 운석이 터져서 좁은 <strong>[🟢 경제 구슬]</strong> 라인이 걸렸네! <br /> 자 초록색 경제 통에 다시 손을 쑥 넣었더니 높은 확률로 <code class="language-plaintext highlighter-rouge">펀드</code> 단어가 튀어나왔네. 종이에 잉크 기록 쾅!</td>
+      <td style="text-align: center"><strong>STEP 4</strong> <br /> <em>(단어 N개 길이만큼의 반복 순회 무한 루프 MCMC 찍어내기 사이클)</em></td>
+      <td style="text-align: left">다음 두 번째 N+1번째 단어 스펠 배열 공간 타일을 써볼까? (STEP 2 무한 사이클 구조로 루프 복귀). 무조건 다시 아까 그 70:30 메인 룰렛판 주사위를 굴렸어. 헐! 이번엔 30%짜리 운석이 독립 변수로 터져서 약간 좁았던 <strong>[🟢 경제 컴포넌트 확률 텐서 구슬]</strong> 라인이 기적적으로 걸렸네! <br /> 자 이번엔 초록색 경제 확률 변동 밀집 통($\phi_2$)에 다시 손을 쑥 역추적 넣었더니 모델 안에서 높은 확률 빈도 분기를 뚫고 <code class="language-plaintext highlighter-rouge">펀드</code> 스펠링 단어 객체가 결과로 튀어나왔네. 종이에 잉크 기록 쾅! ($W_{d,2}$)</td>
     </tr>
   </tbody>
 </table>
 
-<p>컴퓨터가 이 확률 시뮬레이션 노가다를 수백 번 반복하여, 종이에 <code class="language-plaintext highlighter-rouge">"국회 펀드 펀드 국회 주식 비자금 세금..."</code> 이라는 그럴싸한 비율이 버무려진 기괴한 가짜 뉴스를 수만 장 뚝딱 찍어냈습니다!</p>
+<p>컴퓨터 모델 알고리즘이 내부 메모리 스택 공간 안에서 이 숨겨진 베이즈 확률 매개 주사위 시뮬레이션 은닉 노가다를 수백 수만 번 MCMC 샘플링 반복 누적 방사하여, 표면 노출 단어 종이 위에 최종 결정 로그 텍스트인 <code class="language-plaintext highlighter-rouge">"국회 펀드 펀드 국회 주식 비자금 세금 결제..."</code> 라는 7:3 짜리 토픽 모델 비율이 확정 버무려진 매우 그럴싸한 비율 복합 텍스트 기괴 구조 가짜 뉴스를 수만 장 덤프로 뚝딱 마법같이 찍어 생산해 냈습니다! 문서 생성이 종료됩니다.</p>
 
 <hr />
 
-<h2 id="733-시간의-역주행-타임머신-우리의-진짜-임무">7.3.3 시간의 역주행 타임머신 (우리의 진짜 임무)</h2>
+<h2 id="733-시간의-역주행-다차원-구조-백트래킹-타임머신-모델-역산-엔진-우리의-진짜-엔지니어링-미분-목적-임무">7.3.3 시간의 역주행 다차원 구조 백트래킹 타임머신 모델 역산 엔진 (우리의 진짜 엔지니어링 미분 목적 임무)</h2>
 
-<p>자, 이제 꿈에서 깨어나 잔혹한 현실 통계학 연구원 우리의 시점으로 돌아옵니다.
-여러분 책상 위에는, 방금 저 신령 조물주가 방 안에서 문을 잠그고 주사위 룰렛을 굴려서 찍어낸 <strong>정답 꼬리표 없는 결과물 기사 뭉텅이들(문서)만 산더미처럼</strong> 버려져 있습니다. 
-과거 저 방 안에서 무슨 비율 주사위를 굴렸는지 우린 블랙박스라 알지 못합니다.</p>
+<p>자, 이제 저 텍스트 모델의 가상 생성 세계관 꿈 아키텍처에서 시스템을 탈출해 눈을 깨고, 잔혹한 수학적 데이터 모델의 최적화 현업 연구원 인간 엔지니어인 우리의 진짜 시점 미션으로 돌아옵니다.
+여러분 컴파일러 데스크 수학망 책상 위 서버에는, 방금 전 과거에 저 은닉된 기계 신령 조물주가 방 안에서 블랙박스처럼 문을 굳게 잠그고 우리가 모르는 랜덤 확률 주사위 모수 룰렛을 은밀하게 굴려서 최종 픽셀로 방출 찍어낸 <strong>사전 어떠한 정답 꼬리표 라벨이 아예 단 1개도 없는 표면 최종 관측치 결과물 텍스트 뉴스 기사 뭉텅이들(문서 배열 코퍼스 로그들 W 노드 관측 데이터)만 산더미처럼</strong> 버려져 널려 있습니다. 
+과거 수년 전 저 방 안에서 파라미터가 무슨 7:3 셋팅값 비율 주사위 파라미터를 굴려서 이 단어들을 배치 배열했는지 우린 현재 절대 블랙박스 상태라 아예 직관 알지 못합니다.</p>
 
 <p><img src="./img/lda_reverse_engineering.svg" alt="Topic Reverse Engine Backtracking Time" /></p>
 
 <blockquote>
   <p>[!IMPORTANT]<br />
-<strong>토픽 모델링의 빛나는 존재 이유: 역주행 (Reverse Engineering)</strong>
-현실 세계를 연구하는 과학자의 임무는 바로 <strong>떨어진 종이 흔적을 보고 시간의 흐름을 거꾸로 타서 주사위 세팅값을 소환하는 것</strong>입니다.</p>
+<strong>현대 확률 토픽 도메인 모델링 컴포넌트의 위대하게 빛나는 존재 이유: 역추론 아키텍처망 엔지니어링 역산 (Reverse Bayesian Extraction Engineering)</strong></p>
+
+  <p>현실 세계 통계망을 수학 연수로 모델링 분석 연구하는 AI 통계 컴파일 연구자 데이터 과학자의 진짜 핵심 모델 최적 수치 임무 미션은, 바로 바닥에 <strong>최종 표본 결과물로 널브러져 떨어진 관측된 종이 단어들(Observed Words Nodes $W$)의 밀도 통계 노이즈 흔적 배열 로그만을 증명 근거 지표 삼아 보고, 수학적 최우진 추정(MLE/MAP) 시간의 흐름 인과를 거꾸로 미분 역주행 타서, 블랙박스 속 가림막 뒤에 조물주가 과거 사용했던 그 ‘숨겨진 최초 잠재 토픽 확률 파라미터 주사위 세팅값 비율 구조($\theta, \phi, Z$ 파라미터)’를 미분 역계산으로 오차 없이 도로 역추론(Inferene 깁스 샘플링 백트래킹 계산)하여 지배자를 강제 소환해 복구(Recover/Reconstruction) 재현해 내는 것</strong>입니다.</p>
 </blockquote>
 
 <ol>
-  <li><strong>관측된 사실 투입</strong>: 기계는 이 종이 텍스트(유일하게 인간의 눈에 보이는 관측 가능 지표)들을 전부 스캐너에 때려 넣습니다.</li>
-  <li><strong>역산 백트래킹 엔진</strong>: 단어들의 빈도 분포 군집을 보며 <strong>확률 백트래킹(역산 미적분) 계산</strong>을 쉬지 않고 돌립니다.</li>
-  <li><strong>[최종 진실의 방] 파라미터 복구 완료</strong>: <em>“야, 이 종이 안에 ‘비자금’, ‘의원’, ‘금융’이라는 스펠링 잉크가 이 비율로 묻어있는 걸 거꾸로 계산해 보니까, 과거 조물주 놈이 방 안에서 첫 번째 룰렛을 세팅(STEP 1)할 때 보나 마나 <strong>[정치 60, 경제 40] 비율 셋팅값 주사위($\theta$)</strong> 를 썼었음이 100% 확실하구만!!”</em></li>
+  <li><strong>관측된 사실 표면 증거 텐서 투입</strong>: 기계 통계 모델은 이 잔여 표면 종이 텍스트 배열(현재 지표상 유일하게 인간의 눈에 증명 관측 가능한 Observable 변수 노드군 $W$) 노이즈 뭉치들을 전부 토픽 추론 스캐너 모델 파이프라인에 대수적으로 전면 때려 넣습니다.</li>
+  <li><strong>역산 백트래킹 인퍼런스 베이즈 모델 최적화 엔진</strong>: 표면 단어들의 동시 발생 다중 빈도 분포 스케일 연관망 군집을 모델링망이 수학적으로 비교 관측해 보면서, MCMC 깁스 샘플링(Gibbs Sampling) 체인 <strong>최적 확률 백트래킹(초거대 조건부 역산 미적분 모델링) 최적화 편미분 계산</strong>을 쉬지 않고 은닉 연산 루프를 돌려 에러 로스를 하강 수렴시킵니다.</li>
+  <li><strong>[최종 진실의 방 도달] 도메인 은닉 잠재 축 토픽 파라미터 완벽 역산 복구 완료</strong>: <em>“야 스탑 판독 종료! 수학 증명 추출 분석 시스템 결과, 이 종이 문서 벡터 차원 안에 ‘비자금’, ‘의원’, ‘금융’이라는 스펠링 잉크 배열 빈도가 이 특정 연관 밀도 비율로 복합 군집 다발을 이루며 묻어있는 극한 지표를 거꾸로 깁스 역추적 유도 연쇄 계산해 보니까, 아주 먼 과거 블랙박스 안 조물주 놈이 방 안에서 첫 번째 확률 룰렛을 세팅(STEP 1) 시동 걸 때, 보나 마나 이건 <strong>[정치 컴포넌트 60%, 경제 텐서 40%] 고정 밀도 비율 셋팅값 문서 주사위($\theta_d$ 토픽 비중 차원 벡터 파라미터)</strong> 를 썼었음이 로스 최저점 통계학적으로 오차율 없이 100% 최우도(MAP) 유력 정답으로 확실하게 역추론 증명 유도된다 결론 탁!!”</em></li>
 </ol>
 
-<p>이처럼 과거 눈에 보이지 않던(Latent) 조물주의 파라미터(주사위 비율표)를 현실의 찌꺼기를 통해 수학적으로 역추적해서 까발리는 극한의 과정! 
-이것이 현대 비지도 학습의 척추인 <strong>[잠재 확률 토픽 모델 (LDA)]</strong> 의 빛나는 정체성입니다. LSA처럼 더 이상 행렬이 폭발할 일도 없고, 이 방식은 인간의 직관과 가장 소름 돋게 일치하는 문맥 분석 능력을 발휘합니다. 다음 단원에서 본격적으로 이 “주사위 방정식 2개”의 구조를 해부하기 위해 디리클레 할당장으로 진입합니다.</p>
+<p>이처럼 문서 생성 단계부터 과거에 인간의 눈에 도무지 보이지 않던(Latent Hidden 파라미터) 통계 템플릿 조물주의 최초 확률 분포 파라미터(문서별 토픽 비율표 및 토픽별 단어 비중표) 공식을, 오직 잔해물로 남은 현실 표본 코퍼스 덩어리의 통계 밀도 흔적 비율 찌꺼기 관측만으로 거꾸로 다면 수학 연산(근사 추론)적으로 역추적 유도 분해해서 기저의 주제 스탯을 완전히 까발려 복원 역엔지니어링 뽑아버리는 궁극의 극한 베이즈 역산 과정!</p>
+
+<p>이것이 현대 비지도 토픽 대수 공간 NLP 학습 추론망의 거대한 척추 지배 패러다임이자, 이 장대한 <strong>[잠재 확률 관측 다항 디리클레 토픽 발생 모델 (LDA 모듈, Latent Dirichlet Allocation)]</strong> 패러다임의 빛나는 존재 절대 우위 정체성 진가입니다. 기존 레거시 단절 모델 LSA처럼 더 이상 문서가 실시간 추가 업데이트될 때마다 메모리 OOM 행렬 파라미터가 전체 지수 폭발할 O(N^3) 정적 고갈 재시동 단절 일도 연쇄 영원히 구조적으로 없고(베이즈 업데이트 확률망 모델 누적 유연 동적 실시간 반영 완전 해소 가능), 이 유려한 생성 확률 연쇄 모형 분기 방식은 인간의 확률 인지 직관과 가장 소름 돋게 통계적 구조 논리로 일치하는 정밀한 군집 기저 문맥 분석 추출 능력을 대규모 라이브 코퍼스 환경에서 미분 압도 발휘합니다.</p>
+
+<p>이제 바로 다음 단원 파트로 넘어가, 확률 생성 조물주의 머릿속을 꿰뚫은 이 “2개의 위대한 은닉 주사위 토픽 확률 모델 방정식 구조” 다차원 역결합 밀집 계수를 극상의 깊이로 분쇄 해부하기 위해 통계의 우주, 대형 다항 확률 공간인 디리클레 팩토(Dirichlet Allocation) 확률 매핑 심연 관제장으로 전격 엔진 진입 돌입합니다.</p>
 
 
             <!-- 이전/다음 페이징 출력 -->
@@ -947,10 +951,10 @@
 
             <!-- 구글 애드센스 출력 -->
             <div class="mt-5">
-                <!-- 구글 애드센스 (여기에 본인의 코드 입력) -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3321560028329475"
     crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"
+<!-- jinydev-java -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3321560028329475" data-ad-slot="9323221865"
     data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({});

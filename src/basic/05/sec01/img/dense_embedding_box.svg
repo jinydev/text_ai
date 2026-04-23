@@ -1,43 +1,61 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="350" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">밀집 벡터(Dense Vector)의 마법: 차원의 저주를 찢어버리다</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">원-핫 인코딩의 한계 극복: 연산 효율 공간 최적화와 밀집 벡터 변환</text>
 
-  <!-- One-hot Sparse Array -->
-  <rect x="50" y="90" width="300" height="40" fill="#1e293b" stroke="#ef4444" stroke-width="2" rx="5"/>
-  <rect x="50" y="90" width="30" height="40" fill="#cf2a2a" rx="5"/>
-  <text x="65" y="115" fill="#fef2f2" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">1</text>
-  <text x="100" y="115" fill="#fca5a5" font-family="monospace" font-size="14" text-anchor="middle">0</text>
-  <text x="130" y="115" fill="#fca5a5" font-family="monospace" font-size="14" text-anchor="middle">0</text>
-  <text x="160" y="115" fill="#fca5a5" font-family="monospace" font-size="14" text-anchor="middle">0</text>
-  <text x="190" y="115" fill="#fca5a5" font-family="monospace" font-size="14" text-anchor="middle">0</text>
-  <text x="230" y="115" fill="#fca5a5" font-family="monospace" font-size="14" text-anchor="middle">...</text>
-  <text x="290" y="115" fill="#fca5a5" font-family="monospace" font-size="14" text-anchor="middle">0</text>
+  <!-- Top: One-hot Vector -->
+  <rect x="50" y="70" width="700" height="70" fill="#1e293b" stroke="#ef4444" stroke-width="2" rx="8"/>
+  <text x="400" y="90" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">과거 구조: 희소 행렬 단위의 원-핫 벡터 (Sparse One-hot Vector)</text>
   
-  <text x="200" y="150" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">100,000 차원 (텅 빈 우주 공간)</text>
-  <text x="200" y="170" fill="#ef4444" font-family="sans-serif" font-size="12" text-anchor="middle">단점: 용량 폭발 + 직교(남남) 에러</text>
+  <rect x="70" y="100" width="30" height="30" fill="#334155" rx="3"/>
+  <text x="85" y="120" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">0</text>
+  
+  <rect x="110" y="100" width="30" height="30" fill="#334155" rx="3"/>
+  <text x="125" y="120" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">0</text>
+  
+  <!-- The Target Bit -->
+  <rect x="150" y="100" width="40" height="30" fill="#7f1d1d" stroke="#ef4444" stroke-width="2" rx="3"/>
+  <text x="170" y="120" fill="#fecaca" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">1</text>
+  
+  <text x="210" y="120" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">...</text>
 
+  <rect x="250" y="100" width="30" height="30" fill="#334155" rx="3"/>
+  <text x="265" y="120" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">0</text>
 
-  <!-- Compression Funnel -->
-  <path d="M 360 80 L 420 120 L 420 160 L 360 200 Z" fill="#3b82f6" opacity="0.3"/>
-  <path d="M 370 140 L 410 140" stroke="#60a5fa" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
-  <text x="390" y="130" fill="#93c5fd" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">압축 전송</text>
+  <text x="420" y="120" fill="#94a3b8" font-family="sans-serif" font-size="14" font-style="italic" text-anchor="middle">불필요한 쓰레기 데이터 0이 10만 칸 낭비 (차원의 저주)</text>
+  
+  <text x="690" y="120" fill="#ef4444" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">R^(100,000)</text>
 
+  <!-- Funnel Arrow -->
+  <path d="M 360 150 L 440 150 L 420 190 L 380 190 Z" fill="#3b82f6"/>
+  <polygon points="390,190 410,190 400,210" fill="#3b82f6"/>
+  <text x="280" y="180" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">인공 신경망 학습 (Projection)</text>
+  <text x="520" y="180" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">차원 압축 (Dimensionality Reduction)</text>
 
-  <!-- Dense Vector -->
-  <rect x="450" y="90" width="300" height="40" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="5"/>
-  <text x="490" y="115" fill="#6ee7b7" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">0.24</text>
-  <line x1="530" y1="90" x2="530" y2="130" stroke="#047857" stroke-width="2"/>
-  <text x="560" y="115" fill="#6ee7b7" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">-1.5</text>
-  <line x1="590" y1="90" x2="590" y2="130" stroke="#047857" stroke-width="2"/>
-  <text x="630" y="115" fill="#6ee7b7" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">0.89</text>
-  <line x1="670" y1="90" x2="670" y2="130" stroke="#047857" stroke-width="2"/>
-  <text x="710" y="115" fill="#6ee7b7" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">3.12</text>
+  <!-- Bottom: Dense Vector -->
+  <rect x="180" y="220" width="440" height="90" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="8"/>
+  <text x="400" y="245" fill="#6ee7b7" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">혁신적 구조: 공간 절약형 밀집 벡터 (Dense Embedding Vector)</text>
+  
+  <rect x="210" y="260" width="50" height="30" fill="#047857" rx="3"/>
+  <text x="235" y="280" fill="#a7f3d0" font-family="monospace" font-size="14" text-anchor="middle">-1.24</text>
+  
+  <rect x="270" y="260" width="50" height="30" fill="#047857" rx="3"/>
+  <text x="295" y="280" fill="#a7f3d0" font-family="monospace" font-size="14" text-anchor="middle">0.88</text>
 
-  <text x="600" y="150" fill="#34d399" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">256 차원 밀집 벡터 (Dense)</text>
-  <text x="600" y="170" fill="#10b981" font-family="sans-serif" font-size="12" text-anchor="middle">장점: 소수점 연계 + 거미줄 같은 유사성</text>
+  <rect x="330" y="260" width="50" height="30" fill="#047857" rx="3"/>
+  <text x="355" y="280" fill="#a7f3d0" font-family="monospace" font-size="14" text-anchor="middle">-0.05</text>
 
-  <!-- Explanation -->
-  <text x="400" y="240" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">1과 0 이분법으로 극단적이던 데이터 낭비를 뜯어고쳐, 기하학적 3D 공간을 부유하는 소수점 (Float) 데이터 상자로 우겨넣습니다.</text>
+  <text x="410" y="280" fill="#a7f3d0" font-family="monospace" font-size="14" text-anchor="middle">...</text>
+
+  <rect x="440" y="260" width="50" height="30" fill="#047857" rx="3"/>
+  <text x="465" y="280" fill="#a7f3d0" font-family="monospace" font-size="14" text-anchor="middle">3.14</text>
+
+  <text x="560" y="280" fill="#10b981" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">R^(256)</text>
+  
+  <!-- Side Annotation -->
+  <rect x="635" y="235" width="135" height="60" fill="#1e293b" stroke="#64748b" stroke-dasharray="4,4" stroke-width="1" rx="4"/>
+  <text x="702" y="255" fill="#f8fafc" font-family="sans-serif" font-size="11" text-anchor="middle">실수 좌표계 편입</text>
+  <text x="702" y="270" fill="#f8fafc" font-family="sans-serif" font-size="11" text-anchor="middle">기하 거리 유추 가능</text>
+  <text x="702" y="285" fill="#f8fafc" font-family="sans-serif" font-size="11" text-anchor="middle">VRAM 폭발 방어</text>
 
 </svg>

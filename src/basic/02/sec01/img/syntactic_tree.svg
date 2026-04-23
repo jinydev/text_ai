@@ -1,33 +1,55 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">중간 물: 구문 표현 (Syntactic) - 문장 뼈대 그리기</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Syntactic Layer 2D 파싱: AST 구문 트리 종속성 구조화 (Dependency Parsing Tree)</text>
 
-  <!-- Tree Root -->
-  <rect x="350" y="70" width="100" height="30" fill="#3b82f6" rx="5"/>
-  <text x="400" y="90" fill="#eff6ff" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">S (문장)</text>
+  <!-- Root Sentence Node -->
+  <rect x="350" y="80" width="100" height="40" fill="#1e293b" stroke="#fcd34d" stroke-width="2" rx="4"/>
+  <text x="400" y="105" fill="#fde68a" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">S (문장)</text>
 
-  <!-- Level 2 -->
-  <path d="M 400 100 L 250 140" stroke="#60a5fa" stroke-width="2"/>
-  <path d="M 400 100 L 550 140" stroke="#60a5fa" stroke-width="2"/>
+  <!-- Tree Branches from S -->
+  <path d="M 400 120 L 250 160" stroke="#fcd34d" stroke-width="2"/>
+  <path d="M 400 120 L 550 160" stroke="#fcd34d" stroke-width="2"/>
 
-  <rect x="200" y="140" width="100" height="30" fill="#2563eb" rx="5"/>
-  <text x="250" y="160" fill="#eff6ff" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">NP (명사구)</text>
-  
-  <rect x="500" y="140" width="100" height="30" fill="#2563eb" rx="5"/>
-  <text x="550" y="160" fill="#eff6ff" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">VP (동사구)</text>
+  <!-- NP and VP Nodes -->
+  <rect x="200" y="160" width="100" height="40" fill="#451a03" stroke="#f59e0b" stroke-width="2" rx="4"/>
+  <text x="250" y="185" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">NP (명사구)</text>
 
-  <!-- Level 3 -->
-  <path d="M 250 170 L 200 210" stroke="#93c5fd" stroke-width="2"/>
-  <path d="M 250 170 L 300 210" stroke="#93c5fd" stroke-width="2"/>
-  <path d="M 550 170 L 500 210" stroke="#93c5fd" stroke-width="2"/>
-  <path d="M 550 170 L 600 210" stroke="#93c5fd" stroke-width="2"/>
+  <rect x="500" y="160" width="100" height="40" fill="#451a03" stroke="#f59e0b" stroke-width="2" rx="4"/>
+  <text x="550" y="185" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">VP (동사구)</text>
 
-  <!-- Leaves -->
-  <text x="200" y="230" fill="#fde047" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">키가 큰</text>
-  <text x="300" y="230" fill="#fde047" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">소년이</text>
-  <text x="500" y="230" fill="#fde047" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">빠르게</text>
-  <text x="600" y="230" fill="#fde047" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">달린다</text>
+  <!-- Tree Branches from NP -->
+  <path d="M 250 200 L 150 240" stroke="#fcd34d" stroke-width="2"/>
+  <path d="M 250 200 L 350 240" stroke="#fcd34d" stroke-width="2"/>
 
-  <text x="400" y="280" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">단어들을 문법 규칙(주어와 동사 호응 등)에 맞게 레고처럼 잘 조립하여 에러가 없는지 검증합니다.</text>
+  <!-- Token Nodes for NP -->
+  <rect x="100" y="240" width="100" height="40" fill="#0f172a" stroke="#475569" stroke-width="1" rx="4"/>
+  <text x="150" y="260" fill="#bfdbfe" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">JJ (형용사)</text>
+  <text x="150" y="275" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">[키가 큰]</text>
+
+  <rect x="300" y="240" width="100" height="40" fill="#0f172a" stroke="#475569" stroke-width="1" rx="4"/>
+  <text x="350" y="260" fill="#bfdbfe" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">NN (명사)</text>
+  <text x="350" y="275" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">[소년이]</text>
+
+  <!-- Tree Branches from VP -->
+  <path d="M 550 200 L 450 240" stroke="#fcd34d" stroke-width="2"/>
+  <path d="M 550 200 L 650 240" stroke="#fcd34d" stroke-width="2"/>
+
+  <!-- Token Nodes for VP -->
+  <rect x="400" y="240" width="100" height="40" fill="#0f172a" stroke="#475569" stroke-width="1" rx="4"/>
+  <text x="450" y="260" fill="#bfdbfe" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">RB (부사)</text>
+  <text x="450" y="275" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">[빠르게]</text>
+
+  <rect x="600" y="240" width="100" height="40" fill="#0f172a" stroke="#475569" stroke-width="1" rx="4"/>
+  <text x="650" y="260" fill="#bfdbfe" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">VB (동사)</text>
+  <text x="650" y="275" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">[달린다]</text>
+
+  <!-- Syntax Validation Box -->
+  <rect x="250" y="310" width="300" height="40" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="6"/>
+  <text x="400" y="335" fill="#6ee7b7" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">Tree Validation &gt; return TRUE (논리 정합성 OK)</text>
+
+  <!-- Bottom Conclusion Banner -->
+  <rect x="50" y="380" width="700" height="40" fill="#334155" stroke="#fcd34d" stroke-width="2" rx="6"/>
+  <text x="400" y="405" fill="#fde68a" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Syntax 관계 파싱: 형태소 벡터 집합이 S(명사구+동사구) 라는 논리적 구조를 정상 종속(Dependency) 맵핑할 수 있는지 수학적 타당성 검사 수행</text>
+
 </svg>

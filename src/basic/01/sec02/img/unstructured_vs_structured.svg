@@ -1,0 +1,63 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">차원의 저주: 정형 데이터(Structured) vs 비정형 텍스트 텐서(Unstructured Raw Text)</text>
+
+  <!-- Box 1: Structured Dimension Data -->
+  <rect x="50" y="80" width="310" height="260" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="6"/>
+  <text x="205" y="115" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">정형 데이터 공간 (Structured Tensor)</text>
+  <text x="205" y="135" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">강력 규격화된 차원 독립 변수 매트릭스</text>
+
+  <rect x="70" y="150" width="270" height="120" fill="#0f172a" stroke="#475569" stroke-width="2" rx="4"/>
+  <!-- Table lines -->
+  <line x1="70" y1="180" x2="340" y2="180" stroke="#334155" stroke-width="2"/>
+  <line x1="70" y1="210" x2="340" y2="210" stroke="#334155" stroke-width="2"/>
+  <line x1="70" y1="240" x2="340" y2="240" stroke="#334155" stroke-width="2"/>
+  <line x1="160" y1="150" x2="160" y2="270" stroke="#334155" stroke-width="2"/>
+  <line x1="250" y1="150" x2="250" y2="270" stroke="#334155" stroke-width="2"/>
+
+  <!-- Attributes -->
+  <text x="115" y="170" fill="#a7f3d0" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">Age(V1)</text>
+  <text x="205" y="170" fill="#a7f3d0" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">Gender(V2)</text>
+  <text x="295" y="170" fill="#a7f3d0" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">Price(V3)</text>
+
+  <!-- Vectors -->
+  <text x="115" y="200" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">24</text>
+  <text x="205" y="200" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">1</text>
+  <text x="295" y="200" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">3500</text>
+  <text x="115" y="230" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">45</text>
+  <text x="205" y="230" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">0</text>
+  <text x="295" y="230" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">1200</text>
+
+  <text x="205" y="315" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">즉각적인 선형 대수 행렬 연산 연동</text>
+
+  <!-- Big Red Arrow cross over -->
+  <path d="M 380 210 L 420 210" stroke="#ef4444" stroke-width="3" stroke-dasharray="6,4"/>
+  <polygon points="415,205 425,210 415,215" fill="#ef4444"/>
+
+
+  <!-- Box 2: Unstructured Dimension Data -->
+  <rect x="440" y="80" width="310" height="260" fill="#1e293b" stroke="#ef4444" stroke-width="2" rx="6"/>
+  <text x="595" y="115" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">비정형 야생 데이터 (Unstructured Raw)</text>
+  <text x="595" y="135" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">차원/길이 모호 텐서 노이즈(Noise) 극대화</text>
+
+  <rect x="460" y="150" width="270" height="120" fill="#0f172a" stroke="#7f1d1d" stroke-width="2" rx="4" stroke-dasharray="2,2"/>
+  
+  <rect x="480" y="170" width="230" height="25" fill="#334155" rx="4"/>
+  <text x="600" y="187" fill="#fde68a" font-family="sans-serif" font-size="13" text-anchor="middle">"안녕하세요!! ㅋㅋㅎㅎ" (이모티콘, 오타)</text>
+  
+  <rect x="480" y="205" width="130" height="25" fill="#334155" rx="4"/>
+  <text x="545" y="222" fill="#fde68a" font-family="sans-serif" font-size="13" text-anchor="middle">"ㅇㅇ" (단답, 길이 단절)</text>
+
+  <rect x="480" y="240" width="180" height="25" fill="#334155" rx="4"/>
+  <text x="570" y="257" fill="#fde68a" font-family="sans-serif" font-size="13" text-anchor="middle">"환불해라진짜화난다" (띄어쓰기 붕괴)</text>
+
+  <text x="595" y="300" fill="#fca5a5" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">길이 비균등(Length Variant) 텐서 결함</text>
+  <text x="595" y="320" fill="#fca5a5" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">컴파일러 기반 단일 선형대수 연산 절대 불가</text>
+
+
+  <!-- Bottom Conclusion Banner -->
+  <rect x="50" y="360" width="700" height="50" fill="#334155" stroke="#fcd34d" stroke-width="2" rx="6"/>
+  <text x="400" y="390" fill="#fde68a" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">마이닝의 숙명적 병목 지점 : 엔트로피 극대화 상태의 비정형 코퍼스 덩어리들을 정형 행렬(Matrix)로 강제 정규 변환하는 징검다리 스텝</text>
+
+</svg>

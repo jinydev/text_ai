@@ -1,0 +1,68 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Softmax(소프트맥스) 함수 다중 클래스(Multi-class) 지수 기반 정규 변환기</text>
+
+  <!-- Step 1: Raw Logits -->
+  <rect x="40" y="80" width="160" height="280" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="8"/>
+  <text x="120" y="110" fill="#94a3b8" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">선형 로짓(Logit) 스코어</text>
+  
+  <rect x="60" y="130" width="120" height="30" fill="#334155" stroke="#fcd34d" stroke-width="1" rx="4"/>
+  <text x="120" y="150" fill="#fcd34d" font-family="monospace" font-size="14" text-anchor="middle">Z1 : 50.1 [정치]</text>
+
+  <rect x="60" y="170" width="120" height="30" fill="#334155" stroke="#94a3b8" stroke-width="1" rx="4"/>
+  <text x="120" y="190" fill="#e2e8f0" font-family="monospace" font-size="14" text-anchor="middle">Z2 : 20.2 [사회]</text>
+
+  <rect x="60" y="210" width="120" height="30" fill="#334155" stroke="#94a3b8" stroke-width="1" rx="4"/>
+  <text x="120" y="230" fill="#e2e8f0" font-family="monospace" font-size="14" text-anchor="middle">Z3 : 10.0 [경제]</text>
+
+  <rect x="60" y="250" width="120" height="30" fill="#334155" stroke="#94a3b8" stroke-width="1" rx="4"/>
+  <text x="120" y="270" fill="#e2e8f0" font-family="monospace" font-size="14" text-anchor="middle">Z4 :  2.0 [IT]</text>
+
+  <rect x="60" y="290" width="120" height="30" fill="#334155" stroke="#94a3b8" stroke-width="1" rx="4"/>
+  <text x="120" y="310" fill="#e2e8f0" font-family="monospace" font-size="14" text-anchor="middle">Z5 : -8.5 [스포츠]</text>
+
+  <path d="M 210 220 L 260 220" stroke="#64748b" stroke-width="3"/>
+  <polygon points="255,215 265,220 255,225" fill="#64748b"/>
+
+  <!-- Step 2: Softmax Core Equation -->
+  <rect x="270" y="130" width="220" height="180" fill="#4c1d95" stroke="#8b5cf6" stroke-width="2" rx="10"/>
+  <text x="380" y="165" fill="#ddd6fe" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Softmax 지수 필터망</text>
+
+  <text x="380" y="215" fill="#f8fafc" font-family="serif" font-size="24" font-weight="bold" text-anchor="middle">e ^ (Zi)</text>
+  <line x1="290" y1="230" x2="470" y2="230" stroke="#f8fafc" stroke-width="3"/>
+  <text x="380" y="260" fill="#cbd5e1" font-family="serif" font-size="24" font-weight="bold" text-anchor="middle">Σ e ^ (Zj)</text>
+  <text x="380" y="295" fill="#c4b5fd" font-family="sans-serif" font-size="12" text-anchor="middle">비율 정합 100% 압축 모델링</text>
+
+  <path d="M 500 220 L 560 220" stroke="#8b5cf6" stroke-width="3"/>
+  <polygon points="555,215 565,220 555,225" fill="#8b5cf6"/>
+
+  <!-- Step 3: Probabilities output distribution -->
+  <rect x="580" y="80" width="180" height="280" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="8"/>
+  <text x="670" y="110" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">확률 분할 매핑 (Prob)</text>
+
+  <!-- Prob distribution visuals -->
+  <!-- 1st is huge -->
+  <rect x="600" y="130" width="140" height="50" fill="#fcd34d" rx="4"/>
+  <text x="670" y="160" fill="#b45309" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">0.78 (78%)</text>
+  
+  <rect x="600" y="190" width="140" height="30" fill="#a7f3d0" rx="4"/>
+  <text x="670" y="210" fill="#064e3b" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">0.20 (20%)</text>
+
+  <rect x="600" y="230" width="140" height="20" fill="#10b981" rx="2"/>
+  <text x="670" y="245" fill="#ecfdf5" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">0.019 (1.9%)</text>
+
+  <rect x="600" y="260" width="140" height="15" fill="#059669" rx="2"/>
+  <text x="670" y="272" fill="#ecfdf5" font-family="monospace" font-size="10" text-anchor="middle">0.001</text>
+
+  <rect x="600" y="285" width="140" height="10" fill="#059669" rx="1"/>
+  <text x="670" y="295" fill="#ecfdf5" font-family="monospace" font-size="8" text-anchor="middle">~0</text>
+
+  <text x="670" y="340" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">합계계층 Σ = 1.0</text>
+
+  <!-- Footer description -->
+  <rect x="50" y="380" width="700" height="50" fill="#334155" stroke="#cbd5e1" stroke-width="2" rx="4"/>
+  <text x="400" y="402" fill="#f8fafc" font-family="sans-serif" font-size="13" text-anchor="middle">자연 상수 거듭제곱 모델 편향성에 의해 1등 다수결 레이블 점수가 현실 편차보다 압도적으로 거대하게 극대화(Maximize) 증폭되고</text>
+  <text x="400" y="420" fill="#f8fafc" font-family="sans-serif" font-size="13" text-anchor="middle">하위 클래스 잔여 확률들은 모두 배제 은닉되어 상호 배타성 분배 공리 체계를 확립해 내는 다중 클래스(Multi-class) 압축 변환 아키텍처</text>
+
+</svg>

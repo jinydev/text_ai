@@ -1,73 +1,68 @@
-<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="350" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">K-Fold 회전초밥 교차검증 (K=5 Roulette)</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">K-Fold 교차 검증(Cross Validation) : 동적 순환을 통한 평가 오차 상쇄 시스템 (K=5)</text>
 
-  <!-- Legend -->
-  <rect x="250" y="60" width="20" height="20" fill="#1e3a8a" rx="3"/>
-  <text x="280" y="75" fill="#93c5fd" font-family="sans-serif" font-size="14" text-anchor="start">Train (공부할 교과서)</text>
+  <rect x="50" y="70" width="100" height="240" fill="#1e293b" rx="4"/>
+  <text x="100" y="105" fill="#94a3b8" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">단위</text>
 
-  <rect x="450" y="60" width="20" height="20" fill="#064e3b" stroke="#34d399" stroke-width="2" rx="3"/>
-  <text x="480" y="75" fill="#6ee7b7" font-family="sans-serif" font-size="14" text-anchor="start">Valid (점수 낼 시험지)</text>
+  <!-- Fold Blocks -->
+  <text x="100" y="145" fill="#cbd5e1" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">Model 1회차</text>
+  <text x="100" y="185" fill="#cbd5e1" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">Model 2회차</text>
+  <text x="100" y="225" fill="#cbd5e1" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">Model 3회차</text>
+  <text x="100" y="265" fill="#cbd5e1" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">Model 4회차</text>
+  <text x="100" y="305" fill="#cbd5e1" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">Model 5회차</text>
 
-  <!-- K Fold Grid -->
   <!-- Iteration 1 -->
-  <text x="100" y="115" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="end">1회차 학습</text>
-  <rect x="120" y="100" width="100" height="25" fill="#1e3a8a"/>
-  <rect x="230" y="100" width="100" height="25" fill="#1e3a8a"/>
-  <rect x="340" y="100" width="100" height="25" fill="#1e3a8a"/>
-  <rect x="450" y="100" width="100" height="25" fill="#1e3a8a"/>
-  <rect x="560" y="100" width="100" height="25" fill="#064e3b" stroke="#34d399" stroke-width="2" stroke-dasharray="4,2"/>
-  <text x="700" y="115" fill="#6ee7b7" font-family="monospace" font-size="14" font-weight="bold" text-anchor="start">점수: 82%</text>
+  <rect x="180" y="125" width="100" height="30" fill="#10b981" stroke="#34d399" stroke-width="2" rx="2"/>
+  <text x="230" y="145" fill="#ecfdf5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Validation</text>
 
+  <rect x="290" y="125" width="410" height="30" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1" rx="2"/>
+  <text x="495" y="145" fill="#bfdbfe" font-family="sans-serif" font-size="12" text-anchor="middle">Train / 학습</text>
+
+  <text x="730" y="145" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">82 %</text>
 
   <!-- Iteration 2 -->
-  <text x="100" y="150" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="end">2회차 학습</text>
-  <rect x="120" y="135" width="100" height="25" fill="#1e3a8a"/>
-  <rect x="230" y="135" width="100" height="25" fill="#1e3a8a"/>
-  <rect x="340" y="135" width="100" height="25" fill="#1e3a8a"/>
-  <rect x="450" y="135" width="100" height="25" fill="#064e3b" stroke="#34d399" stroke-width="2" stroke-dasharray="4,2"/>
-  <rect x="560" y="135" width="100" height="25" fill="#1e3a8a"/>
-  <text x="700" y="150" fill="#6ee7b7" font-family="monospace" font-size="14" font-weight="bold" text-anchor="start">점수: 91%</text>
+  <rect x="180" y="165" width="100" height="30" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1" rx="2"/>
+  <rect x="290" y="165" width="100" height="30" fill="#10b981" stroke="#34d399" stroke-width="2" rx="2"/>
+  <text x="340" y="185" fill="#ecfdf5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Validation</text>
+  <rect x="400" y="165" width="300" height="30" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1" rx="2"/>
 
+  <text x="730" y="185" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">91 %</text>
 
   <!-- Iteration 3 -->
-  <text x="100" y="185" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="end">3회차 학습</text>
-  <rect x="120" y="170" width="100" height="25" fill="#1e3a8a"/>
-  <rect x="230" y="170" width="100" height="25" fill="#1e3a8a"/>
-  <rect x="340" y="170" width="100" height="25" fill="#064e3b" stroke="#34d399" stroke-width="2" stroke-dasharray="4,2"/>
-  <rect x="450" y="170" width="100" height="25" fill="#1e3a8a"/>
-  <rect x="560" y="170" width="100" height="25" fill="#1e3a8a"/>
-  <text x="700" y="185" fill="#6ee7b7" font-family="monospace" font-size="14" font-weight="bold" text-anchor="start">점수: 88%</text>
+  <rect x="180" y="205" width="210" height="30" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1" rx="2"/>
+  <rect x="400" y="205" width="100" height="30" fill="#10b981" stroke="#34d399" stroke-width="2" rx="2"/>
+  <text x="450" y="225" fill="#ecfdf5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Validation</text>
+  <rect x="510" y="205" width="190" height="30" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1" rx="2"/>
 
+  <text x="730" y="225" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">88 %</text>
 
   <!-- Iteration 4 -->
-  <text x="100" y="220" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="end">4회차 학습</text>
-  <rect x="120" y="205" width="100" height="25" fill="#1e3a8a"/>
-  <rect x="230" y="205" width="100" height="25" fill="#064e3b" stroke="#34d399" stroke-width="2" stroke-dasharray="4,2"/>
-  <rect x="340" y="205" width="100" height="25" fill="#1e3a8a"/>
-  <rect x="450" y="205" width="100" height="25" fill="#1e3a8a"/>
-  <rect x="560" y="205" width="100" height="25" fill="#1e3a8a"/>
-  <text x="700" y="220" fill="#6ee7b7" font-family="monospace" font-size="14" font-weight="bold" text-anchor="start">점수: 85%</text>
+  <rect x="180" y="245" width="320" height="30" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1" rx="2"/>
+  <rect x="510" y="245" width="100" height="30" fill="#10b981" stroke="#34d399" stroke-width="2" rx="2"/>
+  <text x="560" y="265" fill="#ecfdf5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Validation</text>
+  <rect x="620" y="245" width="80" height="30" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1" rx="2"/>
 
+  <text x="730" y="265" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">85 %</text>
 
   <!-- Iteration 5 -->
-  <text x="100" y="255" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="end">5회차 학습</text>
-  <rect x="120" y="240" width="100" height="25" fill="#064e3b" stroke="#34d399" stroke-width="2" stroke-dasharray="4,2"/>
-  <rect x="230" y="240" width="100" height="25" fill="#1e3a8a"/>
-  <rect x="340" y="240" width="100" height="25" fill="#1e3a8a"/>
-  <rect x="450" y="240" width="100" height="25" fill="#1e3a8a"/>
-  <rect x="560" y="240" width="100" height="25" fill="#1e3a8a"/>
-  <text x="700" y="255" fill="#6ee7b7" font-family="monospace" font-size="14" font-weight="bold" text-anchor="start">점수: 95%</text>
+  <rect x="180" y="285" width="430" height="30" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1" rx="2"/>
+  <rect x="620" y="285" width="80" height="30" fill="#10b981" stroke="#34d399" stroke-width="2" rx="2"/>
+  <text x="660" y="305" fill="#ecfdf5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Val</text>
 
-  <!-- Final Calculation -->
-  <path d="M 750 265 L 750 280 L 730 280" stroke="#fca5a5" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <text x="730" y="305" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">95 %</text>
 
-  <rect x="450" y="280" width="280" height="50" fill="#450a0a" stroke="#ef4444" stroke-width="3" rx="5"/>
-  <text x="590" y="300" fill="#fef2f2" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">5개 점수 통합 평균내기!</text>
-  <text x="590" y="320" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">최종 진실의 성적표: 88.2%</text>
+  <!-- Summary Output Arrow-->
+  <path d="M 730 330 L 730 360" stroke="#fcd34d" stroke-width="4"/>
+  <polygon points="720,350 730,365 740,350" fill="#fcd34d"/>
 
-  <text x="260" y="315" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">시험지(Valid) 역할을 5칸의 블럭들이 공평하게 번갈아가면서 대타를 침으로써</text>
-  <text x="260" y="330" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">우연히 발생하는 억까폭탄(나쁜 난이도 운빨) 오류를 완벽히 상쇄 분산시킵니다.</text>
+  <!-- Integration / Assessment Block -->
+  <rect x="180" y="370" width="600" height="60" fill="#064e3b" stroke="#10b981" stroke-width="3" rx="8"/>
+  <text x="480" y="395" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">K=5 개의 결과 집계 및 통합 평균 도출</text>
+  <text x="480" y="415" fill="#f8fafc" font-family="sans-serif" font-size="13" text-anchor="middle">우발적으로 쏟아졌던 극단 함정 지표 편향들이 1/K 회전 결합으로 강구 유연하게 상쇄됨!</text>
+  <text x="720" y="405" fill="#fcd34d" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">88.2 %</text>
+
+  <text x="400" y="345" fill="#94a3b8" font-family="sans-serif" font-size="12" font-style="italic" text-anchor="middle">마치 회전초밥처럼 K개의 데이터 파편 블록들이 대타를 교대하며 검증 구역을 스케줄링 방어</text>
 
 </svg>

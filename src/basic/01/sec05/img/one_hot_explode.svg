@@ -1,42 +1,51 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">원-핫 인코딩의 파멸: 100만 차원(Dimension) RAM 메모리 펑크!</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Sparsity Matrix Disaster: 원-핫 인코딩 차원 배열 변환에 따른 RAM OOM 폭발 매커니즘</text>
 
-  <!-- Single Variable Representation -->
-  <rect x="50" y="100" width="100" height="60" fill="#1e293b" stroke="#f59e0b" stroke-width="2" rx="5"/>
-  <text x="100" y="135" fill="#fcd34d" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">"사과"</text>
-  <text x="100" y="155" fill="#fcd34d" font-family="sans-serif" font-size="12" text-anchor="middle">단어 1개</text>
-
-  <path d="M 160 130 L 210 130" stroke="#f43f5e" stroke-width="4" marker-end="url(#arrow)"/>
-  <text x="185" y="120" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">One-hot 변환</text>
-
-  <!-- Massive Array Representation -->
-  <rect x="230" y="100" width="520" height="60" fill="#450a0a" stroke="#ef4444" stroke-width="3" rx="5"/>
+  <!-- Top description -->
+  <text x="400" y="80" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">전체 한국어 코퍼스 Voca Token = 약 1,000,000 차원 세팅 시</text>
   
-  <rect x="240" y="110" width="30" height="40" fill="#0f172a" stroke="#ef4444" stroke-width="1" rx="2"/>
-  <text x="255" y="135" fill="#ef4444" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">0</text>
-
-  <rect x="280" y="110" width="30" height="40" fill="#0f172a" stroke="#ef4444" stroke-width="1" rx="2"/>
-  <text x="295" y="135" fill="#ef4444" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">0</text>
-
-  <rect x="320" y="110" width="30" height="40" fill="#0f172a" stroke="#ef4444" stroke-width="1" rx="2"/>
-  <text x="335" y="135" fill="#ef4444" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">0</text>
-
-  <!-- The "1" -->
-  <rect x="360" y="105" width="40" height="50" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="2"/>
-  <text x="380" y="135" fill="#34d399" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">1</text>
-  <text x="380" y="175" fill="#10b981" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">(사과 위치)</text>
-
-  <text x="430" y="135" fill="#ef4444" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">0</text>
-  <text x="460" y="135" fill="#ef4444" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">0</text>
-  <text x="490" y="135" fill="#ef4444" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">0</text>
-
-  <text x="590" y="135" fill="#fca5a5" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">무한히 쪼개진 영(Zero)의 늪...</text>
+  <rect x="60" y="110" width="680" height="150" fill="#1e293b" stroke="#ef4444" stroke-width="2" rx="6"/>
   
-  <text x="690" y="180" fill="#ef4444" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">총 1,000,000 칸 배열 폭발</text>
+  <text x="400" y="140" fill="#fca5a5" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">v['사과'] 변환 시퀀스 차원 메모리 할당 블록 덤프 로딩 (1차원 1M Columns)</text>
 
-  <text x="400" y="250" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">국어사전에 존재하는 모든 고유 단어(Unique Token)의 개수만큼 가로 길이가 미친듯이 끝없이 팽창합니다.</text>
-  <text x="400" y="275" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">단어 간격은 서로 기하학적으로 철저히 직교(Orthogonal)하여 단어간 '유사성' 연산이 원천 봉쇄됩니다.</text>
+  <!-- Big continuous memory bar -->
+  <rect x="80" y="160" width="640" height="60" fill="#0f172a" stroke="#64748b" stroke-width="1" rx="4"/>
+  <line x1="80" y1="190" x2="720" y2="190" stroke="#334155" stroke-width="1"/>
+
+  <!-- Zero Blocks -->
+  <rect x="80" y="160" width="100" height="60" fill="#0f172a" stroke="#475569" stroke-width="2" rx="4" opacity="0.6"/>
+  <text x="130" y="195" fill="#64748b" font-family="monospace" font-size="16" text-anchor="middle">0 0 0 ...</text>
+
+  <text x="210" y="195" fill="#64748b" font-family="monospace" font-size="18" text-anchor="middle">... 연속 0 노이즈 ...</text>
+
+  <!-- Red Target Block -->
+  <rect x="330" y="160" width="60" height="60" fill="#7f1d1d" stroke="#fca5a5" stroke-width="3" rx="4"/>
+  <text x="360" y="200" fill="#fca5a5" font-family="monospace" font-size="24" font-weight="bold" text-anchor="middle">1</text>
+  
+  <!-- Red Indicator bubble -->
+  <path d="M 360 145 L 360 160" stroke="#fca5a5" stroke-width="2"/>
+  <polygon points="355,155 365,155 360,165" fill="#fca5a5"/>
+  <text x="360" y="135" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Index Target</text>
+
+
+  <!-- Zeros again -->
+  <text x="450" y="195" fill="#64748b" font-family="monospace" font-size="18" text-anchor="middle">... 99만 9천 칸 연속 쓰레기 0 치환 ...</text>
+
+  <rect x="620" y="160" width="100" height="60" fill="#0f172a" stroke="#475569" stroke-width="2" rx="4" opacity="0.6"/>
+  <text x="670" y="195" fill="#64748b" font-family="monospace" font-size="16" text-anchor="middle">... 0 0 0</text>
+
+
+  <!-- Warning Block -->
+  <rect x="250" y="280" width="300" height="50" fill="#450a0a" stroke="#ef4444" stroke-width="2" rx="6"/>
+  <circle cx="280" cy="305" r="12" fill="#ef4444"/>
+  <text x="280" y="309" fill="#fff" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">!</text>
+  <text x="410" y="300" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Out Of Memory (OOM) 발생</text>
+  <text x="410" y="320" fill="#fecaca" font-family="sans-serif" font-size="12" text-anchor="middle">차원 폭주로 GPU Memory Allocation 실패 한계</text>
+
+  <!-- Bottom Conclusion Banner -->
+  <rect x="50" y="360" width="700" height="50" fill="#334155" stroke="#f59e0b" stroke-width="2" rx="6"/>
+  <text x="400" y="390" fill="#fde68a" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">메모리 증발 파이프라인: 의미 스페이스는 단지 점유율 1개(0.0001%)이고 나머지 99.999%가 쓰레기</text>
 
 </svg>

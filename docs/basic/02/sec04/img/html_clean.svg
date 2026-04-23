@@ -1,22 +1,41 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">2단계. 정제 (Cleaning) 쓰레기 소각장: HTML 태그와 오물 제거</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">2단계. 정제(Cleaning) 및 비정형 노이즈 탈각 (Noise Regex Filtering)</text>
 
-  <!-- Dirty Data -->
-  <rect x="50" y="100" width="300" height="100" fill="#450a0a" stroke="#ef4444" stroke-width="2" rx="5"/>
-  <text x="200" y="130" fill="#fca5a5" font-family="monospace" font-size="16" text-anchor="middle">&lt;html&gt;&lt;body&gt;안녕하세요!&lt;/div&gt;</text>
-  <text x="200" y="160" fill="#fca5a5" font-family="monospace" font-size="16" text-anchor="middle">- ㅅ -;;;; ㅋㅋㅋㅋ @!#$</text>
-  <text x="200" y="230" fill="#ef4444" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">스크래핑 직후의 처참한 쓰레기 문자열</text>
+  <rect x="150" y="80" width="500" height="50" fill="#1e293b" stroke="#475569" stroke-width="2" rx="4"/>
+  <text x="400" y="110" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">&lt;div class="red"&gt; 애플 🍎 주식 진짜 대박이네~!!! 👍^^ &lt;/div&gt;</text>
 
-  <!-- Laser / Regular Expression -->
-  <path d="M 360 150 L 460 150" stroke="#f59e0b" stroke-width="6" stroke-dasharray="8,4" marker-end="url(#arrow)"/>
-  <rect x="360" y="120" width="100" height="20" fill="#fcd34d" rx="2"/>
-  <text x="410" y="135" fill="#854d0e" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">정규식 레이저빔</text>
 
-  <!-- Cleaned Data -->
-  <rect x="490" y="100" width="260" height="100" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="5"/>
-  <text x="620" y="145" fill="#6ee7b7" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">안녕하세요 ㅋㅋㅋㅋ</text>
-  <text x="620" y="230" fill="#10b981" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">AI가 이해할 수 있는 알맹이 글자만 남음</text>
+  <!-- Noise Filter Action -->
+  <path d="M 400 140 L 400 170" stroke="#f59e0b" stroke-width="3" stroke-dasharray="4,4"/>
+  <polygon points="395,165 400,175 405,165" fill="#f59e0b"/>
+
+  <rect x="100" y="190" width="600" height="150" fill="#0f172a" stroke="#fcd34d" stroke-width="2" rx="6"/>
+  <text x="400" y="215" fill="#fde68a" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">정규 표현식(Regular Expression) 치환 필터 컴파일망</text>
+
+  <!-- Rules -->
+  <rect x="120" y="230" width="170" height="40" fill="#451a03" rx="4"/>
+  <text x="205" y="255" fill="#fcd34d" font-family="monospace" font-size="12" text-anchor="middle">1. HTML 돔 태그 삭제</text>
+
+  <text x="205" y="295" fill="#94a3b8" font-family="monospace" font-size="14" text-decoration="line-through" text-anchor="middle">&lt;div /&gt;</text>
+
+  <rect x="315" y="230" width="170" height="40" fill="#451a03" rx="4"/>
+  <text x="400" y="255" fill="#fcd34d" font-family="monospace" font-size="12" text-anchor="middle">2. 특수기호/이모지 삭제</text>
+
+  <text x="400" y="295" fill="#94a3b8" font-family="monospace" font-size="14" text-decoration="line-through" text-anchor="middle">🍎 !!! 👍^^</text>
+
+  <rect x="510" y="230" width="170" height="40" fill="#451a03" rx="4"/>
+  <text x="595" y="255" fill="#fcd34d" font-family="monospace" font-size="12" text-anchor="middle">3. 공백(Space) 정규화</text>
+
+  <text x="595" y="295" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">\n \t -> " "</text>
+
+
+  <!-- Cleaned Output -->
+  <path d="M 400 350 L 400 380" stroke="#10b981" stroke-width="3"/>
+  <polygon points="395,375 400,385 405,375" fill="#10b981"/>
+
+  <rect x="150" y="390" width="500" height="40" fill="#064e3b" stroke="#34d399" stroke-width="2" rx="4"/>
+  <text x="400" y="415" fill="#a7f3d0" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">"애플 주식 진짜 대박이네~"</text>
 
 </svg>

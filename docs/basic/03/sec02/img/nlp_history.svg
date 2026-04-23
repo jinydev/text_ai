@@ -1,0 +1,41 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <!-- Title -->
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="22" font-weight="bold" text-anchor="middle">고전 NLP 기술 발전 단계 (Evolution Timeline)</text>
+
+  <!-- Base Timeline -->
+  <line x1="80" y1="100" x2="720" y2="100" stroke="#334155" stroke-width="6" stroke-linecap="round" />
+
+  <!-- Node 1 -->
+  <circle cx="150" cy="100" r="16" fill="#14b8a6"/>
+  <line x1="150" y1="116" x2="150" y2="150" stroke="#14b8a6" stroke-width="3" stroke-dasharray="4,4"/>
+  <rect x="50" y="150" width="200" height="110" fill="#1e293b" stroke="#14b8a6" stroke-width="2" rx="8"/>
+  <text x="150" y="180" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">1. One-hot 인코딩</text>
+  <text x="150" y="210" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">"단어가 있는가? (1/0)"</text>
+  <text x="150" y="235" fill="#5eead4" font-family="sans-serif" font-size="13" text-anchor="middle">가장 원시적인 이진 변환</text>
+
+  <!-- Node 2 -->
+  <circle cx="400" cy="100" r="16" fill="#3b82f6"/>
+  <line x1="400" y1="116" x2="400" y2="150" stroke="#3b82f6" stroke-width="3" stroke-dasharray="4,4"/>
+  <rect x="300" y="150" width="200" height="110" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="8"/>
+  <text x="400" y="180" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">2. BoW (Bag of Words)</text>
+  <text x="400" y="210" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">"몇 번 등장했는가?"</text>
+  <text x="400" y="235" fill="#93c5fd" font-family="sans-serif" font-size="13" text-anchor="middle">절대적 출현 빈도수 합산</text>
+
+  <!-- Node 3 -->
+  <circle cx="650" cy="100" r="16" fill="#8b5cf6"/>
+  <line x1="650" y1="116" x2="650" y2="150" stroke="#8b5cf6" stroke-width="3" stroke-dasharray="4,4"/>
+  <rect x="550" y="150" width="200" height="110" fill="#1e293b" stroke="#8b5cf6" stroke-width="2" rx="8"/>
+  <text x="650" y="180" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">3. TF-IDF</text>
+  <text x="650" y="210" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">"얼마나 중요한 핵심인가?"</text>
+  <text x="650" y="235" fill="#c4b5fd" font-family="sans-serif" font-size="13" text-anchor="middle">희귀 단어별 가중치 최적화</text>
+
+  <!-- Flow Arrows -->
+  <path d="M 175 100 L 375 100" stroke="#14b8a6" stroke-width="6" stroke-linecap="round"/>
+  <polygon points="365,92 380,100 365,108" fill="#14b8a6"/>
+  
+  <path d="M 425 100 L 625 100" stroke="#3b82f6" stroke-width="6" stroke-linecap="round"/>
+  <polygon points="615,92 630,100 615,108" fill="#3b82f6"/>
+</svg>

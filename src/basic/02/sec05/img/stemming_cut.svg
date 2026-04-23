@@ -1,37 +1,49 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">어간 추출 (Stemming): 무자비한 기계식 꼬리 자르기</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">기계적 하드 차원 절단 연산: 템플릿 기반 어간 추출 (Stemming Algorithm)</text>
 
-  <!-- Word 1 -->
-  <text x="250" y="110" fill="#cbd5e1" font-family="monospace" font-size="26" font-weight="bold" text-anchor="middle">f o r m a l <tspan fill="#ef4444">i z e</tspan></text>
+  <!-- Rule Based Filter -->
+  <rect x="250" y="80" width="300" height="50" fill="#450a0a" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="400" y="110" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Porter Stemmer 하드코딩 룰셋 정규식 (사전 DB 없음)</text>
   
-  <path d="M 310 70 L 310 130" stroke="#f59e0b" stroke-width="4" stroke-dasharray="5,5"/>
-  <rect x="290" y="50" width="10" height="30" fill="#94a3b8" rx="2" transform="rotate(20 295 65)"/> <!-- Knife/Axe -->
-  <rect x="280" y="40" width="20" height="20" fill="#cbd5e1" transform="rotate(20 290 50)"/>
+  <rect x="300" y="140" width="200" height="30" fill="#1e293b" rx="4"/>
+  <text x="400" y="160" fill="#cbd5e1" font-family="monospace" font-size="12" text-anchor="middle">If text.endsWith("ize") -> Cut()</text>
+
+  <!-- Input to Output 1 -->
+  <rect x="250" y="200" width="120" height="40" fill="#1e3a8a" rx="4"/>
+  <text x="310" y="225" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">formalize</text>
+
+  <path d="M 370 220 L 420 220" stroke="#fcd34d" stroke-width="3" stroke-dasharray="4,4"/>
+  <polygon points="415,215 425,220 415,225" fill="#fcd34d"/>
+
+  <rect x="430" y="200" width="120" height="40" fill="#064e3b" stroke="#10b981" rx="4"/>
+  <text x="490" y="225" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">formal</text>
+
+  <!-- Splitting error visual -->
+  <rect x="560" y="205" width="40" height="30" fill="#450a0a" rx="4"/>
+  <text x="580" y="225" fill="#ef4444" font-family="monospace" font-size="14" text-decoration="line-through" text-anchor="middle">ize</text>
   
-  <!-- Word 2 -->
-  <text x="250" y="190" fill="#cbd5e1" font-family="monospace" font-size="26" font-weight="bold" text-anchor="middle">a l l o w <tspan fill="#ef4444">a n c e</tspan></text>
-  
-  <path d="M 300 150 L 300 210" stroke="#f59e0b" stroke-width="4" stroke-dasharray="5,5"/>
 
-  <!-- Output Arrow -->
-  <path d="M 400 100 L 500 100" stroke="#3b82f6" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M 400 180 L 500 180" stroke="#3b82f6" stroke-width="4" marker-end="url(#arrow)"/>
+  <!-- Input to Output 2: Meaning Destruction -->
+  <rect x="250" y="260" width="120" height="40" fill="#1e3a8a" rx="4"/>
+  <text x="310" y="285" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">allowance</text>
 
-  <!-- Output Stem -->
-  <rect x="520" y="80" width="150" height="40" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="5"/>
-  <text x="595" y="107" fill="#6ee7b7" font-family="monospace" font-size="22" font-weight="bold" text-anchor="middle">formal</text>
-
-  <rect x="520" y="160" width="150" height="40" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="5"/>
-  <text x="595" y="187" fill="#6ee7b7" font-family="monospace" font-size="22" font-weight="bold" text-anchor="middle">allow</text>
-
-  <rect x="680" y="120" width="100" height="30" fill="#7f1d1d" rx="3"/>
-  <text x="730" y="140" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">ize / ance 찌꺼기</text>
-  <path d="M 330 100 L 680 130" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"/>
-  <path d="M 330 180 L 680 140" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"/>
+  <rect x="300" y="310" width="200" height="20" fill="#1e293b" rx="4"/>
+  <text x="400" y="325" fill="#cbd5e1" font-family="monospace" font-size="10" text-anchor="middle">If text.endsWith("ance") -> Cut()</text>
 
 
-  <text x="400" y="260" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">사전을 찾지 않습니다. 그저 "영어 단어 맨 뒤에 'ize'나 'ance'가 오면 부가 기능이니 썰어버려!" 라는</text>
-  <text x="400" y="280" fill="#f87171" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">단순무식한 꼬리표 알고리즘으로 극단적 속도를 챙깁니다. (단점: 잘려 나간 단어가 사전에 없는 외계어가 될 수도 있음)</text>
+  <path d="M 370 280 L 420 280" stroke="#fcd34d" stroke-width="3" stroke-dasharray="4,4"/>
+  <polygon points="415,275 425,280 415,285" fill="#fcd34d"/>
+
+  <rect x="430" y="260" width="120" height="40" fill="#7f1d1d" stroke="#ef4444" rx="4"/>
+  <text x="490" y="285" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">allow</text>
+  <text x="490" y="350" fill="#fecaca" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">!!의미망 단절 Semantic Loss 파괴!!</text>
+  <text x="490" y="365" fill="#fecaca" font-family="sans-serif" font-size="12" text-anchor="middle">(허락 -> 용돈 완전히 뜻이 분기됨)</text>
+
+
+  <!-- Bottom Conclusion Banner -->
+  <rect x="50" y="390" width="700" height="40" fill="#334155" stroke="#ef4444" stroke-width="2" rx="6"/>
+  <text x="400" y="415" fill="#fca5a5" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">어간 추출(Stemming)의 Trade-off: 사전 검색망 API를 쓰지 않아 CPU 연산 스피드는 극대화되나, 뜻과 스펠링이 훼손되는 오류 감수</text>
+
 </svg>

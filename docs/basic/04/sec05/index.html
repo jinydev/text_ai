@@ -5,26 +5,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>채점관 PPL과 분기 수학</title>
-  <meta name="title" content="채점관 PPL과 분기 수학" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="채점관 PPL과 분기 수학"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
+  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>정량적 통계 평가 지표 PPL</title>
+  <meta name="title" content="정량적 통계 평가 지표 PPL" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="정량적 통계 평가 지표 PPL"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="http://localhost:4001/basic/04/sec05/">
+  <meta property="og:url" content="https://text.ai.jiny.dev/basic/04/sec05/">
 
-  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="채점관 PPL과 분기 수학"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="정량적 통계 평가 지표 PPL"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="채점관 PPL과 분기 수학" />
+<meta property="og:title" content="정량적 통계 평가 지표 PPL" />
 <meta name="author" content="Hojin" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="http://localhost:4001/basic/04/sec05/" />
-<meta property="og:url" content="http://localhost:4001/basic/04/sec05/" />
+<link rel="canonical" href="https://text.ai.jiny.dev/basic/04/sec05/" />
+<meta property="og:url" content="https://text.ai.jiny.dev/basic/04/sec05/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="채점관 PPL과 분기 수학" />
+<meta property="twitter:title" content="정량적 통계 평가 지표 PPL" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"채점관 PPL과 분기 수학","url":"http://localhost:4001/basic/04/sec05/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"정량적 통계 평가 지표 PPL","url":"https://text.ai.jiny.dev/basic/04/sec05/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -822,7 +822,7 @@
         
         
         
-        <li class="breadcrumb-item active" aria-current="page">채점관 PPL과 분기 수학</li>
+        <li class="breadcrumb-item active" aria-current="page">정량적 통계 평가 지표 PPL</li>
         
         
         
@@ -830,100 +830,104 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="45-언어-모델의-가혹한-채점관-perplexity-ppl-와-분기수학">4.5 언어 모델의 가혹한 채점관: Perplexity (PPL) 와 분기수학</h1>
+            <h1 id="45-언어-생성-모델-고유의-정량적-평가-지표-혼란도perplexity와-분기-기하학">4.5 언어 생성 모델 고유의 정량적 평가 지표: 혼란도(Perplexity)와 분기 기하학</h1>
 
-<p>우리가 앞서 수학적으로 만든 단어 찍기 통계 확률 모델이 구글 검색엔진에 상용화될 만큼 훌륭한 문장을 만들어 내는지, 기계 구조적으로 점수를 판별하여 채점하는 척도가 필요합니다. 정답이 아예 정해져 있지 않은 자연어 텍스트 도메인을 마치 객관식 수학처럼 채점해 내는 우아하고 무서운 수학 지표 <strong>PPL(혼란 분기 계수)</strong> 공식을 파헤쳐 봅니다.</p>
+<p>앞서 우리는 고도의 통계 수식을 통해 연속적인 문맥 시퀀스를 예측하고 텍스트를 파생시키는 마르코프 기반 모델의 본질을 파헤쳤습니다. 그렇다면 이렇게 구축된 확률 모델이 구글 검색엔진에 상용화될 잠재력을 지닐 정도로 훌륭한 문장을 생성해 내고 있는지, 인간의 직관이 아닌 <strong>기계 구조적으로 점수를 판별하여 채점하는 정량적 척도(Quantitative Evaluation Metric)</strong> 가 반드시 수반되어야 합니다.</p>
+
+<p>정답이 아예 고정되어 있지 않은 무한한 자유도의 자연어 텍스트 도메인 환경을, 마치 객관식 수학 시험지 채점하듯 치밀하게 환산해 내는 언어 마이닝의 절대 지표 <strong>PPL(혼란 분기 계수)</strong> 이론을 분석해 봅니다.</p>
 
 <hr />
 
-<h2 id="451-성능-평가의-기준-구조적-차이-객체-탐지-vs-언어-채점">4.5.1 성능 평가의 기준 구조적 차이: 객체 탐지 vs 언어 채점</h2>
+<h2 id="451-성능-평가-기준의-패러다임-차이-이진-분류vision-vs-연속-생성nlp">4.5.1 성능 평가 기준의 패러다임 차이: 이진 분류(Vision) vs 연속 생성(NLP)</h2>
 
-<p>자연어 모델은 평가 메커니즘 자체가 이미지를 처리하는 컴퓨터 비전(Vision) AI와 아예 궤를 달리할 수밖에 없습니다.</p>
+<p>우선, 자연어 생성 모델(NLG)은 평가 메커니즘 자체가 이미지를 처리하는 고전적인 컴퓨터 비전(Vision) AI 분류기와는 궤를 완전히 달리해야만 합니다.</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">모델 생태계</th>
-      <th style="text-align: left">시험 문제의 형태</th>
-      <th style="text-align: left">특징과 채점 방식</th>
+      <th style="text-align: center">평가 대상 도메인</th>
+      <th style="text-align: left">수학적 시험의 형태</th>
+      <th style="text-align: left">특징과 채점 메커니즘 (Evaluation Process)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: center"><strong>컴퓨터 비전 (객체 탐지)</strong></td>
-      <td style="text-align: left"><strong>객관식 O/X 시험</strong> (정답 딱 1개)</td>
-      <td style="text-align: left">(강아지 사진을 보여주며) 컴퓨터가 <code class="language-plaintext highlighter-rouge">강아지</code>라고 맞히면 <code class="language-plaintext highlighter-rouge">100점</code>, <code class="language-plaintext highlighter-rouge">고양이</code>나 <code class="language-plaintext highlighter-rouge">오리</code>라고 오답을 말하면 가차 없이 <code class="language-plaintext highlighter-rouge">0점</code>! 매우 직관적이고 칼같은 산술 채점.</td>
+      <td style="text-align: left"><strong>이진 객관식 분류 (Classification)</strong></td>
+      <td style="text-align: left">(강아지 사진을 투입하며) 컴퓨터의 산출 벡터 레이블이 정답 <code class="language-plaintext highlighter-rouge">강아지(Dog)</code>와 완벽히 맵핑되면 <code class="language-plaintext highlighter-rouge">1점(100%)</code>, <code class="language-plaintext highlighter-rouge">고양이</code>나 그 외 오답 카테고리로 빗나가면 예외 없는 <code class="language-plaintext highlighter-rouge">0점</code> 처리. 직관적이고 경직된 산술 채점.</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>자연어 (확률 생성 모델)</strong></td>
-      <td style="text-align: left"><strong>무한 주관식 논술</strong> (정답 수만 개)</td>
-      <td style="text-align: left">“선생님이 교실로 부리나케 ( ? )” $\to$ 빈칸에 <code class="language-plaintext highlighter-rouge">달려갔다</code>, <code class="language-plaintext highlighter-rouge">뛰어갔다</code>, <code class="language-plaintext highlighter-rouge">도망갔다</code>, <code class="language-plaintext highlighter-rouge">향했다</code> 등 수백 개의 동사가 다 말이 됩니다. 객관식 O/X 채점이 수학적으로 완전 불가능합니다!</td>
+      <td style="text-align: center"><strong>자연어 처리 (언어 생성 모델)</strong></td>
+      <td style="text-align: left"><strong>무한 차원 주관식 논술 (Open-ended)</strong></td>
+      <td style="text-align: left">“선생님이 교실을 향해 부리나케 ( ? )” $\to$ 빈칸에 <code class="language-plaintext highlighter-rouge">달려갔다</code>, <code class="language-plaintext highlighter-rouge">뛰어갔다</code>, <code class="language-plaintext highlighter-rouge">도망갔다</code>, <code class="language-plaintext highlighter-rouge">이동했다</code> 등 수십 개의 동의어 및 파생 스크립트가 의미적으로 전부 유효합니다. 즉, 하드코딩된 이진 O/X 채점 공식이 수학적으로 원천 불가능합니다.</td>
     </tr>
   </tbody>
 </table>
 
 <hr />
 
-<h2 id="452-자연어-일대일11-정답-기반-평가의-산술적-붕괴">4.5.2 자연어 일대일(1:1) 정답 기반 평가의 산술적 붕괴</h2>
+<h2 id="452-자연어-일대일11-정답-패널티-평가의-산술적-붕괴">4.5.2 자연어 일대일(1:1) 정답 패널티 평가의 산술적 붕괴</h2>
 
-<p>이런 무한한 자연어의 자유도 환경에서, 만약 딱딱한 기존 컴퓨터 룰셋팅 방식처럼 <code class="language-plaintext highlighter-rouge">"밥을 먹었다"만을 유일한 100점 정답 표본</code> 으로 잡고 딥러닝 AI 채점 스크립트를 짜면 어떻게 될까요?</p>
+<p>이러한 무한한 자유도의 자연어 확률 환경에서, 만약 딱딱한 기존 룰셋 엔진 방식처럼 기준 표본을 좁혀 <code class="language-plaintext highlighter-rouge">"밥을 먹었다"</code> 만을 유일무이한 모델 100점 정답(Ground Truth)으로 세팅하고 채점 스크립트 모듈을 짜면 어떠한 파국이 일어날까요?</p>
 
-<p>모델 챗봇이 “식사를 성공적으로 마쳤다”라는 완벽한 문장 대답을 창조해도 기계는 <em>“스펠링 글자와 String Array가 다르다! 오답!”</em> 이라며 자비 없이 <code class="language-plaintext highlighter-rouge">0점 처리</code>를 해버립니다. 이런 빡빡한 방식으로 사람이 직접 모델 뒤에 따라다니며 일일이 읽어보고 채점하면 AI 연구 속도는 완전히 박살 나버립니다.</p>
+<p>모델 챗봇이 뛰어난 추론 능력으로 “식사를 성공적으로 마쳤다”라는, 의미적으로 완벽히 상응하는 세련된 텍스트 시퀀스를 출력하더라도, 평가 엔진 파이프라인은 단지 <em>“해시 스펠링 글자와 String Array 구조가 정답셋과 물리적으로 다르다!”</em> 라며 자비 없이 <code class="language-plaintext highlighter-rouge">0점(Loss)</code> 처리를 강제 배제해 버립니다. 이처럼 경직된 패널티 스코어링 방식으로 사람이 직접 일일이 모델의 산출물 전체를 리딩하고 채점하며 개입하게 된다면, 머신러닝의 학습 파라미터 갱신 속도(Iteration Velocity)는 구조적으로 마비될 수밖에 없습니다.</p>
 
 <hr />
 
-<h2 id="453-구세주의-등장-perplexity-ppl-의-철학">4.5.3 구세주의 등장: Perplexity (PPL) 의 철학</h2>
+<h2 id="453-정보-이론의-구원-혼란도-perplexity-ppl-의-철학적-의의">4.5.3 정보 이론의 구원: 혼란도, Perplexity (PPL) 의 철학적 의의</h2>
 
-<p>이러한 주관성 문제를 일거에 타개하기 위해 통계-정보이론 학계에서 꺼내온 절대적 평가 지표가 바로 PPL(Perplexity)입니다.</p>
+<p>자연어 도메인 고유의 주관적이고 무한한 생성 정답의 변동성 문제를 일거에 타개하기 위해, 통계학과 정보이론(Information Theory) 영역에서 차용해 온 절대적 채점 지표가 바로 PPL(Perplexity) 계량 시스템입니다.</p>
+
 <ul>
-  <li><strong>Perplexity (헷갈림, 당혹감)</strong>: 언어 모델이 다음 단어를 지칭할 때(예측 확률을 뿜어낼 때), <strong>얼마나 마음속으로 당황하지 않고 확신에 차서 정답의 확률 통계를 좁혀냈는가</strong>를 구체적인 숫자로 모니터링하는 심리 채점기입니다.</li>
-  <li>PPL 수치는 높을수록 헤매는 바보 멍청이 깡통입니다. <strong>숫자가 낮을수록(덜 헤맬수록) 절대적으로 우수한 성능의 언어 모델</strong>입니다!</li>
+  <li><strong>Perplexity (혼란도 / 헷갈림 계수)</strong>: 이는 언어 모델이 다음에 발화해야 할 Target 토큰(단어)을 지칭하고자 확률 밀도 스코어를 뿜어낼 때, <strong>“시스템 메모리 내부적으로 얼마나 당황(불확실성)하지 않고, 단호한 확신에 차서 정답의 교집합 확률 통계를 극단적으로 좁혀냈는가?”</strong>를 관측 가능한 구체적 실수치(Float)로 로깅(Logging)해내는 심리적 분기 채점기입니다.</li>
+  <li>수학적 특성상 PPL 수치가 높을수록 해당 모델은 방향을 상실하고 헤매는 ‘통계적 미숙아’ 상태를 증명합니다. 반대로 <strong>지표 숫자가 하단으로 낮아질수록(시스템 혼란이 0에 수렴할수록) 모델 내부에 정립된 가중치(Weight)의 확신도가 압도적으로 높고 성능이 옹골찬 우수 언어 생성 모델</strong>임을 수학적으로 보증받게 됩니다!</li>
 </ul>
 
 <p><img src="./img/ppl_branch.svg" alt="PPL Branch Factor" /></p>
 
 <blockquote>
-  <p>[!TIP]<br />
-<strong>📖 초심자를 위한 쉬운 해설: 머릿속 수만 개의 갈림길 방(Room)의 갯수</strong><br />
-PPL 지표는 곧 컴퓨터 공학의 <strong>분기 계수(Branching Factor)</strong>를 뜻합니다.<br />
-즉 문장을 1단어 1단어씩 생성할 때, 기계 머릿속에서 <strong>“음.. 이 다음에 타겟 단어로 쓸데없는 후보들이 내 보기에 총 몇 개나 활성화되어 있지?”</strong>라며 들고 있는 오지선다 보기 카드(분기)의 개수를 뜻합니다.</p>
+  <p>[!NOTE]<br />
+<strong>💡 분기 계수(Branching Factor)의 정보 공학적 해석</strong><br />
+PPL 지표 수치는 곧바로 컴퓨터 과학의 <strong>트리 분기 계수(Branching Factor)</strong> 통곗값과 동일한 맥락을 지닙니다.<br />
+즉, 문맥 시퀀스를 1 토큰(단어)씩 순차적으로 전진 생성해 나갈 때, 기계의 은닉 상태(Hidden State)에서 <strong>“이다음 Step으로 전진하기 위한 활성화 벡터 선택지 오답 함정들이(보기 문항들이) 총 몇 갈래의 확률 망으로 열려 있는가?”</strong> 에 대한 체감되는 경우의 가지 수를 의미합니다.</p>
+
   <ul>
-    <li><code class="language-plaintext highlighter-rouge">PPL = 1</code> : “무조건 100% 다음 단어는 이거야 다른 건 수학적으로 없어!” $\to$ 정답이 명확해 다른 보기를 생각조차 안 함 (확신의 천재)</li>
-    <li><code class="language-plaintext highlighter-rouge">PPL = 5,000</code> : “어… 다음 단어로 갈 수 있는 경우의 수가 너무 많은데 5,000갈래 중 어디로 가지?” $\to$ 이마에 땀을 뻘뻘 흘리는 수치 (방황하는 깡통 모델)</li>
+    <li><strong>설계 관측 <code class="language-plaintext highlighter-rouge">PPL = 1.2</code> (성능 극강)</strong> : “과거 데이터로 보건대 무조건 98% 확률로 다음 단어는 ‘사과’야. 나머지 희박한 보기는 수학적으로 배제한다!” $\to$ 정답 분포가 극도로 뾰족해(Sharp) 다른 가지 경로를 탐색조차 거부하는 통계적 확신의 상태.</li>
+    <li><strong>설계 관측 <code class="language-plaintext highlighter-rouge">PPL = 5,000</code> (성능 바닥)</strong> : “어… 다음 단어로 갈 수 있는 의미적 경우의 수가 너무 심하게 분산되는데, 5,000갈래 중 어디로 찍어 배정하지?” $\to$ 소프트맥스(Softmax) 확률 밀도 스코어가 완전히 평탄하게(Flat) 누워버려 시스템 내부 혼란이 폭발해 버린 무의미한 방황 수치.</li>
   </ul>
 </blockquote>
 
 <hr />
 
-<h2 id="454-perplexity-의-무시무시한-역수-연쇄-공식">4.5.4 Perplexity 의 무시무시한 역수 연쇄 공식</h2>
+<h2 id="454-perplexity-거대-연쇄-곱셈의-수학적-전개-공식">4.5.4 Perplexity 거대 연쇄 곱셈의 수학적 전개 공식</h2>
 
-<p>루트와 분수가 떠다니는 수식이지만 원리는 간단합니다. $N$개의 단어로 구성된 문장 $W$의 PPL(헷갈림 지수)은, <strong>각 단어가 뜰 확률($P$)의 교집합 곱들</strong>을 <strong>문장 전체 길이 수($N$)</strong>에 따라 기하평균을 낸 후, <strong>역전(역수 루트)</strong>을 취하여 뒤집어서 산출합니다.</p>
+<p>루트 기호와 분수 구조가 떠다니지만 이 수식의 철학적 원리는 매우 정제되어 있습니다. 전체 $N$개의 단어로 연속 직조된 테스트 문장 세트 $W$ 에 대한 전체 PPL(시스템 혼란 지수) 스택은, <strong>각 단위 토큰 토큰마다 기계가 뱉어낸 수학적 적중 확률값($P$)들의 교집합 연쇄 곱들</strong>을 <strong>테스트 문장의 절대적인 길이 차원수($N$)</strong>에 따라 기하평균(Geometric Mean) 정규화 처리를 해준 후, <strong>정보 엔트로피 부호 역전(역수 루트 처리)</strong>을 취하여 뒤집어 산출해 낸 최종 스코어 보드입니다.</p>
 
 \[PPL(W) = P(w_1, w_2, \dots, w_N)^{-\frac{1}{N}} = \sqrt[N]{\frac{1}{P(w_1, w_2, \dots, w_N)}}\]
 
-<p>우리가 배웠던 그 지독한 마르코프 체인 연쇄 곱셈 조건부 확률, $P(W) = \prod_{i=1}^N P(w_i \mid w_1, \dots, w_{i-1})$ 을 확률 공간 분모(루트의 바닥)에 집어넣어 최종 전개해 보면 아래와 같이 PPL 수식이 완벽히 수학적으로 귀결됩니다.</p>
+<p>이전 챕터에서 다루었던 그 고단한 마르코프 체인 연쇄 조건부 확률 알고리즘 방식인, $P(W) = \prod_{i=1}^N P(w_i \mid w_1, \dots, w_{i-1})$ 을 저 PPL 공식의 확률 분모(루트의 바닥 영역) 공간 속에 주사해 집어넣어 전개해 보면 널리 알려진 아래와 같은 실무 PPL 수식이 완벽히 수학적으로 귀결 정립됩니다.</p>
 
 \[\text{PPL}(W) = \sqrt[N]{\frac{1}{\prod_{i=1}^N P(w_i \mid w_1, \dots, w_{i-1})}}\]
 
 <hr />
 
-<h2 id="455-실전-지표-n-gram-체급별-헷갈림ppl-점수-채점표">4.5.5 실전 지표: N-gram 체급별 헷갈림(PPL) 점수 채점표</h2>
+<h2 id="455-통계적-실전-성능-지표-n-gram-차원-확장별-헷갈림ppl-점수-채점-추이">4.5.5 통계적 실전 성능 지표: N-gram 차원 확장별 헷갈림(PPL) 점수 채점 추이</h2>
 
-<p>실제로 2000년대 초기 영어권 월스트리트 저널의 코퍼스 3,800만 자 배열 훈련 데이터를 통과시킨 고전 통계 모델의 채점 성적표를 확인해 봅시다!</p>
+<p>그렇다면 실제 인공지능 연구 현장에서는 이 수치가 어떻게 변동될까요? 2000년대 초기 영어권 자연어 처리 학계의 표준 벤치마크셋이었던 방대한 월스트리트 저널(Wall Street Journal) 코퍼스 3,800만 단어 배열 훈련 데이터를 통과시킨 고전 통계 확률 체계 모델의 PPL 채점 성적표 로그를 확인해 봅니다.</p>
 
 <p><img src="./img/ngram_ppl_compare.svg" alt="N-gram PPL Score" /></p>
 
 <ol>
-  <li><strong>눈먼 장님 (Uni-gram, $N=1$)</strong>: 직전 과거의 단어를 아예 안 보고 현재 한 단어만으로 추측하는 무식한 단절 모델 
-$\to$ 채점 결과 PPL 기하평균 점수가 무려 <strong><code class="language-plaintext highlighter-rouge">962점(962 갈래)</code></strong> 이 뜹니다! (900개가 넘는 사지선다 객관식 보기 앞에서 식은땀을 흘리며 방황함)</li>
-  <li><strong>기초 렌즈 (Bi-gram, $N=2$)</strong>: 바로 앞 딱 1단어(역사)를 컨닝해서 두 단어의 확률 관계를 지어 본 기초 모델 
-$\to$ PPL 점수가 기하급수적으로 <strong><code class="language-plaintext highlighter-rouge">170점</code></strong> 으로 폭락(성능 진화)하며 안정을 찾습니다!</li>
-  <li><strong>지식의 안경 (Tri-gram, $N=3$)</strong>: 앞에 나온 무거운 두 개의 연속된 단어 맥락을 모두 외워 통계를 추측하는 양반 모델 
-$\to$ PPL 점수가 무려 <strong><code class="language-plaintext highlighter-rouge">109점</code></strong> 까지 극적으로 떨어지며 단어 생성에 대한 ‘통계적 확신’에 차오릅니다!</li>
+  <li><strong>Uni-gram ($N=1$ 차원)</strong>: 직전 과거의 역사적 문맥 변수를 아예 참조하지 않고 현재의 1차원 빈도 배열 하나만으로 추측을 산출하는 단절 시스템 모델입니다. 
+$\to$ 채점 결과 PPL 기하평균 점수가 무려 극단적인 <strong><code class="language-plaintext highlighter-rouge">962점(962 갈래의 분기)</code></strong> 이 출력됩니다. (사실상 900개가 넘는 사지선다 보기를 눈앞에 깔아두고 확률적 눈을 감은 채 식은땀을 흘리며 무작위로 찍어대는 절망적 혼란 상태를 증명합니다.)</li>
+  <li><strong>Bi-gram ($N=2$ 차원)</strong>: 바로 앞 1단어(최소한의 과거 의존성) 지표라도 컨닝하여 두 단어의 병렬 조건부 확률 묶음 관계를 지어 본 기초 마르코프 체계 모델입니다. 
+$\to$ PPL 점수 곡선이 기하급수적으로 폭락하여 <strong><code class="language-plaintext highlighter-rouge">170점</code></strong> 으로 파이프라인의 엄청난 안정 체계를 구축합니다! 앞 단어 변수라는 미약한 조건부 힌트가 들어오자마자 시스템의 분기 탐색 범위가 1/5 로 혁명적으로 줄어든 것입니다.</li>
+  <li><strong>Tri-gram ($N=3$ 차원)</strong>: 앞쪽에 도열된 무거운 두 개의 연속된 단어 시퀀스 맥락을 모두 메모리에 끌어올려 통계 교집합을 추측해 내는 고차원 윈도우 스코프 모델입니다. 
+$\to$ 여기서 PPL 점수가 더욱 하락하여 마침내 <strong><code class="language-plaintext highlighter-rouge">109점</code></strong> 에 도달하며 단어 토큰 생성 연산에 대한 ‘압도적인 통계적 확신’에 차오릅니다!</li>
 </ol>
 
-<p><strong>통계의 절대 결론</strong>: 문맥(앞 단어 기록) 히스토리를 1개에서 2단어, 3단어로 조금이라도 더 길게 외우고 눈치 본 모델일수록 컴퓨터의 헷갈림(PPL) 객관식 보기 지수는 놀라울 만큼 극적으로 안정화되며 무척 똑똑하게 진화합니다. 
-(그러나 앞 시퀀스를 다 외우면 Sparsity 차원의 저주가 뻗쳐버리니 딜레마에 빠지는 것입니다!)</p>
+<p><strong>통계의 패러독스와 절대 결론</strong>: N-gram 시퀀스 관측 스코프 창이 과거 히스토리 토큰을 1개에서 2개, 3개의 다차원으로 무겁게 외우고 스캔을 늘려 참조할수록 모델 컴퓨터의 혼란도 단위(PPL 객관식 분기 모수 지수)는 놀라울 정도로 극적이게 하락하며 모델은 똑똑해지고 진화합니다. 
+(그러나, 계속해서 문맥의 시각 스캐닝을 늘리며 장기 의존성 공식을 구축하려 욕심을 부리다 보면 앞서 전술했던 피할 수 없는 ‘Sparsity(희소성) 차원의 저주’가 뻗쳐버려 분할 에러가 터지고 마는 필연적 진퇴양난의 딜레마에 봉착하게 되는 것입니다!)</p>
 
 
             <!-- 이전/다음 페이징 출력 -->
@@ -962,10 +966,10 @@ $\to$ PPL 점수가 무려 <strong><code class="language-plaintext highlighter-r
 
             <!-- 구글 애드센스 출력 -->
             <div class="mt-5">
-                <!-- 구글 애드센스 (여기에 본인의 코드 입력) -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3321560028329475"
     crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"
+<!-- jinydev-java -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3321560028329475" data-ad-slot="9323221865"
     data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({});

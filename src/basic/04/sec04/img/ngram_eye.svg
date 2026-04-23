@@ -1,38 +1,56 @@
 <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
   <rect width="800" height="300" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">N-gram 타협의 마법: 과거를 싹둑 자르고 시야(N)를 스스로 제한하다</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">N-gram 마르코프 근사화: 연산 한계 돌파를 위한 과거 문맥의 영구 절단</text>
 
-  <!-- Full History Sentence -->
-  <rect x="50" y="120" width="400" height="60" fill="#1e293b" stroke="#475569" stroke-width="2" rx="5"/>
-  <text x="250" y="155" fill="#94a3b8" font-family="sans-serif" font-size="16" text-anchor="middle">"어제 전학을 온 안경 쓴 착한 little_boy"</text>
-  <text x="250" y="105" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">과거 히스토리 (전체 문맥)</text>
+  <!-- Total Sequence -->
+  <text x="50" y="90" fill="#94a3b8" font-family="sans-serif" font-size="14" font-weight="bold">전체 입력 시퀀스 W = ( w₁, w₂, w₃, w₄, w₅, w₆, w₇ )</text>
 
-  <!-- The Cut -->
-  <line x1="380" y1="80" x2="380" y2="200" stroke="#f43f5e" stroke-width="4" stroke-dasharray="8,4"/>
-  <text x="380" y="70" fill="#fca5a5" font-family="sans-serif" font-size="20" text-anchor="middle">✂️ 싹둑! (과거 망각)</text>
+  <!-- Word Blocks -->
+  <!-- Truncated Past -->
+  <rect x="50" y="110" width="80" height="40" fill="#334155" fill-opacity="0.3" rx="5"/>
+  <text x="90" y="135" fill="#64748b" font-family="sans-serif" font-size="14" text-anchor="middle">어제</text>
 
-  <!-- Kept Word (N=1) -->
-  <rect x="400" y="110" width="100" height="80" fill="#064e3b" stroke="#10b981" stroke-width="3" rx="5"/>
-  <text x="450" y="145" fill="#34d399" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">"boy"</text>
-  <text x="450" y="175" fill="#6ee7b7" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">직전 단어 1개</text>
+  <rect x="140" y="110" width="100" height="40" fill="#334155" fill-opacity="0.3" rx="5"/>
+  <text x="190" y="135" fill="#64748b" font-family="sans-serif" font-size="14" text-anchor="middle">미국에서</text>
 
-  <text x="530" y="155" fill="#10b981" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">+</text>
+  <rect x="250" y="110" width="80" height="40" fill="#334155" fill-opacity="0.3" rx="5"/>
+  <text x="290" y="135" fill="#64748b" font-family="sans-serif" font-size="14" text-anchor="middle">전학을</text>
 
-  <!-- Target Word -->
-  <rect x="570" y="120" width="80" height="60" fill="#1e3a8a" stroke="#3b82f6" stroke-width="2" rx="5"/>
-  <text x="610" y="155" fill="#93c5fd" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">"is"</text>
-  <text x="610" y="105" fill="#60a5fa" font-family="sans-serif" font-size="12" text-anchor="middle">예측 정답</text>
+  <rect x="340" y="110" width="60" height="40" fill="#334155" fill-opacity="0.3" rx="5"/>
+  <text x="370" y="135" fill="#64748b" font-family="sans-serif" font-size="14" text-anchor="middle">온</text>
 
+  <!-- N-gram Focused Window -->
+  <rect x="410" y="100" width="160" height="60" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6,6" rx="8"/>
+  <text x="490" y="90" fill="#fcd34d" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">Bi-gram 시야 (N=2)</text>
+  
+  <rect x="420" y="110" width="60" height="40" fill="#1e293b" stroke="#f59e0b" stroke-width="2" rx="5"/>
+  <text x="450" y="135" fill="#fcd34d" font-family="sans-serif" font-size="14" text-anchor="middle">착한</text>
 
-  <!-- Approximation Formula -->
-  <path d="M 670 140 C 700 140 700 80 740 80" stroke="#fcd34d" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <rect x="670" y="50" width="100" height="40" fill="#422006" stroke="#f59e0b" stroke-width="2" rx="5"/>
-  <text x="720" y="75" fill="#fde68a" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">P (is | boy)</text>
+  <rect x="490" y="110" width="70" height="40" fill="#1e293b" stroke="#f59e0b" stroke-width="2" rx="5"/>
+  <text x="525" y="135" fill="#fcd34d" font-family="sans-serif" font-size="14" text-anchor="middle">소년이</text>
 
+  <!-- Prediction Token -->
+  <path d="M 580 130 L 630 130" stroke="#10b981" stroke-width="4"/>
+  <polygon points="620,123 630,130 620,137" fill="#10b981"/>
 
-  <!-- Tooltip Explanation -->
-  <rect x="100" y="220" width="600" height="50" fill="#020617" stroke="#10b981" stroke-width="2" rx="10"/>
-  <text x="400" y="250" fill="#34d399" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">"앞에 문맥이 100줄이든 10줄이든 알 바 아님! 난 내 눈앞에 있는 제일 마지막 글자 하나(boy)만 보고 베팅한다!"</text>
+  <rect x="640" y="105" width="80" height="50" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="680" y="135" fill="#a7f3d0" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">[ ? ]</text>
+  <text x="680" y="175" fill="#10b981" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">Prediction</text>
 
+  <!-- Divider Line -->
+  <line x1="405" y1="110" x2="405" y2="230" stroke="#ef4444" stroke-width="3"/>
+  <rect x="360" y="210" width="90" height="30" fill="#7f1d1d" rx="5"/>
+  <text x="405" y="230" fill="#fecaca" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">절단 (Cut!)</text>
+
+  <!-- Analysis Box -->
+  <rect x="50" y="180" width="280" height="60" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="8"/>
+  <text x="190" y="205" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">이전 확률 계산 모수에서 영구 삭제</text>
+  <text x="190" y="225" fill="#ef4444" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">Count(W) Memory = 0</text>
+  
+  <rect x="420" y="180" width="220" height="60" fill="#1e293b" stroke="#f59e0b" stroke-width="2" rx="8"/>
+  <text x="530" y="205" fill="#fcd34d" font-family="sans-serif" font-size="14" text-anchor="middle">오직 남은 최소 모수만 탐색</text>
+  <text x="530" y="225" fill="#10b981" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">P( ? | 착한 소년이 )</text>
+
+  <text x="400" y="280" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">마르코프 가정: 아득한 옛 과거보다는 가장 최근의 단어가 다음 발생 확률을 지배한다</text>
 </svg>

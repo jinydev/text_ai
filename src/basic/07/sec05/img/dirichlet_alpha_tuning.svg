@@ -1,68 +1,48 @@
-<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="350" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">디리클레 함수를 요리하는 알파(α) 하이퍼파라미터 조작술</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">디리클레 다항 확률 생성 함수: 하이퍼파라미터 알파(α) 밀도 제어에 따른 K차원 Simplex 통제망</text>
 
-  <!-- Title / Legend -->
-  <text x="400" y="65" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">합계가 1.0(100%) 이 되는 3개의 토픽 확률 배분표(비율) 룰렛을 어떻게 극단적으로 짜낼 것인가?</text>
-
-
-  <!-- Left Triangle: Alpha > 1 (Hybrid Box) -->
-  <path d="M 150 250 L 300 250 L 225 120 Z" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
-  <text x="225" y="100" fill="#60a5fa" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">평화 주의자 (α = 10.0)</text>
-  <text x="225" y="115" fill="#93c5fd" font-family="sans-serif" font-size="10" text-anchor="middle">Hybrid 평준화</text>
+  <!-- Left Simplex: Alpha > 1 -->
+  <rect x="50" y="70" width="330" height="250" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="4"/>
+  <text x="215" y="100" fill="#93c5fd" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">밀도 집중/혼합형 ( α = 5.0 )</text>
   
-  <text x="120" y="270" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">정치 토픽</text>
-  <text x="330" y="270" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">경제 토픽</text>
-  <text x="225" y="135" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">스포츠</text>
+  <polygon points="215,130 90,290 340,290" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+  <text x="215" y="120" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">토픽 K1</text>
+  <text x="50" y="300" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">토픽 K2</text>
+  <text x="380" y="300" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">토픽 K3</text>
 
-  <!-- Plot points concentrated in the center -->
-  <circle cx="225" cy="200" r="4" fill="#60a5fa"/>
-  <circle cx="215" cy="195" r="3" fill="#60a5fa"/>
-  <circle cx="235" cy="205" r="3" fill="#60a5fa"/>
-  <circle cx="225" cy="185" r="4" fill="#60a5fa"/>
-  <circle cx="220" cy="210" r="3" fill="#60a5fa"/>
-  <circle cx="230" cy="190" r="3" fill="#60a5fa"/>
-  <circle cx="215" cy="215" r="3" fill="#60a5fa"/>
-  <circle cx="240" cy="200" r="3" fill="#60a5fa"/>
+  <!-- Heatmap density Center -->
+  <circle cx="215" cy="220" r="40" fill="#3b82f6" opacity="0.6"/>
+  <circle cx="215" cy="220" r="25" fill="#60a5fa" opacity="0.8"/>
+  <circle cx="215" cy="220" r="10" fill="#bfdbfe"/>
+  <text x="215" y="275" fill="#93c5fd" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">비율이 골고루 섞임 (33:33:33 비율 수렴)</text>
+
+
+  <!-- Right Simplex: Alpha < 1 -->
+  <rect x="420" y="70" width="330" height="250" fill="#1e293b" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="585" y="100" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">극단 희소 코너 편향형 ( α = 0.1 )</text>
+
+  <polygon points="585,130 460,290 710,290" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+  <text x="585" y="120" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">토픽 K1</text>
+  <text x="420" y="300" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">토픽 K2</text>
+  <text x="750" y="300" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">토픽 K3</text>
+
+  <!-- Heatmap density Corners -->
+  <circle cx="585" cy="130" r="25" fill="#ef4444" opacity="0.7"/>
+  <circle cx="460" cy="290" r="25" fill="#ef4444" opacity="0.7"/>
+  <circle cx="710" cy="290" r="25" fill="#ef4444" opacity="0.7"/>
+  <circle cx="585" cy="130" r="10" fill="#fca5a5"/>
+  <circle cx="460" cy="290" r="10" fill="#fca5a5"/>
+  <circle cx="710" cy="290" r="10" fill="#fca5a5"/>
   
-  <rect x="135" y="290" width="180" height="40" fill="#1e3a8a" rx="5"/>
-  <text x="225" y="306" fill="#bfdbfe" font-family="sans-serif" font-size="10" text-anchor="middle">모든 문서가 33:33:33 으로 무색무취하게</text>
-  <text x="225" y="320" fill="#bfdbfe" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">정중앙에 모여버린 짬뽕(박애) 기사 연출!</text>
+  <text x="585" y="220" fill="#fca5a5" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">비율이 1개 토픽에 극한 100% 몰빵 쏠림 발생</text>
 
 
-  <!-- Alpha > 1 Arrow to alpha < 1 Arrow -->
-  <path d="M 370 190 L 440 190" stroke="#fcd34d" stroke-width="4" stroke-dasharray="5,5" fill="none" marker-end="url(#arrow)"/>
-  <text x="405" y="180" fill="#fbbf24" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">조작!</text>
-
-
-  <!-- Right Triangle: Alpha < 1 (Extreme Corners) -->
-  <path d="M 500 250 L 650 250 L 575 120 Z" fill="#450a0a" stroke="#ef4444" stroke-width="2"/>
-  <text x="575" y="100" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">극단적 편집증 (α = 0.1)</text>
-  <text x="575" y="115" fill="#fca5a5" font-family="sans-serif" font-size="10" text-anchor="middle">Sparse 몰빵 편식</text>
-  
-  <text x="470" y="270" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">정치 토픽</text>
-  <text x="680" y="270" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">경제 토픽</text>
-  <text x="575" y="135" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">스포츠</text>
-
-  <!-- Plot points pushed to the corners -->
-  <circle cx="505" cy="245" r="4" fill="#fca5a5"/>
-  <circle cx="515" cy="248" r="3" fill="#fca5a5"/>
-  <circle cx="495" cy="245" r="3" fill="#fca5a5"/>
-  
-  <circle cx="645" cy="245" r="4" fill="#fca5a5"/>
-  <circle cx="635" cy="248" r="3" fill="#fca5a5"/>
-  <circle cx="640" cy="240" r="3" fill="#fca5a5"/>
-
-  <circle cx="575" cy="125" r="4" fill="#fca5a5"/>
-  <circle cx="570" cy="135" r="3" fill="#fca5a5"/>
-  <circle cx="580" cy="130" r="3" fill="#fca5a5"/>
-
-  <!-- Almost empty center -->
-  <text x="575" y="210" fill="#94a3b8" font-family="sans-serif" font-size="12" font-style="italic" text-anchor="middle">텅빔!</text>
-  
-  <rect x="475" y="290" width="200" height="40" fill="#7f1d1d" rx="5"/>
-  <text x="575" y="306" fill="#fef2f2" font-family="sans-serif" font-size="10" text-anchor="middle">"문서 하나는 무조건 토픽 1개에 올인해!!"</text>
-  <text x="575" y="320" fill="#fef2f2" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">문서 혼합 파이가 삼각형 극단 꼭짓점 모서리로 몰빵</text>
+  <!-- Explanation Banner -->
+  <rect x="50" y="340" width="700" height="80" fill="#334155" stroke="#fcd34d" stroke-width="2" rx="6"/>
+  <text x="400" y="365" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">LDA 모델의 필수 극한 셋팅값: 사전 확률 변수 (Hyperparameter Alpha)</text>
+  <text x="400" y="385" fill="#f8fafc" font-family="sans-serif" font-size="13" text-anchor="middle">위의 알파값이 크면 범용 다차원 혼합(박애주의 블렌딩) 문서가 대량 발생하고, 주로 쓰이는 극한의 작은 스케일 셋팅(0.1 미만)에서는</text>
+  <text x="400" y="405" fill="#fca5a5" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">다중 할당을 억제하고 문서가 오직 1개의 특정 토픽만 강력하게 독립 편파 독점하게 되는 희소(Sparse) 특성 통제를 유도한다.</text>
 
 </svg>

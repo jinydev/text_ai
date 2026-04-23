@@ -1,0 +1,41 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">다형성 언어 모델 파라미터 압축: 표제어 추출 (Lemmatization Mapping)</text>
+
+  <!-- Multi Variance Array -->
+  <rect x="100" y="70" width="600" height="80" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="6"/>
+  <text x="400" y="100" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">문맥 상태에 따라 변형(Variations) 스펠링을 지닌 독립 다형 공간 벡터들 (Sparsity Error)</text>
+  
+  <rect x="180" y="110" width="80" height="30" fill="#1e3a8a" rx="4"/>
+  <text x="220" y="130" fill="#f8fafc" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">am</text>
+  <rect x="290" y="110" width="80" height="30" fill="#1e3a8a" rx="4"/>
+  <text x="330" y="130" fill="#f8fafc" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">is</text>
+  <rect x="400" y="110" width="80" height="30" fill="#1e3a8a" rx="4"/>
+  <text x="440" y="130" fill="#f8fafc" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">are</text>
+  <rect x="510" y="110" width="80" height="30" fill="#1e3a8a" rx="4"/>
+  <text x="550" y="130" fill="#f8fafc" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">was</text>
+
+  <!-- Big Funnel Arrow -->
+  <path d="M 120 170 C 200 200 350 250 400 280 C 450 250 600 200 680 170" fill="none" stroke="#f59e0b" stroke-width="4"/>
+  <line x1="400" y1="210" x2="400" y2="280" stroke="#f59e0b" stroke-width="4"/>
+  <polygon points="390,270 410,270 400,285" fill="#f59e0b"/>
+
+
+  <rect x="250" y="190" width="300" height="40" fill="#451a03" stroke="#fcd34d" stroke-width="1" rx="4"/>
+  <text x="400" y="215" fill="#fde68a" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">거대 NLP 사전 데이터베이스 맵핑 추적 (WordNet 검사)</text>
+  <text x="400" y="250" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">"품사(POS)가 동사이고 원형 기저 뿌리는 무조건 'be' 이다!"</text>
+
+
+  <!-- Unified Dimension Output -->
+  <rect x="300" y="290" width="200" height="70" fill="#064e3b" stroke="#10b981" stroke-width="3" rx="6"/>
+  <text x="400" y="325" fill="#a7f3d0" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Lemma (표제어 통일 텐서)</text>
+  <text x="400" y="350" fill="#fff" font-family="monospace" font-size="24" font-weight="bold" text-anchor="middle">be</text>
+
+
+  <!-- Bottom Conclusion Banner -->
+  <rect x="50" y="380" width="700" height="50" fill="#334155" stroke="#10b981" stroke-width="2" rx="6"/>
+  <text x="400" y="405" fill="#6ee7b7" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">표제어 통일의 역학 (Lemmatization): 무식하게 스펠링을 자르지 않고 방대한 글로벌 DB 사전을 크로스체크</text>
+  <text x="400" y="420" fill="#6ee7b7" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">하여 완전히 동일한 근본(Root)을 가진 스페이스로 파라미터를 압축. (단점: 사전 딕셔너리 연산 CPU 비용이 높음)</text>
+
+</svg>

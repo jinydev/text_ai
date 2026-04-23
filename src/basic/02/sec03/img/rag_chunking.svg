@@ -1,37 +1,58 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">RAG 시스템의 검색 증강용 PDF 청킹 (Chunking)</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">RAG 검색 증강 청킹 스케일 한계와 토큰 벡터 희석(Dilution) 딜레마</text>
 
-  <!-- Big PDF Document -->
-  <rect x="50" y="80" width="120" height="150" fill="#cbd5e1" stroke="#f8fafc" stroke-width="2" rx="5"/>
-  <text x="110" y="110" fill="#0f172a" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">회사 규정.pdf</text>
-  <line x1="60" y1="130" x2="160" y2="130" stroke="#94a3b8" stroke-width="2"/>
-  <line x1="60" y1="150" x2="160" y2="150" stroke="#94a3b8" stroke-width="2"/>
-  <line x1="60" y1="170" x2="160" y2="170" stroke="#94a3b8" stroke-width="2"/>
-  <line x1="60" y1="190" x2="160" y2="190" stroke="#94a3b8" stroke-width="2"/>
-  <line x1="60" y1="210" x2="140" y2="210" stroke="#94a3b8" stroke-width="2"/>
+  <!-- Big PDF Block -->
+  <rect x="50" y="80" width="200" height="150" fill="#1e293b" stroke="#cbd5e1" stroke-width="2" rx="4"/>
+  <text x="150" y="110" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">10,000 PDF Doc</text>
+  <text x="150" y="130" fill="#64748b" font-family="sans-serif" font-size="12" text-anchor="middle">통째로 LLM 입력시</text>
+  <text x="150" y="150" fill="#ef4444" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">OOM Limit 터짐</text>
+  <path d="M 260 150 L 300 150" stroke="#fcd34d" stroke-width="3" stroke-dasharray="4,4"/>
+  <polygon points="295,145 305,150 295,155" fill="#fcd34d"/>
 
-  <!-- Funnel/Blade -->
-  <path d="M 200 155 L 280 155" stroke="#f59e0b" stroke-width="4" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
-  <text x="240" y="145" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">문단별 Chunking</text>
 
-  <!-- Chunks -->
-  <rect x="330" y="80" width="120" height="60" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="3"/>
-  <text x="390" y="105" fill="#93c5fd" font-family="sans-serif" font-size="14" text-anchor="middle">청크 1 (휴가 규정)</text>
-  <text x="390" y="125" fill="#60a5fa" font-family="sans-serif" font-size="12" text-anchor="middle">약 500 토큰 절단</text>
+  <rect x="320" y="70" width="430" height="170" fill="#0f172a" stroke="#fcd34d" stroke-width="2" rx="6"/>
+  <text x="535" y="95" fill="#fde68a" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">필수 컴파일 맵핑: 텍스트 Chunking (DB 블록 파티셔닝)</text>
 
-  <rect x="330" y="160" width="120" height="60" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="3"/>
-  <text x="390" y="185" fill="#6ee7b7" font-family="sans-serif" font-size="14" text-anchor="middle">청크 2 (복지 포인트)</text>
-  <text x="390" y="205" fill="#34d399" font-family="sans-serif" font-size="12" text-anchor="middle">약 500 토큰 절단</text>
+  <!-- Small Chunk vs Large Chunk -->
+  <rect x="340" y="110" width="180" height="110" fill="#450a0a" stroke="#ef4444" stroke-width="1" rx="4"/>
+  <text x="430" y="130" fill="#fecaca" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Small Chunk (1줄)</text>
+  <rect x="360" y="145" width="140" height="10" fill="#f8fafc" rx="2"/>
+  <rect x="360" y="165" width="40" height="10" fill="#f8fafc" rx="2"/>
+  <text x="430" y="195" fill="#fca5a5" font-family="sans-serif" font-size="11" text-anchor="middle">검색 정밀도 UP / 문맥 유추 FAIL</text>
+  <text x="430" y="210" fill="#ef4444" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">"누가 누굴 승인해?" (Amnesia)</text>
 
-  <path d="M 470 155 L 530 155" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+  <rect x="550" y="110" width="180" height="110" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1" rx="4"/>
+  <text x="640" y="130" fill="#bfdbfe" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Large Chunk (1장)</text>
+  <rect x="570" y="145" width="140" height="8" fill="#cbd5e1" rx="2"/>
+  <rect x="570" y="160" width="140" height="8" fill="#cbd5e1" rx="2"/>
+  <rect x="570" y="175" width="140" height="8" fill="#cbd5e1" rx="2"/>
+  <rect x="570" y="190" width="70" height="8" fill="#cbd5e1" rx="2"/>
+  <text x="640" y="210" fill="#93c5fd" font-family="sans-serif" font-size="11" text-anchor="middle">문맥 보존 UP / 타겟 희석 FAIL</text>
+  <rect x="620" y="160" width="30" height="8" fill="#fcd34d" rx="2"/> <!-- target keyword hidden -->
 
-  <!-- AI Brain / Vector DB -->
-  <rect x="560" y="100" width="180" height="120" fill="#020617" stroke="#fbbf24" stroke-width="3" rx="10"/>
-  <text x="650" y="135" fill="#fde68a" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Vector DB</text>
-  <text x="650" y="165" fill="#fbbf24" font-family="sans-serif" font-size="12" text-anchor="middle">유저가 휴가 질문 시,</text>
-  <text x="650" y="185" fill="#fbbf24" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">청크 1 덩어리만 쏙 발췌!</text>
 
-  <text x="400" y="280" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">수백 장의 문서를 통째로 넣으면 AI 입천장이 찢어지므로, 의미가 깨지지 않는 최적의 구역 크기(Chunk)로 잘라 데이터 저장소에 넣습니다.</text>
+  <!-- Vector Space Graph -->
+  <rect x="50" y="260" width="700" height="100" fill="#0f172a" stroke="#10b981" stroke-width="2" rx="4"/>
+  <circle cx="200" cy="310" r="40" fill="#1e293b" stroke="#3b82f6"/>
+  <circle cx="200" cy="310" r="5" fill="#f8fafc"/>
+  <text x="200" y="375" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">Small: 노이즈 없이 타겟 압축 명중률 급증</text>
+
+  <circle cx="600" cy="310" r="40" fill="#1e293b" stroke="#3b82f6"/>
+  <circle cx="580" cy="290" r="4" fill="#94a3b8"/>
+  <circle cx="620" cy="300" r="4" fill="#94a3b8"/>
+  <circle cx="570" cy="320" r="4" fill="#94a3b8"/>
+  <circle cx="600" cy="310" r="5" fill="#fcd34d"/>
+  <circle cx="610" cy="330" r="4" fill="#94a3b8"/>
+  <text x="600" y="375" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">Large: 주변 노이즈 거대화로 타겟 질문 텐서 희석</text>
+  
+  <text x="400" y="320" fill="#10b981" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Token Dilution 현상</text>
+  <path d="M 280 310 L 320 310" stroke="#10b981" stroke-width="2" stroke-dasharray="2,2"/>
+  <path d="M 520 310 L 480 310" stroke="#10b981" stroke-width="2" stroke-dasharray="2,2"/>
+
+  <!-- Bottom Conclusion Banner -->
+  <rect x="50" y="400" width="700" height="40" fill="#334155" stroke="#fcd34d" stroke-width="2" rx="6"/>
+  <text x="400" y="425" fill="#fde68a" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Chunk Size Trade-off: 청크를 넓게 묶으면 Context 풍부해지나 질의 벡터(Query Vector)의 정밀 탐색 스코어가 물 타듯 희석 파괴됨</text>
+
 </svg>

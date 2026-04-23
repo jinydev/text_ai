@@ -1,0 +1,27 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">통계적 언어 모델(SLM)의 구조 원리 및 수학적 최종 목표</text>
+
+  <!-- Left: DB Corpus -->
+  <rect x="50" y="80" width="220" height="180" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="8"/>
+  <rect x="70" y="100" width="180" height="15" fill="#334155" rx="3"/>
+  <rect x="70" y="130" width="140" height="15" fill="#334155" rx="3"/>
+  <rect x="70" y="160" width="160" height="15" fill="#334155" rx="3"/>
+  <text x="160" y="210" fill="#93c5fd" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">초거대 말뭉치 (Corpus)</text>
+  <text x="160" y="235" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">수천만 권의 물리적 텍스트 DB</text>
+
+  <!-- Arrow / Scanner -->
+  <path d="M 280 160 L 350 160 L 350 140 L 410 170 L 350 200 L 350 180 L 280 180 Z" fill="#64748b"/>
+  <text x="345" y="130" fill="#cbd5e1" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">경험적 N-단어</text>
+  <text x="345" y="150" fill="#cbd5e1" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">패턴 스캔</text>
+
+  <!-- Right: P(W) Goal -->
+  <rect x="420" y="80" width="330" height="180" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="8"/>
+  <text x="585" y="120" fill="#34d399" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">도출된 문장의 완벽한 결합 확률 모형</text>
+  
+  <rect x="450" y="140" width="270" height="60" fill="#334155" rx="5"/>
+  <text x="585" y="175" fill="#f8fafc" font-family="monospace" font-size="24" font-weight="bold" text-anchor="middle">P (W)</text>
+  <text x="585" y="230" fill="#94a3b8" font-family="monospace" font-size="16" text-anchor="middle">= P( w₁, w₂, ... , wₙ )</text>
+
+</svg>

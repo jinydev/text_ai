@@ -1,50 +1,77 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">서브워드의 제왕 BPE 알고리즘 (Byte Pair Encoding) 수학적 순환 합체</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">BPE 압축 알고리즘(Byte Pair Encoding): 상향식 글자 통계 결합망</text>
 
-  <!-- Alpha -->
-  <rect x="50" y="120" width="40" height="40" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
-  <text x="70" y="147" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">l</text>
+  <!-- Step 1 Base Character Array -->
+  <rect x="50" y="80" width="700" height="70" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="6"/>
+  <text x="400" y="105" fill="#f8fafc" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Step 1: 최소 유니코드/글자 단위 완전 파편화 (Initialization Vector)</text>
   
-  <rect x="100" y="120" width="40" height="40" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
-  <text x="120" y="147" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">o</text>
+  <rect x="180" y="115" width="20" height="25" fill="#0f172a" rx="2"/>
+  <text x="190" y="132" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">l</text>
+  <rect x="210" y="115" width="20" height="25" fill="#0f172a" rx="2"/>
+  <text x="220" y="132" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">o</text>
+  <rect x="240" y="115" width="20" height="25" fill="#0f172a" rx="2"/>
+  <text x="250" y="132" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">w</text>
+  <rect x="270" y="115" width="20" height="25" fill="#0f172a" rx="2"/>
+  <text x="280" y="132" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">e</text>
+  <rect x="300" y="115" width="20" height="25" fill="#0f172a" rx="2"/>
+  <text x="310" y="132" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">r</text>
 
-  <rect x="150" y="120" width="40" height="40" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
-  <text x="170" y="147" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">w</text>
+  <rect x="420" y="115" width="20" height="25" fill="#0f172a" rx="2"/>
+  <text x="430" y="132" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">n</text>
+  <rect x="450" y="115" width="20" height="25" fill="#0f172a" rx="2"/>
+  <text x="460" y="132" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">e</text>
+  <rect x="480" y="115" width="20" height="25" fill="#0f172a" rx="2"/>
+  <text x="490" y="132" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">w</text>
+  <rect x="510" y="115" width="20" height="25" fill="#1e3a8a" stroke="#3b82f6" rx="2"/>
+  <text x="520" y="132" fill="#bfdbfe" font-family="monospace" font-size="14" text-anchor="middle">e</text>
+  <rect x="540" y="115" width="20" height="25" fill="#1e3a8a" stroke="#3b82f6" rx="2"/>
+  <text x="550" y="132" fill="#bfdbfe" font-family="monospace" font-size="14" text-anchor="middle">s</text>
+  <rect x="570" y="115" width="20" height="25" fill="#0f172a" rx="2"/>
+  <text x="580" y="132" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="middle">t</text>
+
+  <!-- Function Merge -->
+  <path d="M 400 155 L 400 185" stroke="#fcd34d" stroke-width="3" stroke-dasharray="4,4"/>
+  <polygon points="395,180 400,190 405,180" fill="#fcd34d"/>
+
+
+  <rect x="50" y="195" width="700" height="70" fill="#0f172a" stroke="#3b82f6" stroke-width="2" rx="6"/>
+  <text x="400" y="220" fill="#f8fafc" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Step 2: 통계 스캔 후 최우도 빈도 찰흙 병합 (Pair Merging)</text>
   
-  <rect x="230" y="120" width="40" height="40" fill="#1e293b" stroke="#f43f5e" stroke-width="3" rx="5"/>
-  <text x="250" y="147" fill="#fb7185" font-family="sans-serif" font-size="26" font-weight="bold" text-anchor="middle">e</text>
-
-  <text x="290" y="147" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">+</text>
-
-  <rect x="310" y="120" width="40" height="40" fill="#1e293b" stroke="#f43f5e" stroke-width="3" rx="5"/>
-  <text x="330" y="147" fill="#fb7185" font-family="sans-serif" font-size="26" font-weight="bold" text-anchor="middle">r</text>
-
-  <!-- Condition -->
-  <path d="M 270 90 C 270 70 310 70 310 90" stroke="#fca5a5" stroke-width="2" fill="none"/>
-  <text x="290" y="60" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">가장 빈도수 높음!</text>
-  <path d="M 290 90 L 290 100" stroke="#fca5a5" stroke-width="2" marker-end="url(#arrow)"/>
-
-  <!-- Merge Flow -->
-  <path d="M 370 140 L 450 140" stroke="#f59e0b" stroke-width="4" marker-end="url(#arrow)"/>
-  <text x="410" y="130" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Merge 합체</text>
-
-
-  <!-- Merge Output -->
-  <rect x="490" y="120" width="40" height="40" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
-  <text x="510" y="147" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">l</text>
+  <text x="250" y="245" fill="#64748b" font-family="monospace" font-size="14" text-anchor="middle">l o w e r</text>
   
-  <rect x="540" y="120" width="40" height="40" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
-  <text x="560" y="147" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">o</text>
+  <text x="450" y="245" fill="#64748b" font-family="monospace" font-size="14" text-anchor="middle">n e w</text>
+  
+  <rect x="495" y="225" width="40" height="25" fill="#1e3a8a" stroke="#3b82f6" rx="4"/>
+  <text x="515" y="242" fill="#bfdbfe" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">es</text>
+  <text x="560" y="245" fill="#64748b" font-family="monospace" font-size="14" text-anchor="middle">t</text>
 
-  <rect x="590" y="120" width="40" height="40" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
-  <text x="610" y="147" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">w</text>
+  <rect x="600" y="210" width="80" height="40" fill="#064e3b" stroke="#10b981" rx="4"/>
+  <text x="640" y="228" fill="#a7f3d0" font-family="monospace" font-size="12" text-anchor="middle">New Dict:</text>
+  <text x="640" y="243" fill="#fff" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">['es']</text>
 
-  <!-- The Merged Token -->
-  <rect x="660" y="115" width="80" height="50" fill="#1e3a8a" stroke="#60a5fa" stroke-width="3" rx="5"/>
-  <text x="700" y="148" fill="#ecfeff" font-family="sans-serif" font-size="26" font-weight="bold" text-anchor="middle">er</text>
-  <text x="700" y="195" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">신규 어원 생성!</text>
 
-  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">통계를 돌려 "가장 자주 붙어 다니는 철자 2개" 를 찾아서 하나로 묶는 과정을 무한 반복합니다!</text>
+  <!-- Function Merge 2 -->
+  <path d="M 400 270 L 400 300" stroke="#fcd34d" stroke-width="3" stroke-dasharray="4,4"/>
+  <polygon points="395,295 400,305 405,295" fill="#fcd34d"/>
+
+
+  <!-- Final Subword Set -->
+  <rect x="50" y="310" width="700" height="70" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="6"/>
+  <text x="400" y="335" fill="#f8fafc" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Step N: 지속적 수학 결합 반복 매핑</text>
+
+  <!-- Show low Merged too -->
+  <rect x="220" y="340" width="40" height="25" fill="#1e3a8a" stroke="#3b82f6" rx="4"/>
+  <text x="240" y="357" fill="#bfdbfe" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">low</text>
+  <text x="280" y="357" fill="#64748b" font-family="monospace" font-size="14" text-anchor="middle">e r</text>
+
+  <text x="430" y="357" fill="#64748b" font-family="monospace" font-size="14" text-anchor="middle">n e w</text>
+  <rect x="480" y="340" width="60" height="25" fill="#1e3a8a" stroke="#3b82f6" rx="4"/>
+  <text x="510" y="357" fill="#bfdbfe" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">est</text>
+
+  <!-- Bottom Conclusion Banner -->
+  <rect x="50" y="390" width="700" height="40" fill="#334155" stroke="#10b981" stroke-width="2" rx="6"/>
+  <text x="400" y="415" fill="#a7f3d0" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">BPE 병합 모델링: 가장 미세한 글자 단위에서 출현 확률이 잦은 텐서들을 상향식(Bottom-Up)으로 뭉쳐 타겟 사전을 구축함</text>
+
 </svg>

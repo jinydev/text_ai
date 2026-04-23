@@ -1,32 +1,66 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">고전 NLP의 치매 증상: 1단어(Uni-gram)로 잘랐을 때의 대참사</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Unigram Tokenization의 맥락 단절(Context Amnesia): 결합 종속성 파괴 현상</text>
 
-  <!-- Flow -->
-  <text x="400" y="90" fill="#f8fafc" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">"이 영화는 정말 재미없다"</text>
-
-  <path d="M 400 110 L 400 130" stroke="#f43f5e" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
-  <rect x="360" y="115" width="80" height="10" fill="#ef4444"/> <!-- Chop mark -->
-
-  <!-- Bins -->
-  <rect x="150" y="150" width="100" height="60" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
-  <text x="200" y="185" fill="#cbd5e1" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">이</text>
-
-  <rect x="280" y="150" width="100" height="60" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
-  <text x="330" y="185" fill="#cbd5e1" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">영화는</text>
-
-  <rect x="410" y="150" width="100" height="60" fill="#1e293b" stroke="#3b82f6" stroke-width="3" rx="5"/>
-  <text x="460" y="185" fill="#60a5fa" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">정말</text>
-
-  <rect x="540" y="150" width="100" height="60" fill="#1e293b" stroke="#ef4444" stroke-width="3" rx="5"/>
-  <text x="590" y="185" fill="#f87171" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">재미없다</text>
-
-  <!-- Warning text -->
-  <path d="M 500 130 Q 500 100 550 130" stroke="#f43f5e" stroke-width="2" fill="none"/>
-  <text x="500" y="85" fill="#fecdd3" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">연결고리 붕괴!</text>
+  <!-- Original Sequential Array -->
+  <rect x="50" y="80" width="700" height="70" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="4"/>
+  <text x="400" y="105" fill="#f8fafc" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">원본 정상 시퀀스: 인과성 연속 구조 배열 (Sequential Ground-Truth)</text>
   
-  <text x="400" y="250" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">단어를 수학적 확률 바구니에 독립적으로 던져넣으면서 "정말" 과 "재미없다" 가 앞뒤로 붙어있었다는 시계열 기억이 소멸합니다.</text>
-  <text x="400" y="270" fill="#f87171" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">"이건 무슨 리뷰지? 재밌다는 뜻인가?"</text>
+  <rect x="180" y="115" width="40" height="25" fill="#0f172a" rx="2"/>
+  <text x="200" y="132" fill="#cbd5e1" font-family="sans-serif" font-size="14" text-anchor="middle">이</text>
+
+  <rect x="230" y="115" width="60" height="25" fill="#0f172a" rx="2"/>
+  <text x="260" y="132" fill="#cbd5e1" font-family="sans-serif" font-size="14" text-anchor="middle">영화는</text>
+
+  <rect x="300" y="115" width="60" height="25" fill="#0f172a" stroke="#f59e0b" rx="2"/>
+  <text x="330" y="132" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">정말</text>
+
+  <!-- Link Arrow -->
+  <path d="M 360 127 L 390 127" stroke="#ef4444" stroke-width="2"/>
+  <polygon points="385,123 395,127 385,131" fill="#ef4444"/>
+
+  <rect x="400" y="115" width="80" height="25" fill="#450a0a" stroke="#ef4444" rx="2"/>
+  <text x="440" y="132" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">재미없다</text>
+
+  <rect x="490" y="115" width="60" height="25" fill="#0f172a" rx="2"/>
+  <text x="520" y="132" fill="#cbd5e1" font-family="sans-serif" font-size="14" text-anchor="middle">망작임</text>
+
+  <text x="650" y="132" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">전체 극성: -1 (부정)</text>
+
+
+  <!-- Broken Matrix Array -->
+  <path d="M 400 160 L 400 190" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4,4"/>
+  <polygon points="395,185 400,195 405,185" fill="#cbd5e1"/>
+  <text x="400" y="210" fill="#f8fafc" font-family="sans-serif" font-size="12" text-anchor="middle">독립 벡터 분절망 필터 통과 (Order Agnostic)</text>
+
+
+  <rect x="50" y="230" width="700" height="130" fill="#450a0a" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="400" y="255" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">단절 벡터 결함: 시퀀스 부재, 고립 차원 매핑 백엔드 (치명적 오류 발생)</text>
+
+  <!-- Word Clouds with arbitrary arrows -->
+  <rect x="150" y="270" width="80" height="30" fill="#064e3b" stroke="#10b981" rx="4"/>
+  <text x="190" y="290" fill="#a7f3d0" font-family="sans-serif" font-size="14" text-anchor="middle">재미</text>
+  <text x="190" y="315" fill="#6ee7b7" font-family="sans-serif" font-size="11" text-anchor="middle">Polar: +1</text>
+
+  <rect x="250" y="290" width="60" height="30" fill="#1e3a8a" stroke="#3b82f6" rx="4"/>
+  <text x="280" y="310" fill="#bfdbfe" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">정말</text>
+  <text x="280" y="335" fill="#93c5fd" font-family="sans-serif" font-size="11" text-anchor="middle">Mul: 1.5</text>
+
+  <rect x="340" y="270" width="60" height="30" fill="#1e293b" stroke="#cbd5e1" rx="4"/>
+  <text x="370" y="290" fill="#f8fafc" font-family="sans-serif" font-size="14" text-anchor="middle">없다</text>
+  <text x="370" y="315" fill="#94a3b8" font-family="sans-serif" font-size="11" text-anchor="middle">Polar: -1</text>
+
+  <path d="M 280 280 C 250 250, 200 250, 190 260" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="4,4"/>
+  <polygon points="185,255 190,265 195,255" fill="#10b981" transform="rotate(45 190 260)"/>
+
+  <text x="560" y="290" fill="#fecaca" font-family="sans-serif" font-size="13" text-anchor="middle">가중치의 무작위 왜곡 현상발생:</text>
+  <text x="560" y="310" fill="#fca5a5" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">시스템 결론 = "정말 재미! (+1.5)"</text>
+  <text x="560" y="330" fill="#ef4444" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">전체 극성 인퍼런스 역전 OOM 오류</text>
+
+
+  <!-- Bottom Conclusion Banner -->
+  <rect x="50" y="380" width="700" height="40" fill="#334155" stroke="#ef4444" stroke-width="2" rx="6"/>
+  <text x="400" y="405" fill="#fca5a5" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">방향성 의존망(Dependency) 파편화: '정말'이라는 증폭 텐서가 '없다(-)'를 놓치고 '재미(+)'에 결합하여 스코어를 왜곡시키는 참사</text>
 
 </svg>

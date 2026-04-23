@@ -1,0 +1,46 @@
+<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="350" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">FastText 모델의 Subword(부분 단어) N-gram N분할 메커니즘</text>
+
+  <!-- Title Original -->
+  <rect x="250" y="70" width="300" height="50" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="6"/>
+  <text x="400" y="103" fill="#93c5fd" font-family="monospace" font-size="24" font-weight="bold" text-anchor="middle">apple (N=3 분할)</text>
+  
+  <path d="M 400 130 L 400 160" stroke="#64748b" stroke-width="2" stroke-dasharray="4,4"/>
+  <polygon points="395,155 400,165 405,155" fill="#64748b"/>
+
+  <!-- Step 1 Boundary -->
+  <rect x="200" y="170" width="400" height="40" fill="#0f172a" stroke="#10b981" stroke-width="2" rx="4"/>
+  <text x="400" y="196" fill="#a7f3d0" font-family="monospace" font-size="20" font-weight="bold" text-anchor="middle">&lt; apple &gt;</text>
+  <text x="630" y="195" fill="#10b981" font-family="sans-serif" font-size="14" font-style="italic">단어 경계 표지자 부착</text>
+
+  <!-- Step 2 Chopping -->
+  <path d="M 400 220 L 400 240" stroke="#64748b" stroke-width="2" stroke-dasharray="4,4"/>
+  <polygon points="395,235 400,245 405,235" fill="#64748b"/>
+
+  <!-- Subword Boxes -->
+  <rect x="50" y="260" width="80" height="40" fill="#7f1d1d" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="90" y="285" fill="#fca5a5" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">&lt;ap</text>
+
+  <rect x="150" y="260" width="80" height="40" fill="#7f1d1d" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="190" y="285" fill="#fca5a5" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">app</text>
+
+  <rect x="250" y="260" width="80" height="40" fill="#7f1d1d" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="290" y="285" fill="#fca5a5" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">ppl</text>
+
+  <rect x="350" y="260" width="80" height="40" fill="#7f1d1d" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="390" y="285" fill="#fca5a5" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">ple</text>
+
+  <rect x="450" y="260" width="80" height="40" fill="#7f1d1d" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="490" y="285" fill="#fca5a5" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">le&gt;</text>
+  
+  <text x="560" y="285" fill="#f8fafc" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">+</text>
+
+  <!-- Complete original word storage -->
+  <rect x="590" y="260" width="120" height="40" fill="#1e3a8a" stroke="#3b82f6" stroke-width="2" rx="4"/>
+  <text x="650" y="285" fill="#93c5fd" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">&lt;apple&gt;</text>
+
+  <text x="400" y="330" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">하나의 단어를 파괴하여 5개의 n-gram 차원 서브 토큰 벡터와 1개의 온전한 정규 토큰 벡터로 파편화 독립 저장함</text>
+  
+</svg>

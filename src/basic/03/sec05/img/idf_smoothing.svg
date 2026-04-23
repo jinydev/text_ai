@@ -1,0 +1,43 @@
+<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="350" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="22" font-weight="bold" text-anchor="middle">분모 스무딩(Smoothing '+1') 방어막 메커니즘</text>
+
+  <!-- Title A -->
+  <text x="200" y="80" fill="#ef4444" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">1. 스무딩을 미적용 했을 경우 (위험)</text>
+  
+  <rect x="50" y="100" width="300" height="200" fill="#1e293b" stroke="#ef4444" stroke-width="2" rx="8"/>
+  <text x="200" y="135" fill="#f8fafc" font-family="monospace" font-size="20" text-anchor="middle">IDF = log( N / df )</text>
+  <text x="200" y="175" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">세상의 모든 책에서 한 번도 본 적 없는</text>
+  <text x="200" y="195" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">신조어 입력 시 빈도수 df = 0</text>
+  
+  <path d="M 200 210 L 200 235" stroke="#ef4444" stroke-width="3" stroke-dasharray="4,4"/>
+  <polygon points="195,230 200,240 205,230" fill="#ef4444"/>
+
+  <!-- Error Terminal Box -->
+  <rect x="65" y="245" width="270" height="40" fill="#7f1d1d" rx="4"/>
+  <text x="200" y="270" fill="#fecaca" font-family="monospace" font-size="15" font-weight="bold" text-anchor="middle">ZeroDivisionError (서버 크래시!)</text>
+
+
+  <!-- Title B -->
+  <text x="600" y="80" fill="#10b981" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">2. 스무딩(+1) 방어막 적용 시 (안전)</text>
+
+  <rect x="450" y="100" width="300" height="200" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="8"/>
+  <text x="600" y="135" fill="#f8fafc" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">IDF = log( N / (1 + df) )</text>
+  
+  <text x="600" y="175" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">신조어 입력으로 똑같이 분모 파트의</text>
+  <text x="600" y="195" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">df = 0 이 발생하더라도...</text>
+  <text x="600" y="225" fill="#6ee7b7" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">1 + 0 = 1 (최소값 방어)</text>
+  
+  <path d="M 600 235 L 600 240" stroke="#10b981" stroke-width="3"/>
+  <polygon points="595,235 600,245 605,235" fill="#10b981"/>
+
+  <!-- Success Terminal Box -->
+  <rect x="465" y="245" width="270" height="40" fill="#064e3b" rx="4"/>
+  <text x="600" y="270" fill="#a7f3d0" font-family="monospace" font-size="15" font-weight="bold" text-anchor="middle">상수 1 덕분에 정상 연산 완료</text>
+
+  <!-- VS Badge -->
+  <circle cx="400" cy="200" r="25" fill="#334155" />
+  <text x="400" y="206" fill="#f8fafc" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">VS</text>
+
+</svg>

@@ -1,37 +1,65 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">알파벳 비밀 암호: B-I-O 태깅으로 의미 덩어리 묶기</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">B-I-O 벡터 태깅 (Begin-Inside-Outside Boundary Labeling)</text>
 
-  <rect x="50" y="80" width="700" height="60" fill="#1e293b" stroke="#475569" stroke-width="2" rx="5"/>
-  <text x="120" y="120" fill="#f8fafc" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">스티브</text>
-  <text x="240" y="120" fill="#f8fafc" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">잡스는</text>
-  <text x="380" y="120" fill="#f8fafc" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">어제</text>
-  <text x="500" y="120" fill="#f8fafc" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">애플을</text>
-  <text x="640" y="120" fill="#f8fafc" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">창립했다</text>
+  <rect x="50" y="80" width="700" height="60" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="4"/>
+  <text x="400" y="115" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">"스티브 잡스는 과거 애플 캘리포니아 지사를 창립했다"</text>
 
-  <!-- B-I-O Tags -->
-  <rect x="80" y="150" width="80" height="30" fill="#ef4444" rx="3"/>
-  <text x="120" y="170" fill="#fef2f2" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">B-PER</text>
+  <!-- Bio Tags Blocks -->
+  <rect x="50" y="180" width="700" height="150" fill="#0f172a" stroke="#cbd5e1" stroke-width="1" rx="6"/>
+
+  <!-- 스티브 -->
+  <rect x="60" y="200" width="80" height="60" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="4"/>
+  <text x="100" y="235" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">스티브</text>
+  <text x="100" y="280" fill="#a7f3d0" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">B-PER</text>
+  <path d="M 140 230 L 150 230" stroke="#10b981" stroke-width="4"/>
+
+  <!-- 잡스는 -->
+  <rect x="150" y="200" width="80" height="60" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="4" stroke-dasharray="4,4"/>
+  <text x="190" y="235" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">잡스는</text>
+  <text x="190" y="280" fill="#6ee7b7" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">I-PER</text>
   
-  <rect x="200" y="150" width="80" height="30" fill="#f87171" rx="3"/>
-  <text x="240" y="170" fill="#fef2f2" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">I-PER</text>
+  <rect x="65" y="300" width="160" height="2" fill="#10b981"/>
+  <text x="145" y="320" fill="#a7f3d0" font-family="sans-serif" font-size="12" text-anchor="middle">1개의 인물 객체 청킹 융합</text>
 
-  <rect x="340" y="150" width="80" height="30" fill="#64748b" rx="3"/>
-  <text x="380" y="170" fill="#f8fafc" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">O</text>
 
-  <rect x="460" y="150" width="80" height="30" fill="#3b82f6" rx="3"/>
-  <text x="500" y="170" fill="#eff6ff" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">B-ORG</text>
-  
-  <rect x="600" y="150" width="80" height="30" fill="#64748b" rx="3"/>
-  <text x="640" y="170" fill="#f8fafc" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">O</text>
+  <!-- 과거 -->
+  <rect x="250" y="200" width="60" height="60" fill="#1e293b" rx="4"/>
+  <text x="280" y="235" fill="#94a3b8" font-family="sans-serif" font-size="16" text-anchor="middle">과거</text>
+  <text x="280" y="280" fill="#64748b" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">O</text>
 
-  <!-- Bracket for Chunk -->
-  <path d="M 80 190 L 80 210 L 280 210 L 280 190" stroke="#fca5a5" stroke-width="3" fill="none"/>
-  <text x="180" y="235" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">사람(Person) 청크 덩어리</text>
 
-  <path d="M 460 190 L 460 210 L 540 210 L 540 190" stroke="#93c5fd" stroke-width="3" fill="none"/>
-  <text x="500" y="235" fill="#93c5fd" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">조직(Org)</text>
+  <!-- 애플 -->
+  <rect x="330" y="200" width="80" height="60" fill="#1e3a8a" stroke="#3b82f6" stroke-width="2" rx="4"/>
+  <text x="370" y="235" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">애플</text>
+  <text x="370" y="280" fill="#bfdbfe" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">B-ORG</text>
+  <path d="M 410 230 L 420 230" stroke="#3b82f6" stroke-width="4"/>
 
-  <text x="400" y="280" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">Begin(시작) 과 Inside(종속) 태그를 이용해, 어디부터 어디까지가 하나의 개체(Entity) 단어 묶음인지 컴퓨터에게 지시합니다.</text>
+  <!-- 캘리포니아 -->
+  <rect x="420" y="200" width="110" height="60" fill="#1e3a8a" stroke="#3b82f6" stroke-width="2" rx="4" stroke-dasharray="4,4"/>
+  <text x="475" y="235" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">캘리포니아</text>
+  <text x="475" y="280" fill="#93c5fd" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">I-ORG</text>
+
+  <!-- 지사를 -->
+  <rect x="540" y="200" width="80" height="60" fill="#1e3a8a" stroke="#3b82f6" stroke-width="2" rx="4" stroke-dasharray="4,4"/>
+  <text x="580" y="235" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">지사를</text>
+  <text x="580" y="280" fill="#93c5fd" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">I-ORG</text>
+
+  <rect x="340" y="300" width="270" height="2" fill="#3b82f6"/>
+  <text x="475" y="320" fill="#93c5fd" font-family="sans-serif" font-size="12" text-anchor="middle">1개의 거대 기관 객체 청킹망 융합</text>
+
+
+  <!-- 창립했다 -->
+  <rect x="640" y="200" width="80" height="60" fill="#1e293b" rx="4"/>
+  <text x="680" y="235" fill="#94a3b8" font-family="sans-serif" font-size="16" text-anchor="middle">창립했다</text>
+  <text x="680" y="280" fill="#64748b" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">O</text>
+
+
+
+  <!-- Bottom Conclusion Banner -->
+  <rect x="50" y="380" width="700" height="50" fill="#334155" stroke="#3b82f6" stroke-width="2" rx="6"/>
+  <text x="400" y="405" fill="#bfdbfe" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">연속 공간 청킹(Sequence Chunking): 잘라 붙은 파편 단어들의 경계(Boundary) 수학 벡터를 B / I / O 로</text>
+  <text x="400" y="420" fill="#bfdbfe" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">마킹하여 신경망이 거대한 하나의 독립 개체군을 인식 매핑 융합하도록 돕는 필수 태깅 통계망.</text>
+
 </svg>

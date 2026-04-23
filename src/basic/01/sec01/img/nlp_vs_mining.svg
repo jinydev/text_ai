@@ -1,31 +1,63 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">엘리트 통역사(NLP) vs. 엑셀 데이터 분석가(Text Mining)</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">도메인 패러다임 비교: 자연어 처리(NLP) 파이프라인 vs 텍스트 마이닝(Text Mining) 아키텍처</text>
 
-  <!-- NLP Side -->
-  <rect x="50" y="80" width="300" height="150" fill="#1e293b" stroke="#3b82f6" stroke-width="3" rx="10"/>
-  <text x="200" y="115" fill="#60a5fa" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">자연언어처리 (NLP)</text>
-  <text x="200" y="145" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">"인간처럼 말하고 듣기"</text>
+  <!-- Left: NLP -->
+  <rect x="50" y="80" width="330" height="260" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="6"/>
+  <text x="215" y="115" fill="#93c5fd" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">자연어 처리 (NLP : NLU + NLG)</text>
+  <text x="215" y="135" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">인간-기계 상호작용 언어 지능 에뮬레이션</text>
 
-  <rect x="110" y="165" width="180" height="40" fill="#1e3a8a" rx="5"/>
-  <text x="200" y="190" fill="#bfdbfe" font-family="sans-serif" font-size="14" text-anchor="middle">챗봇, 번역기, 아이폰 Siri</text>
+  <!-- NLP Components -->
+  <rect x="120" y="160" width="190" height="40" fill="#1e3a8a" stroke="#60a5fa" stroke-width="2" rx="4"/>
+  <text x="215" y="185" fill="#bfdbfe" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">음성/텍스트 시퀀스 입력 벡터</text>
 
-  <path d="M 200 230 L 200 250" stroke="#3b82f6" stroke-width="2"/>
-  <text x="200" y="270" fill="#60a5fa" font-family="sans-serif" font-size="14" text-anchor="middle">언어학적 교감 (Communication)</text>
+  <path d="M 215 200 L 215 220" stroke="#cbd5e1" stroke-width="2"/>
+  <polygon points="210,215 215,225 220,215" fill="#cbd5e1"/>
 
-  <!-- Text Mining Side -->
-  <rect x="450" y="80" width="300" height="150" fill="#1e293b" stroke="#10b981" stroke-width="3" rx="10"/>
-  <text x="600" y="115" fill="#34d399" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">텍스트 마이닝 (Text Mining)</text>
-  <text x="600" y="145" fill="#6ee7b7" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">"글에서 황금 통계 논리 캐내기"</text>
+  <rect x="100" y="220" width="105" height="40" fill="#064e3b" stroke="#34d399" stroke-width="1" rx="4"/>
+  <text x="152" y="245" fill="#6ee7b7" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">NLU (자연어 이해)</text>
+  
+  <rect x="225" y="220" width="105" height="40" fill="#7f1d1d" stroke="#fca5a5" stroke-width="1" rx="4"/>
+  <text x="277" y="245" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">NLG (자연어 생성)</text>
 
-  <rect x="510" y="165" width="180" height="40" fill="#064e3b" rx="5"/>
-  <text x="600" y="190" fill="#a7f3d0" font-family="sans-serif" font-size="14" text-anchor="middle">리뷰 감성 통계, 트렌드 분석</text>
+  <path d="M 215 260 L 215 280" stroke="#cbd5e1" stroke-width="2"/>
+  <polygon points="210,275 215,285 220,275" fill="#cbd5e1"/>
 
-  <path d="M 600 230 L 600 250" stroke="#10b981" stroke-width="2"/>
-  <text x="600" y="270" fill="#34d399" font-family="sans-serif" font-size="14" text-anchor="middle">비즈니스 수익 창출 (Insight)</text>
+  <rect x="120" y="280" width="190" height="40" fill="#1e3a8a" stroke="#60a5fa" stroke-width="2" rx="4"/>
+  <text x="215" y="305" fill="#bfdbfe" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">다이내믹 문장 생성 응답 출력</text>
 
-  <!-- Divider -->
-  <line x1="400" y1="80" x2="400" y2="230" stroke="#64748b" stroke-width="2" stroke-dasharray="5,5"/>
+
+  <!-- Right: Text Mining -->
+  <rect x="420" y="80" width="330" height="260" fill="#1e293b" stroke="#f59e0b" stroke-width="2" rx="6"/>
+  <text x="585" y="115" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">텍스트 마이닝 (Text Mining)</text>
+  <text x="585" y="135" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">비정형 코퍼스 기반 통계 지식 패턴 추출 타겟</text>
+
+  <!-- Text Mining Components -->
+  <rect x="490" y="160" width="190" height="40" fill="#451a03" stroke="#fcd34d" stroke-width="2" rx="4"/>
+  <text x="585" y="185" fill="#fde68a" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">100만 건 비정형 텍스트 덤프</text>
+
+  <path d="M 585 200 L 585 220" stroke="#cbd5e1" stroke-width="2"/>
+  <polygon points="580,215 585,225 590,215" fill="#cbd5e1"/>
+
+  <rect x="470" y="220" width="230" height="40" fill="#3f3f46" stroke="#94a3b8" stroke-width="1" rx="4" stroke-dasharray="2,2"/>
+  <text x="585" y="245" fill="#e2e8f0" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">형태소 분석 &amp; 행렬(DTM) 치환 통계 연산</text>
+
+  <path d="M 585 260 L 585 280" stroke="#cbd5e1" stroke-width="2"/>
+  <polygon points="580,275 585,285 590,275" fill="#cbd5e1"/>
+
+  <!-- Bar chart output inside a box -->
+  <rect x="490" y="280" width="190" height="40" fill="#0f172a" stroke="#818cf8" stroke-width="2" rx="4"/>
+  <rect x="520" y="295" width="20" height="20" fill="#ef4444"/>
+  <rect x="550" y="285" width="20" height="30" fill="#f59e0b"/>
+  <rect x="580" y="300" width="20" height="15" fill="#10b981"/>
+  <text x="640" y="305" fill="#818cf8" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">비즈니스 통계</text>
+
+
+  <!-- Bottom Conclusion Banner -->
+  <rect x="50" y="360" width="700" height="70" fill="#334155" stroke="#a7f3d0" stroke-width="2" rx="6"/>
+  <text x="400" y="380" fill="#a7f3d0" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">도메인 차원 본질: 상호 교감망(Interaction) vs 객체 분석망(Analysis)</text>
+  <text x="400" y="402" fill="#f8fafc" font-family="sans-serif" font-size="13" text-anchor="middle">NLP는 기계 구조 내에서 유저와의 시퀀스 단위 인간 수준 유창한 소통과 언어 확률 생성 자체가 아키텍처 목적이라면,</text>
+  <text x="400" y="420" fill="#f8fafc" font-family="sans-serif" font-size="13" text-anchor="middle">텍스트 마이닝은 개별 문장의 오류를 무시하고 숲 전체의 피처 발현 빈도를 역산하여 유의미한 가치를 발굴하는 통계 탐향입니다.</text>
 
 </svg>

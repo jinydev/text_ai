@@ -1,32 +1,37 @@
 <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
   <rect width="800" height="300" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">N-gram 기억상실증의 비극: 롱-텀 디펜던시(Long-term Dependency) 붕괴</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">롱텀 디펜던시(Long-term Dependency) 장기 의존성 상실 치명타</text>
 
-  <!-- Full Sentence Array -->
-  <rect x="50" y="120" width="550" height="60" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
-  
-  <text x="80" y="155" fill="#93c5fd" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">빨갛고</text>
-  <text x="140" y="155" fill="#93c5fd" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">둥근</text>
-  <text x="210" y="155" fill="#64748b" font-family="sans-serif" font-size="16" text-anchor="middle">저</text>
-  <text x="270" y="155" fill="#64748b" font-family="sans-serif" font-size="16" text-anchor="middle">마트의</text>
-  <text x="340" y="155" fill="#64748b" font-family="sans-serif" font-size="16" text-anchor="middle">선반에</text>
-  
-  <!-- AI Viewport (Bigram) -->
-  <rect x="400" y="110" width="200" height="80" fill="#064e3b" stroke="#10b981" stroke-width="3" rx="5"/>
-  <text x="460" y="155" fill="#34d399" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">예쁘게</text>
-  <text x="540" y="155" fill="#34d399" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">열린</text>
-  <text x="500" y="100" fill="#10b981" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">AI 시야 반경 (N=2 지능 수준)</text>
-  
-  <text x="630" y="155" fill="#60a5fa" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">➔</text>
-  
-  <rect x="670" y="120" width="80" height="60" fill="#450a0a" stroke="#ef4444" stroke-width="2" rx="5"/>
-  <text x="710" y="155" fill="#ef4444" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">?</text>
-  <text x="710" y="105" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">예측 불가</text>
+  <!-- Complete Sentence Background -->
+  <rect x="50" y="120" width="700" height="60" fill="#1e293b" rx="8"/>
+  <text x="400" y="155" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">철수가 어제 마트에서 아주 아주 빨갛고 탐스럽게 열린 저 [ 과일 예측 ] </text>
 
-  <!-- Blind spots -->
-  <path d="M 110 170 C 110 250 490 250 500 190" stroke="#f43f5e" stroke-width="4" stroke-dasharray="10,5" fill="none" marker-end="url(#arrow)"/>
-  <text x="310" y="240" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">"빨갛고 둥근" 핵심 힌트 단어가 N-gram 시야 프레임 밖으로 밀려나 영원히 폐기됨</text>
-  <text x="310" y="260" fill="#fecaca" font-family="sans-serif" font-size="12" text-anchor="middle">(기계는 앞 내용이 '하얀 눈사람' 인지 '빨간 사과' 인지 전혀 알 도리가 없음)</text>
+  <!-- Key Semantic Clue Highlight -->
+  <rect x="290" y="115" width="130" height="70" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="6,6" rx="8"/>
+  <text x="355" y="145" fill="#fca5a5" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">빨갛고</text>
+  <text x="355" y="170" fill="#f8fafc" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">탐스럽게 열린</text>
+  <text x="355" y="105" fill="#ef4444" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">핵심 의미 단서 (Clue)</text>
 
+  <!-- Disconnected Arrow from Clue -->
+  <path d="M 355 190 L 355 240 L 550 240" stroke="#ef4444" stroke-width="3" stroke-dasharray="4,4"/>
+  <line x1="535" y1="230" x2="550" y2="250" stroke="#ef4444" stroke-width="4"/>
+  <line x1="550" y1="230" x2="535" y2="250" stroke="#ef4444" stroke-width="4"/>
+  <text x="450" y="260" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">참조 단절 (의미망 붕괴)</text>
+
+  <!-- N-gram Narrow Window -->
+  <rect x="560" y="115" width="60" height="70" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="3" rx="8"/>
+  <text x="600" y="105" fill="#f59e0b" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">N=1 시야</text>
+  
+  <text x="590" y="155" fill="#fcd34d" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">저</text>
+  
+  <!-- Stupid Prediction -->
+  <path d="M 625 150 L 665 150" stroke="#f59e0b" stroke-width="3"/>
+  <polygon points="660,145 670,150 660,155" fill="#f59e0b"/>
+  
+  <rect x="675" y="125" width="65" height="50" fill="#7f1d1d" rx="5"/>
+  <text x="707" y="155" fill="#fecaca" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">[의자?]</text>
+  <text x="707" y="195" fill="#ef4444" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">추론 실패</text>
+
+  <text x="400" y="285" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">N-gram의 구조적 맹점: 핵심 정보가 문장 앞부분 저 멀리 떨어져 있을 경우 기계는 문맥 파악에 실패함</text>
 </svg>

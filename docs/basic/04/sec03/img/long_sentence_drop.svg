@@ -1,39 +1,45 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="350" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">문장이 길어질수록 멸망해가는 데이터 베이스 (Curse of Sparsity)</text>
+  <text x="400" y="35" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">N-gram 길이에 따른 관측 불능 한계 곡선 (희소성의 폭발)</text>
 
-  <!-- Graph Axis -->
-  <line x1="100" y1="230" x2="700" y2="230" stroke="#475569" stroke-width="3"/>
-  <line x1="100" y1="230" x2="100" y2="70" stroke="#475569" stroke-width="3"/>
+  <!-- Y Axis Label -->
+  <text x="40" y="180" fill="#94a3b8" font-family="sans-serif" font-size="14" transform="rotate(-90 40,180)" text-anchor="middle">데이터베이스 출현 관측 빈도 (Count)</text>
 
-  <!-- Y Axis Labels -->
-  <text x="90" y="80" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="end">검색 결과량 (100만 건)</text>
-  <text x="90" y="235" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="end">0 건 (절멸)</text>
+  <!-- X Axis Label -->
+  <text x="400" y="330" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">탐색하려는 선행 조건 문맥의 길이 (Word Sequence Length)</text>
 
-  <!-- X Axis Labels -->
-  <text x="720" y="235" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="start">단어 연결 길이 (Length)</text>
-
-  <!-- Curve (Exponential Drop) -->
-  <path d="M 150 90 Q 250 220 650 227" fill="none" stroke="#ef4444" stroke-width="4"/>
-
-  <!-- Points and Text -->
-  <circle cx="150" cy="90" r="6" fill="#fca5a5"/>
-  <text x="150" y="115" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="start">1단어: "소년이"</text>
+  <!-- Graph Area -->
+  <line x1="80" y1="300" x2="750" y2="300" stroke="#64748b" stroke-width="2"/> <!-- X Axis -->
+  <line x1="80" y1="70" x2="80" y2="300" stroke="#64748b" stroke-width="2"/> <!-- Y Axis -->
   
-  <circle cx="250" cy="180" r="6" fill="#fcd34d"/>
-  <text x="250" y="165" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="start">2단어: "착한 소년이"</text>
+  <text x="70" y="80" fill="#64748b" font-family="monospace" font-size="12" text-anchor="end">1,000,000</text>
+  <text x="70" y="160" fill="#64748b" font-family="monospace" font-size="12" text-anchor="end">5,000</text>
+  <text x="70" y="240" fill="#64748b" font-family="monospace" font-size="12" text-anchor="end">10</text>
+  <text x="70" y="300" fill="#64748b" font-family="monospace" font-size="12" text-anchor="end">0</text>
 
-  <circle cx="350" cy="215" r="6" fill="#34d399"/>
-  <text x="350" y="200" fill="#34d399" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="start">3단어: "어제 전학 온 착한 소년이"</text>
+  <!-- Decay Curve -->
+  <path d="M 150 80 C 250 80, 250 290, 650 295" stroke="#3b82f6" stroke-width="3" fill="none"/>
 
-  <circle cx="500" cy="227" r="6" fill="#a8a29e"/>
-  <text x="500" y="210" fill="#a8a29e" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="start">N단어: "지옥의 솜사탕 불을..."</text>
+  <!-- Point 1 (2-gram) -->
+  <circle cx="150" cy="80" r="6" fill="#10b981"/>
+  <text x="150" y="315" fill="#f8fafc" font-family="sans-serif" font-size="12" text-anchor="middle">단어 2개 수준</text>
+  <text x="150" y="65" fill="#10b981" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">풍부한 빈도</text>
 
-  <!-- Highlight the Zero Sparsity state -->
-  <rect x="520" y="235" width="130" height="25" fill="#450a0a" rx="5"/>
-  <text x="585" y="253" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Sparsity (절대 희소 구역)</text>
+  <!-- Point 2 (3-gram) -->
+  <circle cx="300" cy="220" r="6" fill="#f59e0b"/>
+  <text x="300" y="315" fill="#f8fafc" font-family="sans-serif" font-size="12" text-anchor="middle">단어 4개 조합</text>
+  <text x="300" y="205" fill="#f59e0b" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">급격한 감소</text>
 
-  <text x="400" y="285" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">붙어있는 단어가 3개만 넘어가더라도, 그 조합이 세상에 존재했을 확률은 로또 1등 확률 마냥 땅바닥(Zero)으로 내리꽂힙니다.</text>
+  <!-- Point 3 (Long-gram) -->
+  <circle cx="650" cy="295" r="6" fill="#ef4444"/>
+  <text x="650" y="315" fill="#f8fafc" font-family="sans-serif" font-size="12" text-anchor="middle">단어 7개 이상 결합</text>
+  <text x="650" y="275" fill="#ef4444" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">Sparsity Wall (0 도달)</text>
+
+  <!-- Dotted lines to threshold -->
+  <line x1="80" y1="295" x2="750" y2="295" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,4"/>
+  
+  <rect x="520" y="100" width="220" height="40" fill="#1e293b" stroke="#334155" stroke-width="1" rx="4"/>
+  <text x="630" y="125" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">문장이 길어질수록 일치 확률은 0에 수렴</text>
 
 </svg>

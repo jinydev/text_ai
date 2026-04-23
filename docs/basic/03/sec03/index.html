@@ -5,26 +5,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>문법 파괴자 BoW와 DTM 행렬</title>
-  <meta name="title" content="문법 파괴자 BoW와 DTM 행렬" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="문법 파괴자 BoW와 DTM 행렬"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
+  <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>Bag-of-Words(BoW)와 DTM 행렬</title>
+  <meta name="title" content="Bag-of-Words(BoW)와 DTM 행렬" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="Bag-of-Words(BoW)와 DTM 행렬"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="http://localhost:4001/basic/03/sec03/">
+  <meta property="og:url" content="https://text.ai.jiny.dev/basic/03/sec03/">
 
-  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="문법 파괴자 BoW와 DTM 행렬"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="Bag-of-Words(BoW)와 DTM 행렬"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="문법 파괴자 BoW와 DTM 행렬" />
+<meta property="og:title" content="Bag-of-Words(BoW)와 DTM 행렬" />
 <meta name="author" content="Hojin" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="http://localhost:4001/basic/03/sec03/" />
-<meta property="og:url" content="http://localhost:4001/basic/03/sec03/" />
+<link rel="canonical" href="https://text.ai.jiny.dev/basic/03/sec03/" />
+<meta property="og:url" content="https://text.ai.jiny.dev/basic/03/sec03/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="문법 파괴자 BoW와 DTM 행렬" />
+<meta property="twitter:title" content="Bag-of-Words(BoW)와 DTM 행렬" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"문법 파괴자 BoW와 DTM 행렬","url":"http://localhost:4001/basic/03/sec03/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"Bag-of-Words(BoW)와 DTM 행렬","url":"https://text.ai.jiny.dev/basic/03/sec03/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -822,7 +822,7 @@
         
         
         
-        <li class="breadcrumb-item active" aria-current="page">문법 파괴자 BoW와 DTM 행렬</li>
+        <li class="breadcrumb-item active" aria-current="page">Bag-of-Words(BoW)와 DTM 행렬</li>
         
         
         
@@ -830,77 +830,91 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="33-문법-파괴자-bag-of-wordsbow와-dtm-문서-행렬">3.3 문법 파괴자 Bag-of-Words(BoW)와 DTM 문서 행렬</h1>
+            <h1 id="33-텍스트의-통계적-압축-bag-of-wordsbow와-dtm-구조">3.3 텍스트의 통계적 압축: Bag-of-Words(BoW)와 DTM 구조</h1>
 
-<p>원-핫 인코딩이 단어 1개를 작은 공간 좌표(점) 하나로 치환했다면, 이제 기계가 100페이지에 달하는 기나긴 텍스트 문서를 통째로 하나의 거대한 숫자 묶음 수열로 압축하는 방식을 배웁니다. 이것이 고전 통계학 기반 자연어 처리(NLP)의 상징인 BoW(Bag-of-Words) 사상의 시발점입니다.</p>
+<p>앞서 배운 원-핫 인코딩(One-hot Encoding)이 단어 1개를 고유한 차원의 벡터로 치환하는 기초적인 매핑 기법이었다면, 이제는 단어들의 집합인 하나의 긴 텍스트 ‘문서(Document)’ 전체를 거대한 숫자의 배열로 정량화하여 압축하는 통계적 언어 모델링의 시초를 학습합니다.</p>
+
+<p>이것이 고전 자연어 처리(NLP)를 대표하는 <strong>Bag-of-Words(BoW)</strong>와 <strong>문서-단어 행렬(DTM)</strong> 기법입니다.</p>
 
 <hr />
 
-<h2 id="331-백-오브-워즈-bag-of-words-bow-란">3.3.1 백 오브 워즈 (Bag-of-Words, BoW) 란?</h2>
+<h2 id="331-bag-of-words-bow-모델의-기본-개념">3.3.1 Bag-of-Words (BoW) 모델의 기본 개념</h2>
+
+<p>Bag-of-Words(단어 가방)는 이름 그대로 문장이나 문서를 단어들이 무작위로 섞여 있는 ‘가방’으로 취급하는 수학적 표현 모델입니다.</p>
+
+<p>이 모델의 가장 핵심적인 전제는 텍스트에 내재된 <strong>문법 구조, 시계열적인 단어의 순서, 그리고 문맥적 뉘앙스를 기계적으로 완전히 배제</strong>한다는 점입니다. 오로지 해당 텍스트 내에 특정 단어가 <strong>‘절대적으로 몇 번 등장하였는가(출현 빈도수, Frequency Count)’</strong> 만을 계량화하여 수치적 벡터로 표기합니다.</p>
 
 <p><img src="./img/bag_of_words_concept.svg" alt="BoW Concept" /></p>
 
-<p>글자 그대로 단어들이 마구잡이로 들어있는 ‘가방(Bag)’ 이라는 뜻입니다.
-가장 큰 특징은 단어들이 문서에 등장하는 <strong>순서, 문법적 구조, 뉘앙스는 완전히 가차 없이 파괴(개무시)하고</strong>, 오직 그 단어의 <strong>절대적 출현 빈도수 수치(Count)</strong> 만을 집계해서 수학 벡터(Vector)로 표기하는 방식입니다. 단순 무식해 보이지만 통계적 관점에서는 구조가 압도적으로 직관적이고 강력합니다.</p>
+<p>언어학적 정교함은 일부 희생되지만 통계적 처리 절차가 매우 직관적이고 연산 효율성이 뛰어나다는 공학적 강점을 가집니다.</p>
 
 <blockquote>
-  <p>[!WARNING]<br />
-<strong>📖 초심자를 위한 쉬운 해설: 폭력성 100% 검은 쓰레기 봉투</strong><br />
-“나는 사과가 너무 달아서 싫다” 라는 문장이 있습니다. 사람에게 여기서 가장 중요한 건 주어와 목적어, 부정어의 완벽한 조립(문법)입니다.<br />
-하지만 BoW 모델은 명사와 동사를 거대한 검은색 쓰레기 봉투(Bag) 안에 싹 다 쓸어 담고 마구마구 흔들어 섞어버립니다. 문법 질서가 완전히 붕괴됩니다. 그리고 봉투 안에서 손을 쓱 집어넣어 단어표를 하나씩 꺼내보며 <strong>“어? 빨간색 단어 딱지 3개 나왔네. 파란색 단어 딱지는 2개네. 분석 끝!”</strong> 하고 빈도수 숫자만 잽싸게 세고 치워버리는 매우 거친 분석 형태입니다.</p>
+  <p>[!NOTE]<br />
+<strong>💡 BoW 모델의 분석 원리: 순서 독립성 (Permutation Invariance)</strong><br />
+“나는 사과가 너무 달아서 싫다”라는 문장을 인간이 분석할 때는 주어와 서술어의 위치 등 문장 구조가 핵심적인 역할을 합니다.<br />
+하지만 BoW 모델은 모든 단어(‘나’, ‘는’, ‘사과’, ‘가’, ‘너무’, ‘달아서’, ‘싫다’)를 거대한 집합 공간(가방) 안에 해체해 넣고 섞어버립니다. 문법적 결합 관계는 소멸하지만, 시스템은 최종적으로 개별 단어의 절대적 빈도수라는 통계적 데이터만을 추출해 냅니다. 기계 입장에서는 “긍정어 2회 빈도, 부정어 1회 빈도” 등 횟수 수치만을 취합하여 해당 문서의 전반적인 성향과 주제를 대략적으로 유추할 수 있는 유효한 분류 지표를 얻게 됩니다.</p>
 </blockquote>
 
 <hr />
 
-<h2 id="332-백-오브-워즈-bow---문서의-강력한-수치-압축">3.3.2 백 오브 워즈 (BoW) - 문서의 강력한 수치 압축</h2>
+<h2 id="332-bow-체계를-이용한-문서-차원의-벡터-압축">3.3.2 BoW 체계를 이용한 문서 차원의 벡터 압축</h2>
+
+<p>원-핫 인코딩 시스템이 개별 단어를 매핑하는 데 국한되었다면, BoW 체계는 방대한 페이지 분량의 책이나 대규모 뉴스 기사 전체의 텍스트 내용을 <strong>단 하나의 1차원 빈도수 벡터(Term Frequency Vector)</strong> 로 매핑하여 압축할 수 있습니다.</p>
 
 <p><img src="./img/bow_vector.svg" alt="BoW Vector" /></p>
 
-<p>원-핫 인코딩은 고작 단어 1개 밖에 표현을 못했지만, BoW는 100페이지짜리 책 한 권 전체, 혹은 웹사이트 한 페이지 전체의 방대한 내용을 <strong>단 하나의 1차원 벡터(Vector) 수열 괄호</strong>로 예쁘고 콤팩트하게 압축시켜 줍니다.</p>
+<p>\(\text{Document Vector} = [6, 3, 2, 0, 1, \dots, 5]\)
+<em>(예: 전체 단어 사전을 기준으로 1번 인덱스 단어가 6회 출현, 2번 ‘사과’가 3회 출현, 4번 인덱스는 출현하지 않음을 의미하는 1차원 수열 공간 구조)</em></p>
 
-<p>\(\text{Book Vector (1권)} = [6, 3, 2, 0, 1, \dots, 5]\)
-<em>(사전의 각 가나다 순서별로 1번 단어가 6번 등장, 2번 단어 <code class="language-plaintext highlighter-rouge">사과</code>가 3번, 3번 단어가 2번… 등장했다는 의미의 거대한 문서 카운트 수식의 완성)</em></p>
-
-<p>이 카운트 숫자가 배열된 형태(밀도)를 쳐다보고 비슷한 패턴을 가진 문서를 유저에게 추천해 주는 다소 원시적인 알고리즘이 바로 과거 넷플릭스와 유튜브 초창기의 ‘콘텐츠 기반 추천 시스템’ 코어 원리였습니다.</p>
+<p>이렇게 문서 내 단어들의 빈도 분포(밀도)를 계량화한 벡터들을 확보하면, 서로 다른 두 문서 간의 내적이나 코사인 거리를 계산하여 주제가 유사한 텍스트를 분류할 수 있습니다. 이는 과거 추천 시스템이나 정보 검색(Information Retrieval) 분야에서 가장 기초적이고 널리 사용되었던 ‘콘텐츠 기반 유사도 분석 알고리즘’의 핵심 수리적 기반이었습니다.</p>
 
 <hr />
 
-<h2 id="333-문서-단어-행렬-document-term-matrix-dtm-이란">3.3.3 문서-단어 행렬 (Document-Term Matrix, DTM) 이란?</h2>
+<h2 id="333-문서-단어-행렬-document-term-matrix-dtm">3.3.3 문서-단어 행렬 (Document-Term Matrix, DTM)</h2>
+
+<p>1개의 단일 문서를 BoW 벡터로 변환하는 방식을 전방위적으로 확장하여, 수천에서 수십만 개의 방대한 문서 집합(Corpus)을 한 번에 동시에 분석하기 위해 구축하는 거대한 2차원 교차 테이블을 <strong>문서-단어 행렬(DTM)</strong> 이라고 정의합니다.</p>
 
 <p><img src="./img/dtm_matrix.svg" alt="DTM Matrix" /></p>
 
-<p>BoW로 만들어낸 벡터(책 한 권)를 여러 권 가져오면 어떻게 될까요? 가로와 세로 축이 존재하는 거대한 엑셀 표기판(2차원 행렬)이 마침내 탄생합니다.
-다수의 수만 개 문서(Document)를 세로축(행, Row)으로, 각 사전의 모든 수십만 개 단어(Term)들을 가로축(열, Column)으로 끝없이 도열시킨 뒤 교차하는 지점에 출현 카운트를 입력하는 <strong>거대 2차원 행렬(Matrix) 수학 엑셀표</strong>입니다.</p>
+<p>DTM 환경에서는 <strong>세로축 행(Row) 자리에 각각의 ‘문서(Document)’</strong> 들이 도열하고, <strong>가로축 열(Column) 자리에 시스템 단어 사전의 모든 ‘단어(Term)’</strong> 들이 나열됩니다. 두 축이 교차하는 내부 좌표 공간의 특정 셀 $(i, j)$ 의 값은 문서 $i$ 내에서 단어 $j$ 가 출현한 빈도 횟수를 의미합니다.</p>
 
-<p>위의 DTM 매트릭스는 대수학 수학 기호 공식으로 다음과 같이 표기됩니다.
-\(D = 
+<p>수학적 기호로 표현된 DTM 2차원 대수 행렬은 다음과 같은 모습을 지닙니다.</p>
+
+<p>\(D_{N \times V} = 
 \begin{pmatrix}
 1 &amp; 0 &amp; 2 &amp; \cdots &amp; 0 \\
 0 &amp; 3 &amp; 1 &amp; \cdots &amp; 1 \\
 \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
 0 &amp; 0 &amp; 5 &amp; \cdots &amp; 2 
-\end{pmatrix}\)</p>
+\end{pmatrix}\)
+<em>(단, $N$은 수집된 문서의 총 개수, $V$는 단어 사전의 전체 차원 크기)</em></p>
 
 <hr />
 
-<h2 id="334-dtm의-엄청난-한계점---공간적-낭비-희소-행렬의-저주">3.3.4 DTM의 엄청난 한계점 - 공간적 낭비 (희소 행렬의 저주)</h2>
+<h2 id="334-dtm의-구조적-한계-메모리-비효율성과-차원의-저주">3.3.4 DTM의 구조적 한계: 메모리 비효율성과 차원의 저주</h2>
+
+<p>DTM은 대규모 문서 분류와 통계적 상관관계 파악을 일괄적으로 가능케 하는 강력한 데이터 매트릭스지만, 하부 구조가 원-핫 벡터 모델의 연장선상에 자리 잡고 있으므로 <strong>구조적 희소성(Sparsity)</strong> 으로 인한 치명적인 시스템적 한계를 회피할 수 없습니다.</p>
 
 <p><img src="./img/sparsity_curse.svg" alt="Sparsity Curse" /></p>
 
-<p>DTM은 얼핏 보기에 너무나 체계적이고 완벽히 정돈된 빅데이터 통계 테이블 같지만, 원-핫 인코딩 모델과 똑같은 치명적인 메모리 저주를 피할 수 없습니다.</p>
-
-<p>전 세계 모든 사용 가능한 영단어가 10만 개라고 가정해 봅시다. 수학 행렬의 규칙상 가로축 열(Column)은 무조건 언제나 10만 칸으로 고정되어야만 합니다. 그런데 오늘 제가 친구에게 쓴 짧은 이메일(문서 1줄)에는 단어가 딱 50종류만 쓰였습니다.</p>
+<p>테이블 설계 시 가로축(열)의 길이는 전 세계의 식별 가능한 모든 단어를 합친 Vocabulary 단어 사전 사이즈로 항상 거대하게 고정되어야만 합니다. 예를 들어 시스템의 전체 단어 공간이 10만 개의 차원으로 구성되어 있다고 가정해 보겠습니다.</p>
 
 <blockquote>
   <p>[!CAUTION]<br />
-<strong>📖 공간의 파괴범: 희소성 폭격 (Sparsity Curse)</strong><br />
-DTM은 규격을 수학적으로 임의로 줄이거나 어길 수 없으므로, 메일 한 통을 저장하기 위해 무조건 RAM(메모리) 상에 10만 칸짜리 DTM 보드 한 줄을 통째로 띄워야 합니다!!!<br />
-딱 50개의 칸엔 카운팅 숫자가 반짝거리겠지만, 옆에 있는 무려 99,950개의 엑셀 빈칸에는 <strong>영원히 쓰지 않을 거대한 암흑물질 <code class="language-plaintext highlighter-rouge">0</code></strong> 들이 끝없이 채워지며 블랙홀처럼 빈 데이터를 유지합니다.</p>
+<strong>💡 메모리 소진과 희소 행렬 (Sparse Matrix)의 맹점</strong><br />
+오늘 신규로 수집된 짧은 단어 50개짜리 짤막한 웹 뉴스 기사 1개를 이 시스템 데이터베이스에 저장하려면, 운영체제는 어쩔 수 없이 DTM 보드 상에 10만 칸짜리 거대 데이터 리스트를 강제로 1줄(Row) 추가로 풀 할당해야 합니다.</p>
 
-  <p>이는 연산 속도를 박살 내고 컴퓨터 DB 용량을 미친 듯이 갉아먹는 치명적 시스템 타격(Sparsity 문제)을 개발자에게 안겨줍니다.</p>
+  <p>실제 유의미한 카운트 정보(1 이상의 숫자)가 저장되는 활성 빈도는 고작 50칸에 불과하며, 나머지 99,950개의 막대한 잉여 공간에는 문서에 등장하지 않은 기타 단어들을 의미하는 소거성 <strong><code class="language-plaintext highlighter-rouge">0</code> 데이터</strong> 가 불필요하게 낭비되며 영구적으로 기록됩니다.</p>
+
+  <p>이처럼 매트릭스의 내부 값 중 압도적 다수가 영(0)으로 이루어진 매트릭스를 <strong>희소 행렬(Sparse Matrix)</strong> 이라고 부릅니다. 이러한 희소 특성은 행렬 내적 연산 속도를 기하급수적으로 저하시키고 컴퓨팅의 메모리 공간 복잡도(Space Complexity)를 비효율적으로 팽창시키는 치명적 병목 현상을 유발합니다.</p>
 </blockquote>
 
-<p>이뿐만이 아닙니다. 단순히 <code class="language-plaintext highlighter-rouge">0</code>을 메모리로 버티는 기술적 문제 외에도, 버젓이 숫자가 적혀 있는 의미 있는 칸(<code class="language-plaintext highlighter-rouge">1, 2, 3..</code>) 마저도 통계적 관점에서 너무나 치명적인 맹점이 숨어 있습니다. 다음 장(지프의 법칙)에서 그 최악의 오류를 두 눈으로 확인해 보겠습니다.</p>
+<h3 id="dtm-문제점">DTM 문제점</h3>
+<p>하드웨어 레벨의 이 극심한 메모리 낭비 이슈보다 더 근본적인 문제는 따로 있습니다.</p>
+
+<p>단어가 존재해 버젓이 수치가 입력된 유의미한 칸($1, 2, 3 \dots$) 내부에서도, 통계학을 근간부터 뒤흔드는 심각한 수리적 오류(가중치 배분 왜곡 현상)가 잠재되어 있다는 사실입니다.</p>
+
+<p>그 숨겨진 최악의 맹점이 무엇인지 다음 장인 <strong>지프의 법칙(Zipf’s Law)</strong> 챕터에서 계속해서 자세히 논의하도록 하겠습니다.</p>
 
 
             <!-- 이전/다음 페이징 출력 -->
@@ -939,10 +953,10 @@ DTM은 규격을 수학적으로 임의로 줄이거나 어길 수 없으므로,
 
             <!-- 구글 애드센스 출력 -->
             <div class="mt-5">
-                <!-- 구글 애드센스 (여기에 본인의 코드 입력) -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3321560028329475"
     crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"
+<!-- jinydev-java -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3321560028329475" data-ad-slot="9323221865"
     data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({});

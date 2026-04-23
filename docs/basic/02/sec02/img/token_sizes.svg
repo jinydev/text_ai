@@ -1,27 +1,45 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
-  
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">토큰 단위의 크기 논쟁 (스테이크를 써는 3가지 방식)</text>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <rect x="100" y="80" width="600" height="40" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="5"/>
-  <text x="400" y="105" fill="#f8fafc" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">A I a m a b o y . I c o d e .</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Token Resolution Trade-off: 컨텍스트 보존율 $\leftrightarrow$ OOV 저항성 아키텍처 밀도</text>
 
-  <!-- Character -->
-  <rect x="100" y="150" width="180" height="100" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="5"/>
-  <text x="190" y="180" fill="#34d399" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">1. 문자 단위</text>
-  <text x="190" y="210" fill="#ecfdf5" font-family="sans-serif" font-size="16" text-anchor="middle">['A', 'I', ' ', 'a', 'm'..]</text>
-  <text x="190" y="235" fill="#6ee7b7" font-family="sans-serif" font-size="12" text-anchor="middle">미세입자 파괴, 너무 길다</text>
+  <!-- Axis Graphs -->
+  <line x1="100" y1="350" x2="700" y2="350" stroke="#cbd5e1" stroke-width="3"/> <!-- X axis -->
+  <line x1="100" y1="350" x2="100" y2="100" stroke="#cbd5e1" stroke-width="3"/> <!-- Y axis -->
 
-  <!-- Word -->
-  <rect x="310" y="150" width="180" height="100" fill="#1e293b" stroke="#fbbf24" stroke-width="2" rx="5"/>
-  <text x="400" y="180" fill="#fbbf24" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">2. 단어 단위 (표준)</text>
-  <text x="400" y="210" fill="#fffbeb" font-family="sans-serif" font-size="16" text-anchor="middle">['AI', 'am', 'a', 'boy']</text>
-  <text x="400" y="235" fill="#fde68a" font-family="sans-serif" font-size="12" text-anchor="middle">황금 비율, 가장 대중적</text>
+  <!-- Axes Labels -->
+  <text x="400" y="380" fill="#93c5fd" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">토큰 분절 스케일 (Token Size Resolution) ➔</text>
+  <text x="50" y="240" fill="#93c5fd" font-family="sans-serif" font-size="14" font-weight="bold" transform="rotate(-90 50,240)" text-anchor="middle">차원 시스템 퍼포먼스 ➔</text>
 
-  <!-- Sentence -->
-  <rect x="520" y="150" width="180" height="100" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
-  <text x="610" y="180" fill="#60a5fa" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">3. 문장 단위</text>
-  <text x="610" y="210" fill="#eff6ff" font-family="sans-serif" font-size="14" text-anchor="middle">['AI am a boy.', 'I code']</text>
-  <text x="610" y="235" fill="#93c5fd" font-family="sans-serif" font-size="12" text-anchor="middle">덩어리가 너무 커서 디테일 꽝</text>
+
+  <!-- X Axis markers -->
+  <text x="180" y="365" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">Char (문자)</text>
+  <text x="400" y="365" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">Subword (BPE)</text>
+  <text x="620" y="365" fill="#cbd5e1" font-family="sans-serif" font-size="12" text-anchor="middle">Sentence (문장 통째로)</text>
+
+
+  <!-- Graph Line 1: Context/Meaning Preservation (Increases with size) -->
+  <path d="M 100 320 C 300 300, 500 150, 700 120" fill="none" stroke="#10b981" stroke-width="4"/>
+  <text x="660" y="105" fill="#10b981" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">의미 보존율(Semantic)</text>
+
+  <!-- Graph Line 2: OOV Error Likelihood (Increases with size) -->
+  <path d="M 100 340 C 400 330, 500 200, 700 150" fill="none" stroke="#ef4444" stroke-width="4"/>
+  <text x="660" y="170" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">OOV 결함 확률(Error Rate)</text>
+
+
+  <!-- Graph Line 3: Memory Sparsity (Decreases with size) -->
+  <path d="M 100 130 C 400 150, 500 300, 700 330" fill="none" stroke="#a855f7" stroke-width="4"/>
+  <text x="210" y="120" fill="#d8b4fe" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">시퀀스 배열 폭/메모리 길이 (Sparsity)</text>
+
+
+  <!-- Center Optimum Zone -->
+  <rect x="350" y="100" width="100" height="250" fill="#3b82f6" opacity="0.2"/>
+  <line x1="350" y1="100" x2="350" y2="350" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="450" y1="100" x2="450" y2="350" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="400" y="90" fill="#60a5fa" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">LLM 최적 타협망</text>
+
+  <!-- Bottom Conclusion Banner -->
+  <rect x="50" y="400" width="700" height="40" fill="#334155" stroke="#10b981" stroke-width="2" rx="6"/>
+  <text x="400" y="425" fill="#a7f3d0" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Resolution 역학: 너무 미시적으로 파편화하면 의미를 잃으며 트랜스포머 길이(N)가 터지고, 너무 거시적이면 희소성 OOV 배열이 터짐</text>
 
 </svg>

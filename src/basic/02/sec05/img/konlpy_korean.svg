@@ -1,33 +1,64 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">최강 난이도의 교착어 분해: KoNLPy 한국어 전처리 체계</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">은닉 마르코프망 기반 교착어 파싱: KoNLPy 구조 분해 파이프라인</text>
 
-  <!-- Korean Sentence -->
-  <rect x="50" y="100" width="200" height="60" fill="#450a0a" stroke="#ef4444" stroke-width="2" rx="5"/>
-  <text x="150" y="135" fill="#fca5a5" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">"아버지가방에"</text>
-  <text x="150" y="180" fill="#ef4444" font-family="sans-serif" font-size="14" text-anchor="middle">띄어쓰기 붕괴 대참사 상태</text>
+  <!-- Agglutinative Language Input -->
+  <rect x="50" y="80" width="700" height="70" fill="#1e293b" stroke="#fcd34d" stroke-width="2" rx="6"/>
+  <text x="400" y="105" fill="#fde68a" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">교착어(Agglutinative) 결합 노이즈의 맹점: 주어(Noun)에 파편화된 조사(Particle)들이 무한정 스태킹 부착됨</text>
+  <text x="400" y="135" fill="#fca5a5" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">"나는 학생이다."</text>
 
-  <path d="M 270 130 L 370 130" stroke="#f59e0b" stroke-width="4" marker-end="url(#arrow)"/>
-  <text x="320" y="120" fill="#fbbf24" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">KoNLPy</text>
 
-  <!-- Mecab Output -->
-  <rect x="400" y="80" width="350" height="150" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <!-- Broken Split Approach -->
+  <rect x="50" y="170" width="320" height="180" fill="#450a0a" stroke="#ef4444" stroke-width="2" rx="6"/>
+  <text x="210" y="200" fill="#fca5a5" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">단순 띄어쓰기(Split) OOM 붕괴</text>
+  <path d="M 210 215 L 210 240" stroke="#fca5a5" stroke-width="2" stroke-dasharray="2,2"/>
+  <polygon points="205,235 210,245 215,235" fill="#fca5a5"/>
+  <rect x="70" y="250" width="120" height="30" fill="#7f1d1d" rx="4"/>
+  <text x="130" y="270" fill="#fff" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">나는 (x)</text>
+  <rect x="230" y="250" width="120" height="30" fill="#7f1d1d" rx="4"/>
+  <text x="290" y="270" fill="#fff" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">학생이다 (x)</text>
+  <text x="210" y="320" fill="#fecaca" font-family="sans-serif" font-size="12" text-anchor="middle">의미망(Noun)과 제어노이즈(Particle)가</text>
+  <text x="210" y="335" fill="#fecaca" font-family="sans-serif" font-size="12" text-anchor="middle">하나로 합선 합쳐져 타겟 추출 완전 파단 에러</text>
+
+
+  <!-- KoNLPy Approach -->
+  <rect x="430" y="170" width="320" height="180" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="6"/>
+  <text x="590" y="200" fill="#6ee7b7" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">KoNLPy Mecab Engine HMM 파싱</text>
+  <path d="M 590 215 L 590 240" stroke="#6ee7b7" stroke-width="2" stroke-dasharray="2,2"/>
+  <polygon points="585,235 590,245 595,235" fill="#6ee7b7"/>
+
+  <!-- Complex Tree Output -->
+  <!-- Na -->
+  <rect x="440" y="250" width="60" height="30" fill="#1e3a8a" stroke="#3b82f6" rx="4"/>
+  <text x="470" y="270" fill="#fff" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">나</text>
+  <rect x="440" y="290" width="60" height="20" fill="#1e293b" rx="2"/>
+  <text x="470" y="305" fill="#93c5fd" font-family="sans-serif" font-size="10" text-anchor="middle">Noun</text>
+
+  <!-- Neun -->
+  <rect x="510" y="250" width="60" height="30" fill="#451a03" stroke="#f59e0b" rx="4"/>
+  <text x="540" y="270" fill="#fff" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">는</text>
+  <rect x="510" y="290" width="60" height="20" fill="#1e293b" rx="2"/>
+  <text x="540" y="305" fill="#fde68a" font-family="sans-serif" font-size="10" text-anchor="middle">Josa</text>
+
+  <!-- Haksaeng -->
+  <rect x="580" y="250" width="80" height="30" fill="#1e3a8a" stroke="#3b82f6" rx="4"/>
+  <text x="620" y="270" fill="#fff" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">학생</text>
+  <rect x="580" y="290" width="80" height="20" fill="#1e293b" rx="2"/>
+  <text x="620" y="305" fill="#93c5fd" font-family="sans-serif" font-size="10" text-anchor="middle">Noun</text>
+
+  <!-- Ida -->
+  <rect x="670" y="250" width="60" height="30" fill="#7f1d1d" stroke="#ef4444" rx="4"/>
+  <text x="700" y="270" fill="#fff" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">이다</text>
+  <rect x="670" y="290" width="60" height="20" fill="#1e293b" rx="2"/>
+  <text x="700" y="305" fill="#fca5a5" font-family="sans-serif" font-size="10" text-anchor="middle">Pred</text>
   
-  <rect x="420" y="100" width="80" height="40" fill="#34d399" rx="3"/>
-  <text x="460" y="125" fill="#064e3b" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">아버지 (N)</text>
+  <text x="590" y="335" fill="#a7f3d0" font-family="sans-serif" font-size="12" text-anchor="middle">타겟 모델과 노이즈 파라미터가 완벽 분해 도출</text>
 
-  <rect x="510" y="100" width="60" height="40" fill="#fbbf24" rx="3"/>
-  <text x="540" y="125" fill="#78350f" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">가 (J)</text>
 
-  <rect x="580" y="100" width="60" height="40" fill="#34d399" rx="3"/>
-  <text x="610" y="125" fill="#064e3b" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">방 (N)</text>
+  <!-- Bottom Conclusion Banner -->
+  <rect x="50" y="380" width="700" height="50" fill="#334155" stroke="#fcd34d" stroke-width="2" rx="6"/>
+  <text x="400" y="405" fill="#fde68a" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">교착어 분해 방어막(KoNLPy 파이프라인): 영미권과 달리 조사가 끝없이 변형 연쇄되는 공간에서 C++ 엔진을 기반으로 은닉 확률망 컴파일</text>
+  <text x="400" y="420" fill="#fde68a" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">트리를 돌려 기저 어근(Root)와 파생어망을 완전히 화학 분리 해체시키는 모델의 절대적 코어 백엔드.</text>
 
-  <rect x="650" y="100" width="80" height="40" fill="#fbbf24" rx="3"/>
-  <text x="690" y="125" fill="#78350f" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">에 (J)</text>
-
-  <text x="575" y="170" fill="#6ee7b7" font-family="sans-serif" font-size="14" text-anchor="middle">은전한닢(Mecab) 엔진 등을 동원하여</text>
-  <text x="575" y="195" fill="#a7f3d0" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">국어 형태소 단위(명사, 조사)로 수학적 강제 분절 결행</text>
-
-  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">영어보다 압도적으로 분석이 까다로운 한국어의 특수성 때문에 파이썬에서는 별도의 패키지가 필수적입니다.</text>
 </svg>

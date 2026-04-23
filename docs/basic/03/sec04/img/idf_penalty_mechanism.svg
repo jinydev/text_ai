@@ -1,0 +1,36 @@
+<svg viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="280" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="35" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">정보 가중치 패널티 메커니즘 (IDF 알고리즘의 본질)</text>
+
+  <!-- Formula Headers -->
+  <text x="250" y="80" fill="#94a3b8" font-family="sans-serif" font-size="16" text-anchor="middle">단순 발화 빈도수 (명목 카운트)</text>
+  <text x="400" y="80" fill="#94a3b8" font-family="sans-serif" font-size="16" text-anchor="middle">X</text>
+  <text x="550" y="80" fill="#94a3b8" font-family="sans-serif" font-size="16" text-anchor="middle">문서 희소성 보상/패널티 가중치</text>
+  <text x="700" y="80" fill="#94a3b8" font-family="sans-serif" font-size="16" text-anchor="middle">최종 주요도 점수</text>
+
+  <line x1="50" y1="100" x2="750" y2="100" stroke="#334155" stroke-width="2" stroke-dasharray="4,4"/>
+
+  <!-- Case 1: Stopword -->
+  <rect x="50" y="120" width="100" height="40" fill="#1e293b" stroke="#ef4444" stroke-width="2" rx="5"/>
+  <text x="100" y="145" fill="#fca5a5" font-family="monospace" font-size="16" text-anchor="middle">"The"</text>
+  
+  <text x="250" y="145" fill="#f8fafc" font-family="monospace" font-size="20" text-anchor="middle">10,000 번</text>
+  <text x="400" y="145" fill="#64748b" font-family="monospace" font-size="20" text-anchor="middle">x</text>
+  <rect x="490" y="120" width="120" height="40" fill="#ef4444" fill-opacity="0.2" stroke="#ef4444" stroke-width="2" rx="5"/>
+  <text x="550" y="145" fill="#ef4444" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">0.0001 (벌점)</text>
+  <text x="650" y="145" fill="#f8fafc" font-family="monospace" font-size="20" text-anchor="middle">=</text>
+  <text x="700" y="147" fill="#ef4444" font-family="monospace" font-size="24" font-weight="bold" text-anchor="middle">1 점</text>
+
+  <!-- Case 2: Keyword -->
+  <rect x="50" y="200" width="100" height="40" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="100" y="225" fill="#6ee7b7" font-family="monospace" font-size="16" text-anchor="middle">"인공지능"</text>
+  
+  <text x="250" y="225" fill="#f8fafc" font-family="monospace" font-size="20" text-anchor="middle">5 번</text>
+  <text x="400" y="225" fill="#64748b" font-family="monospace" font-size="20" text-anchor="middle">x</text>
+  <rect x="490" y="200" width="120" height="40" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="2" rx="5"/>
+  <text x="550" y="225" fill="#10b981" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">1,000 (보상)</text>
+  <text x="650" y="225" fill="#f8fafc" font-family="monospace" font-size="20" text-anchor="middle">=</text>
+  <text x="700" y="227" fill="#10b981" font-family="monospace" font-size="24" font-weight="bold" text-anchor="middle">5,000 점</text>
+
+</svg>

@@ -1,29 +1,46 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">품사 태깅의 진화 사상: 무식한 거대사전 vs 현대 눈치통계</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">시퀀스 품사 파라미터 추론 계보: Static Rule-based 파서 VS 은닉 마르코프 베이즈(HMM) 확률</text>
 
-  <!-- Left: Rule-based -->
-  <rect x="50" y="80" width="300" height="150" fill="#1e293b" stroke="#f43f5e" stroke-width="3" rx="5"/>
-  <text x="200" y="115" fill="#fb7185" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">규칙 기반 (Rule-based) 기법</text>
-  
-  <rect x="150" y="130" width="100" height="50" fill="#881337" rx="3"/>
-  <text x="200" y="160" fill="#fda4af" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">국어대사전. DB</text>
+  <!-- Left: Rule based HMM -->
+  <rect x="40" y="80" width="340" height="250" fill="#1e293b" stroke="#7f1d1d" stroke-width="2" rx="6"/>
+  <text x="210" y="110" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">1. 고전 논리 규칙 기반 (Rule-based 코딩)</text>
+  <text x="210" y="130" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">정적 사전 딕셔너리 하드 벡터 1:1 매핑 스캔</text>
 
-  <path d="M 270 155 L 320 155" stroke="#f43f5e" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="200" y="210" fill="#fecdd3" font-family="sans-serif" font-size="14" text-anchor="middle">"사전에 없네요. 에러 뿜고 다운!"</text>
+  <rect x="80" y="150" width="260" height="80" fill="#0f172a" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="210" y="175" fill="#f8fafc" font-family="monospace" font-size="14" text-anchor="middle">If Word == "개이득":</text>
+  <text x="210" y="195" fill="#f8fafc" font-family="monospace" font-size="14" text-anchor="middle">  return Dict["개이득"].pos</text>
 
-  <!-- Right: Probabilistic -->
-  <rect x="450" y="80" width="300" height="150" fill="#1e293b" stroke="#10b981" stroke-width="3" rx="5"/>
-  <text x="600" y="115" fill="#34d399" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">확률형 통계 (Probabilistic) 기법</text>
+  <path d="M 210 230 L 210 245" stroke="#ef4444" stroke-width="2"/>
+  <polygon points="205,240 210,250 215,240" fill="#ef4444"/>
 
-  <text x="600" y="150" fill="#6ee7b7" font-family="sans-serif" font-size="16" text-anchor="middle">"[?]"</text>
-  <path d="M 540 180 Q 600 130 660 180" stroke="#10b981" stroke-width="3" stroke-dasharray="5,5" fill="none"/>
-  <text x="540" y="200" fill="#a7f3d0" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">형용사</text>
-  <text x="660" y="200" fill="#a7f3d0" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">조사</text>
+  <rect x="110" y="250" width="200" height="60" fill="#450a0a" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="210" y="275" fill="#fecaca" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">[시스템 붕괴 Error!]</text>
+  <text x="210" y="295" fill="#fecaca" font-family="sans-serif" font-size="12" text-anchor="middle">OOV: 사전에 아예 없는 신조어 치명타 파단</text>
 
-  <text x="600" y="215" fill="#a7f3d0" font-family="sans-serif" font-size="14" text-anchor="middle">"앞뒤 눈치껏 보아하니.. 너는 [명사]다!"</text>
 
-  <text x="400" y="265" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">과거엔 모든 단어의 문법을 무식하게 조건문(if-else)으로 외웠으나, 현대는 마르코프 체인 등 확률로 유추해 냅니다.</text>
+  <!-- Right: Prob HMM -->
+  <rect x="420" y="80" width="340" height="250" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="6"/>
+  <text x="590" y="110" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">2. 마르코프 통계 전이 확률 (HMM Model 예측)</text>
+  <text x="590" y="130" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">주변 조건부 확률망 가중치(Context P) 분할 베팅</text>
+
+  <rect x="440" y="150" width="300" height="80" fill="#0f172a" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="590" y="175" fill="#f8fafc" font-family="monospace" font-size="12" text-anchor="middle">P(POS | Context) 최우도 역산 스캔 탐색</text>
+  <text x="590" y="195" fill="#a7f3d0" font-family="sans-serif" font-size="11" text-anchor="middle">"앞 시퀀스가 형용사 [맛있는] 배열이야? 통계 전이 확률상"</text>
+  <text x="590" y="215" fill="#a7f3d0" font-family="sans-serif" font-size="11" text-anchor="middle">"형용사 뒤 98%는 명사가 타겟 매핑이지!"</text>
+
+  <path d="M 590 230 L 590 245" stroke="#10b981" stroke-width="2"/>
+  <polygon points="585,240 590,250 595,240" fill="#10b981"/>
+
+  <rect x="490" y="250" width="200" height="60" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="4"/>
+  <text x="590" y="275" fill="#a7f3d0" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">[스무딩 생존 Success!]</text>
+  <text x="590" y="295" fill="#a7f3d0" font-family="sans-serif" font-size="12" text-anchor="middle">비록 모르는 OOV 일지라도 주변 확률망 추론</text>
+
+
+  <!-- Bottom Conclusion Banner -->
+  <rect x="50" y="350" width="700" height="70" fill="#334155" stroke="#fcd34d" stroke-width="2" rx="6"/>
+  <text x="400" y="375" fill="#fde68a" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">파라미터 추론 패러다임의 위대한 도약: '1:1 스태틱 딕셔너리 사전 암기 매핑 (절대주의)' 에서</text>
+  <text x="400" y="395" fill="#fde68a" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">'직접 인과 시퀀스 노드 간의 상태 갱신 전이 확률 방정식(Markov Transition Matrix)' 으로 진화 고도화.</text>
 
 </svg>

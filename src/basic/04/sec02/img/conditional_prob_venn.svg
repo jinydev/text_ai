@@ -1,0 +1,38 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">조건부 확률(Conditional Probability)의 시각적 원리</text>
+
+  <!-- Left Venn Diagram -->
+  <circle cx="200" cy="160" r="80" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="280" cy="160" r="80" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="2"/>
+  
+  <text x="160" y="150" fill="#93c5fd" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">A</text>
+  <text x="160" y="175" fill="#bfdbfe" font-family="sans-serif" font-size="14" text-anchor="middle">(앞 단어의 발생)</text>
+
+  <text x="320" y="150" fill="#fcd34d" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">B</text>
+  <text x="320" y="175" fill="#fde68a" font-family="sans-serif" font-size="14" text-anchor="middle">(뒷 단어의 발생)</text>
+
+  <!-- Intersection (A n B) -->
+  <path d="M 240 91 A 80 80 0 0 1 240 229 A 80 80 0 0 1 240 91" fill="#10b981" fill-opacity="0.6"/>
+  <text x="240" y="165" fill="#f8fafc" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">A ∩ B</text>
+
+  <!-- Arrow -->
+  <path d="M 400 150 L 450 150" stroke="#64748b" stroke-width="4" stroke-dasharray="6,6"/>
+  <polygon points="445,143 455,150 445,157" fill="#64748b"/>
+
+  <!-- Right Equation Box -->
+  <rect x="490" y="80" width="260" height="150" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="8"/>
+  
+  <text x="620" y="120" fill="#f8fafc" font-family="monospace" font-size="22" text-anchor="middle">P( B | A )</text>
+  <text x="620" y="160" fill="#cbd5e1" font-family="monospace" font-size="24" text-anchor="middle">=</text>
+  
+  <!-- Fraction -->
+  <text x="620" y="195" fill="#10b981" font-family="monospace" font-size="18" text-anchor="middle">P ( A ∩ B )</text>
+  <line x1="560" y1="205" x2="680" y2="205" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="620" y="225" fill="#3b82f6" font-family="monospace" font-size="18" text-anchor="middle">P ( A )</text>
+
+  <!-- Subtitle -->
+  <text x="620" y="265" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">A가 이미 확보된 상태에서의 표본 공간 축소</text>
+
+</svg>

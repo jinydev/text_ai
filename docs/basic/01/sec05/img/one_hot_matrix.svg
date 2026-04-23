@@ -1,57 +1,39 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">왕의 자리는 오직 내 영토뿐! 원-핫(One-hot) 인코딩 직교 매트릭스</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">배타적 이산 계층: One-hot Encoding의 수직 직교(Orthogonal) 공간 독립 벡터 텐서 구조</text>
 
-  <rect x="150" y="70" width="500" height="180" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
+  <!-- Left Dimension Setup -->
+  <rect x="50" y="90" width="300" height="230" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="6"/>
+  <text x="200" y="125" fill="#93c5fd" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">고유 단어 사전(Vocabulary, N=4)</text>
 
-  <!-- Lines -->
-  <line x1="250" y1="70" x2="250" y2="250" stroke="#334155" stroke-width="2"/>
-  <line x1="150" y1="120" x2="650" y2="120" stroke="#334155" stroke-width="2"/>
+  <!-- Voca table -->
+  <rect x="80" y="140" width="240" height="150" fill="#0f172a" stroke="#475569" stroke-width="1" rx="4"/>
+  <text x="140" y="165" fill="#cbd5e1" font-family="monospace" font-size="14" text-anchor="middle">Index 0 : "나는"</text>
+  <text x="140" y="195" fill="#cbd5e1" font-family="monospace" font-size="14" text-anchor="middle">Index 1 : "너를"</text>
+  <text x="140" y="225" fill="#cbd5e1" font-family="monospace" font-size="14" text-anchor="middle">Index 2 : "사랑"</text>
+  <text x="140" y="255" fill="#cbd5e1" font-family="monospace" font-size="14" text-anchor="middle">Index 3 : "증오"</text>
 
-  <!-- Headers -->
-  <text x="200" y="100" fill="#cbd5e1" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">단어 (ID)</text>
-  <text x="290" y="100" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">Col 0</text>
-  <text x="360" y="100" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">Col 1</text>
-  <text x="430" y="100" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">Col 2</text>
-  <text x="500" y="100" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">Col 3</text>
-  <text x="580" y="100" fill="#64748b" font-family="sans-serif" font-size="14" text-anchor="middle">Vector 반환</text>
+  <!-- Vector Output Representation -->
+  <rect x="380" y="90" width="370" height="230" fill="#1e293b" stroke="#ef4444" stroke-width="2" rx="6"/>
+  <text x="565" y="125" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">One-hot 행렬 맵핑 공간 단위 (Identity Base)</text>
 
-  <!-- Row 1 -->
-  <text x="200" y="145" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">나는 (0)</text>
-  <rect x="270" y="130" width="40" height="20" fill="#064e3b" rx="2"/>
-  <text x="290" y="145" fill="#34d399" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">1</text>
-  <text x="360" y="145" fill="#ef4444" font-family="monospace" font-size="16" text-anchor="middle">0</text>
-  <text x="430" y="145" fill="#ef4444" font-family="monospace" font-size="16" text-anchor="middle">0</text>
-  <text x="500" y="145" fill="#ef4444" font-family="monospace" font-size="16" text-anchor="middle">0</text>
-  <text x="580" y="145" fill="#ecfeff" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">[1, 0, 0, 0]</text>
+  <rect x="410" y="140" width="310" height="150" fill="#0f172a" stroke="#7f1d1d" stroke-width="1" rx="4"/>
+  <text x="440" y="165" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">v_0 = [ 1, 0, 0, 0 ]</text>
+  <text x="590" y="165" fill="#f8fafc" font-family="sans-serif" font-size="12" text-anchor="middle"><- 타겟 인덱스 독점</text>
+  
+  <text x="440" y="195" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">v_1 = [ 0, 1, 0, 0 ]</text>
+  <text x="440" y="225" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">v_2 = [ 0, 0, 1, 0 ]</text>
+  <text x="440" y="255" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">v_3 = [ 0, 0, 0, 1 ]</text>
 
-  <!-- Row 2 -->
-  <text x="200" y="175" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">너를 (1)</text>
-  <text x="290" y="175" fill="#ef4444" font-family="monospace" font-size="16" text-anchor="middle">0</text>
-  <rect x="340" y="160" width="40" height="20" fill="#064e3b" rx="2"/>
-  <text x="360" y="175" fill="#34d399" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">1</text>
-  <text x="430" y="175" fill="#ef4444" font-family="monospace" font-size="16" text-anchor="middle">0</text>
-  <text x="500" y="175" fill="#ef4444" font-family="monospace" font-size="16" text-anchor="middle">0</text>
-  <text x="580" y="175" fill="#ecfeff" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">[0, 1, 0, 0]</text>
+  <!-- Orthogonal Warning -->
+  <rect x="450" y="280" width="220" height="25" fill="#450a0a" rx="4"/>
+  <text x="560" y="297" fill="#fecaca" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">v_2(사랑) • v_3(증오) 역산 내적 = 0</text>
 
-  <!-- Row 3 -->
-  <text x="200" y="205" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">사랑 (2)</text>
-  <text x="290" y="205" fill="#ef4444" font-family="monospace" font-size="16" text-anchor="middle">0</text>
-  <text x="360" y="205" fill="#ef4444" font-family="monospace" font-size="16" text-anchor="middle">0</text>
-  <rect x="410" y="190" width="40" height="20" fill="#064e3b" rx="2"/>
-  <text x="430" y="205" fill="#34d399" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">1</text>
-  <text x="500" y="205" fill="#ef4444" font-family="monospace" font-size="16" text-anchor="middle">0</text>
-  <text x="580" y="205" fill="#ecfeff" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">[0, 0, 1, 0]</text>
 
-  <!-- Row 4 -->
-  <text x="200" y="235" fill="#fcd34d" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">증오 (3)</text>
-  <text x="290" y="235" fill="#ef4444" font-family="monospace" font-size="16" text-anchor="middle">0</text>
-  <text x="360" y="235" fill="#ef4444" font-family="monospace" font-size="16" text-anchor="middle">0</text>
-  <text x="430" y="235" fill="#ef4444" font-family="monospace" font-size="16" text-anchor="middle">0</text>
-  <rect x="480" y="220" width="40" height="20" fill="#064e3b" rx="2"/>
-  <text x="500" y="235" fill="#34d399" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">1</text>
-  <text x="580" y="235" fill="#ecfeff" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">[0, 0, 0, 1]</text>
+  <!-- Bottom Conclusion Banner -->
+  <rect x="50" y="350" width="700" height="60" fill="#334155" stroke="#fcd34d" stroke-width="2" rx="6"/>
+  <text x="400" y="375" fill="#fde68a" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">치명적 매핑 버그(단어 의미의 파괴): 기하학적 직교(Orthogonal)</text>
+  <text x="400" y="395" fill="#f8fafc" font-family="sans-serif" font-size="13" text-anchor="middle">자신 외 나머지 배열 차원은 모조리 0 으로 죽여버리므로, 단어 간 밀도(유사성 코사인 내적)가 1%도 일치할 수 없는 단절 결함</text>
 
-  <text x="400" y="280" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">자신의 ID 번호 위치에만 1 (Hot)을 찍고, 나머지는 모두 자멸하여 0 (Zero)으로 도배하는 배타적 성질</text>
 </svg>

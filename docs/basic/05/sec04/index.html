@@ -8,7 +8,7 @@
   <!-- 기본 메타데이터 --><meta name="description" content="Jiny linux"><meta name="author" content="HojinLee"><!-- 제목 설정 --><title>구글 Word2Vec 2부 (네거티브 샘플링)</title>
   <meta name="title" content="구글 Word2Vec 2부 (네거티브 샘플링)" /><!-- 키워드 설정 --><!-- Open Graph 메타데이터 --><meta property="og:title" content="구글 Word2Vec 2부 (네거티브 샘플링)"><meta property="og:description" content="Jiny linux"><meta property="og:type" content="website"><meta property="og:locale" content="ko">
   <meta property="og:site_name" content="linux">
-  <meta property="og:url" content="http://localhost:4001/basic/05/sec04/">
+  <meta property="og:url" content="https://text.ai.jiny.dev/basic/05/sec04/">
 
   <!-- Twitter 카드 메타데이터 --><meta name="twitter:card" content="summary"><meta property="twitter:title" content="구글 Word2Vec 2부 (네거티브 샘플링)"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
@@ -17,14 +17,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
 <meta property="og:description" content="고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트" />
-<link rel="canonical" href="http://localhost:4001/basic/05/sec04/" />
-<meta property="og:url" content="http://localhost:4001/basic/05/sec04/" />
+<link rel="canonical" href="https://text.ai.jiny.dev/basic/05/sec04/" />
+<meta property="og:url" content="https://text.ai.jiny.dev/basic/05/sec04/" />
 <meta property="og:site_name" content="Text AI 강의 노트" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="구글 Word2Vec 2부 (네거티브 샘플링)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"구글 Word2Vec 2부 (네거티브 샘플링)","url":"http://localhost:4001/basic/05/sec04/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"고려사이버대학교 자연어처리(BERT, 텍스트 마이닝) 강의 노트","headline":"구글 Word2Vec 2부 (네거티브 샘플링)","url":"https://text.ai.jiny.dev/basic/05/sec04/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -830,83 +830,84 @@
 </nav>
 
         <div class="bd-content ps-lg-4">
-            <h1 id="54-구글-워드-임베딩-제국-2부-sgns-네거티브-샘플링">5.4 구글 워드 임베딩 제국 2부 (SGNS 네거티브 샘플링)</h1>
+            <h1 id="54-네거티브-샘플링-sgns-근사-기법-확률-모델의-이진-다운사이징">5.4 네거티브 샘플링 (SGNS) 근사 기법: 확률 모델의 이진 다운사이징</h1>
 
-<p>출력 계층의 Softmax 분수 함수 연산량 때문에 구글의 천문학적인 최신 딥러닝 서버마저 과열되어 터져 나가는 수학적 위기를 막기 위해, 구글 엔지니어 10만 단어 중 ‘쓰레기 오답’ 몇 개만 억지로 골라와서 거짓말 시험지를 만드는 마법의 다이어트 트릭, <strong>네거티브 샘플링(Negative Sampling)</strong> 의 수학적 진실을 공개합니다.</p>
+<p>출력 계층의 Softmax 비선형 활성화 함수 연산량 폭발 문제 때문에 구글의 천문학적인 최신 딥러닝 서버 파이프라인마저 OOM(Out of Memory)으로 마비되는 태생적인 데이터 매핑 위기를 막기 위해, 구글 엔지니어 연구팀이 창안한 확률론적 수학 트릭 모델이 있습니다. 전체 10만 개 사전 단어 중 극소수의 무작위 ‘노이즈(Noise) 오답’ 만을 서브샘플링하여 이진 모델링 체계로 변환하는 마법의 차원 다이어트 기법, <strong>SGNS (Skip-Gram with Negative Sampling)</strong> 의 통계학적 연산 진실을 파헤쳐 봅니다.</p>
 
 <hr />
 
-<h2 id="541-병목-역전파-softmax-가중치-미세-조정의-폭발">5.4.1 병목 역전파: Softmax 가중치 미세 조정의 폭발</h2>
+<h2 id="541-출력-역전파-병목-softmax-가중치-통계의-지수적-폭발-현상">5.4.1 출력 역전파 병목: Softmax 가중치 통계의 지수적 폭발 현상</h2>
 
-<p>전 챕터에서 단어망 통과 계산의 마지막 극단적 병목은 바로 소프트맥스(Softmax) 계단 통과와 오차 역전파 연산이었습니다. 기계가 중간 타겟 시드 <code class="language-plaintext highlighter-rouge">[Cat]</code> 을 던져서 옆에 찰떡같이 어울리는 <code class="language-plaintext highlighter-rouge">[Mat]</code> 이라는 경호원을 다중 클래스 분류로 추론해야 하는 Skip-gram 수식 과정입니다.</p>
+<p>전 챕터에서 다룬 Word2Vec 알고리즘 단어망 통과 매핑의 파이프라인 상 마지막 극단적 연산 병목 구간은 바로 소프트맥스(Softmax) 계단 통과와 오차 역전파(Backpropagation) 파라미터 미분 편향 구간이었습니다. 이는 훈련망이 중간 타겟 시드 <code class="language-plaintext highlighter-rouge">[Cat]</code> 벡터 하나를 던져서 옆에 기하학적으로 어울려야 할 <code class="language-plaintext highlighter-rouge">[Mat]</code> 이라는 문맥 단어를 찾아내기 위해, 거대한 다중 클래스 분류 신경망(Multi-class Classification)을 거쳐야 하는 초기 Skip-gram의 맹점입니다.</p>
 
 <p><img src="./img/softmax_bottleneck.svg" alt="Softmax Bottleneck Error" /></p>
 
-<p>딥러닝 모델이 저 <code class="language-plaintext highlighter-rouge">Mat</code>이라는 정답 확률 수치를 1번 갱신시키기 위해, 출력층 뒷단에서는 무식하게 도열해 있는 전 세계 <strong>10만 개 종류의 모든 영어 단어 가중치를 일일이 싹 다 몽땅 꺼내서 미분 계산 모델을 돌려 타겟 오차를 갱신(Update)</strong> 해야만 합니다.</p>
+<p>네트워크 모델이 저 <code class="language-plaintext highlighter-rouge">Mat</code>이라는 단 하나의 올바른 정답 확률 수치를 1회 경사 하강법 갱신(Weight Update)시키기 위해, 수학적으로는 출력층 거대 뒷단에 도열해 있는 <strong>전 구간의 10만 개 종류의 모든 영어 사전(Vocabulary) 가중치 매트릭스를 일일이 메모리에 몽땅 적재하여 시그모이드/소프트맥스 미분 계산 편미분 통계 연산을 돌려 타겟 오차를 산출해 내야만</strong> 합니다.</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">Apple</code> 전구는 빵점 오답 처리 (미분 갱신 가동)</li>
-  <li><code class="language-plaintext highlighter-rouge">Student</code> 전구도 빵점 오답 처리 (미분 갱신 가동)</li>
-  <li><code class="language-plaintext highlighter-rouge">Mat</code> 전구는 100점 무한 가점 투척 (미분 갱신 가동)</li>
+  <li><code class="language-plaintext highlighter-rouge">Apple</code> 출력 노드는 0% 수렴 오답 처리 (미분 갱신 가동 $\dots$)</li>
+  <li><code class="language-plaintext highlighter-rouge">Student</code> 출력 노드도 0% 수렴 오답 처리 (미분 갱신 가동 $\dots$)</li>
+  <li><code class="language-plaintext highlighter-rouge">Mat</code> 출력 타겟 전구는 100% 무한 가점 투척 (미분 갱신 펌핑 $\dots$)</li>
 </ul>
 
-<p>… 이 거대하고 오지게 무식한 10만 개 편미분 스위치 연산 강요를 딥러닝 에폭(Epoch Step)마다 수억 번이나 돌려버리니 GPU VRAM이 과열로 터져 다운될 수밖에 없었습니다.</p>
+<p>이처럼 $V$(어휘 전체 크기)가 10만 단위를 가뿐히 넘어서는 이 거대하게 무거운 편미분 다중 스위치 연산 레이어를 딥러닝 미니 배치(Mini-batch) 단계마다 수천수만 번 루프 회전시키면, 최첨단 GPU 서버의 VRAM 마저도 과열과 함께 연산 지연량(Latency) 병목 현상을 유발하며 시스템 전체가 지수적으로 셧다운 될 수밖에 없었습니다.</p>
 
 <hr />
 
-<h2 id="542-위대한-치팅-네거티브-샘플링-sgns">5.4.2 위대한 치팅: 네거티브 샘플링 (SGNS)</h2>
+<h2 id="542-확률론적-근사-모델링의-혁명-네거티브-샘플링-sgns">5.4.2 확률론적 근사 모델링의 혁명: 네거티브 샘플링 (SGNS)</h2>
 
-<p>이런 어처구니없는 전기 낭비를 보다 못한 구글 천재 악당 연구진은 통계학 논문을 뒤져 천재적인 꼼수 아이디어를 냅니다.</p>
+<p>이러한 지수적인 컴퓨팅 전력 연산 낭비 현상을 혁파하기 위해 구글의 머신러닝 연구진은 정보 통계학 논문을 기반으로 한 천재적인 역발상 아키텍처 아이디어를 도출해 냅니다.</p>
 
-<p><strong>“야이 멍청아!! 10만 개 단어 가중치를 모델에서 왜 다 갱신하고 자빠졌냐? 그냥 10만 개 중에 대충 오답 쓰레기 단어 5개만 무작위(Random) 룰렛으로 돌려서 뽑아와! 그래서 정답 1개랑 그 쓰레기 5개, 딱 수학 문제 6개만 가지고 AI가 이진 OX 채점하게 강제로 속여버려!!”</strong></p>
+<p><strong>“비효율적인 10만 개의 전체 텐서 단어 가중치를 모델 안에서 모두 갱신하며 연산 백트래킹(Backtracking)을 강요할 필요가 없다! 그냥 10만 개의 어휘 도메인 중에서 정답과 완전히 무관한 무작위 노이즈(Noise) 오답 단어 $k$개 (보통 $5\sim20$개)만 네거티브 룰렛 샘플링으로 추출하자. 그래서 원래 타겟이었던 양성 정답(Positive) 1개와 음성 쓰레기(Negative) $k$개의 표본만 모아, 기계가 이 극소수 데이터만으로 참 거짓 이진 분류 채점망(O/X Binary Evaluation)을 치르도록 문제를 속여버리면 수학적으로 거의 동일한 모델 최적화가 증명된다!”</strong></p>
 
-<p>이것이 Word2Vec을 최강자의 반열에 올린 핵심 엔진, <strong>SGNS (Skip-Gram with Negative Sampling)</strong> 기술입니다.</p>
+<p>이것이 Word2Vec 아키텍처를 NLP 임베딩의 최강자의 반열에 올린 핵심 최적화 구동 엔진 통계 모델, <strong>SGNS (Skip-Gram with Negative Sampling)</strong> 기술입니다.</p>
 
 <hr />
 
-<h2 id="543-시험지-수술-10만-지선다형-객관식-to-2지선다-ox-퀴즈">5.4.3 시험지 수술: 10만 지선다형 객관식 $\to$ 2지선다 OX 퀴즈</h2>
+<h2 id="543-차원-축소-수술-다중-병렬-클래스multi-class-분류에서-이진binary-ox-모델링으로-변환">5.4.3 차원 축소 수술: 다중 병렬 클래스(Multi-class) 분류에서 이진(Binary O/X) 모델링으로 변환</h2>
 
-<p>기존 모델이 10만 번 지선다형 거대 객관식 시험표를 풀어야 했다면, SGNS 모델은 갑자기 초등학생 수준의 단순한 <strong>이진 분류 게임(Binary Classification 트릭 게임)</strong> 으로 뇌 수술을 당합니다.</p>
+<p>기존 모델이 매 템포마다 10만 번 지선다형 거대 다중 객관식 시험표 소프트맥스 방정식을 풀어야 했다면, SGNS 모델은 신경망 뇌의 손실 함수(Loss Function) 계산 방식을 갑작스럽게도 아주 가벼운 단순 이진 교차 엔트로피(Binary Cross-Entropy) 트릭 치환 게임으로 축소 시켜버립니다.</p>
 
 <p><img src="./img/sgns_binary_game.svg" alt="SGNS Binary Evaluation Game" /></p>
 
 <ol>
-  <li><strong>테이블 중앙 (진짜 정답 세트 1개)</strong>: 내가 방금 본 윈도우 시야 안에 들어있던 실제 경호원 단어 한 쌍 <code class="language-plaintext highlighter-rouge">(Cat, Mat)</code> $\to$ 얘네 둘이 역사적으로 세트로 붙어서 나타났으니까 너희 둘이는 무조건 연결 정답 모델 레이블 <strong>[True (1)]</strong> 이야 참!</li>
-  <li><strong>거짓말 더미 (오답 세트 무작위 5개 샘플링)</strong>: 구글 사전 전체 10만 개 어딘가에서 아무 관련도 없는 완전히 생뚱맞은 똥 쓰레기 단어 5개를 주사위를 굴려 던져 테이블로 강제로 끌고 옵니다. <code class="language-plaintext highlighter-rouge">(Cat, Apple)</code>, <code class="language-plaintext highlighter-rouge">(Cat, Pencil)</code>, <code class="language-plaintext highlighter-rouge">(Cat, President)</code> … $\to$ 얘네들은 당연히 문장에 같이 붙어있던 적이 없으니까 무조건 연결 오답 레이블 <strong>[False (0)]</strong> 이야 거짓!</li>
+  <li><strong>테이블 중앙 타겟팅 (진짜 양성 Positive 세트 1개)</strong>: 현재 모델이 연산 중인 윈도우 시야(Window Span) 스코프 안에 들어있던 실제 문서 문맥 속 단어 한 쌍 <code class="language-plaintext highlighter-rouge">(Cat, Mat)</code> $\to$ 이 두 단어는 서로 실제 문맥 코퍼스에서 병렬로 나타난 양성 세트니까 무조건 모델 아키텍처 레이블 학습에서 긍정 지표 <strong>[True 참 (1)]</strong> 판정을 내리도록 유도.</li>
+  <li><strong>거짓말 파라미터 더미 (오답 Negative 세트 무작위 $k$개 확률 샘플링)</strong>: 구글 데이터 사전 전체 10만 개 유니버스 어딘가에서, 문맥상 아무 관련도 없는 완전히 독립적인 단어 $k$개($5$개)를 정보 엔트로피를 통해 무작위로 추첨해 강제 매핑합니다. <code class="language-plaintext highlighter-rouge">(Cat, Apple)</code>, <code class="language-plaintext highlighter-rouge">(Cat, Pencil)</code>, <code class="language-plaintext highlighter-rouge">(Cat, President)</code> $\dots$ $\to$ 이 쌍들은 확률적으로 애당초 같은 문맥에 붙어있지 않았으므로 기하학적으로 동의어 코사인이 엮일 수 없습니다. 따라서 무조건 음성 연결 오답 타겟 레이블 <strong>[False 거짓 (0)]</strong> 패널티를 퍼부어 짓눌러버림!</li>
 </ol>
 
 <hr />
 
-<h2 id="544-연산량의-비약적인-99-단축다이어트-마법">5.4.4 연산량의 비약적인 99% 단축(다이어트) 마법</h2>
+<h2 id="544-연산-파퓰러-병목의-비약적인-99-단축-마법-성취">5.4.4 연산 파퓰러 병목의 비약적인 99% 단축 마법 성취</h2>
 
-<p>위 상황처럼 O/X 이진 거짓말 게임 조작으로 수능 문제를 치환해 버린 계산량의 결과는 확률 수학적으로 엄청났습니다.</p>
+<p>위 상황처럼 시스템의 다변수 손실 함수 타겟 평가를 억지 O/X 이진 거짓말 게임 모식도로 치환해 버린 연산 레이턴시 축소 효과의 결과는 확률 수학적으로 대단히 충격적이었습니다.</p>
 <ul>
-  <li><strong>과거</strong>: 1개의 문제를 풀 때마다 10만 개 종류의 출력층 가중치($W$) 편미분 미적분 수식망을 전원 다 켜놓고 돌려야 했습니다.</li>
-  <li><strong>SGNS 마법</strong>: 오답 5개(Negative)와 정답 1개(Positive), <strong>단 6개의 이진 교차 엔트로피(Binary Cross-Entropy) 가중치 계산과 미분 연산만 아주 잽싸게 갈겨버리고 컴퓨터 연산을 종료하고 퇴근해버립니다!</strong></li>
+  <li><strong>과거 다중 클래스 (Softmax)</strong>: 단 1개의 벡터 문제를 추론할 때마다 전체 사전 사이즈 10만 개 종류의 출력층 가중치 열($W’$)에 대한 편미분 미적분 수식망을 전원 전부 타협 없이 가동해 활성화 맵을 도출해야 했습니다.</li>
+  <li><strong>SGNS 차원 축소 마법</strong>: 이제는 추출된 오답 $K$(5개)와 찐 정답 1개(Positive), <strong>단 6개의 국소 타겟 벡터 이진 교차 엔트로피(Binary Cross-Entropy) 가중치 모의 계산과 미분 연산 조절망만 컴퓨터가 아주 잽싸게 가동하고 해당 스텝의 최적화를 종료해 버립니다!</strong></li>
 </ul>
 
-<p>이는 기존 모델 행렬 대비 연산량이 무려 역대급 효율인 $\frac{1}{16000}$ 수준 밑으로 줄어드는 미친 가성비의 최적화 수학 트릭입니다.</p>
+<p>이는 기존 역전파 연산 트래픽 오버헤드 구조 대비 스케줄 연산량이 무려 역대급 초효율 기하 폭인 $\frac{1}{16000}$ 수준 밑으로 단숨에 떨어지는 극강의 시스템 다이어트 가성비를 뿜어냅니다.</p>
 
 <hr />
 
-<h2 id="545-네거티브-뺑뺑이-룰렛판의-확률-철학-빈도-억압-지수">5.4.5 네거티브 뺑뺑이 룰렛판의 확률 철학 (빈도 억압 지수)</h2>
+<h2 id="545-네거티브-노이즈noise-추출망의-페널티-수학-체계-빈도-정규화">5.4.5 네거티브 노이즈(Noise) 추출망의 페널티 수학 체계 (빈도 정규화)</h2>
 
-<p>그런데 가짜 오답 5개를 사전에서 무작위 주사위로 뽑아올 때, 단어들을 공평한 확률로 1/N 뽑기 하는 게 절대로 아닙니다!</p>
+<p>그런데 가짜 오답 더미 $k$개를 사전에 구축된 10만 어휘 데이터 프레임망에서 무작위 확률 주사위로 픽업해 올려올 때, 모든 단어들을 1/N 의 동등한 공평 확률 보정으로 샘플링 추출하는 것이 절대로 아닙니다!</p>
 
 <blockquote>
-  <p>[!CAUTION]<br />
-<strong>📖 초심자를 위한 쉬운 해설: 잡초 불용어의 패널티 억압 룰렛</strong><br />
-오답을 뽑는 확률 룰렛 다트판의 면적 크기는 “단어가 문장들에서 평소에 얼마나 미치도록 자주 등장했느냐(단어 빈도수, $\text{Frequency}$)” 에 정비례하여 크기가 부풀려 조절됩니다.</p>
+  <p>[!NOTE]<br />
+<strong>💡 구조 분석: 고빈도 불용어(Stopwords)를 제거하는 페널티 룰렛 스케일링 체계</strong></p>
+
+  <p>노이즈 오답 더미를 추첨하는 확률 분포(Noise Distribution) 다트판 룰렛의 면적 할당 크기는 “각 단어가 전체 문헌 코퍼스(Corpus)에서 평소에 얼마나 자주 집중적으로 등장했는가(단어 관측 빈도수 분포 기준, $\text{Frequency}$)” 에 정비례 통계학적 지수로 조절되어 설계됩니다.</p>
 
   <ul>
-    <li>즉, 우주구급 관사 스팸 단어인 <code class="language-plaintext highlighter-rouge">The</code>, <code class="language-plaintext highlighter-rouge">a</code>, <code class="language-plaintext highlighter-rouge">is</code> 같은 잡초 앵무새 놈들은 룰렛판 면적이 어마어마하게 크게 잡혀있습니다.</li>
-    <li>컴퓨터가 다트(랜덤)를 던져서 오답 단어 5개를 골라올 때마다, 이 쓰레기 관사 잡초 놈들이 <strong>주로 억울하게 오답(거짓, False 0) 진술자로 미친 듯이 많이 찍혀서 무대 위로 불려 올라옵니다.</strong></li>
+    <li>즉, 문서 텍스트계의 우주적인 관사 스팸 단어 집단인 <code class="language-plaintext highlighter-rouge">The</code>, <code class="language-plaintext highlighter-rouge">a</code>, <code class="language-plaintext highlighter-rouge">is</code> 등의 의미 없는 결합 토큰 놈들은 노이즈 룰렛판에 할당되는 차지 면적이 어마어마한 % 사이즈로 부풀려 확충 잡혀있습니다.</li>
+    <li>따라서 컴퓨터가 랜덤 노이즈 시스템을 던져서 가짜 오답 모델을 골라 추출할 때마다, 이 쓰레기 관사 잡초 집합 놈들이 <strong>주로 가장 높은 빈도 탓에 매번 억울하게 오답(거짓, False 0 페널티) 결합 모델의 희생자로 미친 듯이 많이 찍혀서 네거티브 무대 위로 멱살 잡혀 불려 올라옵니다.</strong></li>
   </ul>
 
-  <p>결과가 어떻게 될까요? 끊임없이 거짓(0점) 판정 패널티 매를 연속으로 맞으며 딥러닝 가중치 벡터 파워가 무한정 바닥으로 깎여나가기 때문에, 훈련이 끝나고 나면 저절로 이들 불용어 쓰레기 단어들의 임베딩 위치 파워는 알아서 좌표 구석탱이로 전락하여 <strong>자연도태</strong> 되어버립니다! TF-IDF 공식을 굳이 쓰지도 않았는데 딥러닝 랜덤 룰렛 세팅만으로 불용어를 응징해 버리는 아주 극도로 우아한 인공지능 최적화 설계입니다!</p>
+  <p>그 시스템 연산의 결과는 어떻게 확립될까요? 끊임없이 강제적인 거짓(0% 수렴) 판정 페널티 매를 인공지능 은닉층 모델 루프 안에서 가장 많이 수십만 대 얻어맞으며 해당 단어의 벡터 임베딩 파워 체계가 무한정 바닥으로 삭감 조절 깎여나가게 됩니다! 결국 모델 훈련 스텝이 모두 종료되고 매핑 투사층을 열어보면, 저절로 이들 쓸모 없던 고빈도 불용어 잡초 단어들의 벡터 임베딩 좌표 매핑 위치는 알아서 의미망 큐브 구석탱이 변방으로 전락하여 <strong>자연 도태(Decay, 정규화)</strong> 되어버리는 눈부신 기하학 모델 진화가 성취됩니다! 무거운 TF-IDF 수식을 굳이 쓰지도 않았는데 딥러닝 랜덤 노이즈 룰렛 세팅 구조만을 치밀하게 설계 조율하여 불용어를 자연 소멸 응징해 버리는 아주 극도로 우아한 정보 최적화 시스템 사상입니다!</p>
 </blockquote>
 
-<p>이렇게 네거티브 샘플링이라는 천방지축 치트키 엔진을 무장한 Word2Vec은 전 세계 NLP 학계를 점령하고 제국을 건설했습니다. 하지만, 방심한 틈에 또 다른 거대한 글로벌 라이벌 집단 (페이스북 Meta 군단)이 반란을 선언하고 Word2Vec이 잡지 못하는 아주 커다랗고 징그러운 결함 한 가지를 찾아내고 반정도를 시도합니다. 다음 장에서 스펙터클한 전쟁이 벌어집니다.</p>
+<p>이렇게 네거티브 샘플링(SGNS) 이라는 다차원 천재 최강 알고리즘 엔진을 무장한 Word2Vec은 전 세계 NLP 시스템 학계를 단숨에 점령하고 수년간 제국을 지배했습니다. 하지만, 방심한 틈에 또 다른 거대한 글로벌 테크 라이벌 집단인 페이스북(Meta AI 연구진) 군단이 Word2Vec이 잡지 못하는 최후의 아킬레스건, ‘아주 커치않고 징그러운 OOV 철자(Sub-word) 결함 데이터 사상’ 한 가지를 파고들어 반정을 시도합니다. 다음 장에서 스펙터클한 학술 경쟁이 벌어집니다.</p>
 
 
             <!-- 이전/다음 페이징 출력 -->
@@ -945,10 +946,10 @@
 
             <!-- 구글 애드센스 출력 -->
             <div class="mt-5">
-                <!-- 구글 애드센스 (여기에 본인의 코드 입력) -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3321560028329475"
     crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"
+<!-- jinydev-java -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3321560028329475" data-ad-slot="9323221865"
     data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({});

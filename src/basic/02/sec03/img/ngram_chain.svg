@@ -1,30 +1,54 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">N-gram (엔그램): 단어 매듭 쇠사슬 묶기</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">N-gram 마르코프 단기 연쇄망 (Markov Joint Probability Window Slide)</text>
 
-  <!-- 1-gram -->
-  <rect x="50" y="80" width="100" height="180" fill="#1e293b" stroke="#475569" stroke-width="2" rx="5"/>
-  <text x="100" y="110" fill="#94a3b8" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Uni-gram (1)</text>
-  <rect x="60" y="130" width="80" height="25" fill="#334155" rx="3"/><text x="100" y="147" fill="#cbd5e1" font-size="12" text-anchor="middle">[이]</text>
-  <rect x="60" y="160" width="80" height="25" fill="#334155" rx="3"/><text x="100" y="177" fill="#cbd5e1" font-size="12" text-anchor="middle">[영화는]</text>
-  <rect x="60" y="190" width="80" height="25" fill="#334155" rx="3"/><text x="100" y="207" fill="#cbd5e1" font-size="12" text-anchor="middle">[정말]</text>
-  <rect x="60" y="220" width="80" height="25" fill="#334155" rx="3"/><text x="100" y="237" fill="#cbd5e1" font-size="12" text-anchor="middle">[맛없다]</text>
+  <!-- Big Input Vector -->
+  <rect x="150" y="80" width="500" height="50" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="4"/>
+  <text x="400" y="110" fill="#f8fafc" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">[ "이", "영화는", "정말", "재미없다" ]</text>
 
-  <!-- 2-gram -->
-  <rect x="250" y="80" width="200" height="180" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
-  <text x="350" y="110" fill="#60a5fa" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Bi-gram (2)</text>
-  <rect x="270" y="130" width="160" height="25" fill="#1e3a8a" rx="3"/><text x="350" y="147" fill="#bfdbfe" font-size="12" text-anchor="middle">[이 영화는]</text>
-  <rect x="270" y="160" width="160" height="25" fill="#1e3a8a" rx="3"/><text x="350" y="177" fill="#bfdbfe" font-size="12" text-anchor="middle">[영화는 정말]</text>
-  <rect x="270" y="190" width="160" height="35" fill="#1e3a8a" rx="3" stroke="#fcd34d" stroke-width="2"/><text x="350" y="213" fill="#fef3c7" font-weight="bold" font-size="14" text-anchor="middle">[정말 맛없다]</text>
 
-  <!-- 3-gram -->
-  <rect x="500" y="80" width="250" height="180" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="5"/>
-  <text x="625" y="110" fill="#34d399" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Tri-gram (3)</text>
-  <rect x="520" y="130" width="210" height="25" fill="#064e3b" rx="3"/><text x="625" y="147" fill="#a7f3d0" font-size="12" text-anchor="middle">[이 영화는 정말]</text>
-  <rect x="520" y="160" width="210" height="40" fill="#064e3b" rx="3" stroke="#fcd34d" stroke-width="2"/><text x="625" y="185" fill="#fef3c7" font-weight="bold" font-size="14" text-anchor="middle">[영화는 정말 맛없다]</text>
+  <!-- Model Sections -->
+  <!-- 1. Unigram -->
+  <rect x="50" y="160" width="220" height="180" fill="#0f172a" stroke="#ef4444" stroke-width="2" rx="6"/>
+  <text x="160" y="190" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">1. Uni-gram (1D)</text>
+  <text x="160" y="210" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">단기 기억 완전 소멸망</text>
 
-  <path d="M 160 170 C 200 170 200 170 240 170" stroke="#f59e0b" stroke-width="3" stroke-dasharray="5,5" fill="none" marker-end="url(#arrow)"/>
-  <path d="M 460 170 C 480 170 480 170 490 170" stroke="#f59e0b" stroke-width="3" stroke-dasharray="5,5" fill="none" marker-end="url(#arrow)"/>
+  <rect x="80" y="230" width="160" height="30" fill="#450a0a" rx="4"/>
+  <text x="160" y="250" fill="#fecaca" font-family="monospace" font-size="14" text-anchor="middle">["[정말]", "[재미없다]"]</text>
+
+  <text x="160" y="295" fill="#ef4444" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">P(재미없다) = 0.5</text>
+  <text x="160" y="320" fill="#b91c1c" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">독립성: 주변 인과율 반영 0%</text>
+
+
+  <!-- 2. Bigram -->
+  <rect x="290" y="160" width="220" height="180" fill="#0f172a" stroke="#10b981" stroke-width="2" rx="6"/>
+  <text x="400" y="190" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">2. Bi-gram (2D)</text>
+  <text x="400" y="210" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">슬라이딩 단기 기억 쇠사슬 연쇄</text>
+
+  <rect x="310" y="230" width="180" height="30" fill="#064e3b" rx="4"/>
+  <text x="400" y="250" fill="#a7f3d0" font-family="monospace" font-size="14" text-anchor="middle">["[영화는, 정말]", "[정말, 재미없다]"]</text>
+
+  <text x="400" y="295" fill="#10b981" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">P(재미없다 | 정말)</text>
+  <text x="400" y="320" fill="#059669" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">종속성: -1 직전 과거 밀도 반영</text>
+
+
+  <!-- 3. Trigram -->
+  <rect x="530" y="160" width="220" height="180" fill="#0f172a" stroke="#3b82f6" stroke-width="2" rx="6"/>
+  <text x="640" y="190" fill="#93c5fd" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">3. Tri-gram (3D)</text>
+  <text x="640" y="210" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">비용 폭발 직전 최장거리 연쇄</text>
+
+  <rect x="550" y="230" width="180" height="40" fill="#1e3a8a" rx="4"/>
+  <text x="640" y="245" fill="#bfdbfe" font-family="monospace" font-size="12" text-anchor="middle">["[이, 영화는, 정말]",</text>
+  <text x="640" y="260" fill="#bfdbfe" font-family="monospace" font-size="12" text-anchor="middle">"[영화는, 정말, 재미없다]"]</text>
+
+  <text x="640" y="295" fill="#3b82f6" font-family="monospace" font-size="13" font-weight="bold" text-anchor="middle">P(재미없다 | 영화는, 정말)</text>
+  <text x="640" y="320" fill="#2563eb" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">차원 저주: N 증가시 공간 팽창</text>
+
+
+  <!-- Bottom Conclusion Banner -->
+  <rect x="50" y="380" width="700" height="50" fill="#334155" stroke="#fcd34d" stroke-width="2" rx="6"/>
+  <text x="400" y="405" fill="#fde68a" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">국소 문맥(Local Context) 토큰의 병합: 단어 차원을 여러 개 엮어 조건부 확률 인과성을 강제로 복원하지만,</text>
+  <text x="400" y="420" fill="#fca5a5" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">N의 길이가 늘어날수록 조합해야 할 단어 텐서의 경우의 수가 $V^N$ 치수로 지수 팽창하는 차원의 저주(Curse of Dimensionality) 직면.</text>
 
 </svg>

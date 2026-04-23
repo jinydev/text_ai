@@ -1,0 +1,43 @@
+<svg viewBox="0 0 800 250" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="250" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Chapter 4. 통계적 언어 모델 발달 및 평가 프로세스 흐름도</text>
+
+  <!-- Flow Boxes -->
+  
+  <!-- Step 1 -->
+  <rect x="40" y="90" width="150" height="80" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="8"/>
+  <text x="115" y="125" fill="#93c5fd" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">조건부 확률 전개</text>
+  <text x="115" y="150" fill="#cbd5e1" font-family="monospace" font-size="14" text-anchor="middle">Chain Rule</text>
+  
+  <!-- Arrow -->
+  <path d="M 195 130 L 225 130" stroke="#cbd5e1" stroke-width="3"/>
+  <polygon points="220,123 230,130 220,137" fill="#cbd5e1"/>
+
+  <!-- Step 2 -->
+  <rect x="235" y="90" width="150" height="80" fill="#7f1d1d" stroke="#ef4444" stroke-width="2" rx="8"/>
+  <text x="310" y="125" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">희소성 에러 폭발</text>
+  <text x="310" y="150" fill="#fecaca" font-family="monospace" font-size="14" text-anchor="middle">Sparsity (Count=0)</text>
+
+  <!-- Arrow -->
+  <path d="M 390 130 L 420 130" stroke="#cbd5e1" stroke-width="3"/>
+  <polygon points="415,123 425,130 415,137" fill="#cbd5e1"/>
+
+  <!-- Step 3 -->
+  <rect x="430" y="90" width="150" height="80" fill="#b45309" stroke="#f59e0b" stroke-width="2" rx="8"/>
+  <text x="505" y="125" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">마르코프 차원 축소</text>
+  <text x="505" y="150" fill="#fde68a" font-family="monospace" font-size="14" text-anchor="middle">N-gram Model</text>
+
+  <!-- Arrow -->
+  <path d="M 585 130 L 615 130" stroke="#cbd5e1" stroke-width="3"/>
+  <polygon points="610,123 620,130 610,137" fill="#cbd5e1"/>
+
+  <!-- Step 4 -->
+  <rect x="625" y="90" width="135" height="80" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="8"/>
+  <text x="692" y="125" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">정량적 성능 채점</text>
+  <text x="692" y="150" fill="#a7f3d0" font-family="monospace" font-size="14" text-anchor="middle">PPL (Perplexity)</text>
+
+  <!-- Bottom Description Box -->
+  <rect x="150" y="200" width="500" height="30" fill="#0f172a" stroke="#334155" stroke-dasharray="4,4" stroke-width="1" rx="4"/>
+  <text x="400" y="220" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">수학적 확률의 완벽주의에서, 연산 가능성을 위한 차원 삭감과 기하학적 정규화 평가로 이어지는 로드맵</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
+
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Skip-gram : 중앙 스칼라 확산을 통한 One-to-Many 병렬 파생 모델</text>
+
+  <!-- Input Node -->
+  <rect x="60" y="200" width="140" height="70" fill="#064e3b" stroke="#10b981" stroke-width="3" rx="4"/>
+  <text x="130" y="225" fill="#a7f3d0" font-family="monospace" font-size="16" font-weight="bold" text-anchor="middle">W (t)</text>
+  <text x="130" y="250" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Center Word</text>
+  <text x="130" y="300" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">단일 중앙 타겟 입력값</text>
+
+  <!-- Arrow to Projection -->
+  <path d="M 200 235 L 340 235" stroke="#10b981" stroke-width="4"/>
+  <polygon points="330,225 350,235 330,245" fill="#10b981"/>
+
+  <!-- Projection Layer Box -->
+  <rect x="360" y="130" width="140" height="210" fill="#1e293b" stroke="#f59e0b" stroke-width="2" rx="8"/>
+  <text x="430" y="170" fill="#fcd34d" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">투사층 (복사)</text>
+  <rect x="390" y="200" width="80" height="40" fill="#0f172a" stroke="#fcd34d" stroke-width="1" rx="4"/>
+  <text x="430" y="225" fill="#fcd34d" font-family="monospace" font-size="16" text-anchor="middle">V_c</text>
+  <text x="430" y="260" fill="#fde68a" font-family="sans-serif" font-size="14" text-anchor="middle">단일 노드 패스</text>
+  <text x="430" y="280" fill="#fde68a" font-family="sans-serif" font-size="12" text-anchor="middle">(No Average)</text>
+
+  <!-- Arrows to Output -->
+  <path d="M 500 170 Q 560 170 630 100" stroke="#ef4444" stroke-width="2" fill="none"/>
+  <polygon points="622,107 630,100 620,95" fill="#ef4444"/>
+
+  <path d="M 500 200 Q 560 200 630 180" stroke="#ef4444" stroke-width="2" fill="none"/>
+  <polygon points="622,185 630,180 622,173" fill="#ef4444"/>
+
+  <path d="M 500 260 Q 560 260 630 290" stroke="#ef4444" stroke-width="2" fill="none"/>
+  <polygon points="622,285 630,290 620,295" fill="#ef4444"/>
+
+  <path d="M 500 300 Q 560 300 630 370" stroke="#ef4444" stroke-width="2" fill="none"/>
+  <polygon points="622,360 630,370 620,365" fill="#ef4444"/>
+
+  <!-- Output Nodes -->
+  <rect x="640" y="80" width="120" height="40" fill="#334155" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="700" y="105" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">W (t-2)</text>
+
+  <rect x="640" y="160" width="120" height="40" fill="#334155" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="700" y="185" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">W (t-1)</text>
+
+  <rect x="640" y="270" width="120" height="40" fill="#334155" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="700" y="295" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">W (t+1)</text>
+
+  <rect x="640" y="350" width="120" height="40" fill="#334155" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="700" y="375" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">W (t+2)</text>
+
+  <text x="700" y="420" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">주변 예측 확산 (Multi Output)</text>
+
+</svg>

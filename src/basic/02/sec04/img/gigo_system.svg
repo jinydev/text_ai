@@ -1,28 +1,57 @@
-<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="300" fill="#0f172a" rx="10"/>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0f172a" rx="10"/>
 
-  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Garbage In, Garbage Out (GIGO): 절대 변하지 않는 진리</text>
+  <text x="400" y="40" fill="#cbd5e1" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Data Engineering: "Garbage In, Garbage Out" (GIGO) 불변칙 시스템 모델 파이프라인</text>
 
-  <!-- Garbage In -->
-  <rect x="100" y="80" width="150" height="150" fill="#7f1d1d" stroke="#ef4444" stroke-width="3" rx="10"/>
-  <text x="175" y="140" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">&lt;html&gt; @!# </text>
-  <text x="175" y="170" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">오타 투성이 오물</text>
-  <text x="175" y="210" fill="#ef4444" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">Garbage (쓰레기)</text>
+  <!-- GIGO Pipeline Flow -->
 
-  <path d="M 270 150 L 370 150" stroke="#f59e0b" stroke-width="6" stroke-dasharray="10,5" marker-end="url(#arrow)"/>
+  <!-- 1. Raw Data Input -->
+  <rect x="50" y="80" width="150" height="150" fill="#450a0a" stroke="#ef4444" stroke-width="2" rx="6"/>
+  <text x="125" y="110" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Raw Data</text>
+  <text x="125" y="135" fill="#fecaca" font-family="monospace" font-size="12" text-anchor="middle">&lt;div&gt; ㅋㅋㅋ</text>
+  <text x="125" y="155" fill="#fecaca" font-family="monospace" font-size="12" text-anchor="middle">@노이즈! &amp;nbsp;</text>
+  <text x="125" y="175" fill="#fecaca" font-family="monospace" font-size="12" text-anchor="middle">Garbage 코퍼스</text>
 
-  <!-- AI Brain -->
-  <circle cx="400" cy="150" r="50" fill="#020617" stroke="#3b82f6" stroke-width="4"/>
-  <text x="400" y="145" fill="#60a5fa" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">수백억</text>
-  <text x="400" y="165" fill="#60a5fa" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">최첨단 AI</text>
+  <rect x="50" y="240" width="150" height="30" fill="#ef4444" rx="4"/>
+  <text x="125" y="260" fill="#fff" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">수집 (Collection)</text>
 
-  <path d="M 430 150 L 530 150" stroke="#f59e0b" stroke-width="6" stroke-dasharray="10,5" marker-end="url(#arrow)"/>
 
-  <!-- Garbage Out -->
-  <rect x="550" y="80" width="150" height="150" fill="#7f1d1d" stroke="#ef4444" stroke-width="3" rx="10"/>
-  <text x="625" y="155" fill="#fca5a5" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">엉터리 환각 답변</text>
-  <text x="625" y="210" fill="#ef4444" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">Garbage (쓰레기)</text>
+  <!-- Arrow & Preprocessing -->
+  <path d="M 210 155 L 260 155" stroke="#fcd34d" stroke-width="4"/>
+  <polygon points="255,145 270,155 255,165" fill="#fcd34d"/>
 
-  <text x="400" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">아무리 뛰어난 ChatGPT급 신경망 뇌를 가졌더라도, 오물이 묻은 데이터를 입력하면 그 시스템은 평생 오물만 뱉어냅니다.</text>
+  <rect x="280" y="80" width="240" height="150" fill="#422006" stroke="#f59e0b" stroke-width="2" rx="6"/>
+  <text x="400" y="110" fill="#fde68a" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Data Pre-processing</text>
+  <rect x="300" y="130" width="200" height="20" fill="#78350f" rx="4"/>
+  <text x="400" y="145" fill="#fef3c7" font-family="sans-serif" font-size="12" text-anchor="middle">1. Cleaning (HTML 삭제)</text>
+  <rect x="300" y="160" width="200" height="20" fill="#78350f" rx="4"/>
+  <text x="400" y="175" fill="#fef3c7" font-family="sans-serif" font-size="12" text-anchor="middle">2. Normalization (정규화)</text>
+  <rect x="300" y="190" width="200" height="20" fill="#78350f" rx="4"/>
+  <text x="400" y="205" fill="#fef3c7" font-family="sans-serif" font-size="12" text-anchor="middle">3. Tokenization &amp; Encoding</text>
+
+  <rect x="280" y="240" width="240" height="30" fill="#f59e0b" rx="4"/>
+  <text x="400" y="260" fill="#fff" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">전처리 80% Time Cost</text>
+
+
+  <!-- Arrow & Model Input -->
+  <path d="M 530 155 L 580 155" stroke="#10b981" stroke-width="4"/>
+  <polygon points="575,145 590,155 575,165" fill="#10b981"/>
+
+  <rect x="600" y="80" width="150" height="150" fill="#064e3b" stroke="#10b981" stroke-width="2" rx="6"/>
+  <text x="675" y="110" fill="#a7f3d0" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">AI Model</text>
+  <text x="675" y="135" fill="#6ee7b7" font-family="monospace" font-size="14" text-anchor="middle">Clean Tensor</text>
+  <text x="675" y="155" fill="#6ee7b7" font-family="monospace" font-size="14" text-anchor="middle">[10, 24, 7, 1]</text>
+  <text x="675" y="185" fill="#10b981" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">High Accuracy</text>
+
+  <rect x="600" y="240" width="150" height="30" fill="#10b981" rx="4"/>
+  <text x="675" y="260" fill="#fff" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">학습 20% Time Cost</text>
+
+
+
+  <!-- Bottom Conclusion Banner -->
+  <rect x="50" y="320" width="700" height="80" fill="#0f172a" stroke="#cbd5e1" stroke-width="1" rx="6"/>
+  <text x="400" y="350" fill="#cbd5e1" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">만약 Garbage를 그대로 학습 모델망에 로딩하면 = Garbage 모델(오답 벡터) 무조건 산출</text>
+  <line x1="100" y1="365" x2="700" y2="365" stroke="#334155" stroke-width="2"/>
+  <text x="400" y="385" fill="#94a3b8" font-family="sans-serif" font-size="13" text-anchor="middle">AI 프로젝트의 핵심은 알고리즘 최적화 코딩이 아닌 데이터 정제 파이프라인(Data Pipeline) 밀도 구축</text>
 
 </svg>
